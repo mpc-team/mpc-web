@@ -16,7 +16,7 @@
 
 	<div class="container-fluid">
 
-		<?php $active_tab="contact"; include_once('../navbar/navbar.php'); ?>
+		<?php $active_tab="contact"; include_once('../includes/navbar.php'); ?>
 
 	</div>	
 
@@ -55,7 +55,7 @@
 
 	<div class="container-fluid">
 	
-		<?php include('../footer/footer.php'); ?>
+		<?php include('../includes/footer.php'); ?>
 		
 	</div>
 	

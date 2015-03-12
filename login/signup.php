@@ -13,8 +13,13 @@
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
 </head>
 <body>
+	<div class="container-fluid">
+	
+		<?php $active_tab="index"; include_once('../includes/navbar.php'); ?>
+		
+	</div>
+
 	<div class="container">
-		<?php $active_tab="index"; include_once('../navbar/navbar.php'); ?>
 		<form role="form" action="signup-complete.php" method="post">
 		<div class="row">
 		
@@ -39,17 +44,13 @@
 			</div>
 		</div><!--row-->
 		
-		<?php include('../footer/footer.php'); ?>
 	</div><!--container-->  
-	</br>
-	</br>
-	</br>
-	</br>
-	</br>
-	</br>
-	</br>
-	</br>
-	</br>
+	
+	<div class="container-fluid">
+	
+		<?php include('../includes/footer.php'); ?>
+
+	</div>
 </body>
 
 </html>

@@ -28,7 +28,7 @@
 		</small>
 
 
-		<?php include('../footer/footer.php'); ?>
+		<?php include('../includes/footer.php'); ?>
 
 	</div><!--container-->     
 </body>

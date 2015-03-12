@@ -15,8 +15,9 @@
 
 <body>
 	<div class="container-fluid">
-		<!-- Include Navbar -->    
-		<?php $active_tab="index"; include_once('navbar/navbar.php'); ?>
+	
+		<?php $active_tab="index"; include_once('includes/navbar.php'); ?>
+		
 	</div>
 
 	<div class="container">
@@ -43,8 +44,9 @@
 	</div><!--container-->     
 	
 	<div class="container-fluid">
-		<!-- Include Footer Navbar -->
-		<?php include('footer/footer.php'); ?>
+	
+		<?php include('includes/footer.php'); ?>
+		
 	</div>
 </body>
 

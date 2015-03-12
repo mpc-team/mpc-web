@@ -1,0 +1,26 @@
+/* Parents only */
+body { background-size: 100%; background-color: #101010; }
+
+/* typography only */
+h1, h2, h3, h4, h5, h6, p { color: #ffffff; }
+p { margin-top: 20px; }
+
+.logintext { margin-right: 15px;}
+
+/* Nav-bars only*/
+#navbar-copyright { padding: 20px; color: #888888; }
+ 
+/* login_form only */
+#FName, #LName, #Alias { width: 90%; }
+#email, #pwd { width: 90%; color: #000000; }
+#mpclogo-img{ height: 300px; width: 600px; }
+
+/* contact form only*/
+#contactlogo {
+	height: 100%;
+	width: 100%;
+	padding-top: 40px;
+}
+
+/* User_Login Only */
+.login_form-spacer{	margin-bottom: 55px; }

@@ -5,7 +5,7 @@
 
 	$ROOT = '..';
 
-	include_once($ROOT . PathDir::$PATHDIR);
+	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$LOGINFORM);

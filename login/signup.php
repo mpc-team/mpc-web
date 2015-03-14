@@ -25,6 +25,7 @@
 		
 			<div class="col-xs-6">
 				<div class="form-group">
+				
 					<label for="alias"><p>Alias:</p></label>
 					<input type="text" name="alias" class="form-control" id="alias">
 					
@@ -35,6 +36,7 @@
 					<input type="email" name="email" class="form-control" id="email" placeholder="John@mpcgaming.com">
 					
 					<input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Submit">
+					
 				</div>
 			</div>
 			

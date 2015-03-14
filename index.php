@@ -7,7 +7,7 @@
 		
 		For single-nested folders, ".." is the root. For double-nested, "../..", and so on. */
 		
-	$ROOT = '';
+	$ROOT = '.';
 	
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$NAVBAR);

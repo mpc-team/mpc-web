@@ -5,7 +5,7 @@
                 case "mpcid":
                     echo "connect to mpc id table";
                     break;
-                case "emailad":
+                case "emailaddr":
                     echo "connect to email address table";
                     break;
                 case "clan-name-id":

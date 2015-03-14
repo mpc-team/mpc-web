@@ -9,6 +9,7 @@
 	<link href="../bootstrap/css/bootstrap.css" rel="stylesheet"/>
 	<script src="../bootstrap/js/bootstrap.js" type="text/jscript"></script>
 	<link href="../index.css" rel="stylesheet"/><!--index only-->
+    <link href="roster.css" rel="stylesheet"/><!--index only-->
 	<meta name="keywords" content="MPC, SC2, MPCGaming.com"/>
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
 </head>
@@ -21,9 +22,26 @@
 
 	</div>
 
-	<div class="container">
-	
-	</div>
+	   <div class="row">
+            <div class="col-xs-3">
+                    <div class="dropdown">
+                    <button class="btn btn-success dropdown-toggle" type="button" id="searchbypub" data-toggle="dropdown" aria-expanded="true">
+                    Search
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu-right" role="menu" arialabelledby="searchbypub">
+                        <li role="presentation" class="dropdown-header">Search By:</li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a href="#" role="menuitem" tabindex="-1">Game</a></li>
+                        <li role="presentation"><a href="#" role="menuitem" tabindex="-1">MPC ID</a></li>
+                        <li role="presentation"><a href="#" role="menuitem" tabindex="-1">Email Address</a></li>
+                        <li role="presentation"><a href="#" role="menuitem" tabindex="-1">Clan Name/ID</a></li>
+                    </ul>
+                </div>    
+            </div>
+            <div class="col-xs-9">
+            </div>
+        </div>
 	
 	<div class="container-fluid">
 		

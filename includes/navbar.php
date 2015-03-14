@@ -24,7 +24,7 @@ function PrintNavbar ($navbar_highlight) {
 	
 	$print = <<<EOD
 	
-	<nav role="navigation" class="navbar navbar-default navbar-inverse">
+	<nav role="navigation" class="navbar navbar-default navbar-fixed-top navbar-inverse">
 		<div class="navbar-header">
 			<button type="button" data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle">
 				<span class="sr-only">Toggle Navigation</span>

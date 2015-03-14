@@ -20,7 +20,7 @@
 		<?php 
             $active_tab="roster";
             include_once('../includes/navbar.php');
-        ?>
+         ?>
 
 	</div>
 

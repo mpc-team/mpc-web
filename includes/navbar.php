@@ -13,7 +13,7 @@
 #
 #############################################################################
 
-function PrintNavbar ($navbar_highlight) {
+function PrintNavbar ($navbar_highlight, $root_path) {
 
 
 	$active = "class='active'";
@@ -39,7 +39,8 @@ EOD;
 	echo ($print);
 	
 	$class = ($navbar_highlight == "index") ? $active : $unactive;
-	$navig = "<li {$class}> <a href='../index.php' class='navbar-brand'>MPC</a> </li>";
+	$path  = $root_path . '/index.php';
+	$navig = "<li {$class}> <a href='{$path}' class='navbar-brand'>MPC</a> </li>";
 	echo ($navig);
 
 

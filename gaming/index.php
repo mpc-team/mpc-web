@@ -32,7 +32,7 @@
 	 
 	<div class="container-fluid">
 	
-		<?php PrintNavbar("gaming"); ?>
+		<?php PrintNavbar("gaming", $ROOT); ?>
 		
 	</div>
 

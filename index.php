@@ -41,7 +41,7 @@
 
 	<div class="container-fluid">
 	
-		<?php PrintNavbar("index"); ?>
+		<?php PrintNavbar("index", $ROOT); ?>
 		
 	</div>
 
@@ -51,7 +51,7 @@
 			<div class="col-md-8">
 				<img src="pics/mpclogo.png" class="img-responsive" alt="mpclogo.png" />
 				
-				<?php PrintLoginForm(); ?> 
+				<?php PrintLoginForm($ROOT); ?> 
 				
 			</div><!--col-->
 			 

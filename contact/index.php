@@ -34,7 +34,7 @@
 
 	<div class="container-fluid">
 
-		<?php PrintNavbar("contact"); ?>
+		<?php PrintNavbar("contact", $ROOT); ?>
 
 	</div>	
 

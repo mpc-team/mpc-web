@@ -35,7 +35,7 @@
 <body>
 	<div class="container-fluid">
 		
-		<?php PrintNavbar("roster"); ?>
+		<?php PrintNavbar("roster", $ROOT); ?>
 
 	</div>
 

@@ -9,6 +9,7 @@
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$LOGINFORM);
+	include_once($ROOT . PathDir::$SIGNUPFORM);
 	
 	$JQUERY = $ROOT . PathDir::$JQUERY;
 	$BS_CSS = $ROOT . PathDir::$BS_CSS;
@@ -36,7 +37,7 @@
 	 
 	<div class="container-fluid">
 	
-		<?php PrintNavbar("index"); ?>
+		<?php PrintNavbar("index", $ROOT); ?>
 		
 	</div>
 
@@ -45,29 +46,18 @@
 		<div class="row">
 		
 			<div class="col-xs-6">
-				<div class="form-group">
-				
-					<label for="alias"><p>Alias:</p></label>
-					<input type="text" name="alias" class="form-control" id="alias">
-					
-					<label for="password"><p>Password:</p></label>
-					<input type="password" name="password" class="form-control" id="password">
-					
-					<label for="email"><p>Email:</p></label>
-					<input type="email" name="email" class="form-control" id="email" placeholder="John@mpcgaming.com">
-					
-					<input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Submit">
-					
-				</div>
+		
+				<?php PrintSignupForm($ROOT); ?>
+		
 			</div>
 			
 			<div class="col-xs-6">
-				<img src="../pics/mpclogo.png" class="img-rounded" alt="mpclogo.png" width="592" height="200">
+				<img src="../pics/mpcbrand.png" class="img-rounded" alt="mpcbrand.png" width="100%" height="100%">
 				</br>
 			</div>
-		</div><!--row-->
+		</div>
 		
-	</div><!--container-->  
+	</div>
 	
 	<div class="container-fluid">
 	

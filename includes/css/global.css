@@ -10,8 +10,6 @@ body
 h1, h2, h3, h4, h5, h6, p { color: #ffffff; }
 p { margin-top: 20px; }
 
-.logintext { margin-right: 15px;}
-
 /* Nav-bars only*/
 #navbar-copyright { padding: 20px; color: #888888; }
  
@@ -21,7 +19,7 @@ p { margin-top: 20px; }
 #mpclogo-img{ height: 300px; width: 600px; }
 
 /* User Login Only */
-.login_form-spacer{	margin-bottom: 55px; }
+.login-form-spacer{	margin-bottom: 55px; }
 
 /* contact form only*/
 #contactlogo 

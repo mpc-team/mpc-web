@@ -10,11 +10,12 @@
 #
 ################################################################
 
-function PrintLoginForm () {
+function PrintLoginForm ($root_path) {
 
+	$signup_path = $root_path . '/login/signup.php';
 	$print = <<<EOD
 	
-	<div class="login_form">
+	<div class="login-form">
 		<h2 style="color: #fff">Login</h2>
 		<form class="form-horizontal" role="form">
 			<div class="form-group">
@@ -43,8 +44,8 @@ function PrintLoginForm () {
 			</div>
 				<label for="indexnote"></label>
 		</form>
-			<small class="text-center"><p>New Sign up? Please Click<a href="./signup.php"> Here</a></p></small>
-		<div class="login_form-spacer">...</div>
+			<small class="text-center"><p>New Sign up? Please Click<a href="$signup_path"> Here</a></p></small>
+		<div class="login-form-spacer">...</div>
 	</div>
 
 EOD;

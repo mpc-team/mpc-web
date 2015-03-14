@@ -12,11 +12,15 @@
     <meta name="keywords" content="MPC, SC2, MPCGaming.com"/>
     <meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
 </head>
-<body style="max-height: 100%; max-width: 100%;">
+<body>
+	<?php
+		include_once('../includes/navbar.php');
+		include_once('../includes/footer.php');
+	 ?>
 
 	<div class="container-fluid">
 
-		<?php $active_tab="contact"; include_once('../includes/navbar.php'); ?>
+		<?php PrintNavbar("contact"); ?>
 
 	</div>	
 
@@ -55,7 +59,7 @@
 
 	<div class="container-fluid">
 	
-		<?php include('../includes/footer.php'); ?>
+		<?php PrintFooter(); ?>
 		
 	</div>
 	

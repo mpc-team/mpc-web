@@ -14,9 +14,14 @@
 </head>
 <body>
 
+	<?php
+		include_once('../includes/navbar.php');
+		include_once('../includes/footer.php');
+	 ?>
+	 
 	<div class="container-fluid">
 	
-		<?php $active_tab="gaming"; include_once('../includes/navbar.php'); ?>
+		<?php PrintNavbar("gaming"); ?>
 		
 	</div>
 
@@ -70,7 +75,7 @@
 	
 	<div class="container-fluid">
 	
-		<?php include('../includes/footer.php'); ?>
+		<?php PrintFooter(); ?>
 		
 	</div>
 </body>

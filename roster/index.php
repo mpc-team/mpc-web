@@ -13,11 +13,16 @@
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
 </head>
 
-<body style="max-height: 100%; max-width: 100%;">
+<body>
+	
+	<?php
+		include_once('../includes/navbar.php');
+		include_once('../includes/footer.php');
+	 ?>
 
 	<div class="container-fluid">
 		
-		<?php $active_tab="roster"; include_once('../includes/navbar.php');?>
+		<?php PrintNavbar("roster"); ?>
 
 	</div>
 
@@ -27,7 +32,7 @@
 	
 	<div class="container-fluid">
 		
-		<?php include('../includes/footer.php'); ?>
+		<?php PrintFooter(); ?>
 
 	</div><!--container--> 
 </body>

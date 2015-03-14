@@ -14,9 +14,15 @@
 </head>
 <body>
 
+	<?php
+		include_once('../includes/navbar.php');
+		include_once('../includes/footer.php');
+		include_once('../login/form.php');
+	 ?>
+
 	<div class="container-fluid">
 	
-		<?php $active_tab="login"; include_once('../includes/navbar.php'); ?>
+		<?php PrintNavbar("login"); ?>
 		
 	</div>
 		
@@ -25,7 +31,7 @@
 		
 			<div class="col-md-8">
 				<img src="../pics/mpclogo.png" class="img-responsive" alt="mpclogo.png"/>
-				<?php include_once('../login/login_form.php'); ?> 
+				<?php PrintLoginForm(); ?> 
 			</div>
 				
 		</div>
@@ -33,7 +39,7 @@
 
 	<div class="container-fluid">
 	
-		<?php include('../includes/footer.php'); ?>
+		<?php PrintFooter(); ?>
 		
 	</div>
 

@@ -17,7 +17,10 @@
 
 	<div class="container-fluid">
 		
-		<?php $active_tab="roster"; include_once('../includes/navbar.php'); ?>
+		<?php 
+            $active_tab="roster";
+            include_once('../includes/navbar.php');
+        ?>
 
 	</div>
 

@@ -32,13 +32,6 @@
 </head>
 <body>
 
-	<?php
-		include_once('../includes/pathdir.php');
-		include_once(PathDir::$NAVBAR);
-		include_once(PathDir::$FOOTER);
-		include_once(PathDir::$LOGINFORM);
-	 ?>
-
 	<div class="container-fluid">
 	
 		<?php PrintNavbar("login"); ?>

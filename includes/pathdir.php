@@ -20,9 +20,12 @@ class PathDir
 	public static $CSS = '/includes/css/';
 	public static $JS = '/includes/js/';
 	
+	# Includes
 	public static $BS_CSS = '/bootstrap/css/bootstrap.css';
 	public static $BS_JS = '/bootstrap/js/bootstrap.js';
 	public static $JQUERY = '/bootstrap/js/jquery-1.11.2.js';
+	
+	public static $PATHDIR = '/includes/pathdir.php';
 	
 }
 

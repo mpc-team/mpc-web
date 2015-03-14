@@ -27,6 +27,7 @@
 		<link href='{$CSS_GLOBAL}' rel='stylesheet'/>";
 		echo ($print);
 	 ?>
+    <link href="css/roster.css" rel="stylesheet" />
 	<meta name="keywords" content="MPC, SC2, MPCGaming.com"/>
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
 </head>
@@ -38,35 +39,39 @@
 
 	</div>
 
-	   <div class="row">
+    <div class="row">
            
             <div class="col-xs-3 well">
-                <?php include('searchbtn.php'); ?>
-                <br />
-                <?php switch ($dynamicsearch) {
-                case "games": 
-                    echo "connect to games table";
-                    break;
-                case "mpcid":
-                    echo "connect to mpc id table";
-                    break;
-                case "emailad":
-                    echo "connect to email address table";
-                    break;
-                case "clan-name-id":
-                    echo "connect to clan table";
-                    break;
-                case default;
-                    echo "connect to default table";
-
-                ?>            
+                <div id="search-btn">
+                    <div class="btn-group">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="searchbypub" data-toggle="dropdown" aria-expanded="false">
+                            Search
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="searchbypub">
+                            <li role="presentation" class="dropdown-header">Search By:</li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a href="games.php" role="menuitem" tabindex="-1">Game</a></li>
+                            <li role="presentation"><a href="mpcid.php" role="menuitem" tabindex="-1">MPC ID</a></li>
+                            <li role="presentation"><a href="emailad.php" role="menuitem" tabindex="-1">Email Address</a></li>
+                            <li role="presentation"><a href="clan-name-or-id.php" role="menuitem" tabindex="-1">Clan Name/ID</a></li>
+                        </ul>
+                     </div>  
+                </div>      
            </div>
             <div class="col-xs-9 well">
-                <?php include('dynamicinfo.php'); ?>
-            </div>
-        </div>
-	
-	<div class="container-fluid">
+                <div id="dynamicinfo">
+                    <div class="row">
+                        <div class="col-xs-6 well"></div>
+                        <div class="col-xs-6 well"></div>
+                    </div>
+                    <div class="well"></div>
+                    <div class="well"></div>
+                </div>            
+           </div>
+    </div>
+
+    <div class="container-fluid">
 		
 		<?php PrintFooter(); ?>
 

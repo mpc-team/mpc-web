@@ -14,8 +14,8 @@ class PathDir
 	# Page Elements
 	public static $FOOTER = '/includes/footer.php';
 	public static $NAVBAR = '/includes/navbar.php';
-	public static $LOGINFORM = '/login/loginform.php';
-	public static $SIGNUPFORM = '/login/signupform.php';
+	public static $LOGINFORM = '/login/form.php';
+	public static $SIGNUPFORM = '/login/signup/form.php';
 	
 	# Directories
 	public static $CSS = '/includes/css/';

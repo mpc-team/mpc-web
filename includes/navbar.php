@@ -61,15 +61,18 @@ EOD;
 	echo $print;
 	
 	$class = ($navbar_highlight == "contact") ? $active : $unactive;
-	$navig = "<li {$class} > <a href='../contact/index.php'>Contact</a> </li>";
+	$path  = $root_path . '/contact/index.php';
+	$navig = "<li {$class} > <a href='{$path}'>Contact</a> </li>";
 	echo $navig;
 	
 	$class = ($navbar_highlight == "roster") ? $active : $unactive;
-	$navig = "<li {$class} > <a href='../roster/index.php'>Clan Roster</a> </li>";
+	$path  = $root_path . '/roster/index.php';
+	$navig = "<li {$class} > <a href='{$path}'>Clan Roster</a> </li>";
 	echo $navig;
 	
 	$class = ($navbar_highlight == "gaming") ? $active : $unactive;
-	$navig = "<li {$class} > <a href='../gaming/index.php'>Gaming Room</a> </li>";
+	$path  = $root_path . '/gaming/index.php';
+	$navig = "<li {$class} > <a href='{$path}'>Gaming Room</a> </li>";
 	echo $navig;
 	
 	
@@ -88,7 +91,8 @@ EOD;
 	echo $print;
 
 	$class = ($navbar_highlight == "login") ? $active : $unactive;
-	$navig = "<li {$class}> <a class='logintext' href='../login/index.php'>Login</a> </li>";
+	$path  = $root_path . '/login/index.php';
+	$navig = "<li {$class}> <a class='logintext' href='{$path}'>Login</a> </li>";
 	
 	echo $navig; 
 	

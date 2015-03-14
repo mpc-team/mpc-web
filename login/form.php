@@ -12,7 +12,7 @@
 
 function PrintLoginForm ($root_path) {
 
-	$signup_path = $root_path . '/login/signup.php';
+	$signup_path = $root_path . '/login/signup/index.php';
 	$print = <<<EOD
 	
 	<div class="login-form">

@@ -3,7 +3,7 @@
 
 <?php
 
-	$ROOT = '..';
+	$ROOT = '../..';
 
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$NAVBAR);
@@ -15,6 +15,8 @@
 	$BS_CSS = $ROOT . PathDir::$BS_CSS;
 	$BS_JS  = $ROOT . PathDir::$BS_JS;
 	$CSS_GLOBAL = $ROOT . PathDir::$CSS . 'global.css';
+	
+	$IMG_BRAND = $ROOT . '/pics/mpcbrand.png';
  ?>
 
 <head>
@@ -52,8 +54,9 @@
 			</div>
 			
 			<div class="col-xs-6">
-				<img src="../pics/mpcbrand.png" class="img-rounded" alt="mpcbrand.png" width="100%" height="100%">
-				</br>
+		
+				<?php echo "<img src='$IMG_BRAND' class='img-rounded' width='350px' height='350px'>"; ?>
+				
 			</div>
 		</div>
 		

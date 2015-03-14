@@ -1,5 +1,5 @@
 /* Parents only */
-body { max-width: 1600px; background-size: 100%; background-color: #101010; }
+body { background-size: 100%; background-color: #101010; }
 
 /* typography only */
 h1, h2, h3, h4, h5, h6, p { color: #ffffff; }

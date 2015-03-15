@@ -12,7 +12,6 @@
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
-	include_once($ROOT . PathDir::$LOGINFORM);
 	include_once($ROOT . PathDir::$HTMLHEADER);
 
  ?>
@@ -43,27 +42,28 @@
 	<div class="container">
 		<div class="row">
 		
-			<div class="col-md-8">
-				<img src="pics/mpclogo.png" class="img-responsive" alt="mpclogo.png" />
+			<form role="form" action="./login/complete.php" method="post">
+				<div class="col-md-8">
 				
-				<?php PrintLoginForm($ROOT); ?> 
+					<img src="pics/mpclogo.png" class="img-responsive" alt="mpclogo.png" />			
+					
+				</div>
 				
-			</div><!--col-->
-			 
-			<div class="col-md-4">
-				<div class="row text-center">
-					<div class="well well-sm">
-						<div class="page-header text-center">
-							<h1 style="color: #000000">Website Under Construction</h1>
+				<div class="col-md-4">
+					<div class="row text-center">
+						<div class="well well-sm">
+							<div class="page-header text-center">
+								<h1 style="color: #000000">Website Under Construction</h1>
+							</div>
 						</div>
 					</div>
+					</br>
 				</div>
-				</br>
-			</div>
-			
+			</form>
+				
 		</div> 
 		
-	</div><!--container-->     
+	</div>
 	
 	<div class="container-fluid">
 	

@@ -35,8 +35,8 @@
 		<form role="form" action="complete.php" method="post">
 			<div class="row">
 				<div class="col-md-8">
+				
 					<img src="../pics/mpclogo.png" class="img-responsive" alt="mpclogo.png"/>
-					
 					<?php PrintLoginForm($ROOT); ?> 
 					
 				</div>

@@ -38,7 +38,6 @@
     <div class="row">
     </div>
     <div class="row">
-        
             <div class="col-xs-3 well">
                 <div id="search-btn">
                     <div class="btn-group">

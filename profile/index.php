@@ -27,29 +27,18 @@
 
 	<div class="container-fluid">
 	
-		<?php PrintNavbar("login", $ROOT); ?>
+		<?php PrintNavbar("profile", $ROOT); ?>
 		
 	</div>
-		
+	
 	<div class="container">
-		<form role="form" action="complete.php" method="post">
-			<div class="row">
-				<div class="col-md-8">
-				
-					<img src="../pics/mpclogo.png" class="img-responsive" alt="mpclogo.png"/>
-					<?php PrintLoginForm($ROOT); ?> 
-					
-				</div>
-			</div>
-		</form>
+	
 	</div>
-
+	
 	<div class="container-fluid">
 	
 		<?php PrintFooter(); ?>
-		
+	
 	</div>
-
+	
 </body>
-
-</html>

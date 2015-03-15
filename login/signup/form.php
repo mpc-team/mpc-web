@@ -27,7 +27,7 @@ function PrintSignupForm ($root_path) {
 			<label for="email"><p>Email:</p></label>
 			<input type="email" name="email" class="form-control" id="email" placeholder="John@mpcgaming.com">
 			
-			<input style="margin-top: 20px;" class="btn btn-success" type="submit" value="Submit">
+			<input style="margin-top: 40px;" class="btn btn-success pull-right" type="submit" value="Sign Up">
 			
 		</div>
 	</div>

@@ -90,10 +90,17 @@ EOD;
 EOD;
 	echo $print;
 
-	$class = ($navbar_highlight == "login") ? $active : $unactive;
-	$path  = $root_path . '/login/index.php';
-	$navig = "<li {$class}> <a class='logintext' href='{$path}'>Login</a> </li>";
-	
+	if (isset($_COOKIE["USER"])) {
+		$text = $_COOKIE["USER"];
+		$path = $root_path . '/profile/index.php';
+		$class = ($navbar_highlight == "profile") ? $active : $unactive;
+		$navig = "<li {$class}> <a class='logintext' href='{$path}'>{$text}</a></li>";
+	} else {
+		$text = "Login";
+		$path = $root_path . '/login/index.php';
+		$class = ($navbar_highlight == "login") ? $active : $unactive;
+		$navig = "<li {$class}> <a class='logintext' href='{$path}'>{$text}</a> </li>";
+	}	
 	echo $navig; 
 	
 	

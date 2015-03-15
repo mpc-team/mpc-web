@@ -38,22 +38,21 @@
 	</div>
 
 	<div class="container">
-		<form role="form" action="signup-complete.php" method="post">
-		<div class="row">
-		
-			<div class="col-xs-6">
-		
-				<?php PrintSignupForm($ROOT); ?>
-		
-			</div>
+		<form role="form" action="complete.php" method="post">
+			<div class="row">
+				<div class="col-xs-6">
 			
-			<div class="col-xs-6">
-		
-				<?php echo "<img src='$IMG_BRAND' class='img-rounded' width='350px' height='350px'>"; ?>
+					<?php PrintSignupForm($ROOT); ?>
+			
+				</div>
 				
+				<div class="col-xs-6">
+			
+					<?php echo "<img src='$IMG_BRAND' class='img-rounded' width='350px' height='350px'>"; ?>
+					
+				</div>
 			</div>
-		</div>
-		
+		</form>
 	</div>
 	
 	<div class="container-fluid">

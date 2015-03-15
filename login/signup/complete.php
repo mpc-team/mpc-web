@@ -33,38 +33,40 @@
 		<div class="page-header text-center">
 			<h1>Signup Processing...</h1>
 		</div>
-		
+	
 		<div class="text-center">
-		
-<?php
-	$dbhandle = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
-	$dbhandle->connect();
-	$result = $dbhandle->query('SELECT * FROM User');
-	
-	printf("<p>Query returned %d rows.</p>", $result->num_rows);
-	
-	echo '<table width="100%">';
-	while ($row = $result->fetch_row()) {
-		echo '<tr>';
-		foreach ($row as $column) {
-			echo '<td>' . $column . '</td>';
-		}
-		echo '</tr>';
-	}
-	$result->close();
-	echo '</table>';
-	
- ?>
-		
-			<p> Hello 			<?php echo $_POST["alias"]; ?> </p>
-			<p> Email Address:  <?php echo $_POST["email"]; ?> </p>
-			<p> Password:  		<?php echo $_POST["password"]; ?> </p>
-		
-			
+			<?php
+				$dbhandle = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
+				$dbhandle->connect();
+				
+				$sql = "SELECT * FROM User WHERE userName='{$_POST["email"]}' AND userPassword='{$_POST["password"]}'";
+				$result = $dbhandle->query($sql);
+				$adduser = ($result->num_rows == 0);
+				$result->close();
+				
+				if ($adduser) {
+					$sql = "INSERT INTO User VALUES (10, '{$_POST["email"]}', '{$_POST["password"]}')";
+					$result = $dbhandle->query($sql);
+					if ($result) {
+						echo '<em>Sign Up Success</em> </br>';
+					} else {
+						echo '<em>Sign Up Failed</em> </br>';
+					}
+				} else {
+					echo '<em>User naming conflicts</em> </br>';
+				}
+				
+				$dbhandle->disconnect();
+				
+			 ?>
 		</div>
-
+			 
+	</div>
+	
+	<div class="container-fluid">
+	
 		<?php PrintFooter(); ?>
-
+	
 	</div>
 </body>
 

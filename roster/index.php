@@ -6,6 +6,7 @@
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
+	include_once($ROOT . PathDir::$SIDEBAR);
 	include_once($ROOT . PathDir::$HTMLHEADER);
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
@@ -22,6 +23,7 @@
 <?php
 	PrintJavaScriptResource( PathDir::GetJQueryPath($ROOT) );
 	PrintStyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
+	PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
 	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
 	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
  ?>

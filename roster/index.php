@@ -34,8 +34,6 @@
 		
 	</div>
     <div class="row">
-<<<<<<< HEAD
-        <img src="../pics/mpclogo.png" class="img-responsive" alt="mpclogo.png" id="mpclogo-roster" />
     </div>
     <div class="row">
         <?php
@@ -63,8 +61,6 @@
         //Close Connection
             $conn->close();
         ?>
-=======
->>>>>>> d02cad06368c3c83d2bd55edad3085d5bf8571f4
             <div class="col-xs-3 well">
                 <div id="search-btn">
                     <div class="btn-group">

@@ -39,6 +39,17 @@
 <?php
 	$dbhandle = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
 	$dbhandle->connect();
+	$result = $dbhandle->query('SELECT * FROM User');
+	
+	printf("<p>Query returned %d rows.</p>", $result->num_rows);
+	
+	while ($row = $result->fetch_row()) {
+		foreach ($row as $column) {
+			echo $column;
+		}
+		echo '</br>';
+	}
+	$result->close();
 	
  ?>
 		

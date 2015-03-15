@@ -33,6 +33,13 @@ class dbutil
 		return true;
 	}
 	
+	// query(sql-statement) - results of this query must be closed via
+	// 						$result->close() as of currently.
+	public function query($sql)
+	{
+		return $this->mysqli->query($sql);
+	}
+	
 }
 
 

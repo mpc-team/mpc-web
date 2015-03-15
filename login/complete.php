@@ -1,3 +1,21 @@
+<?php
+	$dbhandle = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
+	$dbhandle->connect();
+	
+	$sql = <<<EOD
+		SELECT * FROM User
+		WHERE userName='{$_POST["email"]}' AND userPassword='{$_POST["password"]}'
+EOD;
+	$result = $dbhandle->query($sql);
+	$row = $result->fetch_row();
+	if ($result) {
+		setcookie("USER", $row[1], 0, '/');
+	}
+	$result->close();
+	$dbhandle->disconnect();
+	
+ ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -35,24 +53,6 @@
 		</div>
 		
 		<div class="text-center">
-		
-<?php
-	$dbhandle = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
-	$dbhandle->connect();
-	
-	$sql = <<<EOD
-		SELECT * FROM User
-		WHERE userName='{$_POST["email"]}' AND userPassword='{$_POST["password"]}'
-EOD;
-	$result = $dbhandle->query($sql);
-	$row = $result->fetch_row();
-	if ($result) {
-		setcookie("USER", $row[1], 0, '/');
-	}
-	$result->close();
-	$dbhandle->disconnect();
-	
- ?>
 
 		</div>		
 	</div>

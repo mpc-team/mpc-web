@@ -8,25 +8,20 @@
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
+	include_once($ROOT . PathDir::$HTMLHEADER);
 	
-	$JQUERY = $ROOT . PathDir::$JQUERY;
-	$BS_CSS = $ROOT . PathDir::$BS_CSS;
-	$BS_JS  = $ROOT . PathDir::$BS_JS;
-	$CSS_GLOBAL = $ROOT . PathDir::$CSS . 'global.css';
  ?>
 
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>Miacro Power Clan - MPC Gaming.com</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<?php
-		$print = 
-	   "<script src='{$JQUERY}' type='text/jscript'></script>
-		<link href='{$BS_CSS}' rel='stylesheet'/>
-		<script src='{$BS_JS}' type='text/jscript'></script>
-		<link href='{$CSS_GLOBAL}' rel='stylesheet'/>";
-		echo ($print);
-	 ?>
+<?php
+	PrintJavaScriptResource( PathDir::GetJQueryPath($ROOT) );
+	PrintStyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
+	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
+	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
+ ?>
     <link href="css/roster.css" rel="stylesheet" />
 	<meta name="keywords" content="MPC, SC2, MPCGaming.com"/>
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
@@ -39,6 +34,7 @@
 		
 	</div>
     <div class="row">
+<<<<<<< HEAD
         <img src="../pics/mpclogo.png" class="img-responsive" alt="mpclogo.png" id="mpclogo-roster" />
     </div>
     <div class="row">
@@ -67,6 +63,8 @@
         //Close Connection
             $conn->close();
         ?>
+=======
+>>>>>>> d02cad06368c3c83d2bd55edad3085d5bf8571f4
             <div class="col-xs-3 well">
                 <div id="search-btn">
                     <div class="btn-group">

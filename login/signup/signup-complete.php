@@ -1,36 +1,68 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
+ 
 <head>
+<?php
+
+	$ROOT = '../..';
+
+	include_once($ROOT . '/includes/pathdir.php');
+	include_once($ROOT . PathDir::$FOOTER);
+	include_once($ROOT . PathDir::$HTMLHEADER);
+	include_once($ROOT . PathDir::$DB_UTILITY);
+	include_once($ROOT . PathDir::$DB_INFO);
+	
+ ?>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>Miacro Power Clan - MPC Gaming.com</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<script src="../bootstrap/js/jquery-1.11.2.js" type="text/jscript"></script>
-	<link href="../bootstrap/css/bootstrap.css" rel="stylesheet"/>
-	<script src="../bootstrap/js/bootstrap.js" type="text/jscript"></script>
-	<link href="../index.css" rel="stylesheet"/><!--index only-->
+<?php 
+	PrintJavaScriptResource( PathDir::GetJQueryPath($ROOT) );
+	PrintStyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
+	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
+	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
+ ?>
+ 
 	<meta name="keywords" content="MPC, SC2, MPCGaming.com"/>
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
 </head>
-<body style="max-height: 100%; max-width: 100%;">
-	<div class="container" style="background-color: #fff; color: #000;">
+<body>
+	<div class="container">
+	
 		<div class="page-header text-center">
-			<h1>Thank you for Signing up!</h1>
+			<h1>Signup Processing...</h1>
 		</div>
 		
-		<small class="text-center">
-			<p>Hello <?php echo $_POST["FName"]; ?>, and thank you for signing up with MPCgaming.com. Please check that everything is accurate in the following:
-			</br>
-			Email address: <?php echo $_POST["email"]; ?> (will send a confirmation email for verification)
-			</br>
-			Date of Birth:<?php echo $_POST["dobday"]; ?>/<?php echo $_POST["dobmonth"]; ?>/ <?php echo $_POST["dobyear"]; ?>
-			</p>
-		</small>
+		<div class="text-center">
+		
+<?php
+	$dbhandle = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
+	$dbhandle->connect();
+	$result = $dbhandle->query('SELECT * FROM User');
+	
+	printf("<p>Query returned %d rows.</p>", $result->num_rows);
+	
+	while ($row = $result->fetch_row()) {
+		foreach ($row as $column) {
+			echo $column;
+		}
+		echo '</br>';
+	}
+	$result->close();
+	
+ ?>
+		
+			<p> Hello 			<?php echo $_POST["alias"]; ?> </p>
+			<p> Email Address:  <?php echo $_POST["email"]; ?> </p>
+			<p> Password:  		<?php echo $_POST["password"]; ?> </p>
+		
+			
+		</div>
 
+		<?php PrintFooter(); ?>
 
-		<?php include('../includes/footer.php'); ?>
-
-	</div><!--container-->     
+	</div>
 </body>
 
 </html>

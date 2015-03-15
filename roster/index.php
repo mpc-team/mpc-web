@@ -54,7 +54,24 @@
                             <li role="presentation"><a href="clan-name-or-id.php" role="menuitem" tabindex="-1">Clan Name/ID</a></li>
                         </ul>
                      </div>  
-                </div>      
+                </div> 
+                <br />
+                <div class="alias-default">
+            <?php
+        
+                $db = new dbutil (dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
+                $db->connect ();
+                $result = $db->query ("SELECT * FROM User");
+                CREATE TABLE Persons
+                (
+                PersonID int,
+                LastName varchar(255),
+                FirstName varchar(255),
+                Address varchar(255),
+                City varchar(255)
+                );
+                    ?>
+                </div>
            </div>
             <div class="col-xs-9 well">
                 <div id="dynamicinfo">

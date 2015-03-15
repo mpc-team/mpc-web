@@ -33,8 +33,38 @@
 		<?php PrintNavbar("roster", $ROOT); ?>
 		
 	</div>
-
     <div class="row">
+<<<<<<< HEAD
+        <img src="../pics/mpclogo.png" class="img-responsive" alt="mpclogo.png" id="mpclogo-roster" />
+    </div>
+    <div class="row">
+        <?php
+        //define the variables for the database
+            $DB_HOST = "clanmpc.db.9825370.hostedresource.com";
+            $DB_USER = "clanmpc";
+            $DB_PASS = "W3W!NGames";
+            $DB_NAME = "clanmpc";
+        //other site related variables
+            $config_sitemap = "Clan Roster Search";
+            $config_baseurl = "http://www.mpcgaming.com/roster";
+        //Create the connection
+            $conn = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
+        //Check Connection
+            if ($conn->connect_error) {
+                die("Connection Failed! : " . $conn->connect_error);
+            }
+        //Creating the table
+            $sql = "CREATE TABLE EMAILADDR";
+            if ($conn->query($sql)  === TRUE){
+                echo "Connected Successful";
+            } else {
+                    echo"Error In Creating The Database: " . $conn->error;
+            }
+        //Close Connection
+            $conn->close();
+        ?>
+=======
+>>>>>>> d02cad06368c3c83d2bd55edad3085d5bf8571f4
             <div class="col-xs-3 well">
                 <div id="search-btn">
                     <div class="btn-group">

@@ -20,7 +20,10 @@
 EOD;
 	$result = $dbhandle->query($sql);
 	$row = $result->fetch_row();
-	if ($result) { setcookie("USER", $row[1], 0, '/'); }
+	if ($result) { 
+		setcookie("USER", $row[1], 0, '/'); 
+		header("Location: {$ROOT}/profile/index.php");
+	}
 	$result->close();
 	$dbhandle->disconnect();
 	#

@@ -39,6 +39,7 @@
 		
 			$success = true;
 			setcookie("USER", $_POST["email"], 0, '/');
+			header("Location: {$ROOT}/profile/index.php");
 			
 		}
 	} 

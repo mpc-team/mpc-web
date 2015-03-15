@@ -38,66 +38,35 @@
 		<?php PrintNavbar("roster", $ROOT); ?>
 		
 	</div>
-
     <div class="row">
-        <?php 
-    $DB_HOST = "clanmpc.db.9825370.hostedresource.com";
-	$DB_USER = "clanmpc";
-	$DB_PASS = "W3W!NGames";
-	$DB_NAME = "clanmpc";
-    // Create connection
-        $conn = if { new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);}
-    
-            elseif {
-                $conn = new PDO("mysql:host=$DB_HOST;dbname=myDB", $DB_USER, $DB_PASS, $DB_NAME);
-            // set the PDO error mode to exception
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    echo "Connected successfully"; 
-                }
-                    catch(PDOException $e)
-                {
-                    echo "Connection failed: " . $e->getMessage();
-                }
-            end if;
-    // Check Connection.
-                    if { ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                    } end if;
-                    if (!$conn) {
-                        die("Connection failed: " . mysqli_connect_error());
-                    }
-                    echo "Connected successfully";
-                    } 
-                    catch(PDOException $e)
-                    {
-                    echo "Connection failed: " . $e->getMessage();
-                    }
-    // Create database.
-                    //object-oriented
-                    $sql = "CREATE DATABASE myDB";
-                    if{ ($conn->query($sql) === TRUE) {
-                        echo "Database created successfully";
-                    } else {
-                        echo "Error creating database: " . $conn->error;
-                    }
-                      } end if;
-                    //PDO style --
-                        if {$sql = "CREATE DATABASE myDB";
-                        if (mysqli_query($conn, $sql)) {
-                            echo "Database created successfully";
-                        } else {
-                            echo "Error creating database: " . mysqli_error($conn);
-                        }
-                           } end if;
-                    
-     //Closing Connection. 
-                    $conn->close();
-                    else {
-                    mqsqli_close($conn);
-                    } else {
-                    $conn = null;
-                    }
-            ?>
+        <img src="../pics/mpclogo.png" class="img-responsive" alt="mpclogo.png" id="mpclogo-roster" />
+    </div>
+    <div class="row">
+        <?php
+        //define the variables for the database
+            $DB_HOST = "clanmpc.db.9825370.hostedresource.com";
+            $DB_USER = "clanmpc";
+            $DB_PASS = "W3W!NGames";
+            $DB_NAME = "clanmpc";
+        //other site related variables
+            $config_sitemap = "Clan Roster Search";
+            $config_baseurl = "http://www.mpcgaming.com/roster";
+        //Create the connection
+            $conn = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
+        //Check Connection
+            if ($conn->connect_error) {
+                die("Connection Failed! : " . $conn->connect_error);
+            }
+        //Creating the table
+            $sql = "CREATE TABLE EMAILADDR";
+            if ($conn->query($sql)  === TRUE){
+                echo "Connected Successful";
+            } else {
+                    echo"Error In Creating The Database: " . $conn->error;
+            }
+        //Close Connection
+            $conn->close();
+        ?>
             <div class="col-xs-3 well">
                 <div id="search-btn">
                     <div class="btn-group">

@@ -1,4 +1,12 @@
 <?php
+	$ROOT = '..';
+
+	include_once($ROOT . '/includes/pathdir.php');
+	include_once($ROOT . PathDir::$FOOTER);
+	include_once($ROOT . PathDir::$HTMLHEADER);
+	include_once($ROOT . PathDir::$DB_UTILITY);
+	include_once($ROOT . PathDir::$DB_INFO);
+	
 	$dbhandle = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
 	$dbhandle->connect();
 	
@@ -21,17 +29,6 @@ EOD;
 
  
 <head>
-<?php
-
-	$ROOT = '..';
-
-	include_once($ROOT . '/includes/pathdir.php');
-	include_once($ROOT . PathDir::$FOOTER);
-	include_once($ROOT . PathDir::$HTMLHEADER);
-	include_once($ROOT . PathDir::$DB_UTILITY);
-	include_once($ROOT . PathDir::$DB_INFO);
-	
- ?>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>Miacro Power Clan - MPC Gaming.com</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>

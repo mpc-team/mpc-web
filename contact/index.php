@@ -68,7 +68,7 @@
 
 	<div class="container-fluid">
 	
-		<?php PrintFooter(); ?>
+		<?php PrintFooter($ROOT); ?>
 		
 	</div>
 	

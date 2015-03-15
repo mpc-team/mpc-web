@@ -52,7 +52,6 @@ EOD;
 	$result->close();
 	$dbhandle->disconnect();
 	
-	echo '<h3> '.$_COOKIE["USER"].' </h3>';
  ?>
 
 		</div>		
@@ -60,7 +59,7 @@ EOD;
 		
 	<div class="container-fluid">
 	
-		<?php PrintFooter(); ?>
+		<?php PrintFooter($ROOT); ?>
 	
 	</div>
 

@@ -44,16 +44,32 @@
 				$adduser = ($result->num_rows == 0);
 				$result->close();
 				
+				$success = false;
 				if ($adduser) {
-					$sql = "INSERT INTO User VALUES (10, '{$_POST["email"]}', '{$_POST["password"]}')";
+					$sql = "SELECT userID FROM User ORDER BY userID DESC LIMIT 0, 1";
 					$result = $dbhandle->query($sql);
 					if ($result) {
-						echo '<em>Sign Up Success</em> </br>';
+						$row = $result->fetch_row();
+						$id = $row[0] + 1;
 					} else {
-						echo '<em>Sign Up Failed</em> </br>';
+						$id = 1;
 					}
-				} else {
-					echo '<em>User naming conflicts</em> </br>';
+					$result->close();
+				
+					$sql = "INSERT INTO User VALUES ({$id}, '{$_POST["email"]}', '{$_POST["password"]}')";
+					$result = $dbhandle->query($sql);
+					if ($result) {
+					
+						echo '<em>Signup Success</em> </br>';
+						$success = true;
+						setcookie("USER", $_POST["email"], 0, '/');
+						
+					}
+				} 
+				if (!$success) {
+					
+					echo '<em>Signup Failed</em> </br>';
+					
 				}
 				
 				$dbhandle->disconnect();
@@ -65,7 +81,7 @@
 	
 	<div class="container-fluid">
 	
-		<?php PrintFooter(); ?>
+		<?php PrintFooter($ROOT); ?>
 	
 	</div>
 </body>

@@ -16,11 +16,13 @@ EOD;
 	$navig = "<li {$class}><a href='#'>Overview</a></li>";
 	echo ($navig);
 	
-	echo '<li style="padding: 20px 0px;"></li>';
-	
-	$class = ($navbar_highlight == "signout") ? $active : $unactive;
-	$navig = "<li {$class}><a href='{$signout}'>Sign Out</a></li>";
-	echo ($navig);
+	if (isset($_COOKIE["USER"])) {
+		echo '<li style="padding: 20px 0px;"></li>';
+		
+		$class = ($navbar_highlight == "signout") ? $active : $unactive;
+		$navig = "<li {$class}><a href='{$signout}'>Sign Out</a></li>";
+		echo ($navig);
+	}
 				
 	$print = '</ul></div>';
 	echo ($print);

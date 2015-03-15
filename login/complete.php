@@ -22,9 +22,9 @@ EOD;
 	$row = $result->fetch_row();
 	if ($result) { 
 		if ($_POST["remember"]) {
-			setcookie("USER", $row[1], 0, '/'); 
+			setcookie("USER", $row[1], time()+604800, '/');
 		} else { 
-			setcookie("USER", $row[1], time()+3600, '/');
+			setcookie("USER", $row[1], 0, '/'); 
 		}
 		header("Location: {$ROOT}/profile/index.php");
 	}

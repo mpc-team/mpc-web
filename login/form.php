@@ -28,10 +28,10 @@ function PrintLoginForm ($root_path) {
 			</div>
 			<div class="row">
 				<div class="col-sm-2">
-					<label class="control-label col-sm-2" for="pwd"><h4>Password:</h4></label>
+					<label class="control-label col-sm-2" for="password"><h4>Password:</h4></label>
 				</div>      
 				<div class="col-sm-10">          
-					<input type="password" name="password" class="form-control" id="pwd" placeholder="Enter password">
+					<input type="password" name="password" class="form-control" id="password" placeholder="Enter password">
 				</div>      
 			</div>
 			<div class="col-sm-offset-2 col-sm-10">

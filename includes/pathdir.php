@@ -14,8 +14,12 @@ class PathDir
 	# PHP Scripts
 	public static $FOOTER     = '/includes/footer.php';
 	public static $NAVBAR     = '/includes/navbar.php';
+	public static $SIDEBAR    = '/includes/sidebar.php';
+	
 	public static $LOGINFORM  = '/login/form.php';
 	public static $SIGNUPFORM = '/login/signup/form.php';
+	public static $SIGNOUT    = '/login/signout.php';
+	
 	public static $HTMLHEADER = '/includes/htmlheader.php';
 	
 	# Database PHP
@@ -27,6 +31,7 @@ class PathDir
 	public static $JS  = '/includes/js/';
 	
 	# Common Dependencies
+	public static $BS_SB_CSS = '/bootstrap/css/simple-sidebar.css';
 	public static $BS_CSS = '/bootstrap/css/bootstrap.css';
 	public static $BS_JS  = '/bootstrap/js/bootstrap.js';
 	public static $JQUERY = '/bootstrap/js/jquery-1.11.2.js';
@@ -50,6 +55,11 @@ class PathDir
 	public static function GetBootstrapJSPath($root) 
 	{
 		return $root . self::$BS_JS;
+	}
+	
+	public static function GetBootstrapSidebarCSSPath($root) 
+	{
+		return $root . self::$BS_SB_CSS;
 	}
 	
 	public static function GetCSSPath($root, $cssName) 

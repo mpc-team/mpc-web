@@ -73,17 +73,12 @@
 </head>
 <body>
 	<div class="container">
-	
 		<div class="page-header text-center">
+		
 			<h1>Signup Processing...</h1>
-		</div>
-	
-		<div class="text-center">
-
-		</div>
-			 
+			
+		</div> 
 	</div>
-	
 	<div class="container-fluid">
 	
 		<?php PrintFooter($ROOT); ?>

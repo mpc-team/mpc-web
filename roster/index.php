@@ -36,61 +36,22 @@
 		<?php PrintNavbar("roster", $ROOT); ?>
 		
 	</div>
-    <div class="row">
-    </div>
-    <div class="row">
-            <div class="col-xs-3 well">
-                <div id="search-btn">
-                    <div class="btn-group">
-                        <button class="btn btn-success dropdown-toggle" type="button" id="searchbypub" data-toggle="dropdown" aria-expanded="false">
-                            Search
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="searchbypub">
-                            <li role="presentation" class="dropdown-header">Search By:</li>
-                            <li role="presentation" class="divider"></li>
-                            <li role="presentation"><a href="games.php" role="menuitem" tabindex="-1">Game</a></li>
-                            <li role="presentation"><a href="mpcid.php" role="menuitem" tabindex="-1">MPC ID</a></li>
-                            <li role="presentation"><a href="emailad.php" role="menuitem" tabindex="-1">Email Address</a></li>
-                            <li role="presentation"><a href="clan-name-or-id.php" role="menuitem" tabindex="-1">Clan Name/ID</a></li>
-                        </ul>
-                     </div>  
-                </div> 
-                <br />
-                <div class="alias-default">
-            <?php
-        
-                $db = new dbutil (dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
-                $db->connect ();
-                $result = $db->query ("SELECT * FROM User");
-                CREATE TABLE Persons
-                (
-                PersonID int,
-                LastName varchar(255),
-                FirstName varchar(255),
-                Address varchar(255),
-                City varchar(255)
-                );
-                    ?>
-                </div>
-           </div>
-            <div class="col-xs-9 well">
-                <div id="dynamicinfo">
-                    <div class="row">
-                        <div class="col-xs-6 well"></div>
-                        <div class="col-xs-6 well"></div>
-                    </div>
-                    <div class="well"></div>
-                    <div class="well"></div>
-                </div>            
-           </div>
-    </div>
-
+	<div id="wrapper" class="container">
+		
+		<?php PrintSidebar("none", $ROOT); ?>
+	
+		<div id="page-content-wrapper">
+		
+			<h1>Members</h1>
+			
+		</div>
+	
+	</div>
     <div class="container-fluid">
 		
 		<?php PrintFooter($ROOT); ?>
 
-	</div><!--container--> 
+	</div>
 </body>
 
 </html>

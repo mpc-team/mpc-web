@@ -21,7 +21,11 @@ EOD;
 	$result = $dbhandle->query($sql);
 	$row = $result->fetch_row();
 	if ($result) { 
-		setcookie("USER", $row[1], 0, '/'); 
+		if ($_POST["remember"]) {
+			setcookie("USER", $row[1], 0, '/'); 
+		} else { 
+			setcookie("USER", $row[1], time()+3600, '/');
+		}
 		header("Location: {$ROOT}/profile/index.php");
 	}
 	$result->close();
@@ -51,16 +55,12 @@ EOD;
 </head>
 <body>
 	<div class="container">
-	
 		<div class="page-header text-center">
+		
 			<h1>Login Processing...</h1>
+			
 		</div>
-		
-		<div class="text-center">
-
-		</div>		
 	</div>
-		
 	<div class="container-fluid">
 	
 		<?php PrintFooter($ROOT); ?>

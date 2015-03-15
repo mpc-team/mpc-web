@@ -3,7 +3,7 @@
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
-	include_once($ROOT . PathDir::$LOGINFORM);
+	include_once($ROOT . PathDir::$SIDEBAR);
 	include_once($ROOT . PathDir::$HTMLHEADER);
 	
  ?>
@@ -18,6 +18,7 @@
 <?php
 	PrintJavaScriptResource( PathDir::GetJQueryPath($ROOT) );
 	PrintStyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
+	PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
 	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
 	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
  ?>
@@ -25,17 +26,32 @@
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
 </head>
 <body>
-
+	
 	<div class="container-fluid">
 	
 		<?php PrintNavbar("profile", $ROOT); ?>
 		
 	</div>
+	<div id="wrapper" class="container">
 	
-	<div class="container">
+		<?php PrintSidebar("overview", $ROOT); ?>
 	
+		<div id="page-content-wrapper">
+			<h1>Alias</h1>
+			<p> <?php echo ($_COOKIE["USER"]); ?> </p>
+			
+			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+		</div>
 	</div>
-	
 	<div class="container-fluid">
 	
 		<?php PrintFooter($ROOT); ?>

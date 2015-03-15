@@ -41,29 +41,22 @@
 	</div>
 
 	<div class="container">
-		<div class="row">
+		<div class="col-md-8">
 		
-			<form role="form" action="./login/complete.php" method="post">
-				<div class="col-md-8">
-				
-					<img src="pics/mpclogo.png" class="img-responsive" alt="mpclogo.png" />			
-					
+			<img src="pics/mpclogo.png" class="img-responsive" alt="mpclogo.png" />			
+			
+		</div>
+		<div class="col-md-4">
+			<div class="well well-sm">
+				<div class="page-header text-center">
+					<h1 style="color: #000000">
+						
+						Website Under Construction
+						
+					</h1>
 				</div>
-				
-				<div class="col-md-4">
-					<div class="row text-center">
-						<div class="well well-sm">
-							<div class="page-header text-center">
-								<h1 style="color: #000000">Website Under Construction</h1>
-							</div>
-						</div>
-					</div>
-					</br>
-				</div>
-			</form>
-				
-		</div> 
-		
+			</div>
+		</div>
 	</div>
 	
 	<div class="container-fluid">

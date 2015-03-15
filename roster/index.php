@@ -38,11 +38,6 @@
     <div class="row">
     </div>
     <div class="row">
-        <?php
-            $db = new dbutil (dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
-            $db->connect ();
-            $result = $db->query ("SELECT * FROM User");
-        ?>
             <div class="col-xs-3 well">
                 <div id="search-btn">
                     <div class="btn-group">

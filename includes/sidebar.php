@@ -1,11 +1,5 @@
 <?php 
 
-#
-#
-# 	Sidebar (highlight):
-#
-#
-
 function PrintSidebar ($navbar_highlight, $root_path) {
 	
 	$active = "class='active'";

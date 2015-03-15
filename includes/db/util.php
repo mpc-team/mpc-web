@@ -33,6 +33,11 @@ class dbutil
 		return true;
 	}
 	
+	public function disconnect()
+	{
+		$this->mysqli->close();
+	}
+	
 	// query(sql-statement) - results of this query must be closed via
 	// 						$result->close() as of currently.
 	public function query($sql)

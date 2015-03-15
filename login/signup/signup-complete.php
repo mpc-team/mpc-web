@@ -52,6 +52,7 @@
 		echo '</tr>';
 	}
 	$result->close();
+	$dbhandle->disconnect();
 	echo '</table>';
 	
  ?>

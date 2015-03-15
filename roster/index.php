@@ -9,6 +9,8 @@
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$HTMLHEADER);
+	include_once($ROOT . PathDir::$DB_UTILITY);
+	include_once($ROOT . PathDir::$DB_INFO);
 	
  ?>
 
@@ -37,29 +39,9 @@
     </div>
     <div class="row">
         <?php
-        //define the variables for the database
-            $DB_HOST = "clanmpc.db.9825370.hostedresource.com";
-            $DB_USER = "clanmpc";
-            $DB_PASS = "W3W!NGames";
-            $DB_NAME = "clanmpc";
-        //other site related variables
-            $config_sitemap = "Clan Roster Search";
-            $config_baseurl = "http://www.mpcgaming.com/roster";
-        //Create the connection
-            $conn = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
-        //Check Connection
-            if ($conn->connect_error) {
-                die("Connection Failed! : " . $conn->connect_error);
-            }
-        //Creating the table
-            $sql = "CREATE TABLE EMAILADDR";
-            if ($conn->query($sql)  === TRUE){
-                echo "Connected Successful";
-            } else {
-                    echo"Error In Creating The Database: " . $conn->error;
-            }
-        //Close Connection
-            $conn->close();
+            $db = new dbutil (dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
+            $db->connect ();
+            $result = $db->query ("SELECT * FROM User");
         ?>
             <div class="col-xs-3 well">
                 <div id="search-btn">

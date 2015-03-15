@@ -43,13 +43,16 @@
 	
 	printf("<p>Query returned %d rows.</p>", $result->num_rows);
 	
+	echo '<table width="100%">';
 	while ($row = $result->fetch_row()) {
+		echo '<tr>';
 		foreach ($row as $column) {
-			echo $column;
+			echo '<td>' . $column . '</td>';
 		}
-		echo '</br>';
+		echo '</tr>';
 	}
 	$result->close();
+	echo '</table>';
 	
  ?>
 		

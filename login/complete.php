@@ -7,20 +7,24 @@
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
 	
+	#
+	#
+	# Authentication
+	# --------------
+	#
 	$dbhandle = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
 	$dbhandle->connect();
-	
 	$sql = <<<EOD
 		SELECT * FROM User
 		WHERE userName='{$_POST["email"]}' AND userPassword='{$_POST["password"]}'
 EOD;
 	$result = $dbhandle->query($sql);
 	$row = $result->fetch_row();
-	if ($result) {
-		setcookie("USER", $row[1], 0, '/');
-	}
+	if ($result) { setcookie("USER", $row[1], 0, '/'); }
 	$result->close();
 	$dbhandle->disconnect();
+	#
+	# --
 	
  ?>
 

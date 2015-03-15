@@ -63,9 +63,4 @@ class PathDir
 	}
 }
 
-
 ?>
-
- 
- 
- 

@@ -25,81 +25,127 @@
 	PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
 	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
 	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
+	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'roster.css') );
  ?>
-    <link href="css/roster.css" rel="stylesheet" />
 	<meta name="keywords" content="MPC, SC2, MPCGaming.com"/>
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
 </head>
 
 <body>
 	<div class="container-fluid">
-		
 		<?php PrintNavbar("roster", $ROOT); ?>
-		
 	</div>
-    <div class="row">
-    </div>
-    <div class="row">
-            <div class="col-xs-5 well"> 
-                <br />
-                <div class="alias-default">
-            <?php
-        
-                $db = new dbutil (dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
-                $db->connect ();
-                $result = $db->query ("SELECT * FROM User");
-                echo ("<h3 style='color: black'>Search</h3>");
-                include('php/clanroster-srch.php');
-    $name = $_POST['search'];
-    //$query = "SELECT * FROM employees
-   // WHERE first_name LIKE '%{$name}%' OR last_name LIKE '%{$name}%'";
-
-    // Check connection
-    if (mysqli_connect_errno())
-      {
-      echo "Failed to connect to MySQL: " . mysqli_connect_error();
-      }
-
-$result = mysqli_query($con, "SELECT * FROM User
-    WHERE first_name LIKE '%{$name}%' OR last_name LIKE '%{$name}%'");
-
-while ($row = mysqli_fetch_array($result))
-{
-        echo $row['first_name'] . " " . $row['last_name'];
-        echo "<br>";
-}
-    mysqli_close($con); 
-                    ?>
-                </div>
-           </div>
-            <div class="col-xs-7 well">
-                <div id="dynamicinfo">
-                    <div class="row">
-                        <div class="col-xs-6 well">Player Alias</div>
-                        <div class="col-xs-6 well">Player Game(s)</div>
-                    </div>
-                    <div class="row">Player Profile Buttons</div>
-                    <div class="row">Player Group(s) / Clan(s) / Ranking(s)</div>
-                </div>            
-           </div>
-    </div>
-
-	<div id="wrapper" class="container">
-		
+	<div id="wrapper">	
 		<?php PrintSidebar("none", $ROOT); ?>
-	
-		<div id="page-content-wrapper">
-		
-			<h1>Members</h1>
-			
+		<div class="container" id="page-content-wrapper">
+			<div class="well rstr-srch-well">
+				<div class="row">
+					<h3 class="well-text">Search</h3>
+				</div>
+				<form role="form">
+					<div class="form-group">
+						<div class="input-group rstr-srch-input">
+							<span class="input-group-addon rstr-srch-label">Alias</span>
+							<input type="text" class="form-control" name="alias" id="alias" placeholder="Search by player alias..."/>				
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group rstr-srch-input">	
+							<span class="input-group-addon rstr-srch-label">Email</span>
+								<input type="text" class="form-control" name="email" id="email" placeholder="Search by player email..."/>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="input-group rstr-srch-input">
+							<span class="input-group-addon rstr-srch-label">Games</span>
+							<input type="text" class="form-control" name="games" id="games" placeholder="Search by player games..."/>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="well rstr-srch-well">
+				<h3 class="well-text">Results</h3>
+				<div title="helper">
+					<p class="well-text"> 
+We can use JavaScript and search already-loaded content, and use more JavaScript to manipulate the display as the text in the above inputs change.
+					</p>
+					<p class="well-text">
+						<h4 class="page-header" style="font-size:11pt; color:black">Here is an example:</h4>
+					</p>
+				</div>
+				<div id="search-results">
+					<!-- This section is populated by JavaScript -->
+					<div id="search-alias"> </div>
+					<div id="search-email"> </div>
+					<div id="search-games"> </div>
+				</div>
+			</div>
 		</div>
-	
 	</div>
-    <div class="container-fluid">
-		
+	<div class="container-fluid">
 		<?php PrintFooter($ROOT); ?>
-
 	</div>
-</body>
 
+		
+	<!-- Here is our JavaScript, loaded after the page loads -->
+	<script type="text/javascript">
+
+<?php
+	$db = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
+	$db->connect();
+	$sql = "SELECT userName FROM User";
+	$json = array();
+	$result = $db->query($sql);
+	while ($set = $result->fetch_row()) {
+		array_push($json, $set[0]); 
+	}
+	$db->disconnect();
+
+	echo 'var USERS = ', json_encode($json), ';';
+ ?>
+		
+		function filterusers(criteria) {
+			var regx = new RegExp(criteria);
+			var users = [];
+			var len = USERS.length;
+			for (var i=0; i < len; i++) {
+				var matched = USERS[i].toLowerCase().match(regx);
+				console.log(USERS[i] + "-" + matched + " (" + criteria + ")");
+				if (matched != null) {
+					users.push(USERS[i]);
+				}
+			}
+			return users;
+		}
+		
+		function update(category) {
+			switch (category) {
+				case "alias":
+					$('#search-alias').html("<p style='color:black'>" + "Alias-" + filterusers($('#alias').val()) + "</p>");
+					break;
+				case "email":				
+					$('#search-email').html("<p style='color:black'>" + "Email-" + filterusers($('#email').val()) + "</p>");
+					break;
+				case "games":				
+					$('#search-games').html("<p style='color:black'>" + "Games-" + filterusers($('#games').val()) + "</p>");					
+					break;
+			}
+		}
+		
+		/* Wait for document to load before referencing elements in JavaScript */
+		$( document ).ready( function () {
+		
+			$('#alias').keypress(function() {update("alias")});
+			$('#alias').change( function () {update("alias")});
+			
+			$('#email').keypress( function () {update("email")});
+			$('#email').change( function () {update("email")});
+			
+			$('#games').keypress( function () {update("games")});
+			$('#games').change( function () {update("games")});
+			
+		});
+		
+	</script>
+</body>
 </html>

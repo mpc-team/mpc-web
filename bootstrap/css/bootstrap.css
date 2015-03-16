@@ -1257,7 +1257,7 @@ dt {
 dd {
   margin-left: 0;
 }
-@media (min-width: 450px) {
+@media (min-width: 380px) {
   .dl-horizontal dt {
     float: left;
     width: 160px;
@@ -2421,7 +2421,7 @@ input[type="search"] {
   }
 }
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 .radio,
 .checkbox {
@@ -3305,7 +3305,7 @@ tbody.collapse.in {
   bottom: 100%;
   margin-bottom: 1px;
 }
-@media (min-width: 450px) {
+@media (min-width: 380px) {
   .navbar-right .dropdown-menu {
     left: auto;
     right: 0;
@@ -3485,6 +3485,7 @@ tbody.collapse.in {
 }
 .input-group {
   position: relative;
+	width: 100%;
   display: table;
   border-collapse: separate;
 }
@@ -3837,12 +3838,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
-@media (min-width: 450px) {
+@media (min-width: 380px) {
   .navbar {
     border-radius: 4px;
   }
 }
-@media (min-width: 450px) {
+@media (min-width: 380px) {
   .navbar-header {
     float: left;
   }
@@ -3857,7 +3858,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-collapse.in {
   overflow-y: auto;
 }
-@media (min-width: 450px) {
+@media (min-width: 380px) {
   .navbar-collapse {
     width: auto;
     border-top: 0;
@@ -3885,7 +3886,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-fixed-bottom .navbar-collapse {
   max-height: 340px;
 }
-@media (max-device-width: 450px) and (orientation: landscape) {
+@media (max-device-width: 380px) and (orientation: landscape) {
   .navbar-fixed-top .navbar-collapse,
   .navbar-fixed-bottom .navbar-collapse {
     max-height: 100px;
@@ -3898,7 +3899,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-right: -15px;
   margin-left: -15px;
 }
-@media (min-width: 450px) {
+@media (min-width: 380px) {
   .container > .navbar-header,
   .container-fluid > .navbar-header,
   .container > .navbar-collapse,
@@ -3911,7 +3912,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   z-index: 1000;
   border-width: 0 0 1px;
 }
-@media (min-width: 450px) {
+@media (min-width: 380px) {
   .navbar-static-top {
     border-radius: 0;
   }
@@ -3923,7 +3924,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   left: 0;
   z-index: 1030;
 }
-@media (min-width: 450px) {
+@media (min-width: 380px) {
   .navbar-fixed-top,
   .navbar-fixed-bottom {
     border-radius: 0;
@@ -3952,7 +3953,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand > img {
   display: block;
 }
-@media (min-width: 450px) {
+@media (min-width: 380px) {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
     margin-left: -15px;
@@ -3982,7 +3983,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 4px;
 }
-@media (min-width: 450px) {
+@media (min-width: 380px) {
   .navbar-toggle {
     display: none;
   }
@@ -4018,7 +4019,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     background-image: none;
   }
 }
-@media (min-width: 450px) {
+@media (min-width: 380px) {
   .navbar-nav {
     float: left;
     margin: 0;
@@ -4100,7 +4101,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     margin-bottom: 0;
   }
 }
-@media (min-width: 450px) {
+@media (min-width: 380px) {
   .navbar-form {
     width: auto;
     border: 0;
@@ -4139,14 +4140,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-top: 15px;
   margin-bottom: 15px;
 }
-@media (min-width: 450px) {
+@media (min-width: 380px) {
   .navbar-text {
     float: left;
     margin-left: 15px;
     margin-right: 15px;
   }
 }
-@media (min-width: 450px) {
+@media (min-width: 380px) {
   .navbar-left {
     float: left !important;
   }

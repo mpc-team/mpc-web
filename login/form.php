@@ -1,48 +1,47 @@
 <?php
-
-function PrintLoginForm ($root_path) {
+function PrintLoginForm ($root_path) 
+{
+	$LBL_EMAIL = 'Email:';
+	$LBL_PASSWORD = 'Password:';
+	$LBL_REMEMBER = ' Remember me';
+	$LBL_LOGIN = 'Login';
 
 	$signup_path = $root_path . '/login/signup/index.php';
-	$print = <<<EOD
+	$complete_path = $root_path . '/login/complete.php';
 	
-	<div class="login-form">
-		<h2 style="color: #fff">Login</h2>
-		<div class="form-group">
-		
-			<div class="row">
-				<div class="col-sm-2">
-					<label class="control-label col-sm-2" for="email"><h4>Email:</h4></label>
-				</div>
+	$print = <<<EOD
+	<div id="login-form">
+		<h2 style="color: #ffffff">Login</h2>	
+		<form class="form-horizontal" role="form" action='$complete_path' method='post'>
+			<div class="form-group login-form-group">
+				<label class="col-sm-2 control-label"><h5>$LBL_EMAIL</h5></label>
 				<div class="col-sm-10">
-					<input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+					<input type="email" class="form-control" name="email" id="email" placeholder="Email">
 				</div>
 			</div>
-			
-			<div class="row">
-				<div class="col-sm-2">
-					<label class="control-label col-sm-2" for="password"><h4>Password:</h4></label>
-				</div>      
+			<div class="form-group login-form-group">
+				<label class="col-sm-2 control-label"><h5>$LBL_PASSWORD</h5></label>
 				<div class="col-sm-10">          
-					<input type="password" name="password" class="form-control" id="password" placeholder="Enter password">
-				</div>      
+					<input type="password" name="password" class="form-control" id="password" placeholder="Pasword">
+				</div>   
 			</div>
-			
-			<div class="col-sm-offset-2 col-sm-10">
-				<div class="checkbox">
-					<label><input type="checkbox" name="remember"><h6>Remember me</h6></label>
+			<div class="form-group login-form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<label style="font-weight:normal; font-size:9pt;"> <input type="checkbox" name="remember"/>
+						$LBL_REMEMBER
+					</label>
 				</div>
 			</div>
-			
-			<div class="col-sm-offset-2 col-sm-10">
-				<input class="btn btn-success" type="submit" value="Login">
+			<div class="form-group login-form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<input type="submit" class="btn btn-success" value="$LBL_LOGIN">
+				</div>
 			</div>
-			
-		</div>
-		<small class="text-center">
+		</form>
+		<div class="text-center">	
 			<p>New Sign up? Please Click<a href="$signup_path"> Here</a></p>
-		</small>
+		</div>
 	</div>
-
 EOD;
 	echo $print;
 	

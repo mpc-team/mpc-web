@@ -1,4 +1,3 @@
-
 <?php
 	$ROOT = '../..';
 	include_once($ROOT . '/includes/pathdir.php');

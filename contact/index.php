@@ -1,8 +1,5 @@
-
 <?php
-
 	$ROOT = '..';
-	
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);

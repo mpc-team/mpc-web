@@ -1,7 +1,7 @@
 <?php 
 
-function PrintSidebar ($navbar_highlight, $root_path) {
-	
+function PrintSidebar ($navbar_highlight, $root_path) 
+{	
 	$active = "class='active'";
 	$unactive = "";
 	$signout = $root_path . '/login/signout.php';
@@ -16,12 +16,14 @@ EOD;
 	$navig = "<li {$class}><a href='#'>Overview</a></li>";
 	echo ($navig);
 	
-	if (isset($_COOKIE["USER"])) {
+	if (isset($_COOKIE["USER"])) 
+	{
 		echo '<li style="padding: 20px 0px;"></li>';
 		
 		$class = ($navbar_highlight == "signout") ? $active : $unactive;
 		$navig = "<li {$class}><a href='{$signout}'>Sign Out</a></li>";
-		echo ($navig);
+		echo ($navig);	
+		
 	}
 				
 	$print = '</ul></div>';

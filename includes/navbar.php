@@ -13,12 +13,10 @@
 #
 #############################################################################
 
-function PrintNavbar ($navbar_highlight, $root_path) {
-
-
+function PrintNavbar ($navbar_highlight, $root_path) 
+{
 	$active = "class='active'";
 	$unactive = "";
-	
 	
 	# ---------------- Print Header / Collapse Button ----------------
 	
@@ -42,10 +40,6 @@ EOD;
 	$path  = $root_path . '/index.php';
 	$navig = "<li {$class}> <a href='{$path}' class='navbar-brand'>MPC</a> </li>";
 	echo ($navig);
-
-
-
-
 
 
 	# ---------------- Print Standard Buttons ----------------
@@ -76,10 +70,6 @@ EOD;
 	echo $navig;
 	
 	
-	
-	
-	
-	
 	# ---------------- Print Login Button ----------------
 	
 	$print = <<<EOD
@@ -90,22 +80,21 @@ EOD;
 EOD;
 	echo $print;
 
-	if (isset($_COOKIE["USER"])) {
+	if (isset($_COOKIE["USER"])) 
+	{
 		$text = $_COOKIE["USER"];
 		$path = $root_path . '/profile/index.php';
 		$class = ($navbar_highlight == "profile") ? $active : $unactive;
 		$navig = "<li {$class}> <a class='logintext' href='{$path}'>{$text}</a></li>";
-	} else {
+	} 
+	else 
+	{
 		$text = "Login";
 		$path = $root_path . '/login/index.php';
 		$class = ($navbar_highlight == "login") ? $active : $unactive;
 		$navig = "<li {$class}> <a class='logintext' href='{$path}'>{$text}</a> </li>";
 	}	
 	echo $navig; 
-	
-	
-	
-	
 	
 	
 	# ---------------- Close HTML Tags ----------------
@@ -121,6 +110,7 @@ EOD;
 	
 	
 	
+	# ---------------- End Function ----------------
 	
 }
 

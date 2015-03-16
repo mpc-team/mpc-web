@@ -37,19 +37,10 @@
 		<?php PrintSidebar("overview", $ROOT); ?>
 	
 		<div id="page-content-wrapper">
+	
 			<h1>Alias</h1>
 			<p> <?php echo ($_COOKIE["USER"]); ?> </p>
-			
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+	
 		</div>
 	</div>
 	<div class="container-fluid">

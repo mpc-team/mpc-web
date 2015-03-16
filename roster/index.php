@@ -105,7 +105,7 @@ We can use JavaScript and search already-loaded content, and use more JavaScript
  ?>
 		
 		function filterusers(criteria) {
-			var regx = new RegExp(criteria);
+			var regx = new RegExp(criteria.toLowerCase());
 			var users = [];
 			var len = USERS.length;
 			for (var i=0; i < len; i++) {

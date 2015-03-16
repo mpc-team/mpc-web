@@ -7,9 +7,11 @@
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
 	
-	if (isset($_COOKIE["USER"])) { 
-		unset($_COOKIE["USER"]);
-		setcookie("USER", null, time()-3600, '/');
+	session_start();
+	
+	if (isset($_SESSION["USER"])) { 
+		session_unset();
+		session_destroy();
 		header("Location: {$ROOT}/login/index.php");
 	}
  ?>

@@ -6,6 +6,7 @@
 	include_once($ROOT . PathDir::$SIDEBAR);
 	include_once($ROOT . PathDir::$HTMLHEADER);
 	
+	session_start();
  ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -39,7 +40,7 @@
 		<div id="page-content-wrapper">
 	
 			<h1>Alias</h1>
-			<p> <?php echo ($_COOKIE["USER"]); ?> </p>
+			<p> <?php echo ($_SESSION["USER"]); ?> </p>
 	
 		</div>
 	</div>

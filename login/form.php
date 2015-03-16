@@ -1,18 +1,15 @@
 <?php
-function PrintLoginForm ($root_path) 
-{
+function PrintLoginForm ($root_path) {
 	$LBL_EMAIL = 'Email:';
 	$LBL_PASSWORD = 'Password:';
 	$LBL_REMEMBER = ' Remember me';
 	$LBL_LOGIN = 'Login';
-
-	$signup_path = $root_path . '/login/signup/index.php';
-	$complete_path = $root_path . '/login/complete.php';
-	
-	$print = <<<EOD
+	$SIGNUP = $root_path . '/login/signup/index.php';
+	$COMPLETE = $root_path . '/login/complete.php';
+	echo <<<EOD
 	<div id="login-form">
 		<h2 style="color: #ffffff">Login</h2>	
-		<form class="form-horizontal" role="form" action='$complete_path' method='post'>
+		<form class="form-horizontal" role="form" action='{$COMPLETE}' method='post'>
 			<div class="form-group login-form-group">
 				<label class="col-sm-2 control-label"><h5>$LBL_EMAIL</h5></label>
 				<div class="col-sm-10">
@@ -39,12 +36,10 @@ function PrintLoginForm ($root_path)
 			</div>
 		</form>
 		<div class="text-center">	
-			<p>New Sign up? Please Click<a href="$signup_path"> Here</a></p>
+			<p>New Sign up? Please Click<a href="{$SIGNUP}"> Here</a></p>
 		</div>
 	</div>
 EOD;
-	echo $print;
-	
 }
 
  ?>

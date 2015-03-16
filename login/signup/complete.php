@@ -8,7 +8,7 @@
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
 	
-	
+	session_start();
 	
 	// Authentication...
 	
@@ -36,18 +36,12 @@
 		$result = $dbhandle->query($sql);
 		if ($result) 
 		{
-		
 			$success = true;
-			setcookie("USER", $_POST["email"], 0, '/');
+			$_SESSION["USER"] = $_POST["email"];
+			session_write_close();
 			header("Location: {$ROOT}/profile/index.php");
-			
 		}
-	} 
-	if (!$success) {
-		
-		
-	}
-	
+	} 	
 	$dbhandle->disconnect();
 	
 	

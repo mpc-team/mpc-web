@@ -7,7 +7,8 @@
 	include_once($ROOT . PathDir::$LOGINFORM);
 	include_once($ROOT . PathDir::$HTMLHEADER);
 	
-	if (isset($_COOKIE["USER"])) {
+	session_start();
+	if (isset($_SESSION["USER"])) {
 		header("Location: {$ROOT}/profile/index.php");
 	}
  ?>

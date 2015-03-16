@@ -7,6 +7,7 @@
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
 	
+	session_start();
 	#
 	#
 	# Authentication
@@ -21,11 +22,8 @@ EOD;
 	$result = $dbhandle->query($sql);
 	$row = $result->fetch_row();
 	if ($result) { 
-		if ($_POST["remember"]) {
-			setcookie("USER", $row[1], time()+604800, '/');
-		} else { 
-			setcookie("USER", $row[1], 0, '/'); 
-		}
+		$_SESSION["USER"] = $row[1];
+		session_write_close();
 		header("Location: {$ROOT}/profile/index.php");
 	}
 	$result->close();

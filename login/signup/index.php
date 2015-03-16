@@ -10,6 +10,7 @@
 	include_once($ROOT . PathDir::$SIGNUPFORM);
 	include_once($ROOT . PathDir::$HTMLHEADER);
 	
+	session_start();
 	$IMG_BRAND = $ROOT . '/pics/mpcbrand.png';
  ?>
  

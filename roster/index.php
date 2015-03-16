@@ -121,29 +121,19 @@ We can use JavaScript and search already-loaded content, and use more JavaScript
 		function update(category) {
 			switch (category) {
 				case "alias":
-					$('#search-alias').html("<p style='color:black'>" + "Alias-" + filterusers($('#alias').val()) + "</p>");
-					break;
-				case "email":				
-					$('#search-email').html("<p style='color:black'>" + "Email-" + filterusers($('#email').val()) + "</p>");
-					break;
-				case "games":				
-					$('#search-games').html("<p style='color:black'>" + "Games-" + filterusers($('#games').val()) + "</p>");					
+					var users = filterusers($('#alias').val());
+					var str = '';
+					for (var i=0; i < users.length; i++) 
+						str = str + users[i] + '</br>';
+					$('#search-alias').html("<p style='color:black'>" + str + "</p>");
 					break;
 			}
 		}
 		
 		/* Wait for document to load before referencing elements in JavaScript */
 		$( document ).ready( function () {
-		
 			$('#alias').keypress(function() {update("alias")});
 			$('#alias').change( function () {update("alias")});
-			
-			$('#email').keypress( function () {update("email")});
-			$('#email').change( function () {update("email")});
-			
-			$('#games').keypress( function () {update("games")});
-			$('#games').change( function () {update("games")});
-			
 		});
 		
 	</script>

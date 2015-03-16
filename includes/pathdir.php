@@ -14,7 +14,7 @@ class PathDir
 	# PHP Scripts
 	public static $FOOTER     = '/includes/footer.php';
 	public static $NAVBAR     = '/includes/navbar.php';
-	public static $SIDEBAR    = '/includes/sidebar.php';
+	public static $SIDEBAR    = '/profile/includes/sidebar.php';
 	
 	public static $LOGINFORM  = '/login/form.php';
 	public static $SIGNUPFORM = '/login/signup/form.php';

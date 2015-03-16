@@ -1,11 +1,9 @@
 <?php
-
 	$ROOT = '..';
-	
 	include_once($ROOT . '/includes/pathdir.php');
+	include_once($ROOT . '/roster/includes/sidebar.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
-	include_once($ROOT . PathDir::$SIDEBAR);
 	include_once($ROOT . PathDir::$HTMLHEADER);
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
@@ -37,7 +35,7 @@
 		<?php PrintNavbar("roster", $ROOT); ?>
 	</div>
 	<div id="wrapper">	
-		<?php PrintSidebar("none", $ROOT); ?>
+		<?php PrintSidebar("members", $ROOT); ?>
 		<div class="container" id="page-content-wrapper">
 			<div class="well rstr-srch-well">
 				<div class="row">

@@ -1,7 +1,5 @@
 <?php
-
 	$ROOT = '../..';
-
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$HTMLHEADER);

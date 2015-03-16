@@ -13,6 +13,8 @@
 		session_unset();
 		session_destroy();
 		header("Location: {$ROOT}/login/index.php");
+	} else {
+		header("Location: {$ROOT}/index.php");
 	}
  ?>
 

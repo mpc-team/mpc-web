@@ -62,14 +62,8 @@
                 $db = new dbutil (dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
                 $db->connect ();
                 $result = $db->query ("SELECT * FROM User");
-                CREATE TABLE Persons
-                (
-                PersonID int,
-                LastName varchar(255),
-                FirstName varchar(255),
-                Address varchar(255),
-                City varchar(255)
-                );
+            
+                include('php/clanroster-srch.php');
                     ?>
                 </div>
            </div>

@@ -1,4 +1,3 @@
-
 <?php
 
 class dbinfo 
@@ -9,5 +8,4 @@ class dbinfo
 	public static $NAME = "clanmpc";
 }
 
-?>
-
+ ?>

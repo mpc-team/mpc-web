@@ -1,10 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
- 
-<head>
 <?php
-
 	$ROOT = '..';
 
 	include_once($ROOT . '/includes/pathdir.php');
@@ -13,7 +7,39 @@
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
 	
+	#
+	#
+	# Authentication
+	# --------------
+	#
+	$dbhandle = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
+	$dbhandle->connect();
+	$sql = <<<EOD
+		SELECT * FROM User
+		WHERE userName='{$_POST["email"]}' AND userPassword='{$_POST["password"]}'
+EOD;
+	$result = $dbhandle->query($sql);
+	$row = $result->fetch_row();
+	if ($result) { 
+		if ($_POST["remember"]) {
+			setcookie("USER", $row[1], time()+604800, '/');
+		} else { 
+			setcookie("USER", $row[1], 0, '/'); 
+		}
+		header("Location: {$ROOT}/profile/index.php");
+	}
+	$result->close();
+	$dbhandle->disconnect();
+	#
+	# --
+	
  ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+ 
+<head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>Miacro Power Clan - MPC Gaming.com</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -29,34 +55,12 @@
 </head>
 <body>
 	<div class="container">
-	
 		<div class="page-header text-center">
+		
 			<h1>Login Processing...</h1>
+			
 		</div>
-		
-		<div class="text-center">
-		
-<?php
-	$dbhandle = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
-	$dbhandle->connect();
-	
-	$sql = <<<EOD
-		SELECT * FROM User
-		WHERE userName='{$_POST["email"]}' AND userPassword='{$_POST["password"]}'
-EOD;
-	$result = $dbhandle->query($sql);
-	$row = $result->fetch_row();
-	if ($result) {
-		setcookie("USER", $row[1], 0, '/');
-	}
-	$result->close();
-	$dbhandle->disconnect();
-	
- ?>
-
-		</div>		
 	</div>
-		
 	<div class="container-fluid">
 	
 		<?php PrintFooter($ROOT); ?>

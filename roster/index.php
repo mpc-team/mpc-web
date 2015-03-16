@@ -110,7 +110,6 @@ We can use JavaScript and search already-loaded content, and use more JavaScript
 			var len = USERS.length;
 			for (var i=0; i < len; i++) {
 				var matched = USERS[i].toLowerCase().match(regx);
-				console.log(USERS[i] + "-" + matched + " (" + criteria + ")");
 				if (matched != null) {
 					users.push(USERS[i]);
 				}

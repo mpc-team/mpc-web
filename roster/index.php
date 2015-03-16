@@ -104,9 +104,8 @@ We can use JavaScript and search already-loaded content, and use more JavaScript
 		 ?>
 		
 		//wait for document to load before referencing page elements
-		$( document ).ready( function () {
-			$('#alias').keypress(function() { update("alias", userList) });
-			$('#alias').change( function () { update("alias", userList) });
+		$( document ).ready(function() {
+			$('#alias').keyup(function() { update("alias", userList) });
 		});
 	</script>
 </body>

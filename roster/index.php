@@ -37,6 +37,53 @@
 		<?php PrintNavbar("roster", $ROOT); ?>
 		
 	</div>
+    <div class="row">
+    </div>
+    <div class="row">
+            <div class="col-xs-5 well"> 
+                <br />
+                <div class="alias-default">
+            <?php
+        
+                $db = new dbutil (dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
+                $db->connect ();
+                $result = $db->query ("SELECT * FROM User");
+                echo ("<h3 style='color: black'>Search</h3>");
+                include('php/clanroster-srch.php');
+    $name = $_POST['search'];
+    //$query = "SELECT * FROM employees
+   // WHERE first_name LIKE '%{$name}%' OR last_name LIKE '%{$name}%'";
+
+    // Check connection
+    if (mysqli_connect_errno())
+      {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+      }
+
+$result = mysqli_query($con, "SELECT * FROM User
+    WHERE first_name LIKE '%{$name}%' OR last_name LIKE '%{$name}%'");
+
+while ($row = mysqli_fetch_array($result))
+{
+        echo $row['first_name'] . " " . $row['last_name'];
+        echo "<br>";
+}
+    mysqli_close($con); 
+                    ?>
+                </div>
+           </div>
+            <div class="col-xs-7 well">
+                <div id="dynamicinfo">
+                    <div class="row">
+                        <div class="col-xs-6 well">Player Alias</div>
+                        <div class="col-xs-6 well">Player Game(s)</div>
+                    </div>
+                    <div class="row">Player Profile Buttons</div>
+                    <div class="row">Player Group(s) / Clan(s) / Ranking(s)</div>
+                </div>            
+           </div>
+    </div>
+
 	<div id="wrapper" class="container">
 		
 		<?php PrintSidebar("none", $ROOT); ?>

@@ -87,53 +87,27 @@ We can use JavaScript and search already-loaded content, and use more JavaScript
 
 		
 	<!-- Here is our JavaScript, loaded after the page loads -->
+	<script src="./includes/js/util.js" type="text/javascript"></script>
 	<script type="text/javascript">
-
-<?php
-	$db = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
-	$db->connect();
-	$sql = "SELECT userName FROM User";
-	$json = array();
-	$result = $db->query($sql);
-	while ($set = $result->fetch_row()) {
-		array_push($json, $set[0]); 
-	}
-	$db->disconnect();
-
-	echo 'var USERS = ', json_encode($json), ';';
- ?>
-		
-		function filterusers(criteria) {
-			var regx = new RegExp(criteria.toLowerCase());
-			var users = [];
-			var len = USERS.length;
-			for (var i=0; i < len; i++) {
-				var matched = USERS[i].toLowerCase().match(regx);
-				if (matched != null) {
-					users.push(USERS[i]);
-				}
+		<?php
+			$db = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
+			$db->connect();
+			$sql = "SELECT userName FROM User";
+			$json = array();
+			$result = $db->query($sql);
+			while ($set = $result->fetch_row()) {
+				array_push($json, $set[0]); 
 			}
-			return users;
-		}
+			$db->disconnect();
+
+			echo 'var userList = ', json_encode($json), ';';
+		 ?>
 		
-		function update(category) {
-			switch (category) {
-				case "alias":
-					var users = filterusers($('#alias').val());
-					var str = '';
-					for (var i=0; i < users.length; i++) 
-						str = str + users[i] + '</br>';
-					$('#search-alias').html("<p style='color:black'>" + str + "</p>");
-					break;
-			}
-		}
-		
-		/* Wait for document to load before referencing elements in JavaScript */
+		//wait for document to load before referencing page elements
 		$( document ).ready( function () {
-			$('#alias').keypress(function() {update("alias")});
-			$('#alias').change( function () {update("alias")});
+			$('#alias').keypress(function() { update("alias", userList) });
+			$('#alias').change( function () { update("alias", userList) });
 		});
-		
 	</script>
 </body>
 </html>

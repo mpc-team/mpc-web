@@ -41,23 +41,7 @@
     <div class="row">
     </div>
     <div class="row">
-            <div class="col-xs-3 well">
-                <div id="search-btn">
-                    <div class="btn-group">
-                        <button class="btn btn-success dropdown-toggle" type="button" id="searchbypub" data-toggle="dropdown" aria-expanded="false">
-                            Search
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="searchbypub">
-                            <li role="presentation" class="dropdown-header">Search By:</li>
-                            <li role="presentation" class="divider"></li>
-                            <li role="presentation"><a href="games.php" role="menuitem" tabindex="-1">Game</a></li>
-                            <li role="presentation"><a href="mpcid.php" role="menuitem" tabindex="-1">MPC ID</a></li>
-                            <li role="presentation"><a href="emailad.php" role="menuitem" tabindex="-1">Email Address</a></li>
-                            <li role="presentation"><a href="clan-name-or-id.php" role="menuitem" tabindex="-1">Clan Name/ID</a></li>
-                        </ul>
-                     </div>  
-                </div> 
+            <div class="col-xs-5 well"> 
                 <br />
                 <div class="alias-default">
             <?php
@@ -65,19 +49,38 @@
                 $db = new dbutil (dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
                 $db->connect ();
                 $result = $db->query ("SELECT * FROM User");
-            
+                echo ("<h3 style='color: black'>Search</h3>");
                 include('php/clanroster-srch.php');
+    $name = $_POST['search'];
+    //$query = "SELECT * FROM employees
+   // WHERE first_name LIKE '%{$name}%' OR last_name LIKE '%{$name}%'";
+
+    // Check connection
+    if (mysqli_connect_errno())
+      {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+      }
+
+$result = mysqli_query($con, "SELECT * FROM User
+    WHERE first_name LIKE '%{$name}%' OR last_name LIKE '%{$name}%'");
+
+while ($row = mysqli_fetch_array($result))
+{
+        echo $row['first_name'] . " " . $row['last_name'];
+        echo "<br>";
+}
+    mysqli_close($con); 
                     ?>
                 </div>
            </div>
-            <div class="col-xs-9 well">
+            <div class="col-xs-7 well">
                 <div id="dynamicinfo">
                     <div class="row">
-                        <div class="col-xs-6 well"></div>
-                        <div class="col-xs-6 well"></div>
+                        <div class="col-xs-6 well">Player Alias</div>
+                        <div class="col-xs-6 well">Player Game(s)</div>
                     </div>
-                    <div class="well"></div>
-                    <div class="well"></div>
+                    <div class="row">Player Profile Buttons</div>
+                    <div class="row">Player Group(s) / Clan(s) / Ranking(s)</div>
                 </div>            
            </div>
     </div>

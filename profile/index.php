@@ -45,16 +45,17 @@
 				
 				$sql = "SELECT userID FROM User WHERE userName='{$user}'";
 				$result = $db->query($sql);
-				$id = $result->fetch_row()[0];
+				$row = $result->fetch_row();
+				$id = $row[0];
 				$result->close();
 				
 				$sql="SELECT userAlias FROM UserAlias WHERE userID={$id}";
 				$result=$db->query($sql);
-				$alias = $result->fetch_row()[0];
+				$row = $result->fetch_row();
+				$alias = $row[0];
 				$result->close();
-	
 				$db->disconnect();
-			
+				
 				echo "<h1>{$alias}</h1>";
 				echo "<p>{$user}</p>";
 			 ?>

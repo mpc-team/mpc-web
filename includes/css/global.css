@@ -21,4 +21,6 @@ h1, h2, h3, h4, h5, h6, p, label, li { color: #ffffff; }
 .login-form-group { margin-bottom: 15px; }
 
 p { margin-bottom: 0px; }
+
+.well label,
 .form-group p { padding-top: 10px; }

@@ -7,8 +7,10 @@ body
 	background-color: #151515; 
 }
 
-h1, h2, h3, h4, h5, h6, p, label { color: #ffffff; }
+h1, h2, h3, h4, h5, h6, p, label, li { color: #ffffff; }
 #navbar-copyright { padding: 20px; color: #888888; }
-#mpclogo-img{ height: 300px; width: 600px; }
+#mpclogo-img{ height: 300px; width: 600px;}
+/*contact/index.php logo */
+#contactlogo{ height: auto; width: auto; margin-top: 75px;}
 
 .login-form-group { margin-bottom: 15px; }

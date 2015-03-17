@@ -36,11 +36,11 @@
 	</div>
     <div class="row">
     </div>
-    <div class="row">
+    <!--<div class="row">
             <div class="col-xs-5 well"> 
                 <br />
                 <div class="alias-default">
-            <?php
+            <php
         
                 $db = new dbutil (dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
                 $db->connect ();
@@ -60,7 +60,7 @@
                     <div class="row">Player Group(s) / Clan(s) / Ranking(s)</div>
                 </div>            
            </div>
-    </div>
+    </div>-->
 
 	<div id="wrapper" class="container">
 		

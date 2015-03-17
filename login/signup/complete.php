@@ -27,7 +27,8 @@
 		}
 		$result->close();
 		
-		$sql = "INSERT INTO User VALUES ({$id}, '{$_POST["email"]}', '{$_POST["password"]}')";
+		$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+		$sql = "INSERT INTO User VALUES ({$id}, '{$_POST["email"]}', '{$password}')";
 		$result = $dbhandle->query($sql);
 		if ($result) {
 			$sql = "INSERT INTO UserAlias VALUES ({$id}, '{$_POST["alias"]}')";

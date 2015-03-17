@@ -1,11 +1,11 @@
 <?php
-function PrintLoginForm ($root_path) {
+function PrintLoginForm ($root) {
 	$LBL_EMAIL = 'Email:';
 	$LBL_PASSWORD = 'Password:';
 	$LBL_REMEMBER = ' Remember me';
 	$LBL_LOGIN = 'Login';
-	$SIGNUP = $root_path . '/login/signup/index.php';
-	$COMPLETE = $root_path . '/login/complete.php';
+	$SIGNUP = $root . '/login/signup/index.php';
+	$COMPLETE = $root . '/login/complete.php';
 	echo <<<EOD
 	<div id="login-form">
 		<h2 style="color: #ffffff">Login</h2>	

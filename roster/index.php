@@ -10,10 +10,8 @@
 	
 	session_start();
  ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>Miacro Power Clan - MPC Gaming.com</title>
@@ -29,7 +27,6 @@
 	<meta name="keywords" content="MPC, SC2, MPCGaming.com"/>
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
 </head>
-
 <body>
 	<div class="container-fluid">
 		<?php PrintNavbar("roster", $ROOT); ?>
@@ -38,9 +35,7 @@
 		<?php PrintSidebar("members", $ROOT); ?>
 		<div class="container" id="page-content-wrapper">
 			<div class="well rstr-srch-well">
-				<div class="row">
-					<h3 class="well-text">Search</h3>
-				</div>
+				<h3 class="well-text">Search</h3>
 				<form role="form">
 					<div class="form-group">
 						<div class="input-group rstr-srch-input">

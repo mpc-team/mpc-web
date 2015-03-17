@@ -8,6 +8,7 @@
 	include_once($ROOT . PathDir::$DB);
 	
 	session_start();
+	
 	if (!isset($_SESSION["USER"])) {
 		header("Location: {$ROOT}/login/index.php");
 	} else {
@@ -418,15 +419,15 @@
 						<div class="row" style="width:80%">
 							<div class="col-xs-10 col-xs-offset-2">
 								<div class="input-group">
-									<span class="input-group-addon" style="width:150px;" id="sizing-addon2">Steam</span>
+									<span class="input-group-addon" style="width:100px;" id="sizing-addon2">Steam</span>
 									<input type="text" class="form-control" placeholder="Steam Name" aria-describedby="sizing-addon2">
 								</div>
 								<div class="input-group">
-									<span class="input-group-addon" style="width:150px;" id="sizing-addon2">Battle.net</span>
+									<span class="input-group-addon" style="width:100px;" id="sizing-addon2">Battle.net</span>
 									<input type="email" class="form-control" placeholder="Email" aria-describedby="sizing-addon2">
 								</div>
 								<div class="input-group">
-									<span class="input-group-addon" style="width:150px;" id="sizing-addon2">Origin</span>
+									<span class="input-group-addon" style="width:100px;" id="sizing-addon2">Origin</span>
 									<input type="email" class="form-control" placeholder="Email" aria-describedby="sizing-addon2">
 								</div>
 							</div>

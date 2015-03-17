@@ -23,7 +23,7 @@
 	PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
 	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
 	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
-	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'roster.css') );
+	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'roster.css') );3
  ?>
 	<meta name="keywords" content="MPC, SC2, MPCGaming.com"/>
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
@@ -59,20 +59,21 @@
 				</form>
 			</div>
 			<div class="well rstr-srch-well">
-				<h3 class="well-text">Results</h3>
-				<div title="helper">
-					<p class="well-text"> 
-We can use JavaScript and search already-loaded content, and use more JavaScript to manipulate the display as the text in the above inputs change.
-					</p>
-					<p class="well-text">
-						<h4 class="page-header" style="font-size:11pt; color:black">Here is an example:</h4>
-					</p>
-				</div>
-				<div id="search-results">
-					<!-- This section is populated by JavaScript -->
-					<div id="search-alias"> </div>
-					<div id="search-email"> </div>
-					<div id="search-games"> </div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="well-text">Results</h3>
+					</div>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Email</th>
+								<th>Alias</th>
+							</tr>
+						</thead>
+						<tbody id="search-results">
+							<!-- This section is modified by JavaScript -->
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
@@ -92,7 +93,7 @@ We can use JavaScript and search already-loaded content, and use more JavaScript
 		 ?>
 		//wait for document to load before referencing page elements
 		$( document ).ready(function() {
-			$('#email').keyup(function() { update("email", userList) });
+			$('#email').keyup(function() { update(userList) });
 		});
 	</script>
 </body>

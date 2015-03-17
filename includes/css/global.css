@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6, p, label, li { color: #ffffff; }
 #mpclogo-img{ height: 300px; width: 600px;}
 
 /* Padding & Margins */
-#contactlogo{ height: auto; width: auto; margin-top: 75px;}
+#contactlogo{ height: 100%; width: 100%; }
 #navbar-copyright { padding: 20px; }
 
 .login-form-group { margin-bottom: 15px; }

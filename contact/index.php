@@ -28,20 +28,19 @@
 		<?php PrintNavbar("contact", $ROOT); ?>
 	</div>	
 	<div class="container">
+		<div class="page-header">
+			<div class="row">
+				<h1>Contact Us!</h1>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-xs-4">
 				<img src="../pics/mpclogo.png" alt="mpclogo.png" class="img-responsive" id="contactlogo" />
 			</div>
 			<div class="col-xs-8">
-				<div class="page-header">
-					<h3>Contact Us!</h3>
-				</div>
 				<small class="pull-right">
-					<p>We want to hear from you!</p>
-				</small>
-				</br>
-				<small class="pull-right">
-					<p>We would love to hear from you. Don't be afraid to interact with MPC's admin board for an  y particular reasons such as: suggestions, reporting, comments, testimonials, events, tournaments, clan wars, clan try-outs, or to simply say hello. We promise we will accept who you are, and don't be afraid to speak up a few words, so we then can be gladly to respond.</p>
+					<p>We want to hear from you!</p> </br>
+					<p>We would not love to hear from you. Be afraid to interact with MPC's admin board for any particular reasons such as: suggestions, reporting, comments, testimonials, events, tournaments, clan wars, clan try-outs, or to simply say hello.</p>
 				</small>
 			</div>
 		</div>
@@ -51,18 +50,7 @@
 					<h3>How to get ahold of us?</h3>
 				</div>
 				<ul class="list-group">
-					<li role="presentation">Use our Chat System, and when an operator is present.(Bottom of screen)</li>
-					<li role="presentation">Send us an Email.</li>
-					<li role="presentation">Send a Personal Message through MPCgaming.com</li>
-					<li role="presentation">Click on a support ticket.</li>
-				</ul>
-			</div>
-			<div class="col-xs-4">
-				<ul class="list-group">
-					<li class="list-group-item list-group-item-success">Send us an Email</li>
-					<li class="list-group-item list-group-item-success">Report a Player</li>
-					<li class="list-group-item list-group-item-success">Send a P.M. to the Officers</li>
-					<li class="list-group-item list-group-item-success">Support Ticket for Technical Help</li>
+					<li role="presentation">Use our Chat System that doesn't exist.</li>
 				</ul>
 			</div>
 		</div>

@@ -1,8 +1,5 @@
-
 <?php
-
 	$ROOT = '../..';
-
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
@@ -10,6 +7,7 @@
 	include_once($ROOT . PathDir::$SIGNUPFORM);
 	include_once($ROOT . PathDir::$HTMLHEADER);
 	
+	session_start();
 	$IMG_BRAND = $ROOT . '/pics/mpcbrand.png';
  ?>
  

@@ -1,4 +1,3 @@
-
 <?php
 	$ROOT = '..';
 	include_once($ROOT . '/includes/pathdir.php');
@@ -7,7 +6,8 @@
 	include_once($ROOT . PathDir::$LOGINFORM);
 	include_once($ROOT . PathDir::$HTMLHEADER);
 	
-	if (isset($_COOKIE["USER"])) {
+	session_start();
+	if (isset($_SESSION["USER"])) {
 		header("Location: {$ROOT}/profile/index.php");
 	}
  ?>
@@ -29,32 +29,17 @@
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
 </head>
 <body>
-
 	<div class="container-fluid">
-	
 		<?php PrintNavbar("login", $ROOT); ?>
-		
 	</div>
-		
 	<div class="container">
-		<form role="form" action="complete.php" method="post">
-			<div class="row">
-				<div class="col-md-8">
-				
-					<img src="../pics/mpclogo.png" class="img-responsive" alt="mpclogo.png"/>
-					<?php PrintLoginForm($ROOT); ?> 
-					
-				</div>
-			</div>
-		</form>
+		<div class="col-md-8">
+			<img src="../pics/mpclogo.png" class="img-responsive" alt="mpclogo.png"/>
+			<?php PrintLoginForm($ROOT); ?> 
+		</div>
 	</div>
-
 	<div class="container-fluid">
-	
 		<?php PrintFooter($ROOT); ?>
-		
 	</div>
-
 </body>
-
 </html>

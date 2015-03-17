@@ -7,17 +7,18 @@
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
 	
-	if (isset($_COOKIE["USER"])) { 
-		unset($_COOKIE["USER"]);
-		setcookie("USER", null, time()-3600, '/');
+	session_start();
+	
+	if (isset($_SESSION["USER"])) { 
+		session_unset();
+		session_destroy();
 		header("Location: {$ROOT}/login/index.php");
+	} else {
+		header("Location: {$ROOT}/index.php");
 	}
  ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
- 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>Miacro Power Clan - MPC Gaming.com</title>
@@ -34,18 +35,11 @@
 <body>
 	<div class="container">
 		<div class="page-header text-center">
-		
 			<h1>Signout Processing...</h1>
-			
 		</div>
 	</div>
-		
 	<div class="container-fluid">
-	
 		<?php PrintFooter($ROOT); ?>
-	
 	</div>
-
 </body>
-
 </html>

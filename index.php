@@ -1,19 +1,16 @@
-	
 <?php
 	/* The ROOT should be specified on ALL pages. We don't seem to have
 		access to know what the ROOT folder is by conventional PHP (due to server situation).
 		
 		For single-nested folders, ".." is the root. For double-nested, "../..", and so on. */
-		
 	$ROOT = '.';
-	
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$HTMLHEADER);
 
+	session_start();
  ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 

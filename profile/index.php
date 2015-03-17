@@ -1,13 +1,19 @@
 <?php
 	$ROOT = '..';
 	include_once($ROOT . '/includes/pathdir.php');
+	include_once($ROOT . '/profile/includes/sidebar.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
-	include_once($ROOT . PathDir::$SIDEBAR);
 	include_once($ROOT . PathDir::$HTMLHEADER);
+	include_once($ROOT . PathDir::$DB_UTILITY);
+	include_once($ROOT . PathDir::$DB_INFO);
 	
+	session_start();
+	
+	if (!isset($_SESSION["USER"])) {
+		header("Location: {$ROOT}/login/index.php");
+	}
  ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -26,36 +32,35 @@
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
 </head>
 <body>
-	
 	<div class="container-fluid">
-	
 		<?php PrintNavbar("profile", $ROOT); ?>
-		
 	</div>
 	<div id="wrapper" class="container">
-	
 		<?php PrintSidebar("overview", $ROOT); ?>
-	
 		<div id="page-content-wrapper">
-			<h1>Alias</h1>
-			<p> <?php echo ($_COOKIE["USER"]); ?> </p>
+			<?php
+				$db = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
+				$db->connect();
+				$user = $_SESSION["USER"];
+				
+				$sql = "SELECT userID FROM User WHERE userName='{$user}'";
+				$result = $db->query($sql);
+				$id = $result->fetch_row()[0];
+				$result->close();
+				
+				$sql="SELECT userAlias FROM UserAlias WHERE userID={$id}";
+				$result=$db->query($sql);
+				$alias = $result->fetch_row()[0];
+				$result->close();
+	
+				$db->disconnect();
 			
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-			</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+				echo "<h1>{$alias}</h1>";
+				echo "<p>{$user}</p>";
+			 ?>
 		</div>
 	</div>
 	<div class="container-fluid">
-	
 		<?php PrintFooter($ROOT); ?>
-	
 	</div>
-	
 </body>

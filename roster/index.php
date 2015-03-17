@@ -50,12 +50,6 @@
 								<input type="text" class="form-control" name="email" id="email" placeholder="Search by player email..."/>
 						</div>
 					</div>
-					<div class="form-group">
-						<div class="input-group rstr-srch-input">
-							<span class="input-group-addon rstr-srch-label">Games</span>
-							<input type="text" class="form-control" name="games" id="games" placeholder="Search by player games..."/>
-						</div>
-					</div>
 				</form>
 			</div>
 			<div class="well rstr-srch-well">

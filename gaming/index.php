@@ -3,7 +3,7 @@
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
-	include_once($ROOT . PathDir::$HTMLHEADER);
+	include_once($ROOT . PathDir::$HEADER);
 	
 	session_start();
  ?>

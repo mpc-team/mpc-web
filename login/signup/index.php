@@ -5,10 +5,14 @@
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$LOGINFORM);
 	include_once($ROOT . PathDir::$SIGNUPFORM);
-	include_once($ROOT . PathDir::$HTMLHEADER);
+	include_once($ROOT . PathDir::$HEADER);
+	
+	$IMG_BRAND = $ROOT . '/pics/mpcbrand.png';
 	
 	session_start();
-	$IMG_BRAND = $ROOT . '/pics/mpcbrand.png';
+	if (isset($_SESSION["USER"])) {
+		header("Location: {$ROOT}/profile/index.php");
+	}
  ?>
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -28,37 +32,23 @@
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
 </head>
 <body>
-
-	 
 	<div class="container-fluid">
-	
 		<?php PrintNavbar("index", $ROOT); ?>
-		
 	</div>
-
 	<div class="container">
 		<form role="form" action="complete.php" method="post">
 			<div class="row">
 				<div class="col-xs-6">
-			
 					<?php PrintSignupForm($ROOT); ?>
-			
-				</div>
-				
-				<div class="col-xs-6">
-			
-					<?php echo "<img src='$IMG_BRAND' class='img-rounded' width='350px' height='350px'>"; ?>
-					
+				</div>	
+				<div class="col-xs-6">			
+					<?php echo "<img src='$IMG_BRAND' class='img-rounded' width='350px' height='350px'>"; ?>					
 				</div>
 			</div>
 		</form>
-	</div>
-	
-	<div class="container-fluid">
-	
+	</div>	
+	<div class="container-fluid">	
 		<?php PrintFooter($ROOT); ?>
-
 	</div>
 </body>
-
 </html>

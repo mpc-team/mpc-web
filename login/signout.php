@@ -2,19 +2,19 @@
 	$ROOT = '..';
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$FOOTER);
-	include_once($ROOT . PathDir::$HTMLHEADER);
+	include_once($ROOT . PathDir::$HEADER);
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
 	
 	session_start();
 	
+	$header = "Location: {$ROOT}/index.php"; 
 	if (isset($_SESSION["USER"])) { 
 		session_unset();
 		session_destroy();
-		header("Location: {$ROOT}/login/index.php");
-	} else {
-		header("Location: {$ROOT}/index.php");
-	}
+		$header = "Location: {$ROOT}/login/index.php";
+	} 
+	header( $header );
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"> 

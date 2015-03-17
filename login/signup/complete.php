@@ -2,55 +2,30 @@
 	$ROOT = '../..';
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$FOOTER);
-	include_once($ROOT . PathDir::$HTMLHEADER);
+	include_once($ROOT . PathDir::$HEADER);
+	include_once($ROOT . PathDir::$DB);
+	include_once($ROOT . PathDir::$AUTHENTICATE);
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
-	include_once($ROOT . PathDir::$PASSHASH);
 	
-	session_start();
+	$email = $_POST['email'];
+	$password = $_POST['password'];
 	
-	$dbhandle = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
-	$dbhandle->connect();
-	$sql = "SELECT * FROM User WHERE userName='{$_POST["email"]}'";
-	$result = $dbhandle->query($sql);
-	if ($result->num_rows > 0) {
-		$adduser = false;
-	} else {
-		$adduser = true;
-	}
-	$result->close();
-	$success = false;
-	if ($adduser) {
-		$sql = "SELECT userID FROM User ORDER BY userID DESC LIMIT 0, 1";
-		$result = $dbhandle->query($sql);
-		if ($result) {
-			$row = $result->fetch_assoc();
-			$id = $row['userID'] + 1;
-		} else {
-			$id = 1;
-		}
-		$result->close();
-		$hasher = new PasswordHash(8,FALSE);
-		$hash = $hasher->HashPassword($_POST["password"]);
-		$sql = "INSERT INTO User VALUES ({$id}, '{$_POST["email"]}', '{$hash}')";
-		$result = $dbhandle->query($sql);
-		if ($result) {
-			$success = true;
-			$sql = "SELECT userPassword FROM User WHERE userID={$id}";
-			$result = $dbhandle->query($sql);
-			$row = $result->fetch_assoc();
-			$passhash = $row['userPassword'];
-			$sql = "INSERT INTO UserAlias VALUES ({$id}, '{$_POST["alias"]}')";
-			$result = $dbhandle->query($sql);
-			$_SESSION["USER"] = $_POST["email"];
+	$db = DB_CreateDefault();
+	$db->connect();
+	$header = "Location: {$ROOT}/login/signup/index.php";
+	if (!DB_UserExists($db, $email)) {
+		$id = DB_GetNewUserID($db);
+		$hash = ProtectPassword($password);
+		if (DB_CreateNewUser($db, $id, $email, $hash)) {
+			session_start();
+			$_SESSION["USER"] = $email;
 			session_write_close();
-			header("Location: {$ROOT}/profile/index.php");
+			$header = "Location: {$ROOT}/profile/index.php";
 		}
 	} 
-	$dbhandle->disconnect();
-	if (!$success) { 
-		header("Location: {$ROOT}/login/signup/index.php");
-	}
+	$db->disconnect();
+	header($header);
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -73,9 +48,5 @@
 			<h1>Signup Processing...</h1>
 		</div> 
 	</div>
-	<div class="container-fluid">
-		<?php PrintFooter($ROOT); ?>
-	</div>
 </body>
-
 </html>

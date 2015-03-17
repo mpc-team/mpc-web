@@ -7,7 +7,7 @@
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
-	include_once($ROOT . PathDir::$HTMLHEADER);
+	include_once($ROOT . PathDir::$HEADER);
 
 	session_start();
  ?>
@@ -27,41 +27,28 @@
 	<meta name="keywords" content="MPC, SC2, MPCGaming.com"/>
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
 </head>
-
 <body>
-	
-
-	<div class="container-fluid">
-	
-		<?php PrintNavbar("index", $ROOT); ?>
-		
+	<div class="container-fluid">	
+		<?php PrintNavbar("index", $ROOT); ?>		
 	</div>
-
 	<div class="container">
         <div class="row">
             <div class="col-md-8">
-
                 <img src="pics/mpclogo.png" class="img-responsive" alt="mpclogo.png" />			
-
             </div>
             <div class="col-md-4">
                 <div class="well well-sm">
                     <div class="page-header text-center">
                         <h1 style="color: #000000">
-
                             Website Under Construction
-
                         </h1>
                     </div>
                 </div>
             </div>
         </div>
-	</div>
-	
-	<div class="container-fluid">
-	
-		<?php PrintFooter($ROOT); ?>
-		
+	</div>	
+	<div class="container-fluid">	
+		<?php PrintFooter($ROOT); ?>		
 	</div>
 </body>
 

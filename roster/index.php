@@ -4,7 +4,8 @@
 	include_once($ROOT . '/roster/includes/sidebar.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
-	include_once($ROOT . PathDir::$HTMLHEADER);
+	include_once($ROOT . PathDir::$HEADER);
+	include_once($ROOT . PathDir::$DB);
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
 	
@@ -83,17 +84,9 @@ We can use JavaScript and search already-loaded content, and use more JavaScript
 	<script src="./includes/js/util.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		<?php
-			$db = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
+			$db = DB_CreateDefault();
 			$db->connect();
-			$sql = "SELECT userName, userAlias FROM User LEFT JOIN UserAlias ON User.userID=UserAlias.userID";
-			$json = array();
-			$result = $db->query($sql);
-			while ($set = $result->fetch_assoc()) {
-				$entry = array();
-				array_push($entry, $set['userName'], $set['userAlias']);
-				array_push($json, $entry); 
-			}
-			$result->close();
+			$json = DB_GetUserInfoList($db);
 			$db->disconnect();
 			echo 'var userList = ', json_encode($json), ';';
 		 ?>

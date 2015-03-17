@@ -4,30 +4,18 @@
 	include_once($ROOT . '/profile/includes/sidebar.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
-	include_once($ROOT . PathDir::$HTMLHEADER);
-	include_once($ROOT . PathDir::$DB_UTILITY);
-	include_once($ROOT . PathDir::$DB_INFO);
+	include_once($ROOT . PathDir::$HEADER);
+	include_once($ROOT . PathDir::$DB);
 	
 	session_start();
-	
 	if (!isset($_SESSION["USER"])) {
 		header("Location: {$ROOT}/login/index.php");
 	} else {
-		$db = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
+		$db = DB_CreateDefault();
 		$db->connect();
 		$user = $_SESSION["USER"];
-		
-		$sql = "SELECT userID FROM User WHERE userName='{$user}'";
-		$result = $db->query($sql);
-		$row = $result->fetch_assoc();
-		$id = $row['userID'];
-		$result->close();
-		
-		$sql="SELECT userAlias FROM UserAlias WHERE userID={$id}";
-		$result=$db->query($sql);
-		$row = $result->fetch_assoc();
-		$alias = $row['userAlias'];
-		$result->close();
+		$id = DB_GetUserID($db, $user);
+		$alias = DB_GetUserAliasByID($db, $id);
 		$db->disconnect();
 	} 
  ?>

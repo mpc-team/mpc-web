@@ -36,8 +36,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-4">
-				<img style="vertical-align: middle;"
-					src="../pics/mpclogo.png" alt="mpclogo.png" class="img-responsive" id="contactlogo" />
+				<img src="../pics/mpclogo.png" alt="mpclogo.png" class="img-responsive" id="contactlogo" />
 			</div>
 			<div class="col-xs-8">
 				<div class="page-header">
@@ -66,10 +65,10 @@
 			</div>
 			<div class="col-xs-4">
 				<ul class="list-group">
-					<li class="list-group-item">Send us an Email</li>
-					<li class="list-group-item">Report a Player</li>
-					<li class="list-group-item">Send a P.M. to the Officers</li>
-					<li class="list-group-item">Support Ticket for Technical Help</li>
+					<li class="list-group-item list-group-item-success">Send us an Email</li>
+					<li class="list-group-item list-group-item-success">Report a Player</li>
+					<li class="list-group-item list-group-item-success">Send a P.M. to the Officers</li>
+					<li class="list-group-item list-group-item-success">Support Ticket for Technical Help</li>
 				</ul>
 			</div>
 		</div>

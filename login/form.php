@@ -19,7 +19,7 @@ function PrintLoginForm ($root_path) {
 			<div class="form-group login-form-group">
 				<label class="col-sm-2 control-label"><h5>$LBL_PASSWORD</h5></label>
 				<div class="col-sm-10">          
-					<input type="password" name="password" class="form-control" id="password" placeholder="Pasword">
+					<input type="password" name="password" class="form-control" id="password" placeholder="Password">
 				</div>   
 			</div>
 			<div class="form-group login-form-group">

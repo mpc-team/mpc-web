@@ -110,4 +110,9 @@ EOD;
 		}
 		return (null);
 	}
+	
+	function DB_GetUserAliasByEmail($db, $email) {
+		$id = DB_GetUserID($db, $email);
+		return (($id > 0) ? DB_GetUserAliasByID($db, $id) : null);
+	}
  ?>

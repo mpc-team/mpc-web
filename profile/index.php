@@ -7,6 +7,10 @@
 	include_once($ROOT . PathDir::$HTMLHEADER);
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
+   
+    $ROOT = '.';
+    include_once($ROOT . 'profile-pathdir.php');
+    include_once($ROOT . Profile-PathDir::$Countrylist);
 	
 	session_start();
 	
@@ -60,6 +64,59 @@
 				echo "<p>{$user}</p>";
 			 ?>
 		</div>
+        <div class="well" id="userprofile-edit-form">
+            <form role="form">
+                <div class="row">
+                    <div class="page-header pull-left"><h3>Update {$alias}'s Account:</h3></div>
+                    <div class="col-xs-6">
+                        <div class="page-header pull-left"><h3><b>Manditory for all Accounts</b></h3></div>
+                        <div class="form-group">
+                        <label for="alias-profile"><p>Profile Name:</p></label>
+                        <input type="text" class="form-control" id="alias-profile" title="Change Profile Name" placeholder="Change Name">
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label for="password-profile"><p>New Password:</p></label>
+                            <input type="text" class="form-control" id="password-profile" title="Change Profile Password" placeholder="Change Password">
+                            <label for="password-profile"><p>Re-Enter Password:</p></label>
+                            <input type="text" class="form-control" id="password-profile" title="Re-Enter Password" placeholder="Re-Enter Password">
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label for="email-profile"><p>Change Email:</p></label>
+                            <input type="email" class="form-control" id="email-profile" title="Change Profile Email" placeholder="Change Email">
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="page-header pull-right"><h3><i>Optional!</i></h3></div>
+                        <div class="radio">
+                            <label><input type="radio" name="mr-profile" value="mr"><p>MR.</p></label>
+                            <label><input type="radio" name="mrs-profile" value="mrs"><p>MRS.</p></label>
+                            <label><input type="radio" name="ms-profile" value="ms"><p>MS.</p></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="fname-profile"><p>First Name</p></label>
+                            <input type="text" class="form-control" id="fname-profile" title="Enter First Name" placeholder="First Name">
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label for="lname-profile"><p>Last Name</p></label>
+                            <input type="text" class="form-control" id="lname-profile" title="Enter Last Name" placeholder="Last Name">
+                        </div>
+                        <div class="form-group">
+                            <div id="spend_filter" class="btn-group">
+                                <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="icon-filter"></i>
+                                Filter By
+                                <span class="caret"></span>
+                                </a>
+                                <?php PrintCountrylist($ROOT); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
 	</div>
 	<div class="container-fluid">
 		<?php PrintFooter($ROOT); ?>

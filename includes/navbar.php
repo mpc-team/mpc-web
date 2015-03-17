@@ -1,6 +1,5 @@
 <?php 
-function PrintNavbar ($highlight, $root_path) 
-{
+function PrintNavbar ($highlight, $root_path) {
 	$ACTIVE = "class='active'";
 	
 	# ---------------- Print Header / Collapse Button ----------------

@@ -9,9 +9,10 @@
 #	Doesn't seem like we have a way to get that.
 #
 
-class Profile-PathDir 
+class PathDirProfile
 {	
 	# PHP Scripts
-	public static $Countrylist = '../countrylist.php';
+	public static $COUNTRY_LIST = '/profile/includes/countrylist.php';
 	
+}
 ?>

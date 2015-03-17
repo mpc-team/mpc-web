@@ -1,6 +1,5 @@
 <?php
-function PrintFooter($root_path) 
-{
+function PrintFooter($root_path) {
 	$print = <<<EOD
 		<nav class="navbar navbar-fixed-bottom navbar-inverse" id="footer" style="max-height:40px;">
 			<a class="navbar-brand" href="{$root_path}/index.php">

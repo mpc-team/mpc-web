@@ -36,6 +36,7 @@
 	<div class="container">
 		<div class="page-header text-center">
 			<h1>Signout Processing...</h1>
+			<?php echo $code; ?> </br>
 		</div>
 	</div>
 	<div class="container-fluid">

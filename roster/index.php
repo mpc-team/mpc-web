@@ -31,42 +31,6 @@
 	<div class="container-fluid">
 		<?php PrintNavbar("roster", $ROOT); ?>
 	</div>
-    <div class="row">
-    </div>
-    <!--<div class="row">
-            <div class="col-xs-5 well"> 
-                <br />
-                <div class="alias-default">
-            <php
-        
-                $db = new dbutil (dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
-                $db->connect ();
-                $result = $db->query ("SELECT * FROM User");
-                echo ("<h3 style='color: black'>Search</h3>");
-                include('php/clanroster-srch.php');
-                    ?>
-                </div>
-           </div>
-            <div class="col-xs-7 well">
-                <div id="dynamicinfo">
-                    <div class="row">
-                        <div class="col-xs-6 well">Player Alias</div>
-                        <div class="col-xs-6 well">Player Game(s)</div>
-                    </div>
-                    <div class="row">Player Profile Buttons</div>
-                    <div class="row">Player Group(s) / Clan(s) / Ranking(s)</div>
-                </div>            
-           </div>
-    </div>-->
-
-	<div id="wrapper" class="container">
-		
-		<?php PrintSidebar("none", $ROOT); ?>
-	
-		<div id="page-content-wrapper">
-		
-			<h1>Members</h1>
-			
 	<div id="wrapper">	
 		<?php PrintSidebar("members", $ROOT); ?>
 		<div class="container" id="page-content-wrapper">
@@ -124,12 +88,12 @@ We can use JavaScript and search already-loaded content, and use more JavaScript
 			$sql = "SELECT userName, userAlias FROM User LEFT JOIN UserAlias ON User.userID=UserAlias.userID";
 			$json = array();
 			$result = $db->query($sql);
-				while ($set = $result->fetch_row()) {
-					$entry = array();
-					array_push($entry, $set[0], $set[1]);
-					array_push($json, $entry); 
-				}
-				$result->close();
+			while ($set = $result->fetch_row()) {
+				$entry = array();
+				array_push($entry, $set[0], $set[1]);
+				array_push($json, $entry); 
+			}
+			$result->close();
 			$db->disconnect();
 			echo 'var userList = ', json_encode($json), ';';
 		 ?>

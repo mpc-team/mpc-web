@@ -13,22 +13,25 @@
 	$dbhandle->connect();
 	$sql = <<<EOD
 		SELECT * FROM User
-		WHERE userName='{$_POST["email"]}' AND userPassword='{$_POST["password"]}'
+		WHERE userName='{$_POST["email"]}'
 EOD;
 	$result = $dbhandle->query($sql);
-	$row = $result->fetch_row();
 	$success = false;
 	if ($result) { 
-		$_SESSION["USER"] = $row[1];
-		session_write_close();
-		$success = true;
+		$row = $result->fetch_row();
+		$passhash = $row[2];
+		$result->close();
+		if (password_verify($_POST["password"], $passhash)) {			
+			$success = true;
+			$_SESSION["USER"] = $_POST["email"];
+			session_write_close();
+			header("Location: {$ROOT}/profile/index.php");
+		}
 	}
-	$result->close();
 	$dbhandle->disconnect();
-	if ($success)
-		header("Location: {$ROOT}/profile/index.php");
-	else
+	if (!$success) {
 		header("Location: {$ROOT}/login/index.php");
+	}
  ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

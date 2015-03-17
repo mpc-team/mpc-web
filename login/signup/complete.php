@@ -10,13 +10,16 @@
 	
 	$dbhandle = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
 	$dbhandle->connect();
-	$sql = "SELECT * FROM User WHERE userName='{$_POST["email"]}' AND userPassword='{$_POST["password"]}'";
+	$sql = "SELECT * FROM User WHERE userName='{$_POST["email"]}'";
 	$result = $dbhandle->query($sql);
-	$adduser = ($result->num_rows == 0);
+	if ($result->num_rows > 0) {
+		$adduser = false;
+	} else {
+		$adduser = true;
+	}
 	$result->close();
 	$success = false;
 	if ($adduser) {
-	
 		$sql = "SELECT userID FROM User ORDER BY userID DESC LIMIT 0, 1";
 		$result = $dbhandle->query($sql);
 		if ($result) {
@@ -26,21 +29,26 @@
 			$id = 1;
 		}
 		$result->close();
-		
-		$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-		$sql = "INSERT INTO User VALUES ({$id}, '{$_POST["email"]}', '{$password}')";
+		$hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+		$sql = "INSERT INTO User VALUES ({$id}, '{$_POST["email"]}', '{$hash}')";
 		$result = $dbhandle->query($sql);
 		if ($result) {
+			$success = true;
+			$sql = "SELECT userPassword FROM User WHERE userID={$id}";
+			$result = $dbhandle->query($sql);
+			$row = $result->fetch_row();
+			$passhash = $row[0];
 			$sql = "INSERT INTO UserAlias VALUES ({$id}, '{$_POST["alias"]}')";
 			$result = $dbhandle->query($sql);
 			$_SESSION["USER"] = $_POST["email"];
 			session_write_close();
 			header("Location: {$ROOT}/profile/index.php");
-		} else {
-			header("Location: {$ROOT}/login/signup/index.php");
 		}
-	} 	
+	} 
 	$dbhandle->disconnect();
+	if (!$success) { 
+		header("Location: {$ROOT}/login/signup/index.php");
+	}
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

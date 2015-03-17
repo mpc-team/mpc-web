@@ -1,5 +1,4 @@
 <?php
-
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);

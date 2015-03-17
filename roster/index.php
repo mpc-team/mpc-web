@@ -94,6 +94,7 @@
 		//wait for document to load before referencing page elements
 		$( document ).ready(function() {
 			$('#email').keyup(function() { update(userList) });
+			$('#alias').keyup(function() { update(userList) });
 		});
 	</script>
 </body>

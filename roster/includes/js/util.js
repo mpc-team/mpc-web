@@ -8,12 +8,12 @@ var INPUT_ALIAS = "#alias";
 
 /* __Functions__ */
 
-function filterUsers(criteria, userList) {
-	var regx = new RegExp(criteria[0].toLowerCase());
+function filterUsers(criteria, userList, index) {
+	var regx = new RegExp(criteria.toLowerCase());
 	var users = [];
 	var len = userList.length;
 	for (var i=0; i < len; i++) {
-		var matched = userList[i][0].toLowerCase().match(regx);
+		var matched = userList[i][index].toLowerCase().match(regx);
 		if (matched != null) {
 			users.push(userList[i]);
 		}
@@ -22,13 +22,14 @@ function filterUsers(criteria, userList) {
 }
 
 function update(userList) {
-	var criteria = [];
 	var users;
-	
-	criteria.push($(INPUT_EMAIL).val());
-	users = filterUsers(criteria, userList);
-	
-	var result = '';
+	var criteria;
+	var result;
+	criteria = ($(INPUT_EMAIL) == null) ? "" : $(INPUT_EMAIL).val();
+	users = filterUsers(criteria, userList, 0);
+	criteria = ($(INPUT_ALIAS) == null) ? "" : $(INPUT_ALIAS).val();
+	users = filterUsers(criteria, users, 1);
+	result = '';
 	for (var i=0; i < users.length; i++)  {
 		result += '<tr>';
 		result += '<td>' + users[i][0] + '</td>';

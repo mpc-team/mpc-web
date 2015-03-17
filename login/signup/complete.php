@@ -5,6 +5,7 @@
 	include_once($ROOT . PathDir::$HTMLHEADER);
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
+	include_once($ROOT . PathDir::$PASSHASH);
 	
 	session_start();
 	

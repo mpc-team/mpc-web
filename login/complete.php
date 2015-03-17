@@ -8,11 +8,7 @@
 	include_once($ROOT . PathDir::$DB_INFO);
 	
 	session_start();
-	#
-	#
-	# Authentication
-	# --------------
-	#
+
 	$dbhandle = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
 	$dbhandle->connect();
 	$sql = <<<EOD
@@ -21,24 +17,22 @@
 EOD;
 	$result = $dbhandle->query($sql);
 	$row = $result->fetch_row();
+	$success = false;
 	if ($result) { 
 		$_SESSION["USER"] = $row[1];
 		session_write_close();
-		header("Location: {$ROOT}/profile/index.php");
-	} else {
-		header("Location: {$ROOT}/login/index.php");
+		$success = true;
 	}
 	$result->close();
 	$dbhandle->disconnect();
-	#
-	# --
-	
+	if ($success)
+		header("Location: {$ROOT}/profile/index.php");
+	else
+		header("Location: {$ROOT}/login/index.php");
  ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
- 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>Miacro Power Clan - MPC Gaming.com</title>
@@ -49,24 +43,17 @@ EOD;
 	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
 	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
  ?>
- 
 	<meta name="keywords" content="MPC, SC2, MPCGaming.com"/>
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
 </head>
 <body>
 	<div class="container">
 		<div class="page-header text-center">
-		
 			<h1>Login Processing...</h1>
-			
 		</div>
 	</div>
 	<div class="container-fluid">
-	
 		<?php PrintFooter($ROOT); ?>
-	
 	</div>
-
 </body>
-
 </html>

@@ -84,7 +84,6 @@ We can use JavaScript and search already-loaded content, and use more JavaScript
 	<div class="container-fluid">
 		<?php PrintFooter($ROOT); ?>
 	</div>
-
 	<!-- Here is our JavaScript, loaded after the page loads -->
 	<script src="./includes/js/util.js" type="text/javascript"></script>
 	<script type="text/javascript">

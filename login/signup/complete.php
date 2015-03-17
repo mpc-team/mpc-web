@@ -5,6 +5,7 @@
 	include_once($ROOT . PathDir::$HTMLHEADER);
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
+	include_once($ROOT . PathDir::$PASSHASH);
 	
 	session_start();
 	
@@ -29,7 +30,8 @@
 			$id = 1;
 		}
 		$result->close();
-		$hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+		$hasher = new PasswordHash(8,FALSE);
+		$hash = $hasher->HashPassword($_POST["password"]);
 		$sql = "INSERT INTO User VALUES ({$id}, '{$_POST["email"]}', '{$hash}')";
 		$result = $dbhandle->query($sql);
 		if ($result) {

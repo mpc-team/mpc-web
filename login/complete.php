@@ -6,6 +6,7 @@
 	include_once($ROOT . PathDir::$HTMLHEADER);
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
+	include_once($ROOT . PathDir::$PASSHASH);
 	
 	session_start();
 
@@ -21,15 +22,15 @@ EOD;
 		$row = $result->fetch_assoc();
 		$passhash = $row['userPassword'];
 		$result->close();
-		if (password_verify($_POST["password"], $passhash)) {			
-			$success = true;
-			$_SESSION["USER"] = $_POST["email"];
-			session_write_close();
-			header("Location: {$ROOT}/profile/index.php");
-		}
+		$hasher = new PasswordHash(8, FALSE);
+		$success = $hasher->CheckPassword($_POST["password"], $passhash);
 	}
 	$dbhandle->disconnect();
-	if (!$success) {
+	if ($success) {
+		$_SESSION["USER"] = $_POST["email"];
+		session_write_close();
+		header("Location: {$ROOT}/profile/index.php");
+	} else {
 		header("Location: {$ROOT}/login/index.php");
 	}
  ?>

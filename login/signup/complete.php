@@ -8,6 +8,7 @@
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
 	
+	$alias = $_POST['alias'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	
@@ -17,7 +18,7 @@
 	if (!DB_UserExists($db, $email)) {
 		$id = DB_GetNewUserID($db);
 		$hash = ProtectPassword($password);
-		if (DB_CreateNewUser($db, $id, $email, $hash)) {
+		if (DB_CreateNewUser($db, $id, $email, $alias, $hash)) {
 			session_start();
 			$_SESSION["USER"] = $email;
 			session_write_close();

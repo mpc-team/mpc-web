@@ -21,6 +21,7 @@ class PathDir
 	public static $SIGNOUT    = '/login/signout.php';
 	
 	public static $HTMLHEADER = '/includes/htmlheader.php';
+	public static $PASSHASH   = '/includes/phpass/PasswordHash.php';
 	
 	# Database PHP
 	public static $DB_UTILITY = '/includes/db/util.php';

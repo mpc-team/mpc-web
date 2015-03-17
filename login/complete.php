@@ -25,6 +25,8 @@ EOD;
 		$_SESSION["USER"] = $row[1];
 		session_write_close();
 		header("Location: {$ROOT}/profile/index.php");
+	} else {
+		header("Location: {$ROOT}/login/index.php");
 	}
 	$result->close();
 	$dbhandle->disconnect();

@@ -85,27 +85,27 @@ We can use JavaScript and search already-loaded content, and use more JavaScript
 		<?php PrintFooter($ROOT); ?>
 	</div>
 
-		
 	<!-- Here is our JavaScript, loaded after the page loads -->
 	<script src="./includes/js/util.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		<?php
 			$db = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
 			$db->connect();
-			$sql = "SELECT userName FROM User";
+			$sql = "SELECT userName, userAlias FROM User LEFT JOIN UserAlias ON User.userID=UserAlias.userID";
 			$json = array();
 			$result = $db->query($sql);
-			while ($set = $result->fetch_row()) {
-				array_push($json, $set[0]); 
-			}
+				while ($set = $result->fetch_row()) {
+					$entry = array();
+					array_push($entry, $set[0], $set[1]);
+					array_push($json, $entry); 
+				}
+				$result->close();
 			$db->disconnect();
-
 			echo 'var userList = ', json_encode($json), ';';
 		 ?>
-		
 		//wait for document to load before referencing page elements
 		$( document ).ready(function() {
-			$('#alias').keyup(function() { update("alias", userList) });
+			$('#email').keyup(function() { update("email", userList) });
 		});
 	</script>
 </body>

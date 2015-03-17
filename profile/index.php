@@ -5,6 +5,8 @@
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$HTMLHEADER);
+	include_once($ROOT . PathDir::$DB_UTILITY);
+	include_once($ROOT . PathDir::$DB_INFO);
 	
 	session_start();
 	
@@ -36,8 +38,26 @@
 	<div id="wrapper" class="container">
 		<?php PrintSidebar("overview", $ROOT); ?>
 		<div id="page-content-wrapper">
-			<h1>Alias</h1>
-			<p><?php echo ($_SESSION["USER"]); ?></p>
+			<?php
+				$db = new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
+				$db->connect();
+				$user = $_SESSION["USER"];
+				
+				$sql = "SELECT userID FROM User WHERE userName='{$user}'";
+				$result = $db->query($sql);
+				$id = $result->fetch_row()[0];
+				$result->close();
+				
+				$sql="SELECT userAlias FROM UserAlias WHERE userID={$id}";
+				$result=$db->query($sql);
+				$alias = $result->fetch_row()[0];
+				$result->close();
+	
+				$db->disconnect();
+			
+				echo "<h1>{$alias}</h1>";
+				echo "<p>{$user}</p>";
+			 ?>
 		</div>
 	</div>
 	<div class="container-fluid">

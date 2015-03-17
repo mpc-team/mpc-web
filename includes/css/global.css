@@ -7,10 +7,18 @@ body
 	background-color: #151515; 
 }
 
+/* Typography Colors */
 h1, h2, h3, h4, h5, h6, p, label, li { color: #ffffff; }
-#navbar-copyright { padding: 20px; color: #888888; }
+#navbar-copyright { color: #888888; }
+
+/* Image Sizes */
 #mpclogo-img{ height: 300px; width: 600px;}
-/*contact/index.php logo */
+
+/* Padding & Margins */
 #contactlogo{ height: auto; width: auto; margin-top: 75px;}
+#navbar-copyright { padding: 20px; }
 
 .login-form-group { margin-bottom: 15px; }
+
+p { margin-bottom: 0px; }
+.form-group p { padding-top: 10px; }

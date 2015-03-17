@@ -1,4 +1,5 @@
 .well h1,
 .well h2,
 .well h3, 
-.well p { color: #000000; }
+.well p,
+.well label { color: #000000; }

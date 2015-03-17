@@ -1,5 +1,4 @@
 <?php 
-
 function PrintSidebar ($highlight, $root) {	
 	$ACTIVE = "class='active'";
 	$SIGNOUT = $root . '/login/signout.php';
@@ -21,5 +20,4 @@ EOD;
 	
 	echo ("</ul></div>");
 }
-
  ?>

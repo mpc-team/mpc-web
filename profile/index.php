@@ -45,14 +45,14 @@
 				
 				$sql = "SELECT userID FROM User WHERE userName='{$user}'";
 				$result = $db->query($sql);
-				$row = $result->fetch_row();
-				$id = $row[0];
+				$row = $result->fetch_assoc();
+				$id = $row['userID'];
 				$result->close();
 				
 				$sql="SELECT userAlias FROM UserAlias WHERE userID={$id}";
 				$result=$db->query($sql);
-				$row = $result->fetch_row();
-				$alias = $row[0];
+				$row = $result->fetch_assoc();
+				$alias = $row['userAlias'];
 				$result->close();
 				$db->disconnect();
 				

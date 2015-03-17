@@ -23,8 +23,8 @@
 		$sql = "SELECT userID FROM User ORDER BY userID DESC LIMIT 0, 1";
 		$result = $dbhandle->query($sql);
 		if ($result) {
-			$row = $result->fetch_row();
-			$id = $row[0] + 1;
+			$row = $result->fetch_assoc();
+			$id = $row['userID'] + 1;
 		} else {
 			$id = 1;
 		}
@@ -36,8 +36,8 @@
 			$success = true;
 			$sql = "SELECT userPassword FROM User WHERE userID={$id}";
 			$result = $dbhandle->query($sql);
-			$row = $result->fetch_row();
-			$passhash = $row[0];
+			$row = $result->fetch_assoc();
+			$passhash = $row['userPassword'];
 			$sql = "INSERT INTO UserAlias VALUES ({$id}, '{$_POST["alias"]}')";
 			$result = $dbhandle->query($sql);
 			$_SESSION["USER"] = $_POST["email"];

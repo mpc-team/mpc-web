@@ -18,8 +18,8 @@ EOD;
 	$result = $dbhandle->query($sql);
 	$success = false;
 	if ($result) { 
-		$row = $result->fetch_row();
-		$passhash = $row[2];
+		$row = $result->fetch_assoc();
+		$passhash = $row['userPassword'];
 		$result->close();
 		if (password_verify($_POST["password"], $passhash)) {			
 			$success = true;
@@ -33,7 +33,6 @@ EOD;
 		header("Location: {$ROOT}/login/index.php");
 	}
  ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"> 
 <head>

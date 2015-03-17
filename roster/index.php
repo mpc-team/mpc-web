@@ -88,9 +88,9 @@ We can use JavaScript and search already-loaded content, and use more JavaScript
 			$sql = "SELECT userName, userAlias FROM User LEFT JOIN UserAlias ON User.userID=UserAlias.userID";
 			$json = array();
 			$result = $db->query($sql);
-			while ($set = $result->fetch_row()) {
+			while ($set = $result->fetch_assoc()) {
 				$entry = array();
-				array_push($entry, $set[0], $set[1]);
+				array_push($entry, $set['userName'], $set['userAlias']);
 				array_push($json, $entry); 
 			}
 			$result->close();

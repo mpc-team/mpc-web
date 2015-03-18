@@ -12,11 +12,13 @@
 	session_start();
 	$db = DB_CreateDefault();
 	$db->connect();
-	$perm = ['public'];
+	$perm = array();
+	array_push($perm, "public");
 	if (isset($_SESSION["USER"])) {
 		$perm = DB_GetUserPermissionsByEmail($db, $_SESSION["USER"]);
 		if ($perm == null) { 
-			$perm = ['public']; 
+			$perm = array();
+			array_push($perm, 'public');
 		}
 	}
 	if (in_array('member', $perm) || in_array('admin', $perm)) {

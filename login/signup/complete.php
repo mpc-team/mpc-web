@@ -15,7 +15,9 @@
 	$db = DB_CreateDefault();
 	$db->connect();
 	$header = "Location: {$ROOT}/login/signup/index.php";
-	if (!DB_UserExists($db, $email)) {
+	if (isValidAlias($alias) &&
+				isValidEmail($email) && 
+				!DB_UserExists($db, $email)) {
 		$id = DB_GetNewUserID($db);
 		$hash = ProtectPassword($password);
 		if (DB_CreateNewUser($db, $id, $email, $alias, $hash)) {

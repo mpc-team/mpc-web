@@ -10,6 +10,16 @@
 	include_once($ROOT . PathDir::$DB_INFO);
 	
 	session_start();
+	$db = DB_CreateDefault();
+	$db->connect();
+	if (isset($_SESSION["USER"])) {
+		$signed = TRUE;
+		$json = DB_GetUserMembersList($db);
+	} else {
+		$signed = FALSE;
+		$json = DB_GetUserPublicList($db);
+	}
+	$db->disconnect();
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -60,7 +70,7 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<th>Email</th>
+									<?php if ($signed) echo '<th>Email</th>'; ?>
 									<th>Alias</th>
 								</tr>
 							</thead>
@@ -79,19 +89,13 @@
 	<!-- Here is our JavaScript, loaded after the page loads -->
 	<script src="./includes/js/util.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		<?php
-			$db = DB_CreateDefault();
-			$db->connect();
-			$json = DB_GetUserInfoList($db);
-			$db->disconnect();
-			echo 'var userList = ', json_encode($json), ';';
-		 ?>
+		<?php	echo 'var userList = ', json_encode($json), ';'; ?>
 		//wait for document to load before referencing page elements
 		$( document ).ready(function() {
-			update(userList);
+			updateList(userList);
 		
-			$('#email').keyup(function() { update(userList) });
-			$('#alias').keyup(function() { update(userList) });
+			$('#email').keyup(function() { updateList(userList) });
+			$('#alias').keyup(function() { updateList(userList) });
 		});
 	</script>
 </body>

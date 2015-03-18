@@ -2,7 +2,7 @@
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
-	
+		
 	function DB_CreateDefault() {
 		return new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
 	}
@@ -23,8 +23,11 @@
 	}
 	
 	function DB_AddUserAlias($db, $id, $alias) {
-		$sql = "INSERT INTO UserAlias VALUES ({$id}, '{$alias}')";
-		return (boolean) $db->query($sql);
+		if ($db->connected) {
+			$sql = "INSERT INTO UserAlias VALUES ({$id}, '{$alias}')";
+			return (boolean) $db->query($sql);
+		}
+		return (FALSE);
 	}
 	
 	function DB_CreateNewUser($db, $id, $email, $alias, $pass) {
@@ -39,21 +42,49 @@
 		return (FALSE);
 	}
 	
-	function DB_GetUserInfoList($db) {
+	function DB_GetUserMembersList($db) {
 		if ($db->connected) {
 			$sql = <<<EOD
-				SELECT userName, userAlias 
+				SELECT userAlias, userName
 				FROM User
 				LEFT JOIN UserAlias ON User.userID=UserAlias.userID
 EOD;
 			$result = $db->query($sql);
 			$json = array();
+			$list = array();
+			array_push($json, "members");
 			if ($result) {
 				while ($set = $result->fetch_assoc()) {
 					$entry = array();
-					array_push($entry, $set['userName'], $set['userAlias']);
-					array_push($json, $entry);
+					array_push($entry, $set['userAlias'], $set['userName']);
+					array_push($list, $entry);
 				}
+				array_push($json, $list);
+				$result->close();
+			}
+			return $json;
+		}
+		return (null);
+	}
+	
+	function DB_GetUserPublicList($db) {
+		if ($db->connected) {
+			$sql = <<<EOD
+				SELECT userAlias 
+				FROM User
+				LEFT JOIN UserAlias ON User.userID=UserAlias.userID
+EOD;
+			$result = $db->query($sql);
+			$json = array();
+			$list = array();
+			array_push($json, "public");
+			if ($result) {
+				while ($set = $result->fetch_assoc()) {
+					$entry = array();
+					array_push($entry, $set['userAlias']);
+					array_push($list, $entry);
+				}
+				array_push($json, $list);
 				$result->close();	
 			}
 			return $json;

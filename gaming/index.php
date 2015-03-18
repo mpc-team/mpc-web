@@ -31,7 +31,9 @@
 			<div class="page-header text-center">
 				<h1>What do we play?</h1>
 			</div>
-                <small><p>Mpc is a multi-level gaming clan that specializes on one main concept... Team. We would like to develope a community that engages both the players, and the games they play. We try to provide the essential fundamentals of gaming, and that includes: ventrilo, website domain, a foundation of solid core members, training, stream zone, and more. It's a friendly environment for all ages, and disrespect to either members, or to public community will not be tolerated.</p></small>
+            <small>
+                <p>Mpc is a multi-level gaming clan that specializes on one main concept... Team. We would like to develope a community that engages both the players, and the games they play. We try to provide the essential fundamentals of gaming, and that includes: ventrilo, website domain, a foundation of solid core members, training, stream zone, and more. It's a friendly environment for all ages, and disrespect to either members, or to public community will not be tolerated.</p>
+            </small>
 			<div class="col-xs-3">
 				<img src="../pics/starcraft2blizzardlogo.PNG" id="sc2logo-gaming" alt="starcraft2blizzardlogo.PNG" class="img-reponsive" style="max-width: 75%; max-height: 75%; margin-top: 15px;" />
 			</div>
@@ -46,9 +48,14 @@
 			</div>
 		</div>
         <div class="row">
-            <div class="page-header left-pull"><h3>How do we communicate?</h3></div>
-            <a href="http://www.ventrilo.com/status.php?hostname=lead.typefrag.com&port=7920">ventrilo</a>
+            <div class="page-header left-pull">
+                <h3>How do we communicate?</h3>
+            </div>
+            <div class="row" style="height: 600px;">
+                <script type="text/javascript" src="//www.typefrag.com/Server-Status/script.aspx?id=fff26f56-d6ef-457d-bd8c-1feae7278595"></script>
+            </div> 
         </div>
+        
 	</div>
 	<div class="container-fluid">
 		<?php PrintFooter($ROOT); ?>

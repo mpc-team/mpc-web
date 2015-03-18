@@ -66,7 +66,7 @@
 								</div>
 							</div>
 							<?php
-								if (in_array("member", $perm) || in_array("admin", $perm)) {
+								if (in_array("admin", $perm)) {
 									echo <<<EOD
 							<div class="form-group">
 								<div class="input-group">	
@@ -89,7 +89,7 @@ EOD;
 							<thead>
 								<tr>
 									<?php 
-										if (in_array("member", $perm) || in_array("admin", $perm)) {
+										if (in_array("admin", $perm)) {
 											echo '<th>Email</th>'; 
 										}
 									 ?>

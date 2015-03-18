@@ -31,7 +31,6 @@
 		PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
 		PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
 		PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
-		PrintStyleResource( PathDir::GetCSSPath($ROOT, 'profile.css') );
 	 ?>
 	<meta name="keywords" content="MPC, SC2, MPCGaming.com"/>
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />

@@ -23,7 +23,6 @@
 	PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
 	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
 	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
-	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'roster.css') );3
  ?>
 	<meta name="keywords" content="MPC, SC2, MPCGaming.com"/>
 	<meta name="description" content="SC2 MPC Gaming. Tournaments, Clan Wars, Teaching, Training, Coaching, Community Clan, Ladders, Clan Ranking" />
@@ -32,42 +31,44 @@
 	<div class="container-fluid">
 		<?php PrintNavbar("roster", $ROOT); ?>
 	</div>
-	<div id="wrapper">	
-		<?php PrintSidebar("members", $ROOT); ?>
-		<div class="container" id="page-content-wrapper">
-			<div class="well rstr-srch-well">
-				<h3 class="well-text">Search</h3>
-				<form role="form">
-					<div class="form-group">
-						<div class="input-group rstr-srch-input">
-							<span class="input-group-addon rstr-srch-label">Alias</span>
-							<input type="text" class="form-control" name="alias" id="alias" placeholder="Search by player alias..."/>				
+	<div class="container">
+		<div id="wrapper">
+			<?php PrintSidebar("members", $ROOT); ?>
+			<div id="page-content-wrapper">
+				<div class="well">
+					<h3>Search</h3>
+					<form role="form">
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon">Alias</span>
+								<input type="text" class="form-control" name="alias" id="alias" placeholder="Search by player alias..."/>				
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<div class="input-group rstr-srch-input">	
-							<span class="input-group-addon rstr-srch-label">Email</span>
-								<input type="text" class="form-control" name="email" id="email" placeholder="Search by player email..."/>
+						<div class="form-group">
+							<div class="input-group">	
+								<span class="input-group-addon">Email</span>
+									<input type="text" class="form-control" name="email" id="email" placeholder="Search by player email..."/>
+							</div>
 						</div>
+					</form>
+				</div>
+				<div class="well">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3>Results</h3>
+						</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Email</th>
+									<th>Alias</th>
+								</tr>
+							</thead>
+							<tbody id="search-results">
+								<!-- This section is modified by JavaScript -->
+							</tbody>
+						</table>
 					</div>
-				</form>
-			</div>
-			<div class="well rstr-srch-well">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="well-text">Results</h3>
-					</div>
-					<table class="table">
-						<thead>
-							<tr>
-								<th>Email</th>
-								<th>Alias</th>
-							</tr>
-						</thead>
-						<tbody id="search-results">
-							<!-- This section is modified by JavaScript -->
-						</tbody>
-					</table>
 				</div>
 			</div>
 		</div>

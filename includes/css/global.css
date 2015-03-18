@@ -11,8 +11,17 @@ body
 h1, h2, h3, h4, h5, h6, p, label, li { color: #ffffff; }
 #navbar-copyright { color: #888888; }
 
-/* Image Sizes */
+.well h1,
+.well h2,
+.well h3, 
+.well p,
+.well label { color: #000000; }
+
+
+/* Position & Sizes */
 #mpclogo-img{ height: 300px; width: 600px;}
+
+span.input-group-addon { height: 34px; width: 100px; }
 
 /* Padding & Margins */
 #contactlogo{ height: 100%; width: 100%; }

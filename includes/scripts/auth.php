@@ -49,7 +49,7 @@ function isValidEmail($email) {
 
 function isValidAlias($alias) {
 	if ($alias == NULL) return FALSE;
-	if ($ailas.trim() == "") return FALSE; //just spaces
+	if (trim($ailas) == "") return FALSE; //just spaces
 	
 	return TRUE;
 }

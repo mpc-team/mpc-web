@@ -50,10 +50,12 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="page-header left-pull">
-				<h3>How do we communicate?</h3>
-			</div>
-			<a href="http://www.ventrilo.com/status.php?hostname=lead.typefrag.com&port=7920">ventrilo</a>
+				<div class="page-header left-pull">
+						<h3>How do we communicate?</h3>
+				</div>
+				<div class="row" style="height: 600px;">
+						<script type="text/javascript" src="//www.typefrag.com/Server-Status/script.aspx?id=fff26f56-d6ef-457d-bd8c-1feae7278595"></script>
+				</div> 
 		</div>
 	</div>
 	<div class="container-fluid">

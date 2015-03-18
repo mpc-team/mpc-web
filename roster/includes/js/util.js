@@ -56,9 +56,11 @@ function updateList(userList) {
 			break;
 	}	
 	
+	var clas;
 	var result = '';
 	for (var i = 0; i < users.length; i++)  {
-		result += '<tr>';
+		clas = (i % 2 == 0) ? 'alt' : '';
+		result += '<tr class='+clas+'>';
 		if (type == LIST_TYPE_MEMBERS)
 			result += '<td>' + users[i][1] + '</td>';
 		result += '<td>' + users[i][0] + '</td>';

@@ -17,6 +17,9 @@ h1, h2, h3, h4, h5, h6, p, label, li { color: #ffffff; }
 .well p,
 .well label { color: #000000; }
 
+/* Lists */
+
+tr.alt { background-color: #efefef; }
 
 /* Position & Sizes */
 #mpclogo-img{ height: 300px; width: 600px;}

@@ -12,11 +12,16 @@
 	session_start();
 	$db = DB_CreateDefault();
 	$db->connect();
+	$perm = ['public'];
 	if (isset($_SESSION["USER"])) {
-		$signed = TRUE;
+		$perm = DB_GetUserPermissionsByEmail($db, $_SESSION["USER"]);
+		if ($perm == null) { 
+			$perm = ['public']; 
+		}
+	}
+	if (in_array('member', $perm) || in_array('admin', $perm)) {
 		$json = DB_GetUserMembersList($db);
 	} else {
-		$signed = FALSE;
 		$json = DB_GetUserPublicList($db);
 	}
 	$db->disconnect();
@@ -46,21 +51,32 @@
 			<?php PrintSidebar("members", $ROOT); ?>
 			<div id="page-content-wrapper">
 				<div class="well">
-					<h3>Search</h3>
-					<form role="form">
-						<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon">Alias</span>
-								<input type="text" class="form-control" name="alias" id="alias" placeholder="Search by player alias..."/>				
-							</div>
+				
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3>Search</h3>
 						</div>
-						<div class="form-group">
-							<div class="input-group">	
-								<span class="input-group-addon">Email</span>
-									<input type="text" class="form-control" name="email" id="email" placeholder="Search by player email..."/>
+						<form role="form">
+							<div class="form-group">
+								<div class="input-group">
+									<span class="input-group-addon">Alias</span>
+									<input type="text" class="form-control" name="alias" id="alias" placeholder="Search by player alias..."/>				
+								</div>
 							</div>
-						</div>
-					</form>
+							<?php
+								if (in_array("member", $perm) || in_array("admin", $perm)) {
+									echo <<<EOD
+							<div class="form-group">
+								<div class="input-group">	
+									<span class="input-group-addon">Email</span>
+										<input type="text" class="form-control" name="email" id="email" placeholder="Search by player email..."/>
+								</div>
+							</div>
+EOD;
+								}
+							 ?>
+						</form>
+					</div>
 				</div>
 				<div class="well">
 					<div class="panel panel-default">
@@ -70,7 +86,11 @@
 						<table class="table">
 							<thead>
 								<tr>
-									<?php if ($signed) echo '<th>Email</th>'; ?>
+									<?php 
+										if (in_array("member", $perm) || in_array("admin", $perm)) {
+											echo '<th>Email</th>'; 
+										}
+									 ?>
 									<th>Alias</th>
 								</tr>
 							</thead>
@@ -90,12 +110,13 @@
 	<script src="./includes/js/util.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		<?php	echo 'var userList = ', json_encode($json), ';'; ?>
+		<?php echo 'var permissions = ', json_encode($perm), ';'; ?>
 		//wait for document to load before referencing page elements
 		$( document ).ready(function() {
-			updateList(userList);
+			updateList(userList, permissions);
 		
-			$('#email').keyup(function() { updateList(userList) });
-			$('#alias').keyup(function() { updateList(userList) });
+			$('#email').keyup(function() { updateList(userList, permissions) });
+			$('#alias').keyup(function() { updateList(userList, permissions) });
 		});
 	</script>
 </body>

@@ -30,12 +30,24 @@
 		return (FALSE);
 	}
 	
-	function DB_CreateNewUser($db, $id, $email, $alias, $pass) {
+	function DB_AddUserPermission($db, $id, $perm) {
+		if ($db->connected) {
+			$sql = "INSERT INTO UserPermissions VALUES ({$id}, '{$perm}')";
+			return (boolean) $db->query($sql);
+		}
+		return (FALSE);
+	}
+	
+	function DB_CreateNewUser($db, $id, $email, $alias, $perm, $pass) {
 		if ($db->connected) {
 			$sql = "INSERT INTO User VALUES ({$id}, '{$email}', '{$pass}')";
 			$result = $db->query($sql);
 			if ($result) {
+				$permCount = count($perm);
 				DB_AddUserAlias($db, $id, $alias);
+				foreach ($perm as $p) {
+					DB_AddUserPermission($db, $id, $p);
+				}
 				return TRUE;
 			}
 		} 
@@ -51,15 +63,12 @@
 EOD;
 			$result = $db->query($sql);
 			$json = array();
-			$list = array();
-			array_push($json, "members");
 			if ($result) {
 				while ($set = $result->fetch_assoc()) {
 					$entry = array();
 					array_push($entry, $set['userAlias'], $set['userName']);
-					array_push($list, $entry);
+					array_push($json, $entry);
 				}
-				array_push($json, $list);
 				$result->close();
 			}
 			return $json;
@@ -76,15 +85,12 @@ EOD;
 EOD;
 			$result = $db->query($sql);
 			$json = array();
-			$list = array();
-			array_push($json, "public");
 			if ($result) {
 				while ($set = $result->fetch_assoc()) {
 					$entry = array();
 					array_push($entry, $set['userAlias']);
-					array_push($list, $entry);
+					array_push($json, $entry);
 				}
-				array_push($json, $list);
 				$result->close();	
 			}
 			return $json;
@@ -144,5 +150,44 @@ EOD;
 	function DB_GetUserAliasByEmail($db, $email) {
 		$id = DB_GetUserID($db, $email);
 		return (($id > 0) ? DB_GetUserAliasByID($db, $id) : null);
+	}
+	
+	function DB_GetUserPermissionsByID($db, $id) {
+		if ($db->connected) {
+			$sql = "SELECT userPermission FROM UserPermissions WHERE userID={$id}";
+			$result = $db->query($sql);
+			if ($result) {
+				$permissions = array();
+				while ($row = $result->fetch_assoc()) {
+					array_push($permissions, $row['userPermission']);
+				}
+				$result->close();
+				return $permissions;
+			}
+		}
+		return (null);
+	}
+	
+	function DB_GetUserPermissionsByEmail($db, $email) {
+		$id = DB_GetUserID($db, $email);
+		return (($id > 0) ? DB_GetUserPermissionsByID($db, $id) : null);
+	}
+	
+	function DB_GetUserPermissions($db) {
+		if ($db->connected) {
+			$sql = "SELECT userID, userPermission FROM UserPermissions";
+			$result = $db->query($sql);
+			if ($result) {
+				$perms = array();
+				while ($row = $result->fetch_assoc()) {
+					$list = array();
+					array_push($list, $row['userID'], $row['userPermission']);
+					array_push($perms, $list);
+				}
+				$result->close();
+				return $perms;
+			}
+		}
+		return (null);
 	}
  ?>

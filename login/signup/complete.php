@@ -20,7 +20,7 @@
 				!DB_UserExists($db, $email)) {
 		$id = DB_GetNewUserID($db);
 		$hash = ProtectPassword($password);
-		if (DB_CreateNewUser($db, $id, $email, $alias, $hash)) {
+		if (DB_CreateNewUser($db, $id, $email, $alias, ['member'], $hash)) {
 			session_start();
 			$_SESSION["USER"] = $email;
 			session_write_close();

@@ -11,8 +11,9 @@ var INPUT_ALIAS = "#alias";
 var FILTER_BY_ALIAS = 0;
 var FILTER_BY_EMAIL = 1;
 
-var LIST_TYPE_PUBLIC = "public";
-var LIST_TYPE_MEMBERS = "members";
+var PERM_PUBLIC = "public";
+var PERM_MEMBER = "member";
+var PERM_ADMIN = "admin"
 
 var JSON_TYPE = 0;
 var JSON_LIST = 1;
@@ -38,32 +39,26 @@ function doFilter(criteria, userList, filterBy) {
 	return users;
 }
 
-function updateList(userList) {
-	if (isListEmpty(userList[JSON_LIST])) { return; }
-	var users;
-	var criteria;
-	var type = userList[JSON_TYPE];
-	userList = userList[JSON_LIST];	
+function updateList(userList, permissions) {
+	if (isListEmpty(userList)) { return; }
+	var criteria;	
 	
-	switch (type) {
-		case LIST_TYPE_MEMBERS:
-			criteria = ($(INPUT_EMAIL) == null) ? "" : $(INPUT_EMAIL).val();
-			users = doFilter(criteria, userList, FILTER_BY_EMAIL);
-			userList = users;
-		case LIST_TYPE_PUBLIC:	
-			criteria = ($(INPUT_ALIAS) == null) ? "" : $(INPUT_ALIAS).val();
-			users = doFilter(criteria, userList, FILTER_BY_ALIAS);
-			break;
-	}	
+	if (permissions.indexOf(PERM_MEMBER) > -1) {
+		criteria = ($(INPUT_EMAIL) == null) ? "" : $(INPUT_EMAIL).val();
+		userList = doFilter(criteria, userList, FILTER_BY_EMAIL);
+	}
+	criteria = ($(INPUT_ALIAS) == null) ? "" : $(INPUT_ALIAS).val();
+	userList = doFilter(criteria, userList, FILTER_BY_ALIAS);
 	
-	var clas;
 	var result = '';
-	for (var i = 0; i < users.length; i++)  {
+	var clas; //for applying 'alt' class for alternating colors
+	for (var i = 0; i < userList.length; i++)  {
 		clas = (i % 2 == 0) ? 'alt' : '';
-		result += '<tr class='+clas+'>';
-		if (type == LIST_TYPE_MEMBERS)
-			result += '<td>' + users[i][1] + '</td>';
-		result += '<td>' + users[i][0] + '</td>';
+		result += "<tr class='"+clas+"'>";
+		if (permissions.indexOf(PERM_MEMBER) > -1) {
+			result += '<td>' + userList[i][1] + '</td>';
+		}
+		result += '<td>' + userList[i][0] + '</td>';
 		result += '</tr>';
 	}
 	$(SEARCH_RESULTS).html( result );

@@ -28,12 +28,7 @@ function ProtectPassword($password) {
 /* __Input_Validation__ */
 
 function hasSpaces($email) {
-	foreach ($email as $ch) {
-		if ($ch == ' ') {
-			return TRUE;
-		}
-	}
-	return FALSE;
+	return (preg_match('/\s/', $email));
 }
 
 function isValidEmail($email) {
@@ -41,7 +36,7 @@ function isValidEmail($email) {
 	$email = $email.split('@');
 	if ($email.length != 2) return FALSE;
 	$name = $email[0];
-	$domain = $email[1].split('.');
+	$domain = explode('.', $email[1]);
 	if ($domain.length != 2) return FALSE;
 	
 	return TRUE;

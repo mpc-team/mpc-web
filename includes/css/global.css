@@ -6,7 +6,6 @@ html { background-repeat: no-repeat; }
 html { background-size: cover; }
 html body { background: inherit; }
 
-h1, h2, h3, h4, h5, h6, p, label, li { color: #ffffff; }
 p { margin-bottom: 0px; }
 
 span.input-group-addon { height: 34px; width: 100px; }
@@ -25,5 +24,18 @@ tr.alt { border-top: 1px solid #232323; }
 .form-group p { padding-top: 10px; }
 .input-group input { border-radius: 0px; }
 
-.login-form-group { margin-bottom: 15px; }
-
+.panel-page-top { padding-bottom: 30px; }
+.form-signup { padding-bottom: 10px; }
+.btn-login:hover { 
+	color: #99dd99;
+	border-color: #225522; 
+}
+.btn-login { 
+  color: #ffffff;
+	font-size: 16pt;
+	width: 100px;
+  background-color: #5cb85c;
+	border-size: 3px;
+	border-radius: 2px;
+  border-color: #4cae4c;
+}

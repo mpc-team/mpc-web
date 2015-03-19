@@ -34,10 +34,13 @@
 	<div class="container">
 		<div class="col-md-8">
 			<img src="../pics/mpclogo.png" class="img-responsive" alt="mpclogo.png"/>
-			<form class="form-horizontal" role="form" action="complete.php" method="post">
-				<?php PrintLoginForm($ROOT); ?> 
-			</form>
-			<div class="text-center">	
+			<div class="panel panel-default">
+					<h1 style="margin-top: 0px">Login</h1>
+				<form class="form-horizontal" role="form" action="complete.php" method="post">
+					<?php PrintLoginForm($ROOT); ?> 
+				</form>
+			</div>
+			<div class="text-center" style="padding-top: 25px">	
 				<p>New Sign up? Please Click<a href="./signup/index.php"> Here</a></p>
 			</div>
 		</div>

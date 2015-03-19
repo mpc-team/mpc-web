@@ -51,10 +51,9 @@
 	</div>
 	<div class="container">
 		<div id="wrapper">
-			<?php PrintSidebar("members", $ROOT); ?>
+			<?php PrintSidebar("search", $ROOT); ?>
 			<div id="page-content-wrapper">
-				<div class="well">
-				
+				<div class="panel-page-top">
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							Search
@@ -72,7 +71,7 @@
 									<div class="form-group">
 										<div class="input-group">	
 											<span class="input-group-addon">Email</span>
-												<input type="text" class="form-control" name="email" id="email" placeholder="Search by player email..."/>
+											<input type="text" class="form-control" name="email" id="email" placeholder="Search by player email..."/>
 										</div>
 									</div>
 EOD;
@@ -81,24 +80,22 @@ EOD;
 						</form>
 					</div>
 				</div>
-				<div class="well">
-					<div class="panel panel-default">
-						<table class="table">
-							<thead>
-								<tr>
-									<?php 
-										if (in_array("admin", $perm)) {
-											echo '<th>Email</th>'; 
-										}
-									 ?>
-									<th>Alias</th>
-								</tr>
-							</thead>
-							<tbody id="search-results">
-								<!-- This section is modified by JavaScript -->
-							</tbody>
-						</table>
-					</div>
+				<div class="panel panel-default">
+					<table class="table">
+						<thead>
+							<tr>
+								<?php 
+									if (in_array("admin", $perm)) {
+										echo '<th>Email</th>'; 
+									}
+								 ?>
+								<th>Alias</th>
+							</tr>
+						</thead>
+						<tbody id="search-results">
+							<!-- This section is modified by JavaScript -->
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>

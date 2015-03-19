@@ -7,29 +7,28 @@ function PrintLoginForm ($root) {
 	$SIGNUP = $root . '/login/signup/index.php';
 	$COMPLETE = $root . '/login/complete.php';
 	echo <<<EOD
-		<h2 style="color: #ffffff">Login</h2>	
-		<div class="form-group login-form-group">
-			<label class="col-sm-2 control-label"><h5>$LBL_EMAIL</h5></label>
-			<div class="col-sm-10">
-				<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+		<div class="form-group form-login">
+			<div class="input-group">
+				<span class="input-group-addon">{$LBL_EMAIL}</span>
+				<input type="email" class="form-control" name="email" id="email" placeholder="address@example.com">
 			</div>
 		</div>
-		<div class="form-group login-form-group">
-			<label class="col-sm-2 control-label"><h5>$LBL_PASSWORD</h5></label>
-			<div class="col-sm-10">          
+		<div class="form-group form-login">
+			<div class="input-group">
+				<span class="input-group-addon">{$LBL_PASSWORD}</span>     
 				<input type="password" name="password" class="form-control" id="password" placeholder="Password">
 			</div>   
 		</div>
-		<div class="form-group login-form-group">
+		<div class="form-group form-login">
 			<div class="col-sm-offset-2 col-sm-10">
 				<label style="font-weight:normal; font-size:9pt;"> <input type="checkbox" name="remember"/>
 					$LBL_REMEMBER
 				</label>
 			</div>
 		</div>
-		<div class="form-group login-form-group">
+		<div class="form-group form-login">
 			<div class="col-sm-offset-2 col-sm-10">
-				<input type="submit" class="btn btn-success" value="$LBL_LOGIN">
+				<input type="submit" class="btn btn-login" value="$LBL_LOGIN">
 			</div>
 		</div>
 EOD;

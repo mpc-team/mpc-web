@@ -6,7 +6,7 @@ function PrintSidebar ($highlight, $root) {
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav"> 
 EOD;
-	$class = ($highlight == "members") ? $ACTIVE : "";
-	echo ("<li {$class}><a href='{$MAINPAGE}'>Members</a></li> </ul></div>");
+	$class = ($highlight == "search") ? $ACTIVE : "";
+	echo ("<li {$class}><a href='{$MAINPAGE}'>Search</a></li> </ul></div>");
 }
  ?>

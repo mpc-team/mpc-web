@@ -39,10 +39,12 @@
 	<div class="container">
 		<div class="row">
 				<div class="col-xs-8" id="signup-form">
-					<form role="form" action="complete.php" method="post" onsubmit="return validateSignup()">
-						<?php PrintSignupForm($ROOT); ?>
-					</form>
-				</div>	
+					<div style="padding-top: 30px">
+						<form role="form" action="complete.php" method="post" onsubmit="return validateSignup()">
+							<?php PrintSignupForm($ROOT); ?>
+						</form>
+					</div>
+				</div>
 				<div class="col-xs-4">			
 					<?php echo "<img src='$IMG_BRAND' class='img-rounded' width='350px' height='350px'>"; ?>					
 				</div>

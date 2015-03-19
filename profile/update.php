@@ -28,10 +28,10 @@
 <?php
 	PrintJavaScriptResource( PathDir::GetJQueryPath($ROOT) );
 	PrintStyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
-    PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
-    PrintStyleResource( PathDir::GetBootstrapDateCSSPath($ROOT) );
+	PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
+	PrintStyleResource( PathDir::GetBootstrapDateCSSPath($ROOT) );
 	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
-    PrintJavaScriptResource( PathDir::GetBootstrapDateJSPath($ROOT) );
+	PrintJavaScriptResource( PathDir::GetBootstrapDateJSPath($ROOT) );
 	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
  ?>
 	<meta name="keywords" content="mpc, clan mpc, clanmpc, mpcgaming, mpc gaming, gaming clan, multiplayer clan, multiplayer">
@@ -45,7 +45,7 @@
 		<div id="wrapper">
 			<?php PrintSidebar("update", $ROOT); ?>
 			<div id="page-content-wrapper">
-				<div class="well">
+				<div class="panel panel-default">
 					<ul class="nav nav-tabs" data-tabs="tabs">
 						<li class="active"><a href="#profile-account" data-toggle="tab">Account</a></li>
 						<li><a href="#profile-public" data-toggle="tab">Public Information</a></li>

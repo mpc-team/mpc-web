@@ -27,24 +27,19 @@ function ProtectPassword($password) {
 
 /* __Input_Validation__ */
 
-function hasSpaces($email) {
-	return (preg_match('/\s/', $email));
-}
-
 function isValidEmail($email) {
-	if (hasSpaces($email)) return FALSE;
-	$email = $email.split('@');
-	if ($email.length != 2) return FALSE;
-	$name = $email[0];
-	$domain = explode('.', $email[1]);
-	if ($domain.length != 2) return FALSE;
+	$emailsplit = explode('@', $email);
+	if (count($emailsplit) != 2) return FALSE;
+	$name = $emailsplit[0];
+	$domain = explode('.', $emailsplit[1]);
+	if (count($domain) != 2) return FALSE;
 	
 	return TRUE;
 }
 
 function isValidAlias($alias) {
 	if ($alias == NULL) return FALSE;
-	if (trim($alias) == "") return FALSE; //just spaces
+	if (strlen(trim($alias)) == 0) return FALSE; //just spaces
 	
 	return TRUE;
 }

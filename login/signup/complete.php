@@ -15,9 +15,11 @@
 	$db = DB_CreateDefault();
 	$db->connect();
 	$header = "Location: {$ROOT}/login/signup/index.php";
-	if (isValidAlias($alias) &&
-				isValidEmail($email) && 
-				!DB_UserExists($db, $email)) {
+	
+	$v_alias = isValidAlias($alias);
+	$v_email = isValidEmail($email);
+	$v_user  = ($v_email) ? (!DB_UserExists($db, $email)) : FALSE;
+	if ($v_alias && $v_email && $v_user) {
 		$id = DB_GetNewUserID($db);
 		$hash = ProtectPassword($password);
 		$perm = array();
@@ -28,7 +30,11 @@
 			session_write_close();
 			$header = "Location: {$ROOT}/profile/index.php";
 		}
-	} 
+	} else {
+		if (!$v_alias) echo 'Invalid Alias<br>';
+		if (!$v_email) echo 'Invalid Email<br>';
+		if (!$v_user)  echo 'User Already Exists<br>';
+	}
 	$db->disconnect();
 	header($header);
  ?>

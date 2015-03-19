@@ -33,7 +33,7 @@ function validateSignup() {
 	var passmatch = (password != null && password != "" && (password == confirmed))
 	var regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 	var emailvalid = regex.test(email);
-	var aliasvalid = (alias.length > 0) && (alias.length == alias.trim().length);
+	var aliasvalid = (alias.length > 2) && (alias.length == alias.trim().length);
 	
 	var addclass = (!passmatch) ? "has-error" : "has-success";
 	var remclass = (!passmatch) ? "has-success" : "has-error";
@@ -45,10 +45,8 @@ function validateSignup() {
 		$("#signup-confirm").removeClass("has-error");
 		$("#signup-confirm").removeClass("has-success");
 	}
-	
 	addclass = (!emailvalid) ? "has-error" : "has-success";
 	remclass = (!emailvalid) ? "has-success" : "has-error";
-	
 	if (email != null && email != "") {
 		$("#signup-email").addClass(addclass);
 		$("#signup-email").removeClass(remclass);
@@ -56,10 +54,8 @@ function validateSignup() {
 		$("#signup-email").removeClass("has-error");
 		$("#signup-email").removeClass("has-success");
 	}
-	
 	addclass = (!aliasvalid) ? "has-error" : "has-success";
 	remclass = (!aliasvalid) ? "has-success" : "has-error";
-	
 	if (alias != null && alias != "") {
 		$("#signup-alias").addClass(addclass);
 		$("#signup-alias").removeClass(remclass);
@@ -67,7 +63,6 @@ function validateSignup() {
 		$("#signup-alias").removeClass("has-error");
 		$("#signup-alias").removeClass("has-success");
 	}
-	
 	return (emailvalid && passmatch && aliasvalid);
 }
 

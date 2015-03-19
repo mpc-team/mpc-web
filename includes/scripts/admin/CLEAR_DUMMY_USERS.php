@@ -14,11 +14,7 @@
 			$db = DB_CreateDefault();
 			$db->connect();
 			
-			$id = DB_GetUserID($db, 'steve@mpcgaming.com');
-			DB_DeleteUser($db, $id);
-			$id = DB_GetUserID($db, 'admin@mpcgaming.com');
-			DB_DeleteUser($db, $id);
-			$id = DB_GetUserID($db, 'test@test.com');
+			$id = DB_GetUserID($db, 'mac.apple@gmail.com');
 			DB_DeleteUser($db, $id);
 			
 			$db->disconnect();

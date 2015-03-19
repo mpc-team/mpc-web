@@ -89,7 +89,7 @@
 											<a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
 												<i class="icon-filter"></i>
 													Filter By
-												<span class="caret"></span>
+													<span class="caret"></span>
 											</a>
 											<select class="dropdown-menu" role="menu" data-country="US">
 												<option value="AF" name="AF">Afghanistan</option>

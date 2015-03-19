@@ -34,7 +34,12 @@
 	<div class="container">
 		<div class="col-md-8">
 			<img src="../pics/mpclogo.png" class="img-responsive" alt="mpclogo.png"/>
-			<?php PrintLoginForm($ROOT); ?> 
+			<form class="form-horizontal" role="form" action="complete.php" method="post">
+				<?php PrintLoginForm($ROOT); ?> 
+			</form>
+			<div class="text-center">	
+				<p>New Sign up? Please Click<a href="./signup/index.php"> Here</a></p>
+			</div>
 		</div>
 	</div>
 	<div class="container-fluid">

@@ -1,15 +1,21 @@
 /* Parents only */
-body 
-{ 
-	padding-top: 50px; 
-	padding-bottom: 49px; /* Padding is for Navbar and Footer */
-	background-size: 100%; 
-	background-color: #151515; 
-}
 
-/* Typography Colors */
+body { padding-top: 50px; padding-bottom: 49px; }
+body {	background-size: 100%; background-color: #151515; }
+
 h1, h2, h3, h4, h5, h6, p, label, li { color: #ffffff; }
+p { margin-bottom: 0px; }
+
+span.input-group-addon { height: 34px; width: 100px; }
+span.input-group-addon { border-radius: 0px; }
+
+tr.alt { background-color: #efefef; }
+
 #navbar-copyright { color: #888888; }
+#navbar-copyright { padding: 20px; }
+#contactlogo{ height: 100%; width: 100%; }
+#mpclogo-img{ height: 300px; width: 600px;}
+#signup-form { max-width: 450px; }
 
 .well h1,
 .well h2,
@@ -17,28 +23,10 @@ h1, h2, h3, h4, h5, h6, p, label, li { color: #ffffff; }
 .well p,
 .well label { color: #000000; }
 
-/* Lists */
-
-tr.alt { background-color: #efefef; }
-
-/* Position & Sizes */
-
-#mpclogo-img{ height: 300px; width: 600px;}
-
-span.input-group-addon { height: 34px; width: 100px; }
-span.input-group-addon { border-radius: 0px; }
+.well label,
+.form-group p { padding-top: 10px; }
 
 .input-group input { border-radius: 0px; }
 
-/* Padding & Margins */
-
-#contactlogo{ height: 100%; width: 100%; }
-#navbar-copyright { padding: 20px; }
-
 .login-form-group { margin-bottom: 15px; }
 .panel .form-group { margin-bottom: 0px; }
-
-p { margin-bottom: 0px; }
-
-.well label,
-.form-group p { padding-top: 10px; }

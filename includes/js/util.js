@@ -25,12 +25,15 @@ var JSON_LIST = 1;
 /* __Functions__ */
 
 function validateSignup() {
+	var alias = $(INPUT_ALIAS).val();
 	var email = $(INPUT_EMAIL).val();
 	var password = $(INPUT_PASSWORD).val();
 	var confirmed = $(INPUT_CONFIRM).val();
+	
 	var passmatch = (password != null && password != "" && (password == confirmed))
-	var re = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-	var emailvalid = re.test(email);
+	var regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+	var emailvalid = regex.test(email);
+	var aliasvalid = (alias.length > 0) && (alias.length == alias.trim().length);
 	
 	var addclass = (!passmatch) ? "has-error" : "has-success";
 	var remclass = (!passmatch) ? "has-success" : "has-error";
@@ -54,7 +57,18 @@ function validateSignup() {
 		$("#signup-email").removeClass("has-success");
 	}
 	
-	return (emailvalid && passmatch);
+	addclass = (!aliasvalid) ? "has-error" : "has-success";
+	remclass = (!aliasvalid) ? "has-success" : "has-error";
+	
+	if (alias != null && alias != "") {
+		$("#signup-alias").addClass(addclass);
+		$("#signup-alias").removeClass(remclass);
+	} else {
+		$("#signup-alias").removeClass("has-error");
+		$("#signup-alias").removeClass("has-success");
+	}
+	
+	return (emailvalid && passmatch && aliasvalid);
 }
 
 function isListEmpty(list) {

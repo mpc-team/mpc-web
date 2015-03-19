@@ -41,7 +41,8 @@ function isValidEmail($email) {
 
 function isValidAlias($alias) {
 	if ($alias == NULL) return FALSE;
-	if (strlen(trim($alias)) == 0) return FALSE; //just spaces
+	if ($alias == "")   return FALSE;
+	if (strlen(trim($alias)) == strlen($alias)) return FALSE; //just spaces
 	
 	return TRUE;
 }

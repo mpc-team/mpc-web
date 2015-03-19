@@ -49,8 +49,9 @@
 			</div>
 		</div>
 		<div class="row">
-                        <img src="../pics/ventrilobanner.png" alt="ventrilobanner.png" class="img-responsive" style="height: auto; width: auto;" />
-                       <script type="text/javascript" src="//www.typefrag.com/Server-Status/script.aspx?id=0b0af120-74ee-476b-ba1a-6a406cce40f3"></script>                    	 
+			<img src="../pics/ventrilobanner.png" alt="ventrilobanner.png" class="img-responsive" style="height: auto; width: auto;" />
+			<script type="text/javascript" src="//www.typefrag.com/Server-Status/script.aspx?id=0b0af120-74ee-476b-ba1a-6a406cce40f3"></script>                    	 
+		</div>
 	</div>
 	<div class="container-fluid">
 		<?php PrintFooter($ROOT); ?>

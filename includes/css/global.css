@@ -1,7 +1,10 @@
 /* Parents only */
 
 body { padding-top: 50px; padding-bottom: 49px; }
-body {	background-size: 100%; background-color: #151515; }
+html { background: url("../../pics/background.png") center center fixed; }
+html { background-repeat: no-repeat; }
+html { background-size: cover; }
+html body { background: inherit; }
 
 h1, h2, h3, h4, h5, h6, p, label, li { color: #ffffff; }
 p { margin-bottom: 0px; }

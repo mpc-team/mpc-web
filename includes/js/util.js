@@ -25,9 +25,12 @@ var JSON_LIST = 1;
 /* __Functions__ */
 
 function validateSignup() {
+	var email = $(INPUT_EMAIL).val();
 	var password = $(INPUT_PASSWORD).val();
 	var confirmed = $(INPUT_CONFIRM).val();
 	var passmatch = (password != null && password != "" && (password == confirmed))
+	var re = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+	var emailvalid = re.test(email);
 	
 	var addclass = (!passmatch) ? "has-error" : "has-success";
 	var remclass = (!passmatch) ? "has-success" : "has-error";
@@ -40,7 +43,18 @@ function validateSignup() {
 		$("#signup-confirm").removeClass("has-success");
 	}
 	
-	return passmatch;
+	addclass = (!emailvalid) ? "has-error" : "has-success";
+	remclass = (!emailvalid) ? "has-success" : "has-error";
+	
+	if (email != null && email != "") {
+		$("#signup-email").addClass(addclass);
+		$("#signup-email").removeClass(remclass);
+	} else {
+		$("#signup-email").removeClass("has-error");
+		$("#signup-email").removeClass("has-success");
+	}
+	
+	return (emailvalid && passmatch);
 }
 
 function isListEmpty(list) {

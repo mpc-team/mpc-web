@@ -27,6 +27,7 @@
 	PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
 	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
 	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
+	PrintJavaScriptResource( PathDir::GetJSPath($ROOT, 'util.js') );
  ?>
 	<meta name="keywords" content="mpc, clan mpc, clanmpc, mpcgaming, mpc gaming, gaming clan, multiplayer clan, multiplayer">
 	<meta name="description" content="Multi-Player Clan - Gaming community hosting tournaments for various games including StarCraft II, Heroes of the Storm, Counter-Strike: Global Offense.">
@@ -38,7 +39,7 @@
 	<div class="container">
 		<div class="row">
 				<div class="col-xs-8" id="signup-form">
-					<form role="form" action="complete.php" method="post">
+					<form role="form" action="complete.php" method="post" onsubmit="return validateSignup()">
 						<?php PrintSignupForm($ROOT); ?>
 					</form>
 				</div>	
@@ -54,5 +55,13 @@
 	<div class="container-fluid">	
 		<?php PrintFooter($ROOT); ?>
 	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#signup-email").keyup(function () { validateSignup(); });
+			$("#signup-pw").keyup(function () { validateSignup(); });
+			$("#signup-confirm").keyup(function () { validateSignup(); });
+			$("#signup-alias").keyup(function () { validateSignup(); });
+		});
+	</script>
 </body>
 </html>

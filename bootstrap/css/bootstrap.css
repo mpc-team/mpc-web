@@ -2569,7 +2569,9 @@ select[multiple].form-group-lg .form-control {
 .has-success.checkbox-inline label {
   color: #3c763d;
 }
+.has-success ::-webkit-input-placeholder { color: #22aa22; }
 .has-success .form-control {
+	background-color: #cfffcf;
   border-color: #3c763d;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -2629,7 +2631,9 @@ select[multiple].form-group-lg .form-control {
 .has-error.checkbox-inline label {
   color: #a94442;
 }
+.has-error ::-webkit-input-placeholder { color: #aa2222; }
 .has-error .form-control {
+	background-color: #ffaaaa;
   border-color: #a94442;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);

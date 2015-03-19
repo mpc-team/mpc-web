@@ -40,6 +40,7 @@
 	PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
 	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
 	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
+	PrintJavaScriptResource( PathDir::GetJSPath($ROOT, 'util.js') );
  ?>
 	<meta name="keywords" content="mpc, clan mpc, clanmpc, mpcgaming, mpc gaming, gaming clan, multiplayer clan, multiplayer">
 	<meta name="description" content="Multi-Player Clan - Gaming community hosting tournaments for various games including StarCraft II, Heroes of the Storm, Counter-Strike: Global Offense.">
@@ -68,12 +69,12 @@
 							<?php
 								if (in_array("admin", $perm)) {
 									echo <<<EOD
-							<div class="form-group">
-								<div class="input-group">	
-									<span class="input-group-addon">Email</span>
-										<input type="text" class="form-control" name="email" id="email" placeholder="Search by player email..."/>
-								</div>
-							</div>
+									<div class="form-group">
+										<div class="input-group">	
+											<span class="input-group-addon">Email</span>
+												<input type="text" class="form-control" name="email" id="email" placeholder="Search by player email..."/>
+										</div>
+									</div>
 EOD;
 								}
 							 ?>
@@ -109,7 +110,6 @@ EOD;
 		<?php PrintFooter($ROOT); ?>
 	</div>
 	<!-- Here is our JavaScript, loaded after the page loads -->
-	<script src="./includes/js/util.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		<?php	echo 'var userList = ', json_encode($json), ';'; ?>
 		<?php echo 'var permissions = ', json_encode($perm), ';'; ?>

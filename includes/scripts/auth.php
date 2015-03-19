@@ -28,6 +28,8 @@ function ProtectPassword($password) {
 /* __Input_Validation__ */
 
 function isValidEmail($email) {
+	$regex = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/";
+	if (!preg_match($regex, $email)) return FALSE;
 	$emailsplit = explode('@', $email);
 	if (count($emailsplit) != 2) return FALSE;
 	$name = $emailsplit[0];

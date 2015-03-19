@@ -30,10 +30,6 @@
 			session_write_close();
 			$header = "Location: {$ROOT}/profile/index.php";
 		}
-	} else {
-		if (!$v_alias) echo 'Invalid Alias<br>';
-		if (!$v_email) echo 'Invalid Email<br>';
-		if (!$v_user)  echo 'User Already Exists<br>';
 	}
 	$db->disconnect();
 	header($header);

@@ -13,8 +13,14 @@
 		if ($user == "b0rg3r@gmail.com" || $user == "keatingc88@gmail.com") {
 			$db = DB_CreateDefault();
 			$db->connect();
-			$sql = "DELETE FROM User WHERE userName=''";
-			$db->query($sql);
+			
+			$id = DB_GetUserID($db, 'steve@mpcgaming.com');
+			DB_DeleteUser($db, $id);
+			$id = DB_GetUserID($db, 'admin@mpcgaming.com');
+			DB_DeleteUser($db, $id);
+			$id = DB_GetUserID($db, 'test@test.com');
+			DB_DeleteUser($db, $id);
+			
 			$db->disconnect();
 			$success = 'yes';
 		} else { $success = 'perm'; }

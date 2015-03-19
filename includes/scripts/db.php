@@ -7,6 +7,20 @@
 		return new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
 	}
 	
+	function DB_DeleteUser($db, $id) {
+		if ($db->connected) {
+			$sql = "DELETE FROM User WHERE userID={$id}";
+			if ($db->query($sql)) {
+				$sql = "DELETE FROM UserAlias WHERE userID={$id}";
+				$db->query($sql);
+				$sql = "DELETE FROM UserPermissions WHERE userID={$id}";
+				$db->query($sql);
+				return (TRUE);
+			}
+		}
+		return (FALSE);
+	}
+	
 	function DB_GetNewUserID($db) {
 		if ($db->connected) {
 			$sql = "SELECT userID FROM User ORDER BY userID DESC LIMIT 0, 1";

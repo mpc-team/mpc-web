@@ -1,5 +1,5 @@
 <?php
-	$ROOT = "../..";
+	$ROOT = "../../..";
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$DB);
 	

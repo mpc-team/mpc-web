@@ -11,27 +11,30 @@
 	$alias = $_POST['alias'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
+	$confirm = $_POST['confirm'];
 	
-	$db = DB_CreateDefault();
-	$db->connect();
 	$header = "Location: {$ROOT}/login/signup/index.php";
-	
-	$v_alias = isValidAlias($alias);
-	$v_email = isValidEmail($email);
-	$v_user  = ($v_email) ? (!DB_UserExists($db, $email)) : FALSE;
-	if ($v_alias && $v_email && $v_user) {
-		$id = DB_GetNewUserID($db);
-		$hash = ProtectPassword($password);
-		$perm = array();
-		array_push($perm, 'member');
-		if (DB_CreateNewUser($db, $id, $email, $alias, $perm, $hash)) {
-			session_start();
-			$_SESSION["USER"] = $email;
-			session_write_close();
-			$header = "Location: {$ROOT}/profile/index.php";
+	if (strcmp($confirm, $password) == 0) {
+		$db = DB_CreateDefault();
+		$db->connect();
+		
+		$v_info = ValidateSignupInformation($email, $alias);
+		$v_user = ($v_info) ? (!DB_UserExists($db, $email)) : FALSE;
+		if ($v_user) {
+			$id = DB_GetNewUserID($db);
+			$hash = ProtectPassword($password);
+			
+			$perm = array();
+			array_push($perm, 'member');
+			if (DB_CreateNewUser($db, $id, $email, $alias, $perm, $hash)) {
+				session_start();
+				$_SESSION["USER"] = $email;
+				session_write_close();
+				$header = "Location: {$ROOT}/profile/index.php";
+			}
 		}
+		$db->disconnect();
 	}
-	$db->disconnect();
 	header($header);
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

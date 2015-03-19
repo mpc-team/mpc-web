@@ -46,5 +46,9 @@ function isValidAlias($alias) {
 	return TRUE;
 }
 
+function ValidateSignupInformation($email, $alias) {
+	return (isValidEmail($email) && isValidAlias($alias));
+}
+
 /* #### Input Validation End ################################### */
  ?>

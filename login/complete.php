@@ -9,7 +9,8 @@
 	include_once($ROOT . PathDir::$PASSHASH);
 	
 	$header = "Location: {$ROOT}/login/index.php";
-	if (AuthenticateUser($_POST["email"], $_POST["password"])) {
+	$v_email = isValidEmail($_POST["email"]);
+	if ($v_email && AuthenticateUser($_POST["email"], $_POST["password"])) {
 		session_start();
 		$_SESSION["USER"] = $_POST["email"];
 		session_write_close();

@@ -5,7 +5,7 @@ class PathDir {
 	public static $FOOTER = '/includes/footer.php';
 	public static $NAVBAR = '/includes/navbar.php';
 	public static $SIDEBAR = '/profile/includes/sidebar.php';
-	
+    
 	public static $LOGINFORM = '/login/form.php';
 	public static $SIGNUPFORM = '/login/signup/form.php';
 	public static $SIGNOUT = '/login/signout.php';
@@ -28,6 +28,8 @@ class PathDir {
 	public static $BS_CSS = '/bootstrap/css/bootstrap.css';
 	public static $BS_JS = '/bootstrap/js/bootstrap.js';
 	public static $JQUERY = '/bootstrap/js/jquery-1.11.2.js';
+    public static $DATE_CSS = '/bootstrap/css/datepicker.css';
+    public static $DATE_JS = '/bootstrap/js/bootstrap-datepicker.js';
 	
 	# This Path
 	public static $PATHDIR = '/includes/pathdir.php';
@@ -49,6 +51,14 @@ class PathDir {
 	
 	public static function GetBootstrapSidebarCSSPath($root) {
 		return $root . self::$BS_SB_CSS;
+	}
+    
+    public static function GetBootstrapDateCSSPath($root) {
+        return $root . self::$DATE_CSS;
+	}
+    
+    public static function GetBootstrapDateJSPath($root) {
+        return $root . self::$DATE_JS;
 	}
 	
 	public static function GetCSSPath($root, $cssName) {

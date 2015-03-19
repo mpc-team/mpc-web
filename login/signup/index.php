@@ -58,9 +58,13 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$("#signup-email").keyup(function () { validateSignup(); });
+			$("#signup-email").change(function () { validateSignup(); });
 			$("#signup-pw").keyup(function () { validateSignup(); });
+			$("#signup-pw").change(function () { validateSignup(); });
 			$("#signup-confirm").keyup(function () { validateSignup(); });
+			$("#signup-confirm").change(function () { validateSignup(); });
 			$("#signup-alias").keyup(function () { validateSignup(); });
+			$("#signup-alias").change(function () { validateSignup(); });
 		});
 	</script>
 </body>

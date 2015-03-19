@@ -12,7 +12,8 @@ p { margin-bottom: 0px; }
 span.input-group-addon { height: 34px; width: 100px; }
 span.input-group-addon { border-radius: 0px; }
 
-tr.alt { background-color: #efefef; }
+tr.alt { background-color: #2a2f2a; }
+tr.alt { border-top: 1px solid #232323; }
 
 #navbar-copyright { color: #888888; }
 #navbar-copyright { padding: 20px; }
@@ -20,16 +21,9 @@ tr.alt { background-color: #efefef; }
 #mpclogo-img{ height: 300px; width: 600px;}
 #signup-form { max-width: 450px; }
 
-.well h1,
-.well h2,
-.well h3, 
-.well p,
-.well label { color: #000000; }
-
 .well label,
 .form-group p { padding-top: 10px; }
-
 .input-group input { border-radius: 0px; }
 
 .login-form-group { margin-bottom: 15px; }
-.panel .form-group { margin-bottom: 0px; }
+

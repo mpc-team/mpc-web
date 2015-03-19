@@ -57,7 +57,7 @@
 				
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3>Search</h3>
+							Search
 						</div>
 						<form role="form">
 							<div class="form-group">
@@ -83,9 +83,6 @@ EOD;
 				</div>
 				<div class="well">
 					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3>Results</h3>
-						</div>
 						<table class="table">
 							<thead>
 								<tr>

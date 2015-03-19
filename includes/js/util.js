@@ -24,53 +24,56 @@ var JSON_LIST = 1;
 
 /* __Functions__ */
 
-function validateSignup() {
-	var alias = $(INPUT_ALIAS).val();
-	var email = $(INPUT_EMAIL).val();
+function validatePassword (password, confirmed) {
+	if (password == null || password == "") return false;
+	if (password != confirmed) return false;
+	return true;
+}
+
+function validateEmail (email) {
+	var regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+	return regex.test(email);
+}
+
+function validateAlias (alias) {
+	if (alias.length < 3) return false;
+	if (alias.length != alias.trim().length) return false;
+	return true;
+}
+
+function showInputError(valid, inputval, inputid) {
+	var addclass = (!valid) ? "has-error" : "has-success";
+	var remclass = (!valid) ? "has-success" : "has-error";
+	if (inputval != null && inputval != "") {
+		$(inputid).addClass(addclass);
+		$(inputid).removeClass(remclass);
+	} else {
+		$(inputid).removeClass("has-error");
+		$(inputid).removeClass("has-success");
+	}
+}
+
+function validateSignup () {
 	var password = $(INPUT_PASSWORD).val();
 	var confirmed = $(INPUT_CONFIRM).val();
+	var passmatch = validatePassword(password, confirmed);
+	var emailvalid = validateEmail($(INPUT_EMAIL).val());
+	var aliasvalid = validateAlias($(INPUT_ALIAS).val());
+	var addclass;
+	var remclass;
 	
-	var passmatch = (password != null && password != "" && (password == confirmed))
-	var regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-	var emailvalid = regex.test(email);
-	var aliasvalid = (alias.length > 2) && (alias.length == alias.trim().length);
+	showInputError(passmatch, confirmed, "#signup-confirm");
+	showInputError(emailvalid, $(INPUT_EMAIL).val(), "#signup-email");
+	showInputError(aliasvalid, $(INPUT_ALIAS).val(), "#signup-alias");
 	
-	var addclass = (!passmatch) ? "has-error" : "has-success";
-	var remclass = (!passmatch) ? "has-success" : "has-error";
-	
-	if (confirmed != null && confirmed != "") {
-		$("#signup-confirm").addClass(addclass);
-		$("#signup-confirm").removeClass(remclass);
-	} else {
-		$("#signup-confirm").removeClass("has-error");
-		$("#signup-confirm").removeClass("has-success");
-	}
-	addclass = (!emailvalid) ? "has-error" : "has-success";
-	remclass = (!emailvalid) ? "has-success" : "has-error";
-	if (email != null && email != "") {
-		$("#signup-email").addClass(addclass);
-		$("#signup-email").removeClass(remclass);
-	} else {
-		$("#signup-email").removeClass("has-error");
-		$("#signup-email").removeClass("has-success");
-	}
-	addclass = (!aliasvalid) ? "has-error" : "has-success";
-	remclass = (!aliasvalid) ? "has-success" : "has-error";
-	if (alias != null && alias != "") {
-		$("#signup-alias").addClass(addclass);
-		$("#signup-alias").removeClass(remclass);
-	} else {
-		$("#signup-alias").removeClass("has-error");
-		$("#signup-alias").removeClass("has-success");
-	}
 	return (emailvalid && passmatch && aliasvalid);
 }
 
-function isListEmpty(list) {
+function isListEmpty (list) {
 	return (list.length == 0);
 }
 
-function doFilter(criteria, userList, filterBy) {
+function doFilter (criteria, userList, filterBy) {
 	var regx = new RegExp(criteria.toLowerCase());
 	var users = [];
 	var len = userList.length;
@@ -83,7 +86,7 @@ function doFilter(criteria, userList, filterBy) {
 	return users;
 }
 
-function doFilterEmail(userList, permissions) {
+function doFilterEmail (userList, permissions) {
 	var criteria;
 	if (permissions.indexOf(PERM_ADMIN) > -1) {
 		criteria = ($(INPUT_EMAIL) == null) ? "" : $(INPUT_EMAIL).val();
@@ -92,27 +95,27 @@ function doFilterEmail(userList, permissions) {
 	return userList;
 }
 
-function doFilterAlias(userList, permissions) {
+function doFilterAlias (userList, permissions) {
 	var criteria = ($(INPUT_ALIAS) == null) ? "" : $(INPUT_ALIAS).val();
 	return doFilter(criteria, userList, FILTER_BY_ALIAS);
 }
 
-function htmlTableEmail(user, permissions) {
+function htmlTableEmail (user, permissions) {
 	if (permissions.indexOf(PERM_ADMIN) > -1) {
 		return "<td>" + user[FILTER_BY_EMAIL] + "</td>";
 	}
 	return "";
 }
 
-function htmlTableAlias(user, permissions) {
+function htmlTableAlias (user, permissions) {
 	return "<td>" + user[FILTER_BY_ALIAS] + "</td>";
 }
 
-function htmlTableClass(rownum) {
+function htmlTableClass (rownum) {
 	return (rownum % 2 == 0) ? "alt" : "";
 }
 
-function updateList(userList, permissions) {
+function updateList (userList, permissions) {
 	if (isListEmpty(userList)) { return; }
 	userList = doFilterEmail(userList, permissions);
 	userList = doFilterAlias(userList, permissions);

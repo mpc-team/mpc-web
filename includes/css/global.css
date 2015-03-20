@@ -25,7 +25,7 @@ tr.alt { border-top: 1px solid #232323; }
 .well label,
 .form-group p { padding-top: 10px; }
 .input-group input { border-radius: 0px; }
-.container-login { margin: 0px; padding: 0px; }
+.container-login { margin: 0px; padding: 0px; padding-bottom: 50px; }
 .panel-page-top { padding-bottom: 30px; }
 .form-signup { padding-bottom: 10px; }
 .btn-login:hover { 

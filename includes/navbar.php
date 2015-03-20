@@ -34,7 +34,7 @@ EOD;
 	
 	$class = ($highlight == "roster") ? $ACTIVE : "";
 	$path  = $root_path . '/roster/index.php';
-	echo "<li {$class} > <a href='{$path}'>Clan Roster</a> </li>";
+	echo "<li {$class} > <a href='{$path}'>Roster</a> </li>";
 	
 	$class = ($highlight == "gaming") ? $ACTIVE : "";
 	$path  = $root_path . '/gaming/index.php';

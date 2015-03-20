@@ -92,7 +92,6 @@
 				</div>
 			</div>
 		</div>
-<<<<<<< HEAD
         <div class="row">
             <div class="col-xs-5">
                 <div class="well">

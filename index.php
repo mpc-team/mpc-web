@@ -32,16 +32,16 @@
 		<?php PrintNavbar("index", $ROOT); ?>		
 	</div>
 	<div class="container">
-		<div class="row">
-			<div class="col-md-8">
-				<img src="pics/mpclogo.png" class="img-responsive" alt="mpclogo.png" />			
-			</div>
-			<div class="col-md-4">
-				<div class="well well-sm">
-					<div class="page-header text-center">
-						<h1 style="color: #000000">
-							Website Under Construction
-						</h1>
+		<div class="content">
+			<div class="row">
+				<div class="col-md-8">
+					<img src="pics/mpclogo.png" class="img-responsive" alt="mpclogo.png" />			
+				</div>
+				<div class="col-md-4">
+					<div class="panel panel-default">
+						<div class="page-header text-center">
+							<h1>Website Under Construction</h1>
+						</div>
 					</div>
 				</div>
 			</div>

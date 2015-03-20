@@ -37,9 +37,10 @@
 		<?php PrintNavbar("index", $ROOT); ?>
 	</div>
 	<div class="container">
-		<div class="row">
-				<div class="col-xs-8" id="signup-form">
-					<div style="padding-top: 30px">
+		<div class="content">
+			<div class="row">
+				<div class="col-xs-8">
+					<div class="content-signup">
 						<form role="form" action="complete.php" method="post" onsubmit="return validateSignup()">
 							<?php PrintSignupForm($ROOT); ?>
 						</form>
@@ -48,10 +49,7 @@
 				<div class="col-xs-4">			
 					<?php echo "<img src='$IMG_BRAND' class='img-rounded' width='350px' height='350px'>"; ?>					
 				</div>
-				</br>
-				</br>
-				</br>
-				</br>
+			</div>
 		</div>
 	</div>	
 	<div class="container-fluid">	

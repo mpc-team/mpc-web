@@ -53,49 +53,51 @@
 		<div id="wrapper">
 			<?php PrintSidebar("search", $ROOT); ?>
 			<div id="page-content-wrapper">
-				<div class="panel-page-top">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							Search
-						</div>
-						<form role="form">
-							<div class="form-group">
-								<div class="input-group">
-									<span class="input-group-addon">Alias</span>
-									<input type="text" class="form-control" name="alias" id="alias" placeholder="Search by player alias..."/>				
-								</div>
+				<div class="content">
+					<div class="panel-page-top">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								Search
 							</div>
-							<?php
-								if (in_array("admin", $perm)) {
-									echo <<<EOD
-									<div class="form-group">
-										<div class="input-group">	
-											<span class="input-group-addon">Email</span>
-											<input type="text" class="form-control" name="email" id="email" placeholder="Search by player email..."/>
-										</div>
+							<form role="form">
+								<div class="form-group">
+									<div class="input-group">
+										<span class="input-group-addon">Alias</span>
+										<input type="text" class="form-control" name="alias" id="alias" placeholder="Search by player alias..."/>				
 									</div>
-EOD;
-								}
-							 ?>
-						</form>
-					</div>
-				</div>
-				<div class="panel panel-default">
-					<table class="table">
-						<thead>
-							<tr>
-								<?php 
+								</div>
+								<?php
 									if (in_array("admin", $perm)) {
-										echo '<th>Email</th>'; 
+										echo <<<EOD
+										<div class="form-group">
+											<div class="input-group">	
+												<span class="input-group-addon">Email</span>
+												<input type="text" class="form-control" name="email" id="email" placeholder="Search by player email..."/>
+											</div>
+										</div>
+EOD;
 									}
 								 ?>
-								<th>Alias</th>
-							</tr>
-						</thead>
-						<tbody id="search-results">
-							<!-- This section is modified by JavaScript -->
-						</tbody>
-					</table>
+							</form>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<table class="table">
+							<thead>
+								<tr>
+									<?php 
+										if (in_array("admin", $perm)) {
+											echo '<th>Email</th>'; 
+										}
+									 ?>
+									<th>Alias</th>
+								</tr>
+							</thead>
+							<tbody id="search-results">
+								<!-- This section is modified by JavaScript -->
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>

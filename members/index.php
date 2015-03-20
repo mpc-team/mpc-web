@@ -1,7 +1,7 @@
 <?php
 	$ROOT = '..';
 	include_once($ROOT . '/includes/pathdir.php');
-	include_once($ROOT . '/roster/includes/sidebar.php');
+	include_once($ROOT . '/members/includes/sidebar.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$HEADER);
@@ -47,7 +47,7 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<?php PrintNavbar("roster", $ROOT); ?>
+		<?php PrintNavbar("members", $ROOT); ?>
 	</div>
 	<div class="container">
 		<div id="wrapper">

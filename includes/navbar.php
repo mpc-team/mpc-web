@@ -32,9 +32,9 @@ EOD;
 	$path  = $root_path . '/contact/index.php';
 	echo "<li {$class} > <a href='{$path}'>Contact</a> </li>";
 	
-	$class = ($highlight == "roster") ? $ACTIVE : "";
-	$path  = $root_path . '/roster/index.php';
-	echo "<li {$class} > <a href='{$path}'>Roster</a> </li>";
+	$class = ($highlight == "members") ? $ACTIVE : "";
+	$path  = $root_path . '/members/index.php';
+	echo "<li {$class} > <a href='{$path}'>Members</a> </li>";
 	
 	$class = ($highlight == "gaming") ? $ACTIVE : "";
 	$path  = $root_path . '/gaming/index.php';

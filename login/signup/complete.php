@@ -8,8 +8,8 @@
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
 	
-	$alias = $_POST['alias'];
-	$email = $_POST['email'];
+	$alias = trim($_POST['alias']);
+	$email = trim($_POST['email']);
 	$password = $_POST['password'];
 	$confirm = $_POST['confirm'];
 	

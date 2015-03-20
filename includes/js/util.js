@@ -32,13 +32,14 @@ function validatePassword (password, confirmed) {
 
 function validateEmail (email) {
 	var regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+	email = email.trim();
 	return regex.test(email);
 }
 
 function validateAlias (alias) {
-	if (alias.length < 3) return false;
-	if (alias.length != alias.trim().length) return false;
-	return true;
+	var regex = /^(?=[0-9a-zA-Z\s]{3,32}$)[a-zA-Z\s]+[a-zA-Z0-9\s]*/;
+	alias = alias.trim();
+	return regex.test(alias);
 }
 
 function showInputError(valid, inputval, inputid) {

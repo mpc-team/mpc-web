@@ -8,11 +8,14 @@
 	include_once($ROOT . PathDir::$DB_INFO);
 	include_once($ROOT . PathDir::$PASSHASH);
 	
+	$email = trim($_POST["email"]);
+	$password = $_POST["password"];
+	
 	$header = "Location: {$ROOT}/login/index.php";
-	$v_email = isValidEmail($_POST["email"]);
-	if ($v_email && AuthenticateUser($_POST["email"], $_POST["password"])) {
+	$v_email = isValidEmail($email);
+	if ($v_email && AuthenticateUser($email, $password)) {
 		session_start();
-		$_SESSION["USER"] = $_POST["email"];
+		$_SESSION["USER"] = $email;
 		session_write_close();
 		$header = "Location: {$ROOT}/profile/index.php";
 	} 

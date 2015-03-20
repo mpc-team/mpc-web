@@ -1,6 +1,6 @@
 <?php 
 function PrintSidebar ($highlight, $root) {	
-	$MAINPAGE = $root . '/roster/index.php';
+	$MAINPAGE = $root . '/members/index.php';
 	$ACTIVE = "class='active'";
 	echo <<<EOD
 		<div id="sidebar-wrapper">

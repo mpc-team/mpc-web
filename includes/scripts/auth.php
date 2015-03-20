@@ -30,20 +30,14 @@ function ProtectPassword($password) {
 function isValidEmail($email) {
 	$regex = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/";
 	if (!preg_match($regex, $email)) return FALSE;
-	$emailsplit = explode('@', $email);
-	if (count($emailsplit) != 2) return FALSE;
-	$name = $emailsplit[0];
-	$domain = explode('.', $emailsplit[1]);
-	if (count($domain) != 2) return FALSE;
-	
 	return TRUE;
 }
 
 function isValidAlias($alias) {
 	if ($alias == NULL) return FALSE;
 	if ($alias == "")   return FALSE;
-	if (strlen($alias < 3)) return FALSE;
-	if (strlen(trim($alias)) == strlen($alias)) return FALSE; //just spaces
+	$regex = "/^(?=[0-9a-zA-Z\s]{3,32}$)[a-zA-Z\s]+[a-zA-Z0-9\s]*/";
+	if (!preg_match($regex, $alias)) return FALSE;
 	
 	return TRUE;
 }

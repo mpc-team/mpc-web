@@ -7,7 +7,7 @@
 	include_once($ROOT . PathDir::$SIGNUPFORM);
 	include_once($ROOT . PathDir::$HEADER);
 	
-	$IMG_BRAND = $ROOT . '/pics/mpcbrand.png';
+	$IMG_PATH = $ROOT . '/pics/mpcbrand.png';
 	
 	session_start();
 	if (isset($_SESSION["USER"])) {
@@ -47,7 +47,7 @@
 					</div>
 				</div>
 				<div class="col-xs-4">			
-					<?php echo "<img src='$IMG_BRAND' class='img-rounded' width='350px' height='350px'>"; ?>					
+					<?php echo "<img src='{$IMG_PATH}' class='img-rounded' width='350px' height='350px'>"; ?>					
 				</div>
 			</div>
 		</div>

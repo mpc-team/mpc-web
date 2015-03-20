@@ -33,9 +33,9 @@
 	</div>
 	<div class="container-fluid">
 		<div class="content">
-			<img src="../pics/mpclogo.png" class="img-responsive" alt="mpclogo.png"/>
+			<img src="../pics/mpclogo.png" class="img-responsive" id="image-banner-login"/>
 			<div class="panel panel-default panel-login">
-				<h1 style="margin-top: 0px">Login</h1>
+				<h1>Login</h1>
 				<form class="form-horizontal" role="form" action="complete.php" method="post">
 					<?php PrintLoginForm($ROOT); ?> 
 				</form>

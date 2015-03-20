@@ -1,4 +1,6 @@
-/* Parents only */
+
+#navbar-copyright { color: #888888; }
+#navbar-copyright { padding: 20px; }
 
 body { padding-top: 50px; padding-bottom: 49px; }
 html { background: url("../../pics/background.png") center center fixed; }
@@ -16,30 +18,32 @@ span.input-group-addon { border-radius: 0px; }
 tr.alt { background-color: #2a2f2a; }
 tr.alt { border-top: 1px solid #232323; }
 
-#navbar-copyright { color: #888888; }
-#navbar-copyright { padding: 20px; }
-#contactlogo{ height: 100%; width: 100%; }
-#mpclogo-img{ height: 300px; width: 600px;}
-
-#signup-form { 
-	max-width: 450px; 
-	padding-top: 30px;
-}
-#signup-text { padding: 25px; }
-
 .well label,
 .form-group p { padding-top: 10px; }
 .input-group input { border-radius: 0px; }
 .form-signup { padding-bottom: 10px; }
+.signup-text { padding: 25px; }
 
 .panel-page-top { padding-bottom: 20px; }
 .panel-login { padding-bottom: 15px; }
+.panel-login h1 { margin-top: 0px; }
+
+#image-banner-login { 
+	max-height: 300px; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.content-signup {	
+	padding-top: 30px;
+	max-width: 450px; 
+}
 
 .container .content,
 .container-fluid .content {
 	margin: 0px;
 	padding: 0px;
-	padding-bottom: 200px;
+	margin-bottom: 200px;
 }
 
 .btn-signup:hover,

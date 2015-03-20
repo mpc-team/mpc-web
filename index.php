@@ -38,11 +38,9 @@
 					<img src="pics/mpclogo.png" class="img-responsive" alt="mpclogo.png" />			
 				</div>
 				<div class="col-md-4">
-					<div class="well well-sm">
+					<div class="panel panel-default">
 						<div class="page-header text-center">
-							<h1 style="color: #000000">
-								Website Under Construction
-							</h1>
+							<h1>Website Under Construction</h1>
 						</div>
 					</div>
 				</div>

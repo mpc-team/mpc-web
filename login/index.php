@@ -41,7 +41,7 @@
 				</form>
 			</div>
 			<div class="text-center signup-text">	
-				<h4>New to the site? <a href="./signup/index.php">Click here to sign-up/register</a>.</h4>
+				<h5>New to the site? <a href="./signup/index.php">Click here to sign-up/register</a>.</h5>
 			</div>
 		</div>
 	</div>

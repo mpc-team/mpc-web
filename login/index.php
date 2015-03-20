@@ -39,7 +39,7 @@
 				<?php PrintLoginForm($ROOT); ?> 
 			</form>
 		</div>
-		<div class="text-center" style="padding-top: 25px">	
+		<div class="text-center" style="padding: 25px">	
 			<p>New Sign up? Please Click<a href="./signup/index.php"> Here</a></p>
 		</div>
 	</div>

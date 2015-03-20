@@ -53,15 +53,16 @@
 			     <img src="../pics/ventrilobanner.png" alt="ventrilobanner.png" class="img-responsive" style="height: auto; width: auto;" />
             </center>
 		</div>
-        <div class="row" style="height: 600px;">
+        <div class="row">
             <div class="col-xs-5">
                 <div class="well">
                     <script type="text/javascript" src="http://www.typefrag.com/Server-Status/script.aspx?id=4b427159-13f2-489f-806c-ac705e84d73e"></script>
                 <br />
                     <small>
                         <p style="color: #ffffff">Need Help Setting up Ventrilo?</p>    
-                    </small>                        
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".ventrilo-installment-video">Get Started</button>
+                    </small> 
+                <br />
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".ventrilo-installment-video" data-placement="left" title="Youtube Video" data-toggle="tooltip">Getting Started</button>
                             <div class="modal fade ventrilo-installment-video" tabindex="-1" role="dialog" aria-labelledby="Get-Started-Ventrilo" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
@@ -71,7 +72,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="http://www.ventrilo.com/faq.php" target="_blank"><button type="button" class="btn btn-primary">FAQ</button></a>
+                            <a href="http://www.ventrilo.com/faq.php" target="_blank"><button type="button" class="btn btn-primary" data-placement="left" title="Ventrilo Frequently Asked Questions" data-toggle="tooltip">FAQ</button></a>
+                            <a href="http://www.ventrilo.com/faq.php" target="_blank"><button type="button" class="btn btn-primary" data-placement="right" title="ventrilo forums" data-toggle="tooltip">Forum</button></a>
+                            <a href="http://www.ventrilo.com/faq.php" target="_blank"><button type="button" class="btn btn-primary" data-placement="right" title="Ventrilo/setup.php" data-toggle="tooltip">Additional Setup</button></a>
+
                 </div>    
             </div>
             <div class="col-xs-7">
@@ -89,11 +93,40 @@
                         </div>
                     </div>
             </div>
-        </div>
+        </div>  
+        <br />
         <div class="row">
-            
+                <div class="modal fade" role="dialog" aria-labelledby="Streamlist" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" data-target=".Streamlist" >&times;</span></button>
+                                    <h4 class="modal-title" id="Streamlist">Select an MPC Member's Stream</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <p>link 1</p>
+                                    </div>
+                                    <div class="row">
+                                        <p>link 2</p>
+                                    </div>
+                                    <div class="row">
+                                        <p>link 3</p>
+                                    </div>
+                                    <div class="row">
+                                        <p>link 4</p>
+                                    </div>
+                                    <div class="row">
+                                        <p>link 5</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
-	</div>
+	</div><!--container-->
 	<div class="container-fluid">
 		<?php PrintFooter($ROOT); ?>
 	</div>

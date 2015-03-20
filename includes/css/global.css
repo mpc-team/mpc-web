@@ -20,21 +20,40 @@ tr.alt { border-top: 1px solid #232323; }
 #navbar-copyright { padding: 20px; }
 #contactlogo{ height: 100%; width: 100%; }
 #mpclogo-img{ height: 300px; width: 600px;}
-#signup-form { max-width: 450px; }
+
+#signup-form { 
+	max-width: 450px; 
+	padding-top: 30px;
+}
+#signup-text { padding: 25px; }
 
 .well label,
 .form-group p { padding-top: 10px; }
 .input-group input { border-radius: 0px; }
-.container-login { margin: 0px; padding: 0px; padding-bottom: 50px; }
-.panel-page-top { padding-bottom: 30px; }
 .form-signup { padding-bottom: 10px; }
+
+.panel-page-top { padding-bottom: 20px; }
+.panel-login { padding-bottom: 15px; }
+
+.container .content,
+.container-fluid .content {
+	margin: 0px;
+	padding: 0px;
+	padding-bottom: 200px;
+}
+
+.btn-signup:hover,
 .btn-login:hover { 
 	color: #99dd99;
 	border-color: #225522; 
 }
+.btn-signup { margin-top: 30px; }
+.btn-signup,
 .btn-login { 
   color: #ffffff;
-	font-size: 16pt;
+	font-size: 14pt;
+	padding: 10px;
+	margin-right: 10px;
 	width: 100px;
   background-color: #5cb85c;
 	border-size: 3px;

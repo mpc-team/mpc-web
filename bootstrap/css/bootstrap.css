@@ -1393,10 +1393,10 @@ pre code {
   }
 }
 .container-fluid {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .row {
   margin-left: 0px;

@@ -25,7 +25,7 @@ function PrintSignupForm ($root_path) {
 				<input type="text" name="alias" class="form-control" id="alias" placeholder="Name or game tag, or a sequence of 'k's, 'l's, and 'r's" required>
 			</div>
 		</div>
-		<input style="margin-top: 40px;" class="btn btn-success pull-right" type="submit" value="Sign Up"/>	
+		<input class="btn btn-signup pull-right" type="submit" value="Sign Up"/>	
 EOD;
 	echo $print;
 	

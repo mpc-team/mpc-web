@@ -26,6 +26,8 @@ tr.alt { border-top: 1px solid #232323; }
 .form-signup { padding-bottom: 10px; }
 .signup-text { padding: 25px; }
 
+.forum .panel-default h3 { margin-top: 0px; }
+
 .panel-login { padding-bottom: 15px; }
 .panel-login h1 { margin-top: 0px; }
 

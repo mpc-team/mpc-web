@@ -29,6 +29,7 @@ tr.alt { border-top: 1px solid #232323; }
 .panel-login h1 { margin-top: 0px; }
 
 .navbar-forum .navbar { 
+	border-color: #2a2a2f;
 	min-height: 30px; 
 	top: 60px;
 	left: 10px;

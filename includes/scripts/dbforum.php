@@ -99,6 +99,66 @@ EOD;
 		return(null);
 	}
 	
+	function DBF_GetNewMessageID($db) {
+		if ($db->connected) {
+			$sql = "SELECT tmsgID FROM ThreadMessages ORDER BY tmsgID DESC LIMIT 0, 1";
+			$result = $db->query($sql);
+			$id = 1;
+			if ($result) {
+				$row = $result->fetch_assoc();
+				$id = $row['tmsgID'] + 1;
+				$result->close();
+				return $id;
+			}
+		}
+		return (-1);
+	}
+	
+	function DBF_GetNewThreadID($db) {
+		if ($db->connected) {
+			$sql = "SELECT fthreadID FROM ForumThreads ORDER BY fthreadID DESC LIMIT 0, 1";
+			$result = $db->query($sql);
+			$id = 1;
+			if ($result) {
+				$row = $result->fetch_assoc();
+				$id = $row['fthreadID'] + 1;
+				$result->close();
+				return $id;
+			}
+		}
+		return (-1);
+	}
+	
+	function DBF_CheckCategory($db,$cid,$ctag){
+		if($db->connected){
+			$sql=<<<EOD
+				SELECT categoryID FROM ForumCategory
+				WHERE categoryID={$cid} AND categoryName='{$ctag}'
+EOD;
+			$result=$db->query($sql);
+			if($result){
+				$rows=$result->num_rows;
+				return($rows > 0);
+			}
+		}
+		return(FALSE);
+	}
+	
+	function DBF_CheckThread($db,$tid,$ttag){
+		if($db->connected){
+			$sql=<<<EOD
+				SELECT fthreadID FROM ForumThreads 
+				WHERE fthreadID={$tid} AND name='{$ttag}'
+EOD;
+			$result=$db->query($sql);
+			if($result){
+				$rows=$result->num_rows;
+				return($rows > 0);
+			}
+		}
+		return(FALSE);
+	}
+	
 	function DBF_CreateCategoryTable($db) {
 		if ($db->connected) {
 			$sql = <<<EOD
@@ -179,41 +239,11 @@ EOD;
 		return (-1);
 	}
 	
-	function DBF_GetNewThreadID($db) {
-		if ($db->connected) {
-			$sql = "SELECT fthreadID FROM ForumThreads ORDER BY fthreadID DESC LIMIT 0, 1";
-			$result = $db->query($sql);
-			$id = 1;
-			if ($result) {
-				$row = $result->fetch_assoc();
-				$id = $row['fthreadID'] + 1;
-				$result->close();
-				return $id;
-			}
-		}
-		return (-1);
-	}
-	
 	function DBF_CreateThread($db, $categoryID, $name) {
 		if ($db->connected) {
 			$id = DBF_GetNewThreadID($db);
 			$sql = "INSERT INTO ForumThreads VALUES ({$id}, {$categoryID}, '{$name}')";
 			if ($db->query($sql)) {
-				return $id;
-			}
-		}
-		return (-1);
-	}
-	
-	function DBF_GetNewMessageID($db) {
-		if ($db->connected) {
-			$sql = "SELECT tmsgID FROM ThreadMessages ORDER BY tmsgID DESC LIMIT 0, 1";
-			$result = $db->query($sql);
-			$id = 1;
-			if ($result) {
-				$row = $result->fetch_assoc();
-				$id = $row['tmsgID'] + 1;
-				$result->close();
 				return $id;
 			}
 		}

@@ -1,11 +1,17 @@
 <?php 
-function PrintSidebar ($highlight, $root) {	
-	$MAINPAGE = $root . '/forum/index.php';
-	$ACTIVE = "class='active'";
-	echo <<<EOD
-		<div id="sidebar-wrapper">
-			<ul class="sidebar-nav"> 
-EOD;
+function PrintSidebar ($highlight, $root, $mode) {	
+	switch($mode){
+		case "threads":
+			echo("<div id='sidebar-wrapper'>");
+			echo("<ul class='sidebar-nav'>");
+			echo("<li><a href='#'>New Thread</a></li>");
+			break;
+		case "messages":
+			echo("<div id='sidebar-wrapper'>");
+			echo("<ul class='sidebar-nav'>");
+			echo("<li><a href='#'>Reply</a></li>");
+			break;
+	}
 	echo("</ul></div>");
 }
  ?>

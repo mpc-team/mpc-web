@@ -1,5 +1,5 @@
 <?php 
-function PrintNavbar ($highlight, $root_path) {
+function PrintNavbar ($highlight, $root) {
 	$ACTIVE = "class='active'";
 	
 	# ---------------- Print Header / Collapse Button ----------------
@@ -16,7 +16,7 @@ function PrintNavbar ($highlight, $root_path) {
 			<ul class="nav navbar-nav">	
 EOD;
 	$class = ($highlight == "index") ? $ACTIVE : "";
-	$path  = $root_path . '/index.php';
+	$path  = $root . '/index.php';
 	echo ("<li {$class}> <a href='{$path}' class='navbar-brand'>MPC</a> </li>");
 
 	# ---------------- Print Standard Buttons ----------------
@@ -29,19 +29,19 @@ EOD;
 EOD;
 	
 	$class = ($highlight == "contact") ? $ACTIVE : "";
-	$path  = $root_path . '/contact/index.php';
+	$path  = $root . '/contact/index.php';
 	echo "<li {$class} > <a href='{$path}'>Contact</a> </li>";
 	
 	$class = ($highlight == "members") ? $ACTIVE : "";
-	$path  = $root_path . '/members/index.php';
+	$path  = $root . '/members/index.php';
 	echo "<li {$class} > <a href='{$path}'>Members</a> </li>";
 	
 	$class = ($highlight == "forum") ? $ACTIVE : "";
-	$path  = $root_path . '/forum/index.php';
+	$path  = $root . '/forum/index.php';
 	echo "<li {$class} > <a href='{$path}'>Forum</a> </li>";
 	
 	$class = ($highlight == "gaming") ? $ACTIVE : "";
-	$path  = $root_path . '/gaming/index.php';
+	$path  = $root . '/gaming/index.php';
 	echo "<li {$class} > <a href='{$path}'>Gaming Room</a> </li>";
 	
 	# ---------------- Print Login Button ----------------
@@ -53,16 +53,20 @@ EOD;
 	
 	if (isset($_SESSION["USER"])) {
 		$text = $_SESSION["USER"];
-		$path = $root_path . '/profile/index.php';
+		$path = $root . '/profile/index.php';
 		$class = ($highlight == "profile") ? $ACTIVE : "";
-		$usertext = "<li {$class}> <a class='logintext' href='{$path}'>{$text}</a></li>";
+		echo "<li {$class}> <a href='{$path}'>{$text}</a></li>";
 	} else {
 		$text = "Login";
-		$path = $root_path . '/login/index.php';
+		$path = $root . '/login/index.php';
 		$class = ($highlight == "login") ? $ACTIVE : "";
-		$usertext = "<li {$class}> <a class='logintext' href='{$path}'>{$text}</a> </li>";
+		echo "<li {$class}> <a href='{$path}'>{$text}</a> </li>";
+		
+		$text = "Signup";
+		$path = $root . '/login/signup/index.php';
+		$class = ($highlight == "signup") ? $ACTIVE : "";
+		echo "<li {$class}> <a href='{$path}'>{$text}</a> </li>";
 	}	
-	echo $usertext; 
 		
 	# ---------------- Close HTML Tags ----------------
 	

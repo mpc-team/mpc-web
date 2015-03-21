@@ -35,7 +35,7 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<?php PrintNavbar("index", $ROOT); ?>
+		<?php PrintNavbar("signup", $ROOT); ?>
 	</div>
 	<div class="container">
 		<div class="content">

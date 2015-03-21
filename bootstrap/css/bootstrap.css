@@ -3891,6 +3891,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-right: -15px;
   margin-left: -15px;
 }
+.container .navbar-header,
+.container-fluid .navbar-header { height: 52px; }
 @media (min-width: 549px) {
   .container > .navbar-header,
   .container-fluid > .navbar-header,
@@ -3936,7 +3938,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding: 15px 15px;
   font-size: 18px;
   line-height: 20px;
-  height: 50px;
+  height: 52px;
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -4153,6 +4155,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default {
   background-color: #333333;
+	border: 1px solid #101010;
 }
 .navbar-default .navbar-brand {
   color: #777777;
@@ -4167,18 +4170,23 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-nav > li > a {
   color: #777777;
+	border: 1px solid transparent;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   color: #eeeeee;
-  background-color: transparent;
+  background-color: #444444;
+	border: 1px solid rgba(190, 190, 255, 0.3);
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #eeeeee;
-  background-color: #2a2a2f;
+  color: #aaaaff;
+	border: 1px solid rgba(190, 190, 255, 0.3);
 }
+
+.navbar-default .navbar-nav > .active > a { background-color: #2a2a2f; }
+
 .navbar-default .navbar-nav > .disabled > a,
 .navbar-default .navbar-nav > .disabled > a:hover,
 .navbar-default .navbar-nav > .disabled > a:focus {
@@ -4263,18 +4271,23 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .navbar-inverse .navbar-nav > li > a {
   color: #9d9d9d;
+	border: 1px solid transparent;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #ffffff;
   background-color: #333333;
+	border: 1px solid rgba(190,255,190,0.3);
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
   color: #aaffaa;
-  background-color: #2a2f2a;
+	border: 1px solid rgba(190,255,190,0.3);
 }
+
+.navbar-inverse .navbar-nav > .active > a { background-color: #2a2f2a; }
+
 .navbar-inverse .navbar-nav > .disabled > a,
 .navbar-inverse .navbar-nav > .disabled > a:hover,
 .navbar-inverse .navbar-nav > .disabled > a:focus {
@@ -5258,7 +5271,7 @@ a.list-group-item-danger.active:focus {
 }
 .panel-group .panel {
   margin-bottom: 0;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 .panel-group .panel + .panel {
   margin-top: 5px;

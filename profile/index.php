@@ -40,9 +40,9 @@
 	<div class="container-fluid">
 		<?php PrintNavbar("profile", $ROOT); ?>
 	</div>
-	<div id="wrapper">
-		<?php PrintSidebar("overview", $ROOT); ?>
-		<div class="container">
+	<div class="container">
+		<div id="wrapper">
+			<?php PrintSidebar("overview", $ROOT); ?>
 			<div id="page-content-wrapper">
 				<div class="content">
 					<?php

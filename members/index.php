@@ -82,22 +82,24 @@ EOD;
 							</form>
 						</div>
 					</div>
-					<div class="panel panel-default">
-						<table class="table">
-							<thead>
-								<tr>
-									<?php 
-										if (in_array("admin", $perm)) {
-											echo '<th>Email</th>'; 
-										}
-									 ?>
-									<th>Alias</th>
-								</tr>
-							</thead>
-							<tbody id="search-results">
-								<!-- This section is modified by JavaScript -->
-							</tbody>
-						</table>
+					<div class="panel-group">
+						<div class="panel panel-default">
+							<table class="table">
+								<thead>
+									<tr>
+										<?php 
+											if (in_array("admin", $perm)) {
+												echo '<th>Email</th>'; 
+											}
+										 ?>
+										<th>Alias</th>
+									</tr>
+								</thead>
+								<tbody id="search-results">
+									<!-- This section is modified by JavaScript -->
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>

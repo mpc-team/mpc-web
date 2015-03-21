@@ -65,7 +65,9 @@
                         </small> 
                             <br />
                     <center>
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target=".ventrilo-installment-video" data-placement="left" title="Youtube Video" data-toggle="tooltip">Getting Started</button>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target=".ventrilo-installment-video" data-placement="top" title="Youtube Video" data-toggle="tooltip">
+                            <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+                            Getting Started</button>
                             <div class="modal fade ventrilo-installment-video" tabindex="-1" role="dialog" aria-labelledby="Get-Started-Ventrilo" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
@@ -75,22 +77,64 @@
                                     </div>
                                 </div>
                             </div>
-                        <a href="http://www.ventrilo.com/faq.php" target="_blank">
-                            <button type="button" class="btn btn-success" data-placement="left" title="Ventrilo Frequently Asked Questions" data-toggle="tooltip">
-                            <!---->FAQ<!---->
-                            </button>
-                        </a>
+                                            <button type="button" class="btn btn-success" data-target=".downloadventrilo" data-dismiss="modal" aria-label="close" data-placement="top" title="Download Ventrilo Links" data-toggle="modal" data-toggle="tooltip">
+                                                <span class="glyphicon glyphicon-download-alt" aria-hidden="true">&times;</span>
+                                                    Download
+                                                </button>    
+                                                    <div class="modal fade downloadventrilo" tabindex="-1" role="dialog" aria-labelledby="Download-Ventrilo" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <h4 class="modal-title">Download Ventrilo</h4>
+                                                                    <div class="modal-body">
+                                                                        <div class="row">
+                                                                            <div class="col-xs-6">
+                                                                            
+                                                                                    <small class="pull-left"><p>Ventrilo can be used for home / personal applications like talking to friends and family, or playing organized online games where Voice Comm can make them more exciting and productive.
+
+It can also be used in an enterprise environment as a productivity tool for conducting long distance group discussions. This would also help when using group collaboration programs that don't provide any kind of voice communication support.
+
+A Ventrilo server could be setup in order to complement a web site that has voice interaction with its creators or for communicating with other people who share a common interest.
+
+For those people that use Windows or Linux based firewall's to connect their internal home LAN's with the Internet can setup a server on the firewall computer so that friends and family can connect to your server and talk for free.
+
+If voice communication isn't your cup of tea then you can always use Ventrilo as a more reliable form of IRC without the hassles or frustration of trying to teach someone how to setup a real IRC client.</p></small>
+                                                                            
+                                                                            </div>
+                                                                            <div class="col-xs-6">
+                                                                                <ul class="list-group">
+                                                                                  <li class="list-group-item list-group-item-success"><a href="http://ventrilo.com/dlprod.php?id=1">Windows 32bit-XP,Vista,Vindows 7</a></li>
+                                                                                  <li class="list-group-item list-group-item-success"><a href="http://ventrilo.com/dlprod.php?id=4">Windows 64bit-All 64bit platforms</a></li>
+                                                                                  <li class="list-group-item list-group-item-success"><a href="http://ventrilo.com/dlprod.php?id=5">Windows 9x/2000 - 95 / 98 / ME and Windows 2000</a></li>
+                                                                                  <li class="list-group-item list-group-item-success"><a href="http://ventrilo.com/dlprod.php?id=2">Mac OSX 10.4 or Higher - 32bit</a></li>
+                                                                                  <li class="list-group-item list-group-item-success"><a href="https://play.google.com/store/apps/details?id=com.jtxdriggers.android.ventriloid&hl=en">Andriod Application</a></li>
+                                                                                  <li class="list-group-item list-group-item-success"><a href="https://itunes.apple.com/us/app/ventrilode/id486115720?mt=8">iPhone Application</a></li>
+                                                                                </ul>
+                                                                                <br />
+                                                                                <img src="../pics/ventrilo123.jpg" alt="ventrilo123.jpg" class="img-responsive img-rounded" style="height: 100px; width: 150px; margin-left: 10px;" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
                         <a href="http://www.ventrilo.com/faq.php" target="_blank">
                             <button type="button" class="btn btn-success" data-placement="top" title="ventrilo forums" data-toggle="tooltip">
+                                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                                 <!---->Forum<!---->
                             </button>
                         </a>
                         <a href="http://www.ventrilo.com/faq.php" target="_blank">
                             <button type="button" class="btn btn-success" data-placement="right" title="Ventrilo/setup.php" data-toggle="tooltip">
+                                <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
                                 <!---->Additional Setup<!---->
                             </button>
                         </a>
+                        <br />
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target=".ventinfo">
+                            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
                             Ventrilo Information
                         </button>
                         <div class="modal fade ventinfo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -115,7 +159,10 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target=".rules">Rules</button>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target=".rules">
+                            <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+                                Rules
+                        </button>
                             <div class="modal fade rules" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -161,7 +208,10 @@
                     <center>
                         <img src="../pics/twitchlogo.png" alt="twitchlogo.png" class="img-responsive img-rounded" style="height:100px;"  />
                     <br />
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Streamjoe">KillerJoe</button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Streamjoe">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                        KillerJoe
+                    </button>
                         <div class="modal fade Streamjoe" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -178,7 +228,10 @@
                                 </div>
                             </div>
                         </div>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Streamlungy">TheLungy</button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Streamlungy">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                        TheLungy
+                    </button>
                         <div class="modal fade Streamlungy" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -195,7 +248,10 @@
                                 </div>
                             </div>
                         </div>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=".StreamVae">VaeVictus</button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=".StreamVae">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                        VaeVictus
+                    </button>
                         <div class="modal fade StreamVae" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">

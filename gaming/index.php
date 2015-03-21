@@ -56,14 +56,14 @@
 			</div>
             <br />
         <div class="row">
-            <div class="col-xs-6">
                 <div class="well">
 <script type="text/javascript" src="//www.typefrag.com/Server-Status/script.aspx?id=80cfaacb-c73d-444f-aca0-a78ad40ea05f"></script>                    <br />
                     <small>
                         <p style="color: #ffffff">Need Help Setting up Ventrilo?</p>    
                     </small> 
                 <br />
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".ventrilo-installment-video" data-placement="left" title="Youtube Video" data-toggle="tooltip">Getting Started</button>
+                     <center>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=".ventrilo-installment-video" data-placement="left" title="Youtube Video" data-toggle="tooltip">Getting Started</button>
                             <div class="modal fade ventrilo-installment-video" tabindex="-1" role="dialog" aria-labelledby="Get-Started-Ventrilo" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
@@ -73,66 +73,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="http://www.ventrilo.com/faq.php" target="_blank"><button type="button" class="btn btn-primary" data-placement="left" title="Ventrilo Frequently Asked Questions" data-toggle="tooltip">FAQ</button></a>
-                            <a href="http://www.ventrilo.com/faq.php" target="_blank"><button type="button" class="btn btn-primary" data-placement="top" title="ventrilo forums" data-toggle="tooltip">Forum</button></a>
-                            <a href="http://www.ventrilo.com/faq.php" target="_blank"><button type="button" class="btn btn-primary" data-placement="right" title="Ventrilo/setup.php" data-toggle="tooltip">Additional Setup</button></a>
-
-                </div>
-                <br />
-                <div class="well">
-                    <div class="page-header text-center"><h3>Stream MPC:</h3></div>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".Streamjoe">KillerJoe</button>
-            <div class="modal fade Streamjoe" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <a href="http://www.ventrilo.com/faq.php" target="_blank"><button type="button" class="btn btn-success" data-placement="left" title="Ventrilo Frequently Asked Questions" data-toggle="tooltip">FAQ</button></a>
+                            <a href="http://www.ventrilo.com/faq.php" target="_blank"><button type="button" class="btn btn-success" data-placement="top" title="ventrilo forums" data-toggle="tooltip">Forum</button></a>
+                            <a href="http://www.ventrilo.com/faq.php" target="_blank"><button type="button" class="btn btn-success" data-placement="right" title="Ventrilo/setup.php" data-toggle="tooltip">Additional Setup</button></a>
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target=".ventinfo">Ventrilo Information</button>
+            <div class="modal fade ventinfo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="row">
-                    <div class="col-xs-6">
-                        <br />
-                        <iframe src="http://www.twitch.tv/killerjoe1231/embed" frameborder="0" scrolling="no" height="150px" width="300px"></iframe><br /><p>https://support.twitter.com/articles/20164833-adding-a-follow-button-to-your-website#</p>
-                      </div>
-                    <div class="col-xs-6 pull-right">
-                        <iframe src="http://www.twitch.tv/killerjoe1231/chat?popout=" frameborder="4" scrolling="yes" height="300px" width="300px"></iframe>
-                      </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".Streamlungy">TheLungy</button>
-            <div class="modal fade Streamlungy" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="row">
-                    <div class="col-xs-6">
-                        <br />
-                        <iframe src="http://www.twitch.tv/the_lungy/embed" frameborder="0" scrolling="no" height="150" width="300"></iframe><br /><p>https://support.twitter.com/articles/20164833-adding-a-follow-button-to-your-website#</p>
-                      </div>
-                    <div class="col-xs-6 pull-right">
-                        <iframe src="http://www.twitch.tv/the_lungy/chat?popout=" frameborder="0" scrolling="no" height="300" width="300"></iframe>
-                      </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".StreamVae">VaeVictus</button>
-            <div class="modal fade StreamVae" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="row">
-                    <div class="col-xs-6">
-                        <br />
-                        <iframe src="http://www.twitch.tv/vaevictissc/embed" frameborder="0" scrolling="no" height="150" width="300"></iframe><br /><p>https://support.twitter.com/articles/20164833-adding-a-follow-button-to-your-website#</p>
-                      </div>
-                    <div class="col-xs-6 pull-right">
-                        <iframe src="http://www.twitch.tv/vaevictissc/chat?popout=" frameborder="0" scrolling="no" height="300" width="300"></iframe>
-                      </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-        </div>
-            </div>
-            <div class="col-xs-6">
-                    <div class="panel panel-success">
+                        <div class="panel panel-success">
                         <div class="panel-heading">
                             <h3 class="panel-title">Ventrilo Information</h3>
                         </div>
@@ -141,6 +90,25 @@
                                 Port Number: 7920 <br />
                                 No - Password <br /></p>
                             <br />
+                        </div>
+                        <div class="panel-footer">
+                            <a href="http://www.ventrilo.com" title="Ventrilo.com">www.ventrilo.com</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target=".rules">Rules</button>
+            <div class="modal fade rules" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="row">
+                        <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Ventrilo Rules</h3>
+                        </div>
+                        <div class="panel-body">
                             <p> Rules:<br />
                                 <ol class="list-group">
                                     <li class="list-group-item list-group-item-danger"><p>No Spamming</p></li>
@@ -160,11 +128,67 @@
                                     <li class="list-group-item list-group-item-danger"><p>Returning, and still no comply - banned</p></li>
                                 </ol></p>
                         </div>
-                        <div class="panel-footer">
-                            <a href="http://www.ventrilo.com" title="Ventrilo.com">www.ventrilo.com</a>
-                        </div>
                     </div>
+                  </center>  
+                    </div>
+                </div>
+                <div class="well">
+                    <center>
+                    <img src="../pics/twitchlogo.png" alt="twitchlogo.png" class="img-responsive img-rounded" style="height:100px;"  />
+                    <br />
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Streamjoe">KillerJoe</button>
+            <div class="modal fade Streamjoe" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="row">
+                    <div class="col-xs-6">
+                        <br />
+                        <iframe src="http://www.twitch.tv/killerjoe1231/embed" frameborder="0" scrolling="no" height="400px" width="300px"></iframe><br /><p>https://support.twitter.com/articles/20164833-adding-a-follow-button-to-your-website#</p>
+                      </div>
+                    <div class="col-xs-6 pull-right">
+                        <br />
+                        <iframe src="http://www.twitch.tv/killerjoe1231/chat?popout=" frameborder="4" scrolling="yes" height="400px" width="285px"></iframe>
+                      </div>
+                    </div>
+                </div>
+              </div>
             </div>
+                     <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Streamlungy">TheLungy</button>
+            <div class="modal fade Streamlungy" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="row">
+                    <div class="col-xs-6">
+                        <br />
+                        <iframe src="http://www.twitch.tv/the_lungy/embed" frameborder="0" scrolling="no" height="400px" width="300"></iframe><br /><p>https://support.twitter.com/articles/20164833-adding-a-follow-button-to-your-website#</p>
+                      </div>
+                    <div class="col-xs-6 pull-right">
+                        <br />
+                        <iframe src="http://www.twitch.tv/the_lungy/chat?popout=" frameborder="0" scrolling="no" height="400" width="285"></iframe>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+                     <button type="button" class="btn btn-success" data-toggle="modal" data-target=".StreamVae">VaeVictus</button>
+            <div class="modal fade StreamVae" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="row">
+                    <div class="col-xs-6">
+                        <br />
+                        <iframe src="http://www.twitch.tv/vaevictissc/embed" frameborder="0" scrolling="no" height="400" width="300"></iframe><br /><p>https://support.twitter.com/articles/20164833-adding-a-follow-button-to-your-website#</p>
+                      </div>
+                    <div class="col-xs-6 pull-right">
+                        <br />
+                        <iframe src="http://www.twitch.tv/vaevictissc/chat?popout=" frameborder="0" scrolling="no" height="400" width="285"></iframe>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </center>
+        </div>
         </div>  
 	</div><!--container-->
 	</div>

@@ -55,6 +55,29 @@
 		return(null);
 	}
 	
+	function DBF_GetThreadContents($db, $threadID){
+		if($db->connected){
+			$sql=<<<EOD
+				SELECT ThreadMessages.tmsgID, ThreadMessageContent.title, ThreadMessageContent.content 
+				FROM ThreadMessages 
+				LEFT JOIN ThreadMessageContent 
+				ON ThreadMessages.tmsgID=ThreadMessageContent.tmsgID
+EOD;
+			$result=$db->query($sql);
+			if($result){
+				$messages=array();
+				while($row=$result->fetch_row()){
+					$content=array();
+					array_push($content,$row[0],$row[1],$row[2]);
+					array_push($messages,$content);
+				}
+				$result->close();
+				return($messages);
+			}
+		}
+		return(null);
+	}
+	
 	function DBF_GetMessageContent($db, $msgID){
 		if($db->connected){
 			$sql=<<<EOD
@@ -196,25 +219,20 @@ EOD;
 		}
 		return (-1);
 	}
-	
-	function DBF_CreateMessage($db, $threadID) {
+		
+	function DBF_CreateMessage($db, $threadID,$title,$content) {
 		if ($db->connected) {
 			$id = DBF_GetNewMessageID($db);
 			$sql = "INSERT INTO ThreadMessages VALUES ({$id}, {$threadID})";
 			if ($db->query($sql)) {
+				$sql=<<<EOD
+					INSERT INTO ThreadMessageContent
+					VALUES ({$id}, '{$title}', '{$content}')
+EOD;
+				$db->query($sql);
 				return $id;
 			}
 		}
-	}
-	
-	function DBF_AddMessageContent($db, $id, $title, $content) {
-		if ($db->connected) {
-			$sql = <<<EOD
-				INSERT INTO ThreadMessageContent 
-				VALUES ({$id}, '{$title}', '{$content}')
-EOD;
-			return (boolean) $db->query($sql);
-		}
-		return (FALSE);
+		return(-1);
 	}
  ?>

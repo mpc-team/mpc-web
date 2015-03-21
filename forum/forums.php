@@ -18,7 +18,7 @@
 		$threads=DBF_GetCategoryThreads($db,$categoryID);
 	}elseif($_GET["thread"]){
 		$threadID=$_GET["thread"];
-		$messages=array();
+		$messages=DBF_GetThreadContents($db,$threadID);
 	}
 	$db->disconnect();
  ?>
@@ -60,7 +60,19 @@ EOD;
 					}
 				}elseif(isset($_GET["thread"])){
 					$msgs=count($messages);
-					
+					for($i=0; $i<$msgs; $i++){
+						$message=$messages[$i];
+						$title=$message[1];
+						$content=$message[2];
+						echo <<<EOD
+							<div class="panel-group">
+								<div class="panel panel-default">
+									<h3>{$title}</h3>
+									<p>{$content}</p>
+								</div>
+							</div>
+EOD;
+					}
 				}
 			 ?>
 		</div>

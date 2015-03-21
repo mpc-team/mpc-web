@@ -14,7 +14,7 @@ EOD;
 		$lastelement=($i == ($len-1));
 		$active=($highlighted and $lastelement) ? $ACTIVE : "";
 		$thispath=$path[$i];
-		echo "<li {$active}><a href='{$home}'>{$thispath["name"]}</a></li>";
+		echo "<li {$active}><a href='{$home}?param'>{$thispath["name"]}</a></li>";
 	}	
 	echo <<<EOD
 			</ul>

@@ -21,24 +21,25 @@
 		return (FALSE);
 	}
 	
-	function DB_GetNewUserID($db) {
-		if ($db->connected) {
-			$sql = "SELECT userID FROM User ORDER BY userID DESC LIMIT 0, 1";
-			$result = $db->query($sql);
-			$id = 1;
-			if ($result) {
-				$row = $result->fetch_assoc();
-				$id = $row['userID'] + 1;
-				$result->close();
-				return $id;
-			}
-		}
-		return (-1);
-	}
-	
 	function DB_AddUserAlias($db, $id, $alias) {
 		if ($db->connected) {
 			$sql = "INSERT INTO UserAlias VALUES ({$id}, '{$alias}')";
+			return (boolean) $db->query($sql);
+		}
+		return (FALSE);
+	}
+	
+	function DB_RemoveUserAlias($db, $id, $alias) {
+		if ($db->connected) {
+			$sql = "DELETE FROM UserAlias WHERE userID={$id} AND userAlias='{$alias}'";
+			return (boolean) $db->query($sql);
+		}
+		return (FALSE);
+	}
+	
+	function DB_RemoveUserAliases($db, $id) {
+		if ($db->connected) {
+			$sql = "DELETE FROM UserAlias WHERE userID={$id}";
 			return (boolean) $db->query($sql);
 		}
 		return (FALSE);
@@ -48,6 +49,21 @@
 		if ($db->connected) {
 			$sql = "INSERT INTO UserPermissions VALUES ({$id}, '{$perm}')";
 			return (boolean) $db->query($sql);
+		}
+		return (FALSE);
+	}
+	
+	function DB_RemoveUserPermission($db, $id, $perm) {
+		if ($db->connected) {
+			$sql = "DELETE FROM UserPermissions WHERE userID={$id} AND userPermission='{$perm}'";
+			return (boolean) $db->query($sql);
+		}
+		return (FALSE);
+	}
+	
+	function DB_UserExists($db, $email) {
+		if ($db->connected) {
+			return (DB_GetUserID($db, $email) > 0);
 		}
 		return (FALSE);
 	}
@@ -68,64 +84,6 @@
 		return (FALSE);
 	}
 	
-	function DB_GetUserMembersList($db) {
-		if ($db->connected) {
-			$sql = <<<EOD
-				SELECT userAlias, userName
-				FROM User
-				LEFT JOIN UserAlias ON User.userID=UserAlias.userID
-EOD;
-			$result = $db->query($sql);
-			$json = array();
-			if ($result) {
-				while ($set = $result->fetch_assoc()) {
-					$entry = array();
-					array_push($entry, $set['userAlias'], $set['userName']);
-					array_push($json, $entry);
-				}
-				$result->close();
-			}
-			return $json;
-		}
-		return (null);
-	}
-	
-	function DB_GetUserPublicList($db) {
-		if ($db->connected) {
-			$sql = <<<EOD
-				SELECT userAlias 
-				FROM User
-				LEFT JOIN UserAlias ON User.userID=UserAlias.userID
-EOD;
-			$result = $db->query($sql);
-			$json = array();
-			if ($result) {
-				while ($set = $result->fetch_assoc()) {
-					$entry = array();
-					array_push($entry, $set['userAlias']);
-					array_push($json, $entry);
-				}
-				$result->close();	
-			}
-			return $json;
-		}
-		return (null);
-	}
-	
-	function DB_GetUserCredentials($db, $email) {
-		if ($db->connected) {
-			$sql = "SELECT userName, userPassword FROM User WHERE userName='{$email}'";
-			$result = $db->query($sql);
-			if ($result) {
-				$row = $result->fetch_assoc();
-				$cred = $row['userPassword'];
-				$result->close();
-				return $cred;
-			}
-		}
-		return (null);
-	}
-	
 	function DB_GetUserID($db, $email) {
 		if ($db->connected) {
 			$sql = "SELECT userID FROM User WHERE userName='{$email}'";
@@ -140,11 +98,33 @@ EOD;
 		return (-1);
 	}
 	
-	function DB_UserExists($db, $email) {
+	function DB_GetNewUserID($db) {
 		if ($db->connected) {
-			return (DB_GetUserID($db, $email) > 0);
+			$sql = "SELECT userID FROM User ORDER BY userID DESC LIMIT 0, 1";
+			$result = $db->query($sql);
+			$id = 1;
+			if ($result) {
+				$row = $result->fetch_assoc();
+				$id = $row['userID'] + 1;
+				$result->close();
+				return $id;
+			}
 		}
-		return (FALSE);
+		return (-1);
+	}
+	
+	function DB_GetUserCredentials($db, $email) {
+		if ($db->connected) {
+			$sql = "SELECT userName, userPassword FROM User WHERE userName='{$email}'";
+			$result = $db->query($sql);
+			if ($result) {
+				$row = $result->fetch_assoc();
+				$cred = $row['userPassword'];
+				$result->close();
+				return $cred;
+			}
+		}
+		return (null);
 	}
 	
 	function DB_GetUserAliasByID($db, $id) {
@@ -187,20 +167,46 @@ EOD;
 		return (($id > 0) ? DB_GetUserPermissionsByID($db, $id) : null);
 	}
 	
-	function DB_GetUserPermissions($db) {
+	function DB_GetUserMembersList($db) {
 		if ($db->connected) {
-			$sql = "SELECT userID, userPermission FROM UserPermissions";
+			$sql = <<<EOD
+				SELECT userAlias, userName
+				FROM User
+				LEFT JOIN UserAlias ON User.userID=UserAlias.userID
+EOD;
 			$result = $db->query($sql);
+			$json = array();
 			if ($result) {
-				$perms = array();
-				while ($row = $result->fetch_assoc()) {
-					$list = array();
-					array_push($list, $row['userID'], $row['userPermission']);
-					array_push($perms, $list);
+				while ($set = $result->fetch_assoc()) {
+					$entry = array();
+					array_push($entry, $set['userAlias'], $set['userName']);
+					array_push($json, $entry);
 				}
 				$result->close();
-				return $perms;
 			}
+			return $json;
+		}
+		return (null);
+	}
+	
+	function DB_GetUserPublicList($db) {
+		if ($db->connected) {
+			$sql = <<<EOD
+				SELECT userAlias 
+				FROM User
+				LEFT JOIN UserAlias ON User.userID=UserAlias.userID
+EOD;
+			$result = $db->query($sql);
+			$json = array();
+			if ($result) {
+				while ($set = $result->fetch_assoc()) {
+					$entry = array();
+					array_push($entry, $set['userAlias']);
+					array_push($json, $entry);
+				}
+				$result->close();	
+			}
+			return $json;
 		}
 		return (null);
 	}

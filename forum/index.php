@@ -1,20 +1,16 @@
 <?php
-	$ROOT = '../..';
+	$ROOT = '..';
 	include_once($ROOT . '/includes/pathdir.php');
+	include_once($ROOT . '/members/includes/sidebar.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
-	include_once($ROOT . PathDir::$LOGINFORM);
-	include_once($ROOT . PathDir::$SIGNUPFORM);
 	include_once($ROOT . PathDir::$HEADER);
-	
-	$IMG_PATH = $ROOT . '/pics/mpcbrand.png';
+	include_once($ROOT . PathDir::$DB);
+	include_once($ROOT . PathDir::$DB_UTILITY);
+	include_once($ROOT . PathDir::$DB_INFO);
 	
 	session_start();
-	if (isset($_SESSION["USER"])) {
-		header("Location: {$ROOT}/profile/index.php");
-	}
  ?>
- 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -34,41 +30,16 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<?php PrintNavbar("index", $ROOT); ?>
+		<?php PrintNavbar("forum", $ROOT); ?>
 	</div>
 	<div class="container">
 		<div class="content">
-			<div class="row">
-				<div class="col-xs-8">
-					<div class="content-signup">
-						<form role="form" action="complete.php" method="post" onsubmit="return validateSignup()">
-							<?php PrintSignupForm($ROOT); ?>
-						</form>
-					</div>
-				</div>
-				<div class="col-xs-4">			
-					<?php echo <<<EOD
-					<img src='{$IMG_PATH}' id='image-brand-login'>	
-EOD;
-					 ?>
-				</div>
-			</div>
+		
 		</div>
-	</div>	
-	<div class="container-fluid">	
+	</div>
+	<div class="container-fluid">
 		<?php PrintFooter($ROOT); ?>
 	</div>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#input-signup-email").keyup(function(){ validateSignup(); });
-			$("#input-signup-email").change(function(){ validateSignup(); });
-			$("#input-signup-pass").keyup(function(){ validateSignup(); });
-			$("#input-signup-pass").change(function(){ validateSignup(); });
-			$("#input-signup-confirm").keyup(function(){ validateSignup(); });
-			$("#input-signup-confirm").change(function(){ validateSignup(); });
-			$("#input-signup-alias").keyup(function(){ validateSignup(); });
-			$("#input-signup-alias").change(function(){ validateSignup(); });
-		});
 	</script>
 </body>
 </html>

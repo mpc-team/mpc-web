@@ -33,17 +33,21 @@ tr.alt { border-top: 1px solid #232323; }
 	margin-left: auto;
 	margin-right: auto;
 }
+#image-brand-login {
+	height: 400px;
+}
 
 .content-signup {	
 	padding-top: 30px;
-	max-width: 450px; 
+	max-width: 500px;
+	min-width: 200px;
 }
 
 .container .content,
 .container-fluid .content {
 	margin: 0px;
 	padding: 0px;
-	margin-bottom: 200px;
+	margin-bottom: 50px;
 }
 
 .btn-signup:hover,

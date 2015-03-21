@@ -36,6 +36,10 @@ EOD;
 	$path  = $root_path . '/members/index.php';
 	echo "<li {$class} > <a href='{$path}'>Members</a> </li>";
 	
+	$class = ($highlight == "forum") ? $ACTIVE : "";
+	$path  = $root_path . '/forum/index.php';
+	echo "<li {$class} > <a href='{$path}'>Forum</a> </li>";
+	
 	$class = ($highlight == "gaming") ? $ACTIVE : "";
 	$path  = $root_path . '/gaming/index.php';
 	echo "<li {$class} > <a href='{$path}'>Gaming Room</a> </li>";

@@ -5,13 +5,13 @@
 	
 	function DBF_GetCategories($db) {
 		if ($db->connected) {
-			$sql = "SELECT categoryName FROM ForumCategory";
+			$sql = "SELECT categoryID, categoryName FROM ForumCategory";
 			$result = $db->query($sql);
 			if ($result) {
 				$categories=array();
 				while ($row=$result->fetch_assoc()) {
 					$cat=array();
-					array_push($cat, $row['categoryName']);
+					array_push($cat, $row['categoryID'], $row['categoryName']);
 					array_push($categories, $cat);
 				}
 				$result->close();
@@ -23,7 +23,7 @@
 	
 	function DBF_GetCategoryThreads($db, $categoryID) {
 		if($db->connected){
-			$sql="SELECT * FROM ForumThreads WHERE categoryID={$categoryID}";
+			$sql="SELECT fthreadID,categoryID,name FROM ForumThreads WHERE categoryID={$categoryID}";
 			$result=$db->query($sql);
 			if($result){
 				$threads=array();
@@ -35,6 +35,43 @@
 				$result->close();
 				return($threads);
 			}
+		}
+		return(null);
+	}
+	
+	function DBF_GetThreadMessages($db, $threadID){
+		if($db->connected){
+			$sql="SELECT tmsgID FROM ThreadMessages";
+			$result=$db->query($sql);
+			if($result){
+				$msgids=array();
+				while($row=$result->fetch_assoc()){
+					array_push($msgids,$row["tmsgID"]);
+				}
+				$result->close();
+				return($msgids);
+			}
+		}
+		return(null);
+	}
+	
+	function DBF_GetMessageContent($db, $msgID){
+		if($db->connected){
+			$sql=<<<EOD
+				SELECT title,content FROM ThreadMessageContent
+				WHERE tmsgID={$smgID}
+EOD;
+			$result=$db->query($sql);
+			if($result){
+				$messages=array();
+				while($row=$result->fetch_assoc()){
+					$content=array();
+					array_push($content,$row[0],$row[1]);
+					array_push($messages,$content);
+				}
+				$result->close();
+				return $messages;
+			}	
 		}
 		return(null);
 	}

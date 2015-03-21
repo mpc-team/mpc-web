@@ -54,7 +54,7 @@
 			<?php PrintSidebar("search", $ROOT); ?>
 			<div id="page-content-wrapper">
 				<div class="content">
-					<div class="panel-page-top">
+					<div class="panel-group">
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								Search

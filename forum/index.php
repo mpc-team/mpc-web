@@ -38,21 +38,18 @@
 		<?php PrintNavbar("forum", $ROOT); ?>
 	</div>
 	<div class="container">
-		<script type="text/javascript">
-			<?php echo 'var forums=',json_encode($categories),';'; ?>
-		</script>
 		<div class="content">
 			<?php
 				$cats=count($categories);
 				for($i=0; $i<$cats; $i++){
 					$cat=$categories[$i];
-					if($i == 0){	echo "<div class='panel-page-top'>"; }
 					echo <<<EOD
-						<div class="panel panel-default">
-							<h4>{$cat[0]}</h4>
+						<div class="panel-group">
+							<div class="panel panel-default">
+								<a href="./forums.php?category={$cat[0]}"><h4>{$cat[1]}</h4></a>
+							</div>
 						</div>
 EOD;
-					if($i == 0){	echo "</div>"; }
 				}
 			 ?>
 		</div>

@@ -58,7 +58,9 @@
                     <br />
                 <div class="row">
                     <div class="well">
+                        <div class="row" style="height: 300px;">
                         <script type="text/javascript" src="//www.typefrag.com/Server-Status/script.aspx?id=34656fb0-2938-46d9-a1b0-001bef8e4793"></script>      
+                        </div>    
                             <br />
                         <small>
                             <p style="color: #ffffff">Need Help Setting up Ventrilo?</p>    
@@ -120,7 +122,7 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                                     </div>
                                 </div>
                             </div>
-                        <a href="http://www.ventrilo.com/faq.php" target="_blank">
+                        <a href="../forum/index.php" target="_blank">
                             <button type="button" class="btn btn-success" data-placement="top" title="ventrilo forums" data-toggle="tooltip">
                                 <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                                 <!---->Forum<!---->

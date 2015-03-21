@@ -58,7 +58,9 @@
                     <br />
                 <div class="row">
                     <div class="well">
+                        <div class="row" style="height: 300px;">
                         <script type="text/javascript" src="//www.typefrag.com/Server-Status/script.aspx?id=34656fb0-2938-46d9-a1b0-001bef8e4793"></script>      
+                        </div>    
                             <br />
                         <small>
                             <p style="color: #ffffff">Need Help Setting up Ventrilo?</p>    

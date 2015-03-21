@@ -50,9 +50,11 @@
 						$cat=$categories[$i];
 						echo <<<EOD
 							<div class="panel-group">
-								<div class="panel panel-default">
-									<a href="./forums.php?category={$cat[0]}"><h4>{$cat[1]}</h4></a>
-								</div>
+								<a href="./forums.php?category={$cat[0]}">
+									<div class="panel panel-default">
+										<p>{$cat[1]}</p>
+									</div>
+								</a>
 							</div>
 EOD;
 					}

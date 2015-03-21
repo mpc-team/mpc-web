@@ -59,7 +59,9 @@
 							echo <<<EOD
 								<div class="panel-group">
 									<div class="panel panel-default">
-										<a href="./forums.php?thread={$thread[0]}"><h4>{$thread[2]}</h4></a>
+										<a href="./forums.php?thread={$thread[0]}">
+											<p>{$thread[2]}</p>
+										</a>
 									</div>
 								</div>
 EOD;

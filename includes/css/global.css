@@ -42,6 +42,7 @@ tr.alt { border-top: 1px solid #232323; }
 	padding-left: 15px;
 	padding-right: 15px;
 }
+.navbar-forum { position:absolute; z-index:2; }
 
 #image-banner-login { 
 	max-height: 300px; 

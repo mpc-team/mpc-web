@@ -3,6 +3,7 @@
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . '/forum/includes/sidebar.php');
 	include_once($ROOT . '/forum/includes/navbar.php');
+	include_once($ROOT . '/forum/includes/reply.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$HEADER);
@@ -81,7 +82,7 @@
 	</div>
 	<div class="container">
 		<div id="wrapper">
-			<?php PrintSidebar(null,$ROOT,$pagetype); ?>
+			<?php PrintSidebar(null,$ROOT,null); ?>
 			<div id="page-content-wrapper">
 				<div class="navbar-forum">
 					<?php PrintForumNavbar($highlight,$ROOT,$path); ?>
@@ -135,9 +136,11 @@ EOD;
 											</div>
 EOD;
 									}
+									PrintReplyForm($ROOT);
 									break;
 							}
 						 ?>
+						 
 					</div>
 				</div>
 			</div>

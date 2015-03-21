@@ -122,7 +122,7 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                                     </div>
                                 </div>
                             </div>
-                        <a href="http://www.ventrilo.com/faq.php" target="_blank">
+                        <a href="../forum/index.php" target="_blank">
                             <button type="button" class="btn btn-success" data-placement="top" title="ventrilo forums" data-toggle="tooltip">
                                 <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                                 <!---->Forum<!---->

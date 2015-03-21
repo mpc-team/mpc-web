@@ -5,7 +5,7 @@ function PrintNavbar ($highlight, $root_path) {
 	# ---------------- Print Header / Collapse Button ----------------
 	
 	echo <<<EOD
-	<nav role="navigation" class="navbar navbar-default navbar-fixed-top navbar-inverse">
+	<nav role="navigation" class="navbar navbar-fixed-top navbar-inverse">
 		<div class="navbar-header">
 			<button type="button" data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle">
 				<span class="sr-only">Toggle Navigation</span>

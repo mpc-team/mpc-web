@@ -58,11 +58,11 @@
 							$thread=$threads[$i];
 							echo <<<EOD
 								<div class="panel-group">
-									<div class="panel panel-default">
-										<a href="./forums.php?thread={$thread[0]}">
+									<a href="./forums.php?thread={$thread[0]}">
+										<div class="panel panel-default">
 											<p>{$thread[2]}</p>
-										</a>
-									</div>
+										</div>
+									</a>
 								</div>
 EOD;
 						}

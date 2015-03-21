@@ -8,6 +8,8 @@ function PrintForumNavbar($highlight,$root){
 EOD;
 	$active=($highlight == "forum") ? $ACTIVE : "";
 	echo "<li {$active}><a href='{$home}'>Forum</a></li>";
+	$active="";
+	echo "<li {$active}><a href='{$home}'>Nested</a></li>";
 	echo <<<EOD
 			</ul>
 		</nav>

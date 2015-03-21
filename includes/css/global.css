@@ -38,11 +38,13 @@ tr.alt { border-top: 1px solid #232323; }
 	margin-left: auto;
 }
 .navbar-forum li > a { 
-	padding: 5px; 
+	padding: 7px; 
 	padding-left: 15px;
 	padding-right: 15px;
+	border: 1px solid transparent;
 }
 .navbar-forum { position:absolute; z-index:2; }
+.navbar-forum li > a:active {	background-color: #4f4f9f; }
 
 #image-banner-login { 
 	max-height: 300px; 

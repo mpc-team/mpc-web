@@ -56,7 +56,6 @@
                 </center>
                 </div>
                     <br />
-                <div class="row">
                     <div class="well">
                         <div class="row" style="height: 300px;">
                         <script type="text/javascript" src="//www.typefrag.com/Server-Status/script.aspx?id=34656fb0-2938-46d9-a1b0-001bef8e4793"></script>      
@@ -66,7 +65,7 @@
                             <p style="color: #ffffff">Need Help Setting up Ventrilo?</p>    
                         </small> 
                             <br />
-                    <center>
+                    <div class="btn-group">
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target=".ventrilo-installment-video" data-placement="top" title="Youtube Video" data-toggle="tooltip">
                             <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
                             Getting Started</button>
@@ -202,10 +201,11 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                                                     </p>
                                                 </div>
                                         </div>
-                    </center>  
+                    </div>  
                                     </div>
                                 </div>
-                        <br />
+                </div>
+                </div>
                 <div class="well">
                     <center>
                         <img src="../pics/twitchlogo.png" alt="twitchlogo.png" class="img-responsive img-rounded" style="height:100px;"  />
@@ -272,8 +272,77 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                         </div>
                     </center>
                 </div>
-            </div>  
-    </div><!--container-->
+            </div>
+                        <br />
+<div class="well">
+<div class="row">
+<div class="col-md-4 text-center">
+<center>
+<img src="../pics/bnet.PNG" alt="bnt.PNG" class="img-responsive img-rounded" style="min-height: 25px; min-width: 50px; max-height: 200px; width: 300px;" />
+</center>
+
+<div class="btn-group">
+<button type="button" class="btn btn-group-item btn-group-item-success" data-toggle="tooltip" data-placement="left" title="Sign into Battle.net">
+<a href="https://us.battle.net/account/creation/tos.html" target="_blank">
+<span class="gylphicon gylphicon-hdd" aria-hidden="true"></span>
+<!---->Battle.net Service<!---->
+</a>
+</button>
+<a href="#">
+<button type="button" class="btn btn-group-item btn-group-item-success" data-toggle="tooltip" data-placement="left" title="View Battle.net MPC Accounts">
+<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+<!---->MPC Battle.net<!---->
+</button>   
+</a>
+</div>
+</div>
+<div class="col-md-4 text-center">
+<center>
+<img src="../pics/steam.png" alt="steam.png" class="img-responsive img-rounded" style="min-height: 25px; min-width: 50px; max-height: 200px; width: 300px;" />
+</center>
+<br />
+<div class="btn-group">
+<a href="http://store.steampowered.com/about/" target="_blank">
+<button type="button" class="btn btn-group-item" data-toggle="tooltip" data-placement="left" title="Sign into Steam">
+<span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
+<!---->Steam Service<!---->
+</button>
+</a>
+<button type="button" class="btn btn-group-item" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts">
+<a href="#">
+<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+<!---->MPC Steam<!---->
+</a>
+</button>
+</div>
+</div>
+<div class="col-md-4 text-center">
+<center>
+<img src="../pics/originlogo.PNG" alt="originlogo.PNG" class="img-responsive img-rounded" style="min-height: 25px; min-width: 50px; max-height: 200px; width: 300px;" />
+</center>
+<br />
+<div class="btn-group">
+<a href="https://www.origin.com/en-us/download" target="_blank">
+<button type="button" class="btn btn-group-item" data-toggle="tooltip" data-placement="bottom" title="Sign into Steam">
+<span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
+<!---->Origin EA Service<!---->
+</button>
+</a>
+<button type="button" class="btn btn-group-item" data-toggle="tooltip" data-placement="bottom" title="View Origin MPC Accounts">
+<a href="#">
+<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+<!---->MPC Origin<!---->
+</a>
+</button>
+</div>  <!--btn0group-->
+</div>  <!--col-->
+<div class="row" style="height: 100px;">
+    &nbsp;
+    </div>
+</div>  <!--row-->     
+</div>  <!--well-->
+    </div>
+</div><!--container-->
 
     <div class="container-fluid">
         <?php PrintFooter($ROOT); ?>

@@ -8,11 +8,14 @@
 	include_once($ROOT . PathDir::$DB_INFO);
 	include_once($ROOT . PathDir::$PASSHASH);
 	
+	$email = trim($_POST["email"]);
+	$password = $_POST["password"];
+	
 	$header = "Location: {$ROOT}/login/index.php";
-	$v_email = isValidEmail($_POST["email"]);
-	if ($v_email && AuthenticateUser($_POST["email"], $_POST["password"])) {
+	$v_email = isValidEmail($email);
+	if ($v_email && AuthenticateUser($email, $password)) {
 		session_start();
-		$_SESSION["USER"] = $_POST["email"];
+		$_SESSION["USER"] = $email;
 		session_write_close();
 		$header = "Location: {$ROOT}/profile/index.php";
 	} 
@@ -24,6 +27,7 @@
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>Multi-Player Clan</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 <?php
 	PrintJavaScriptResource( PathDir::GetJQueryPath($ROOT) );
 	PrintStyleResource( PathDir::GetBootstrapCSSPath($ROOT) );

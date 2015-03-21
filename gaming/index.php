@@ -13,6 +13,7 @@
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>Multi-Player Clan</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 <?php
 	PrintJavaScriptResource( PathDir::GetJQueryPath($ROOT) );
 	PrintStyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
@@ -30,34 +31,35 @@
 	<div class="container">
 		<div class="content">
 			<div class="row">
-				<div class="page-header text-center">
-					<h1>MPC - Gaming Room - "Digitized"</h1>
-				</div>
-				<small>
-					<p style="margin-left: 15px;">MPC is a multi-level gaming clan that specializes on one main concept... Team. We would like to develope a community that engages both the players, and the games they play. We try to provide the essential fundamentals of gaming, and that includes: ventrilo, website domain, a foundation of solid core members, training, stream zone, and more. It's a friendly environment for all ages, and disrespect to either members, or to public community will not be tolerated.</p>
-				</small>
-				<div class="col-xs-3">
-					<img src="../pics/starcraft2blizzardlogo.PNG" id="sc2logo-gaming" alt="starcraft2blizzardlogo.PNG" class="img-reponsive" style="max-width: 75%; max-height: 75%; margin-top: 15px;" />
-				</div>
-				<div class="col-xs-3">
-					<img src="../pics/cs-go-logo.png" id="csgologo-img" alt="cs-go-logo.png" class="img-reponsive" style="max-width: 100%; max-height: 100%; margin-top: 15px;" />
-				</div>
-				<div class="col-xs-3" style="margin-bottom: 45px;">
-					<img src="../pics/blizzardwowlogo.PNG" id="blizzardwowlogo-img" alt="blizzardwowlogo.PNG" class="img-responsive" />
-				</div>
-				<div class="col-xs-3">
-					<img src="../pics/leagueoflegendslogo.png" id="leagueofleagends-img" alt="leagueoflegendslogos.png" class="img-responsive" style="margin-top: 5px;" />
-				</div>
+			<div class="page-header text-center">
+			<h1>MPC - Gaming Room - "Digitized"</h1>
+			</div>
+			<small>
+			<p style="margin-left: 15px;">MPC is a multi-level gaming clan that specializes on one main concept... Team. We would like to develope a community that engages both the players, and the games they play. We try to provide the essential fundamentals of gaming, and that includes: ventrilo, website domain, a foundation of solid core members, training, stream zone, and more. It's a friendly environment for all ages, and disrespect to either members, or to public community will not be tolerated.</p>
+			</small>
+			<div class="col-xs-3">
+			<img src="../pics/starcraft2blizzardlogo.PNG" id="sc2logo-gaming" alt="starcraft2blizzardlogo.PNG" class="img-reponsive" style="max-width: 75%; max-height: 75%; margin-top: 15px;" />
+			</div>
+			<div class="col-xs-3">
+			<img src="../pics/cs-go-logo.png" id="csgologo-img" alt="cs-go-logo.png" class="img-reponsive" style="max-width: 100%; max-height: 100%; margin-top: 15px;" />
+			</div>
+			<div class="col-xs-3" style="margin-bottom: 45px;">
+			<img src="../pics/blizzardwowlogo.PNG" id="blizzardwowlogo-img" alt="blizzardwowlogo.PNG" class="img-responsive" />
+			</div>
+			<div class="col-xs-3">
+			<img src="../pics/leagueoflegendslogo.png" id="leagueofleagends-img" alt="leagueoflegendslogos.png" class="img-responsive" style="margin-top: 5px;" />
+			</div>
 			</div>
 			<div class="row">
-				<center>
-					<img src="../pics/ventrilobanner.png" alt="ventrilobanner.png" class="img-responsive" style="height: auto; width: auto;" />
-				</center>
+			<center>
+			<img src="../pics/ventrilobanner.png" alt="ventrilobanner.png" class="img-responsive" style="height: auto; width: auto;" />
+			</center>
 			</div>
             <br />
         <div class="row">
                 <div class="well">
-<script type="text/javascript" src="//www.typefrag.com/Server-Status/script.aspx?id=80cfaacb-c73d-444f-aca0-a78ad40ea05f"></script>                    <br />
+<script type="text/javascript" src="//www.typefrag.com/Server-Status/script.aspx?id=34656fb0-2938-46d9-a1b0-001bef8e4793"></script>      
+                    <br />
                     <small>
                         <p style="color: #ffffff">Need Help Setting up Ventrilo?</p>    
                     </small> 
@@ -191,7 +193,7 @@
         </div>
         </div>  
 	</div><!--container-->
-	</div>
+
 	<div class="container-fluid">
 		<?php PrintFooter($ROOT); ?>
 	</div>

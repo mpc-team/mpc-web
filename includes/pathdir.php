@@ -1,11 +1,9 @@
 <?php
 class PathDir {	
 
-	# PHP Scripts
 	public static $FOOTER = '/includes/footer.php';
 	public static $NAVBAR = '/includes/navbar.php';
-	public static $SIDEBAR = '/profile/includes/sidebar.php';
-    
+   
 	public static $LOGINFORM = '/login/form.php';
 	public static $SIGNUPFORM = '/login/signup/form.php';
 	public static $SIGNOUT = '/login/signout.php';
@@ -14,6 +12,7 @@ class PathDir {
 	public static $PASSHASH = '/includes/phpass/PasswordHash.php';
 	public static $AUTHENTICATE = '/includes/scripts/auth.php';
 	public static $DB = '/includes/scripts/db.php';
+	public static $DBFORUM = '/includes/scripts/dbforum.php';
 	
 	# Database PHP
 	public static $DB_UTILITY = '/includes/db/util.php';
@@ -28,9 +27,9 @@ class PathDir {
 	public static $BS_CSS = '/bootstrap/css/bootstrap.css';
 	public static $BS_JS = '/bootstrap/js/bootstrap.js';
 	public static $JQUERY = '/bootstrap/js/jquery-1.11.2.js';
-    public static $DATE_CSS = '/bootstrap/css/datepicker.css';
-    public static $DATE_JS = '/bootstrap/js/bootstrap-datepicker.js';
-	
+	public static $DATE_CSS = '/bootstrap/css/datepicker.css';
+	public static $DATE_JS = '/bootstrap/js/bootstrap-datepicker.js';
+
 	# This Path
 	public static $PATHDIR = '/includes/pathdir.php';
 	

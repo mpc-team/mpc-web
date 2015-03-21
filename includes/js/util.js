@@ -1,8 +1,6 @@
 
 /* __Constants__ */
 
-/* ##################################################### */
-
 var SEARCH_RESULTS = "#search-results";
 
 var INPUT_EMAIL = "#email";
@@ -31,14 +29,21 @@ function validatePassword (password, confirmed) {
 }
 
 function validateEmail (email) {
-	var regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-	return regex.test(email);
+	if (email != null) {
+		var regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+		//email = email.trim();
+		return regex.test(email);
+	}
+	return false;
 }
 
 function validateAlias (alias) {
-	if (alias.length < 3) return false;
-	if (alias.length != alias.trim().length) return false;
-	return true;
+	if (alias != null) {
+		var regex = /^(?=[0-9a-zA-Z\s]{3,32}$)[a-zA-Z\s]+[a-zA-Z0-9\s]*/;
+		//alias = alias.trim();
+		return regex.test(alias);
+	}
+	return false;
 }
 
 function showInputError(valid, inputval, inputid) {
@@ -54,17 +59,19 @@ function showInputError(valid, inputval, inputid) {
 }
 
 function validateSignup () {
+	var email = $(INPUT_EMAIL).val();
+	var alias = $(INPUT_ALIAS).val();
 	var password = $(INPUT_PASSWORD).val();
 	var confirmed = $(INPUT_CONFIRM).val();
 	var passmatch = validatePassword(password, confirmed);
-	var emailvalid = validateEmail($(INPUT_EMAIL).val());
-	var aliasvalid = validateAlias($(INPUT_ALIAS).val());
+	var emailvalid = validateEmail(email);
+	var aliasvalid = validateAlias(alias);
 	var addclass;
 	var remclass;
 	
-	showInputError(passmatch, confirmed, "#signup-confirm");
-	showInputError(emailvalid, $(INPUT_EMAIL).val(), "#signup-email");
-	showInputError(aliasvalid, $(INPUT_ALIAS).val(), "#signup-alias");
+	showInputError(emailvalid, email, "#input-signup-email");
+	showInputError(passmatch, confirmed, "#input-signup-confirm");
+	showInputError(aliasvalid, alias, "#input-signup-alias");
 	
 	return (emailvalid && passmatch && aliasvalid);
 }

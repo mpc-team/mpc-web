@@ -1,7 +1,7 @@
 <?php
 	$ROOT = '..';
 	include_once($ROOT . '/includes/pathdir.php');
-	include_once($ROOT . '/roster/includes/sidebar.php');
+	include_once($ROOT . '/members/includes/sidebar.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$HEADER);
@@ -34,6 +34,7 @@
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>Multi-Player Clan</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 <?php
 	PrintJavaScriptResource( PathDir::GetJQueryPath($ROOT) );
 	PrintStyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
@@ -47,14 +48,14 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<?php PrintNavbar("roster", $ROOT); ?>
+		<?php PrintNavbar("members", $ROOT); ?>
 	</div>
 	<div class="container">
 		<div id="wrapper">
 			<?php PrintSidebar("search", $ROOT); ?>
 			<div id="page-content-wrapper">
 				<div class="content">
-					<div class="panel-page-top">
+					<div class="panel-group">
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								Search

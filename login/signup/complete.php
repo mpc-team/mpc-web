@@ -8,8 +8,8 @@
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
 	
-	$alias = $_POST['alias'];
-	$email = $_POST['email'];
+	$alias = trim($_POST['alias']);
+	$email = trim($_POST['email']);
 	$password = $_POST['password'];
 	$confirm = $_POST['confirm'];
 	
@@ -21,12 +21,10 @@
 		$v_info = ValidateSignupInformation($email, $alias);
 		$v_user = ($v_info) ? (!DB_UserExists($db, $email)) : FALSE;
 		if ($v_user) {
-			$id = DB_GetNewUserID($db);
 			$hash = ProtectPassword($password);
-			
 			$perm = array();
 			array_push($perm, 'member');
-			if (DB_CreateNewUser($db, $id, $email, $alias, $perm, $hash)) {
+			if (DB_CreateNewUser($db, $email, $alias, $perm, $hash)) {
 				session_start();
 				$_SESSION["USER"] = $email;
 				session_write_close();
@@ -43,6 +41,7 @@
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<title>Multi-Player Clan</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 <?php
 	PrintJavaScriptResource( PathDir::GetJQueryPath($ROOT) );
 	PrintStyleResource( PathDir::GetBootstrapCSSPath($ROOT) );

@@ -14,11 +14,11 @@ EOD;
 		$active=($highlighted && count($path)==1) ? $ACTIVE : "";
 		$path0=$path[0];
 		$cid=$path0["id"];
-		$ctag=$path0["name"];
+		$ctag=urlencode($path0["name"]);
 		echo <<<EOD
 					<li {$active}>
-						<a href='{$home}?cid={$cid}&ctag={$ctag}'>
-							{$ctag}
+						<a href='{$home}?c_id={$cid}&c_tag={$ctag}'>
+							{$path0["name"]}
 						</a>
 					</li>
 EOD;
@@ -26,11 +26,11 @@ EOD;
 			$active=($highlighted && count($path)==2) ? $ACTIVE : "";
 			$path1=$path[1];
 			$tid=$path1["id"];
-			$ttag=$path1["name"];
+			$ttag=urlencode($path1["name"]);
 			echo <<<EOD
 						<li {$active}>
-							<a href='{$home}?cid={$cid}&ctag={$ctag}&tid={$tid}&ttag={$ttag}'>
-								{$ttag}
+							<a href='{$home}?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}'>
+								{$path1["name"]}
 							</a>
 						</li>
 					</ul>

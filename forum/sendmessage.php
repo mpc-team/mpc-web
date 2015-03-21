@@ -13,16 +13,16 @@
 		return TRUE;
 	}
 	
-	if (!isset($_GET["tid"])||!isset($_GET["cid"])||!isset($_GET["ttag"])||!isset($_GET["ctag"])){
+	if (!isset($_GET["t_id"])||!isset($_GET["c_id"])||!isset($_GET["t_tag"])||!isset($_GET["c_tag"])){
 		$header="Location: ".$ROOT."/forum/index.php";
-	}elseif(isset($_GET["tid"])&&isset($_GET["cid"])&&isset($_GET["ttag"])&&isset($_GET["ctag"])){
-		$tid=$_GET["tid"];
-		$cid=$_GET["cid"];
-		$ttag=$_GET["ttag"];
-		$ctag=$_GET["ctag"];
+	}elseif(isset($_GET["t_id"])&&isset($_GET["c_id"])&&isset($_GET["t_tag"])&&isset($_GET["c_tag"])){
+		$tid=$_GET["t_id"];
+		$cid=$_GET["c_id"];
+		$ttag=urlencode($_GET["t_tag"]);
+		$ctag=urlencode($_GET["c_tag"]);
 		$title=trim($_POST["title"]);
 		$content=trim($_POST["content"]);
-		$header="Location: ".$ROOT."/forum/index.php?cid={$cid}&ctag={$ctag}&tid={$tid}&ttag={$ttag}";
+		$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}";
 		if(ValidateInput($title,$content)){
 			$db=DB_CreateDefault();
 			$db->connect();
@@ -54,7 +54,8 @@
 		<div class="page-header text-center">
 			<h1>Forum Post Processing...</h1>
 			<?php
-				echo("<h3>{$tid}</h3>");
+				echo("<h3>{$ttag}</h3>");
+				echo("<h3>{$ctag}</h3>");
 				echo("<h3>{$title}</h3>");
 				echo("<h3>{$content}</h3>");
 			 ?>

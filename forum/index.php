@@ -15,15 +15,18 @@
 	session_start();
 	$db=DB_CreateDefault();
 	$db->connect();
+	$query=$_SERVER['QUERY_STRING'];
+	$INDEX_PAGE='index.php';
+	$SEND_PAGE='sendmessage.php';
 	
 	$path=array();
 	$pagetype="categories";
 	$highlight="forum";
 	
-	if(isset($_GET["cid"]) && isset($_GET["ctag"])){
+	if(isset($_GET) && isset($_GET["c_id"]) && isset($_GET["c_tag"])){
 	
-		$cid=$_GET["cid"];
-		$ctag=$_GET["ctag"];
+		$cid=$_GET["c_id"];
+		$ctag=$_GET["c_tag"];
 		
 		if(DBF_CheckCategory($db,$cid,$ctag)){
 		
@@ -32,10 +35,10 @@
 			$dir=array("id"=>$cid,"name"=>$ctag);
 			array_push($path,$dir);
 			
-			if(isset($_GET["tid"]) && isset($_GET["ttag"])){
+			if(isset($_GET["t_id"]) && isset($_GET["t_tag"])){
 			
-				$tid=$_GET["tid"];
-				$ttag=$_GET["ttag"];
+				$tid=$_GET["t_id"];
+				$ttag=$_GET["t_tag"];
 				
 				if(DBF_CheckThread($db,$tid,$ttag)){		
 				
@@ -95,11 +98,12 @@
 									$len=count($categories);
 									for($i=0; $i<$len; $i++){
 										$C=$categories[$i];
+										$ctag=urlencode($C[1]);
 										echo <<<EOD
 											<div class="panel-group">
-												<a href="./index.php?cid={$C[0]}&ctag={$C[1]}">
+												<a href="index.php?c_id={$C[0]}&c_tag={$ctag}">
 													<div class="panel panel-default">
-														<p>{$C[1]}</p>
+														<p>{$C[1]} {$query}</p>
 													</div>
 												</a>
 											</div>
@@ -110,9 +114,12 @@ EOD;
 									$len=count($threads);
 									for($i=0; $i<$len; $i++){
 										$thread=$threads[$i];
+										$ctag=urlencode($ctag);
+										$tid=$thread[0];
+										$ttag=urlencode($thread[2]);
 										echo <<<EOD
 											<div class="panel-group">
-												<a href="./index.php?cid={$cid}&ctag={$ctag}&tid={$thread[0]}&ttag={$thread[2]}">
+												<a href="index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}">
 													<div class="panel panel-default">
 														<p>{$thread[2]}</p>
 													</div>

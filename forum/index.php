@@ -136,8 +136,9 @@ EOD;
 											</div>
 EOD;
 									}
-									PrintReplyForm($ROOT);
-									break;
+									echo("<form class='form-horizontal' action='sendmessage.php?{$_SERVER["QUERY_STRING"]}' method='post'>");	
+										PrintReplyForm($ROOT);
+									echo("</form>");
 							}
 						 ?>
 						 
@@ -149,6 +150,5 @@ EOD;
 	<div class="container-fluid">
 		<?php PrintFooter($ROOT); ?>
 	</div>
-	</script>
 </body>
 </html>

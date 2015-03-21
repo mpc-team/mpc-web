@@ -28,17 +28,15 @@ tr.alt { border-top: 1px solid #232323; }
 
 .panel-login { padding-bottom: 15px; }
 .panel-login h1 { margin-top: 0px; }
+
+.panel-reply { padding-top: 50px; }
+.panel-reply textarea { height: 10em; }
 .panel-reply .form-group { 
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
 	padding: 10px; 
 	background-color: #1f1f1f; 
-}
-.panel-reply { 
-	position: fixed;
-	bottom: 59px;
-	left: 50px;
-	right: 50px;
-	min-width: 250px;
-	max-width: 850px;
 }
 
 .navbar-forum .navbar { 
@@ -46,13 +44,13 @@ tr.alt { border-top: 1px solid #232323; }
 	top: 10px;
 }
 .navbar-forum li > a {
+	font-size: 8pt;
 	padding: 7px; 
 	padding-left: 15px;
 	padding-right: 15px;
 	border: 1px solid transparent;
 }
 .navbar-forum > .navbar-static-top { position: relative; z-index: 1; }
-.navbar-forum li > a:active {	background-color: #4f4f9f; }
 
 #image-banner-login { 
 	max-height: 300px; 
@@ -83,13 +81,14 @@ tr.alt { border-top: 1px solid #232323; }
 	color: #99dd99;
 	border-color: #225522; 
 }
-.btn-signup { margin-top: 30px; }
+
+.btn-signup { margin-top: 20px; }
+.btn-reply,
 .btn-signup,
 .btn-login { 
   color: #ffffff;
 	font-size: 14pt;
 	padding: 10px;
-	margin-right: 10px;
 	width: 100px;
   background-color: #5cb85c;
 	border-size: 3px;

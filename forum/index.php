@@ -15,18 +15,26 @@
 	
 	$db=DB_CreateDefault();
 	$db->connect();
-	if(isset($_GET["category"]) && isset($_GET["cname"])){
-		$categoryID=$_GET["category"];
-		$cname=$_GET["cname"];
-		if(isset($_GET["thread"]) && isset($_GET["tname"])){
-			$threadID=$_GET["thread"];
-			$tname=$_GET["tname"];
-			$messages=DBF_GetThreadContents($db,$threadID);
+	if(isset($_GET["cid"]) && isset($_GET["ctag"])){
+		$highlight="path";
+		$cid=$_GET["cid"];
+		$ctag=$_GET["ctag"];
+		$path=array();
+		$dir=array("id"=>$cid,"name"=>$ctag);
+		array_push($path,$dir);
+		if(isset($_GET["tid"]) && isset($_GET["ttag"])){
+			$tid=$_GET["tid"];
+			$ttag=$_GET["ttag"];
+			$dir=array("id"=>$tid,"name"=>$ttag);
+			array_push($path,$dir);
+			$messages=DBF_GetThreadContents($db,$tid);
 		}else{
-			$threads=DBF_GetCategoryThreads($db,$categoryID);
+			$threads=DBF_GetCategoryThreads($db,$cid);
 		}
 	}else{
 		$categories=DBF_GetCategories($db);
+		$path=array();
+		$highlight="forum";
 	}
 	$db->disconnect();
  ?>
@@ -55,26 +63,18 @@
 		<div class="forum">
 			<div class="navbar-forum">
 				<?php
-					if(isset($_GET["category"]) && isset($_GET["cname"])){
-						$path=array();
-						$highlight="path";
-						$dir=array("id"=>$categoryID,"name"=>$cname);
-						array_push($path,$dir);
-						if(isset($_GET["thread"]) && isset($_GET["tname"])){
-							$dir=array("id"=>$threadID,"name"=>$tname);
-							array_push($path,$dir);
+					if(isset($_GET["cid"]) && isset($_GET["ctag"])){
+						if(isset($_GET["tid"]) && isset($_GET["ttag"])){
 						}
 					}else{
-						$path=array();
-						$highlight="forum";
 					}
 					PrintForumNavbar($highlight,$ROOT,$path); 
 				 ?>
 			</div>
 			<div class="content">
 				<?php
-					if(isset($_GET["category"]) && isset($_GET["cname"])){
-						if(isset($_GET["thread"]) && isset($_GET["tname"])){
+					if(isset($_GET["cid"]) && isset($_GET["ctag"])){
+						if(isset($_GET["tid"]) && isset($_GET["ttag"])){
 							$msgs=count($messages);
 							for($i=0; $i<$msgs; $i++){
 								$message=$messages[$i];
@@ -95,7 +95,7 @@ EOD;
 								$thread=$threads[$i];
 								echo <<<EOD
 									<div class="panel-group">
-										<a href="./index.php?category={$categoryID}&cname={$cname}&thread={$thread[0]}&tname={$thread[2]}">
+										<a href="./index.php?cid={$cid}&ctag={$ctag}&tid={$thread[0]}&ttag={$thread[2]}">
 											<div class="panel panel-default">
 												<p>{$thread[2]}</p>
 											</div>
@@ -110,7 +110,7 @@ EOD;
 							$cat=$categories[$i];
 							echo <<<EOD
 								<div class="panel-group">
-									<a href="./index.php?category={$cat[0]}&cname={$cat[1]}">
+									<a href="./index.php?cid={$cat[0]}&ctag={$cat[1]}">
 										<div class="panel panel-default">
 											<p>{$cat[1]}</p>
 										</div>

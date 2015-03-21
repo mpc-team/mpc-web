@@ -8,17 +8,35 @@ function PrintForumNavbar($highlight,$root,$path){
 EOD;
 	$active=($highlight == "forum") ? $ACTIVE : "";
 	echo "<li {$active}><a href='{$home}'>MPC</a></li>";
-	$len=count($path);
-	for($i=0; $i < $len; $i++){
-		$highlighted=($highlight == "path");
-		$lastelement=($i == ($len-1));
-		$active=($highlighted and $lastelement) ? $ACTIVE : "";
-		$thispath=$path[$i];
-		echo "<li {$active}><a href='{$home}?param'>{$thispath["name"]}</a></li>";
-	}	
-	echo <<<EOD
-			</ul>
-		</nav>
+	
+	if (count($path) > 0){
+		$highlighted=($highlight=="path");
+		$active=($highlighted && count($path)==1) ? $ACTIVE : "";
+		$path0=$path[0];
+		$cid=$path0["id"];
+		$ctag=$path0["name"];
+		echo <<<EOD
+					<li {$active}>
+						<a href='{$home}?cid={$cid}&ctag={$ctag}'>
+							{$ctag}
+						</a>
+					</li>
 EOD;
+		if(count($path) > 1){
+			$active=($highlighted && count($path)==2) ? $ACTIVE : "";
+			$path1=$path[1];
+			$tid=$path1["id"];
+			$ttag=$path1["name"];
+			echo <<<EOD
+						<li {$active}>
+							<a href='{$home}?cid={$cid}&ctag={$ctag}&tid={$tid}&ttag={$ttag}'>
+								{$ttag}
+							</a>
+						</li>
+					</ul>
+				</nav>
+EOD;
+		}
+	}
 }
  ?>

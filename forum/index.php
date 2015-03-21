@@ -6,10 +6,15 @@
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$HEADER);
 	include_once($ROOT . PathDir::$DB);
+	include_once($ROOT . PathDir::$DBFORUM);
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
 	
 	session_start();
+	$db=DB_CreateDefault();
+	$db->connect();
+	$categories=DBF_GetCategories($db);
+	$db->disconnect();
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -33,8 +38,23 @@
 		<?php PrintNavbar("forum", $ROOT); ?>
 	</div>
 	<div class="container">
+		<script type="text/javascript">
+			<?php echo 'var forums=',json_encode($categories),';'; ?>
+		</script>
 		<div class="content">
-		
+			<?php
+				$cats=count($categories);
+				for($i=0; $i<$cats; $i++){
+					$cat=$categories[$i];
+					if($i == 0){	echo "<div class='panel-page-top'>"; }
+					echo <<<EOD
+						<div class="panel panel-default">
+							<h4>{$cat[0]}</h4>
+						</div>
+EOD;
+					if($i == 0){	echo "</div>"; }
+				}
+			 ?>
 		</div>
 	</div>
 	<div class="container-fluid">

@@ -7,83 +7,6 @@
 		return new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);
 	}
 	
-	function DB_DeleteUser($db, $id) {
-		if ($db->connected) {
-			$sql = "DELETE FROM User WHERE userID={$id}";
-			if ($db->query($sql)) {
-				$sql = "DELETE FROM UserAlias WHERE userID={$id}";
-				$db->query($sql);
-				$sql = "DELETE FROM UserPermissions WHERE userID={$id}";
-				$db->query($sql);
-				return (TRUE);
-			}
-		}
-		return (FALSE);
-	}
-	
-	function DB_AddUserAlias($db, $id, $alias) {
-		if ($db->connected) {
-			$sql = "INSERT INTO UserAlias VALUES ({$id}, '{$alias}')";
-			return (boolean) $db->query($sql);
-		}
-		return (FALSE);
-	}
-	
-	function DB_RemoveUserAlias($db, $id, $alias) {
-		if ($db->connected) {
-			$sql = "DELETE FROM UserAlias WHERE userID={$id} AND userAlias='{$alias}'";
-			return (boolean) $db->query($sql);
-		}
-		return (FALSE);
-	}
-	
-	function DB_RemoveUserAliases($db, $id) {
-		if ($db->connected) {
-			$sql = "DELETE FROM UserAlias WHERE userID={$id}";
-			return (boolean) $db->query($sql);
-		}
-		return (FALSE);
-	}
-	
-	function DB_AddUserPermission($db, $id, $perm) {
-		if ($db->connected) {
-			$sql = "INSERT INTO UserPermissions VALUES ({$id}, '{$perm}')";
-			return (boolean) $db->query($sql);
-		}
-		return (FALSE);
-	}
-	
-	function DB_RemoveUserPermission($db, $id, $perm) {
-		if ($db->connected) {
-			$sql = "DELETE FROM UserPermissions WHERE userID={$id} AND userPermission='{$perm}'";
-			return (boolean) $db->query($sql);
-		}
-		return (FALSE);
-	}
-	
-	function DB_UserExists($db, $email) {
-		if ($db->connected) {
-			return (DB_GetUserID($db, $email) > 0);
-		}
-		return (FALSE);
-	}
-	
-	function DB_CreateNewUser($db, $id, $email, $alias, $perm, $pass) {
-		if ($db->connected) {
-			$sql = "INSERT INTO User VALUES ({$id}, '{$email}', '{$pass}')";
-			$result = $db->query($sql);
-			if ($result) {
-				$permCount = count($perm);
-				DB_AddUserAlias($db, $id, $alias);
-				foreach ($perm as $p) {
-					DB_AddUserPermission($db, $id, $p);
-				}
-				return TRUE;
-			}
-		} 
-		return (FALSE);
-	}
-	
 	function DB_GetUserID($db, $email) {
 		if ($db->connected) {
 			$sql = "SELECT userID FROM User WHERE userName='{$email}'";
@@ -209,5 +132,83 @@ EOD;
 			return $json;
 		}
 		return (null);
+	}
+	
+	function DB_DeleteUser($db, $id) {
+		if ($db->connected) {
+			$sql = "DELETE FROM User WHERE userID={$id}";
+			if ($db->query($sql)) {
+				$sql = "DELETE FROM UserAlias WHERE userID={$id}";
+				$db->query($sql);
+				$sql = "DELETE FROM UserPermissions WHERE userID={$id}";
+				$db->query($sql);
+				return (TRUE);
+			}
+		}
+		return (FALSE);
+	}
+	
+	function DB_AddUserAlias($db, $id, $alias) {
+		if ($db->connected) {
+			$sql = "INSERT INTO UserAlias VALUES ({$id}, '{$alias}')";
+			return (boolean) $db->query($sql);
+		}
+		return (FALSE);
+	}
+	
+	function DB_RemoveUserAlias($db, $id, $alias) {
+		if ($db->connected) {
+			$sql = "DELETE FROM UserAlias WHERE userID={$id} AND userAlias='{$alias}'";
+			return (boolean) $db->query($sql);
+		}
+		return (FALSE);
+	}
+	
+	function DB_RemoveUserAliases($db, $id) {
+		if ($db->connected) {
+			$sql = "DELETE FROM UserAlias WHERE userID={$id}";
+			return (boolean) $db->query($sql);
+		}
+		return (FALSE);
+	}
+	
+	function DB_AddUserPermission($db, $id, $perm) {
+		if ($db->connected) {
+			$sql = "INSERT INTO UserPermissions VALUES ({$id}, '{$perm}')";
+			return (boolean) $db->query($sql);
+		}
+		return (FALSE);
+	}
+	
+	function DB_RemoveUserPermission($db, $id, $perm) {
+		if ($db->connected) {
+			$sql = "DELETE FROM UserPermissions WHERE userID={$id} AND userPermission='{$perm}'";
+			return (boolean) $db->query($sql);
+		}
+		return (FALSE);
+	}
+	
+	function DB_UserExists($db, $email) {
+		if ($db->connected) {
+			return (DB_GetUserID($db, $email) > 0);
+		}
+		return (FALSE);
+	}
+	
+	function DB_CreateNewUser($db, $email, $alias, $perm, $pass) {
+		if ($db->connected) {
+			$id  = DB_GetNewUserID($db);
+			$sql = "INSERT INTO User VALUES ({$id}, '{$email}', '{$pass}')";
+			$result = $db->query($sql);
+			if ($result) {
+				$permCount = count($perm);
+				DB_AddUserAlias($db, $id, $alias);
+				foreach ($perm as $p) {
+					DB_AddUserPermission($db, $id, $p);
+				}
+				return TRUE;
+			}
+		} 
+		return (FALSE);
 	}
  ?>

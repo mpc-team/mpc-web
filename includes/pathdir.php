@@ -12,6 +12,7 @@ class PathDir {
 	public static $PASSHASH = '/includes/phpass/PasswordHash.php';
 	public static $AUTHENTICATE = '/includes/scripts/auth.php';
 	public static $DB = '/includes/scripts/db.php';
+	public static $DBFORUM = '/includes/scripts/dbforum.php';
 	
 	# Database PHP
 	public static $DB_UTILITY = '/includes/db/util.php';

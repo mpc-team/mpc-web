@@ -21,12 +21,10 @@
 		$v_info = ValidateSignupInformation($email, $alias);
 		$v_user = ($v_info) ? (!DB_UserExists($db, $email)) : FALSE;
 		if ($v_user) {
-			$id = DB_GetNewUserID($db);
 			$hash = ProtectPassword($password);
-			
 			$perm = array();
 			array_push($perm, 'member');
-			if (DB_CreateNewUser($db, $id, $email, $alias, $perm, $hash)) {
+			if (DB_CreateNewUser($db, $email, $alias, $perm, $hash)) {
 				session_start();
 				$_SESSION["USER"] = $email;
 				session_write_close();

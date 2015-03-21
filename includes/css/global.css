@@ -28,6 +28,20 @@ tr.alt { border-top: 1px solid #232323; }
 .panel-login { padding-bottom: 15px; }
 .panel-login h1 { margin-top: 0px; }
 
+.navbar-forum .navbar { 
+	min-height: 30px; 
+	top: 60px;
+	left: 10px;
+	right: 10px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.navbar-forum li > a { 
+	padding: 5px; 
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
 #image-banner-login { 
 	max-height: 300px; 
 	margin-left: auto;
@@ -49,6 +63,9 @@ tr.alt { border-top: 1px solid #232323; }
 	padding: 0px;
 	padding-bottom: 100px;
 	padding-top: 25px;
+}
+.forum .content {
+	padding-top: 60px;
 }
 
 .btn-signup:hover,

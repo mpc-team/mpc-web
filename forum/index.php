@@ -1,7 +1,7 @@
 <?php
 	$ROOT = '..';
 	include_once($ROOT . '/includes/pathdir.php');
-	include_once($ROOT . '/members/includes/sidebar.php');
+	include_once($ROOT . '/forum/includes/navbar.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$HEADER);
@@ -39,20 +39,25 @@
 		<?php PrintNavbar("forum", $ROOT); ?>
 	</div>
 	<div class="container">
-		<div class="content">
-			<?php
-				$cats=count($categories);
-				for($i=0; $i<$cats; $i++){
-					$cat=$categories[$i];
-					echo <<<EOD
-						<div class="panel-group">
-							<div class="panel panel-default">
-								<a href="./forums.php?category={$cat[0]}"><h4>{$cat[1]}</h4></a>
+		<div class="forum">
+			<div class="navbar-forum">
+				<?php PrintForumNavbar("forum", $ROOT); ?>
+			</div>
+			<div class="content">
+				<?php
+					$cats=count($categories);
+					for($i=0; $i<$cats; $i++){
+						$cat=$categories[$i];
+						echo <<<EOD
+							<div class="panel-group">
+								<div class="panel panel-default">
+									<a href="./forums.php?category={$cat[0]}"><h4>{$cat[1]}</h4></a>
+								</div>
 							</div>
-						</div>
 EOD;
-				}
-			 ?>
+					}
+				 ?>
+			</div>
 		</div>
 	</div>
 	<div class="container-fluid">

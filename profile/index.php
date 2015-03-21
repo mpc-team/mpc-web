@@ -40,13 +40,17 @@
 	<div class="container-fluid">
 		<?php PrintNavbar("profile", $ROOT); ?>
 	</div>
-	<div id="wrapper" class="container">
+	<div id="wrapper">
 		<?php PrintSidebar("overview", $ROOT); ?>
-		<div id="page-content-wrapper">
-			<?php
-				echo "<h1>{$alias}</h1>";
-				echo "<p>{$user}</p>";
-			 ?>
+		<div class="container">
+			<div id="page-content-wrapper">
+				<div class="content">
+					<?php
+						echo "<h1>{$alias}</h1>";
+						echo "<p>{$user}</p>";
+					 ?>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="container-fluid">

@@ -133,7 +133,8 @@ function htmlTableEmail (user, permissions) {
 	return "";
 }
 function htmlTableAlias (user, permissions) {
-	return "<td>" + user[FILTER_BY_ALIAS] + "</td>";
+	return "<td><span class='glyphicon glyphicon-user'></span> " 
+		+ user[FILTER_BY_ALIAS] + "</td>";
 }
 function htmlTableClass (rownum) {
 	return (rownum % 2 == 0) ? "alt" : "";

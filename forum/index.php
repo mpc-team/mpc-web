@@ -161,7 +161,7 @@ EOD;
 			//	------------------------------------------
 			//
 			//			1. Print Thread Messages (all users)
-			//			2. Print User-Tools (members)
+			//			2. Print Reply Form
 			//	
 						case "messages":
 			//
@@ -199,6 +199,8 @@ EOD;
 														{$content}
 													</div>
 												</div>
+EOD;
+								echo<<<EOD
 												<div class="row" id='r{$i}'>
 													<button type="button" class="btn btn-edit" id='b{$i}'>
 														<span class="glyphicon glyphicon-edit"></span>
@@ -214,22 +216,24 @@ EOD;
 								<script type="text/javascript">
 									$(document).ready(function(){
 										$(".btn-edit").click(function(){
-											$(this).hide();
-											var id=$(this).attr('id');
+											var editbtn=$(this);
+											editbtn.hide();
+											var id=editbtn.attr('id');
 											id=id.substring(1,id.length);
-											console.log("Clicked ("+id+")");
+											
+											var msgcontent=$(".panel-messages").find("#c"+id).html();
+											editcontent=msgcontent.trim();
+											editcontent=editcontent.replace("\t", "");
+											editcontent="<textarea class='form-control' rows='5'>"+editcontent+"</textarea>";
 											
 											$(".panel-messages").find(("#r"+id)).append("<button id='d"+id+"' type='button' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-trash'></span> Discard</button>");
 											$(".panel-messages").find(("#r"+id)).append("<button id='s"+id+"' type='button' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-check'></span> Confirm</button>");
-											
-											$(".panel-message").find(("#d"+id)).click(function(){
-												console.writeline("Clicked Dismiss");
+											$("#d"+id ).click(function(){
+												$("#d"+id).remove();
+												$("#s"+id).remove();
+												editbtn.show();
+												$("#c"+id).html(msgcontent);
 											});
-											
-											var editcontent=$(".panel-messages").find("#c"+id).html();
-											editcontent=editcontent.trim();
-											editcontent=editcontent.replace("\t", "");
-											editcontent="<textarea class='form-control' rows='5'>"+editcontent+"</textarea>";
 											
 											$(".panel-messages").find("#c"+id).html(editcontent);
 										});

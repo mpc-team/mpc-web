@@ -175,15 +175,19 @@ EOD;
 											<div class="panel-group">
 												<div class="panel panel-default">
 													<div class="panel-messages">
-														<div class="col-xs-6">
-															<p>{$author}</p>
-														</div>
-														<div class="col-xs-6">
-															<p style="text-align:right">{$timestamp}</p>
+														<div class="row">
+															<div class="col-xs-6">
+																<p>{$author}</p>
+															</div>
+															<div class="col-xs-6">
+																<p style="text-align:right">{$timestamp}</p>
+															</div>
 														</div>
 														</br>
-														<div class="content-msg">
-															{$content}
+														<div class="row">
+															<div class="content-msg">
+																{$content}
+															</div>
 														</div>
 													</div>
 												</div>

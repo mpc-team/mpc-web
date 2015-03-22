@@ -7,9 +7,11 @@ function PrintForumNavbar($highlight,$root,$path){
 			<ul class="nav navbar-nav">
 EOD;
 	$active=($highlight == "forum") ? $ACTIVE : "";
-	echo "<li {$active}><a href='{$home}'>MPC</a></li>";
+	$icon="<span class='glyphicon glyphicon-home'></span>";
+	echo "<li {$active}><a href='{$home}'>{$icon} </a></li>";
 	
 	if (count($path) > 0){
+		echo "<li><span class='glyphicon glyphicon-chevron-right'></span></li>";
 		$highlighted=($highlight=="path");
 		$active=($highlighted && count($path)==1) ? $ACTIVE : "";
 		$path0=$path[0];
@@ -23,6 +25,7 @@ EOD;
 					</li>
 EOD;
 		if(count($path) > 1){
+			echo "<li><span class='glyphicon glyphicon-chevron-right'></span></li>";
 			$active=($highlighted && count($path)==2) ? $ACTIVE : "";
 			$path1=$path[1];
 			$tid=$path1["id"];

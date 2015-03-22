@@ -8,7 +8,7 @@
 	
 	$ALLOWED_HTML_TAGS = <<<EOD
 		<b></b> <i></i> <u></u> <center></center> <h1></h1> <h2></h2> <h3></h3>
-		<ul></ul> <li></li>
+		<ul></ul> <li></li> <img></img>
 EOD;
 	
 	session_start();

@@ -57,7 +57,6 @@
 	}else{ 
 		$categories=DBF_GetCategories($db); 
 	}
-	//disconnect from database
 	$db->disconnect();
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -92,6 +91,10 @@
 					<div class="content">
 						<?php
 							switch($pagetype){
+					//
+					//	Pull All Categories
+					// 	-----------------------------------------
+					//
 								case "categories":
 									echo "<div class='page-header'><h1>MPC Forum</h1></div>";
 									$len=count($categories);
@@ -109,7 +112,16 @@
 EOD;
 									}
 									break;
+					//
+					// 	Pull Threads From Specific Category
+					// 	------------------------------------------
+					//	
+					//			1. Show Threads (all users)
+					//			2. Show User-Tools (members)
+					//
 								case "threads":
+					//
+					//		1.
 									echo "<div class='page-header'><h1>{$ctag}</h1></div>";
 									$len=count($threads);
 									$ctag=urlencode($ctag);
@@ -127,16 +139,35 @@ EOD;
 											</div>
 EOD;
 									}
+					//
+					//		2.
 									if(isset($_SESSION["USER"])){
 										PrintModal($query);
+									}else{
+										$loginpath=PathDir::GetLoginPath($ROOT);
+										echo<<<EOD
+											<div class="alert alert-danger" role="alert">
+												<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+												<span class="sr-only">Error:</span>
+												You must <a class="alert-link" href="{$loginpath}">Login/Register</a> before posting on the Forum
+											</div>
+EOD;
 									}
 									break;
+					//
+					// 	Pull Messages From Specific Thread
+					//	------------------------------------------
+					//
+					//			1. Print Thread Messages (all users)
+					//			2. Print User-Tools (members)
+					//	
 								case "messages":
+					//
+					//		1.
 									echo "<div class='page-header'><h1>{$ttag}</h1></div>";
 									$len=count($messages);
 									for($i=0; $i<$len; $i++){
 										$message=$messages[$i];
-										$mid=$message[0];
 										$content=$message[1];
 										$author=$message[3];
 										$timestamp=$message[4];
@@ -144,7 +175,12 @@ EOD;
 											<div class="panel-group">
 												<div class="panel panel-default">
 													<div class="panel-messages">
-														{$author} - {$timestamp} ({$mid})
+														<div class="col-xs-6">
+															<p>{$author}</p>
+														</div>
+														<div class="col-xs-6">
+															<p style="text-align:right">{$timestamp}</p>
+														</div>
 														</br>
 														<div class="content-msg">
 															{$content}
@@ -154,9 +190,25 @@ EOD;
 											</div>
 EOD;
 									}
-									echo("<form class='form-horizontal' action='sendmessage.php?{$query}' method='post'>");	
-										PrintReplyForm($ROOT,$reply);
-									echo("</form>");
+					//
+					//		2.
+									if($reply){
+										echo("<form class='form-horizontal' action='sendmessage.php?{$query}' method='post'>");	
+											PrintReplyForm($ROOT,$reply);
+										echo("</form>");
+									}else{
+										$loginpath=PathDir::GetLoginPath($ROOT);
+										echo<<<EOD
+											<div class="alert alert-danger" role="alert">
+												<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+												<span class="sr-only">Error:</span>
+												You must <a class="alert-link" href="{$loginpath}">Login/Register</a> before posting on the Forum
+											</div>
+EOD;
+					//
+					//				End of Forum Processing
+					//
+									}
 							}
 						 ?>
 						 

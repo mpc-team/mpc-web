@@ -34,6 +34,14 @@ span.glyphicon-plus {
 	font-size: 1.5em; 
 	color: #afafaf;
 }
+
+span.glyphicon-log-in,
+span.glyphicon-log-out,
+span.glyphicon-send,
+span.glyphicon-new-window { padding-left: 5px; padding-right: 5px; }
+span.glyphicon-chevron-right { margin: 11px 0px; }
+span.glyphicon-send { font-size: 20pt; margin-right: 7px; }
+span.glyphicon-home {	font-size: 15pt; }
 a:hover > span.glyphicon-plus,
 a:hover > span.glyphicon-plus {
 	color: #ffffff; 
@@ -55,16 +63,19 @@ a:hover > span.glyphicon-plus {
 .panel-newthread .panel { background-color: #666666; }
 
 .panel-messages { padding: 15px; }
+.panel-messages .col-xs-6 { padding: 0px; }
 .panel-login { padding-bottom: 15px; }
 .panel-login h1 { margin-top: 0px; }
 
 .panel-reply { padding-top: 50px; }
 .panel-newthread textarea,
 .panel-reply textarea { height: 10em; }
+.panel-reply .input-group { padding: 0.2em; }
 .panel-reply .form-group { 
 	margin-left: auto;
 	margin-right: auto;
 	padding: 5px; 
+	padding-bottom: 15px;
 	background-color: #1f1f1f; 
 }
 
@@ -84,7 +95,7 @@ a:hover > span.glyphicon-plus {
 .content-signup {	
 	padding-top: 30px;
 	max-width: 500px;
-	min-width: 200px;
+	min-width: 250px;
 }
 
 .container .forum .content { margin-bottom: 300px; }
@@ -102,17 +113,22 @@ a:hover > span.glyphicon-plus {
 	border-color: #225522; 
 }
 
+.btn-reply { 
+	position: absolute;
+	left: 25px; 
+}
+
 .btn-signup { margin-top: 20px; }
 .btn-reply,
 .btn-signup,
 .btn-login { 
   color: #ffffff;
-	font-size: 14pt;
+	font-size: 12pt;
 	min-width: 100px;
-  background-color: #5cb85c;
-	border-size: 3px;
-	border-radius: 2px;
-  border-color: #4cae4c;
+  background-color: #337ab7;
+	border-radius: 1px;
+	/* border-size: 3px;
+  border-color: #4cae4c; */
 }
 
 

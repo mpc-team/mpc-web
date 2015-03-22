@@ -4,6 +4,8 @@ class PathDir {
 	public static $FOOTER = '/includes/footer.php';
 	public static $NAVBAR = '/includes/navbar.php';
    
+	public static $LOGIN = '/login/index.php';
+	public static $SIGNUP = '/login/signup/index.php';
 	public static $LOGINFORM = '/login/form.php';
 	public static $SIGNUPFORM = '/login/signup/form.php';
 	public static $SIGNOUT = '/login/signout.php';
@@ -66,6 +68,14 @@ class PathDir {
 	
 	public static function GetJSPath($root, $jsName) {
 		return $root . self::$JS . $jsName;
+	}
+	
+	public static function GetLoginPath($root){
+		return($root . self::$LOGIN);
+	}
+	
+	public static function GetSignupPath($root){
+		return($root . self::$SIGNUP);
 	}
 }
 

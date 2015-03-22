@@ -55,17 +55,20 @@ EOD;
 		$text = $_SESSION["USER"];
 		$path = $root . '/profile/index.php';
 		$class = ($highlight == "profile") ? $ACTIVE : "";
-		echo "<li {$class}> <a href='{$path}'>{$text}</a></li>";
+		$icon="<span class='glyphicon glyphicon-user'></span>";
+		echo "<li {$class}> <a href='{$path}'>{$icon} {$text}</a></li>";
 	} else {
 		$text = "Login";
 		$path = $root . '/login/index.php';
 		$class = ($highlight == "login") ? $ACTIVE : "";
-		echo "<li {$class}> <a href='{$path}'>{$text}</a> </li>";
+		$icon="<span class='glyphicon glyphicon-log-in'></span>";
+		echo "<li {$class}> <a href='{$path}'>{$icon} {$text}</a> </li>";
 		
 		$text = "Register";
 		$path = $root . '/login/signup/index.php';
 		$class = ($highlight == "signup") ? $ACTIVE : "";
-		echo "<li {$class}> <a href='{$path}'>{$text}</a> </li>";
+		$icon="<span class='glyphicon glyphicon-new-window'></span>";
+		echo "<li {$class}> <a href='{$path}'>{$icon} {$text}</a> </li>";
 	}	
 		
 	# ---------------- Close HTML Tags ----------------

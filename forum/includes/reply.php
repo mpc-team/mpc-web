@@ -10,8 +10,10 @@ function PrintReplyForm($root,$enabled) {
 					<div class="input-group">
 						<textarea name="content" id="content" class="form-control" placeholder="Reply to thread..." {$disabled} required></textarea>
 					</div>
-					<div class="input-group input-group-bottom">
-						<input type="submit" class="btn btn-reply" value="Post" {$disabled}/>
+					<div class="input-group">
+						<button type="submit" class="btn btn-reply" {$disabled}>
+							<span class="glyphicon glyphicon-send"></span>
+						</button>
 					</div>
 				</div>
 		</div>

@@ -4702,6 +4702,7 @@ a.thumbnail.active {
 }
 .alert .alert-link {
   font-weight: bold;
+	text-decoration: underline;
 }
 .alert > p,
 .alert > ul {
@@ -4755,8 +4756,9 @@ a.thumbnail.active {
   color: #66512c;
 }
 .alert-danger {
-  background-color: #f2dede;
-  border-color: #ebccd1;
+  background-color: #e2cccc;
+	border: 2px solid #aa3344;
+	text-align: center;
   color: #a94442;
 }
 .alert-danger hr {

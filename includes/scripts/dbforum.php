@@ -269,4 +269,10 @@ EOD;
 		}
 		return(-1);
 	}
+	
+	function DBF_UpdateMessage($db, $mid, $content){
+		if($db->connect){
+			
+		}
+	}
  ?>

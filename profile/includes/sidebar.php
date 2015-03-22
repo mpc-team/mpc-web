@@ -16,7 +16,8 @@ EOD;
 	
 	$class = ($highlight == "signout") ? $ACTIVE : "";
 	echo '<li style="padding: 20px 0px;"></li>';
-	echo ("<li {$class}><a href='{$SIGNOUT}'>Sign Out</a></li>");	
+	$icon="<span class='glyphicon glyphicon-log-out'></span>";
+	echo ("<li {$class}><a href='{$SIGNOUT}'>{$icon} Sign Out</a></li>");	
 	
 	echo ("</ul></div>");
 }

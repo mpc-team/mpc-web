@@ -22,11 +22,15 @@ tr.alt { border-top: 1px solid #232323; }
 
 .well label,
 .form-group p { padding-top: 10px; }
+
+.input-group-bottom { padding-top: 10px; }
 .input-group input { border-radius: 0px; }
+
 .form-signup { padding-bottom: 10px; }
 .signup-text { padding: 25px; }
 
-.forum .panel-default h3 { margin-top: 0px; }
+.forum .panel-default h3,
+.forum .panel-default h4 { margin-top: 0px; }
 
 .panel-login { padding-bottom: 15px; }
 .panel-login h1 { margin-top: 0px; }

@@ -13,6 +13,11 @@
 	include_once($ROOT . PathDir::$DB_INFO);
 	
 	session_start();
+	$enabled=FALSE;
+	if(isset($_SESSION["USER"])){
+		$enabled=TRUE;
+	}
+	
 	$db=DB_CreateDefault();
 	$db->connect();
 	$query=$_SERVER['QUERY_STRING'];
@@ -24,43 +29,29 @@
 	$highlight="forum";
 	
 	if(isset($_GET) && isset($_GET["c_id"]) && isset($_GET["c_tag"])){
-	
 		$cid=$_GET["c_id"];
 		$ctag=$_GET["c_tag"];
-		
 		if(DBF_CheckCategory($db,$cid,$ctag)){
-		
 			$highlight="path";
 			$pagetype="threads";
 			$dir=array("id"=>$cid,"name"=>$ctag);
 			array_push($path,$dir);
-			
 			if(isset($_GET["t_id"]) && isset($_GET["t_tag"])){
-			
 				$tid=$_GET["t_id"];
 				$ttag=$_GET["t_tag"];
-				
 				if(DBF_CheckThread($db,$tid,$ttag)){		
-				
 					$pagetype="messages";
 					$dir=array("id"=>$tid,"name"=>$ttag);
 					array_push($path,$dir);
 					$messages=DBF_GetThreadContents($db,$tid);
-					
 				}else{
 					$threads=DBF_GetCategoryThreads($db,$cid);
-				}
-			}else{
-				$threads=DBF_GetCategoryThreads($db,$cid);
-			}
+				} }else{ $threads=DBF_GetCategoryThreads($db,$cid);	}
 		}else{
 			$categories=DBF_GetCategories($db);
-		}
-	}else{
-		$categories=DBF_GetCategories($db);
-	}
+		}	}else{ $categories=DBF_GetCategories($db); }
+	//disconnect from database
 	$db->disconnect();
-	
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -95,6 +86,7 @@
 						<?php
 							switch($pagetype){
 								case "categories":
+									echo "<div class='page-header'><h1>MPC Forum</h1></div>";
 									$len=count($categories);
 									for($i=0; $i<$len; $i++){
 										$C=$categories[$i];
@@ -111,6 +103,7 @@ EOD;
 									}
 									break;
 								case "threads":
+									echo "<div class='page-header'><h1>{$ctag}</h1></div>";
 									$len=count($threads);
 									for($i=0; $i<$len; $i++){
 										$thread=$threads[$i];
@@ -129,22 +122,25 @@ EOD;
 									}
 									break;
 								case "messages":
+									echo "<div class='page-header'><h1>{$ttag}</h1></div>";
 									$len=count($messages);
 									for($i=0; $i<$len; $i++){
 										$message=$messages[$i];
-										$title=$message[1];
-										$content=$message[2];
+										$content=$message[1];
+										$author=$message[3];
+										$timestamp=$message[4];
 										echo <<<EOD
 											<div class="panel-group">
 												<div class="panel panel-default">
-													<h3>{$title}</h3>
+													<p>{$author} - {$timestamp}</p>
+													</br>
 													<p>{$content}</p>
 												</div>
 											</div>
 EOD;
 									}
 									echo("<form class='form-horizontal' action='sendmessage.php?{$_SERVER["QUERY_STRING"]}' method='post'>");	
-										PrintReplyForm($ROOT);
+										PrintReplyForm($ROOT,$enabled);
 									echo("</form>");
 							}
 						 ?>

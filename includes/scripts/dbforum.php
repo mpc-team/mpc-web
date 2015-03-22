@@ -3,6 +3,7 @@
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
 	
+	// Returns set { categoryID, categoryName }
 	function DBF_GetCategories($db) {
 		if ($db->connected) {
 			$sql = "SELECT categoryID, categoryName FROM ForumCategory";
@@ -21,6 +22,7 @@
 		return (null);
 	}
 	
+	// Returns set { threadID, categoryID, thread name }
 	function DBF_GetCategoryThreads($db, $categoryID) {
 		if($db->connected){
 			$sql="SELECT fthreadID,categoryID,name FROM ForumThreads WHERE categoryID={$categoryID}";
@@ -39,6 +41,7 @@
 		return(null);
 	}
 	
+	// Returns set { messageID }
 	function DBF_GetThreadMessages($db, $threadID){
 		if($db->connected){
 			$sql="SELECT tmsgID FROM ThreadMessages";
@@ -55,20 +58,25 @@
 		return(null);
 	}
 	
+	// Returns set { messageID, messageTitle, messageContent }
 	function DBF_GetThreadContents($db, $threadID){
 		if($db->connected){
 			$sql=<<<EOD
-				SELECT ThreadMessages.tmsgID, ThreadMessageContent.title, ThreadMessageContent.content 
+				SELECT ThreadMessages.tmsgID, ThreadMessageContent.content, ThreadMessageContent.author, UserAlias.userAlias, ThreadMessageContent.tstamp
 				FROM ThreadMessages 
 				LEFT JOIN ThreadMessageContent 
-				ON ThreadMessages.tmsgID=ThreadMessageContent.tmsgID
+					ON ThreadMessages.tmsgID=ThreadMessageContent.tmsgID
+				LEFT JOIN User
+					ON ThreadMessageContent.author=User.userName
+				LEFT JOIN UserAlias
+					ON User.userID=UserAlias.userID
 EOD;
 			$result=$db->query($sql);
 			if($result){
 				$messages=array();
 				while($row=$result->fetch_row()){
 					$content=array();
-					array_push($content,$row[0],$row[1],$row[2]);
+					array_push($content,$row[0],$row[1],$row[2],$row[3],$row[4]);
 					array_push($messages,$content);
 				}
 				$result->close();
@@ -78,6 +86,7 @@ EOD;
 		return(null);
 	}
 	
+	// Returns set { messageTitle, messageContent }
 	function DBF_GetMessageContent($db, $msgID){
 		if($db->connected){
 			$sql=<<<EOD
@@ -204,7 +213,8 @@ EOD;
 			$sql = <<<EOD
 				CREATE TABLE ThreadMessageContent (
 					tmsgID INT NOT NULL,
-					title CHAR(32),
+					author CHAR(64) NOT NULL,
+					tstamp TIMESTAMP,
 					content TEXT
 				)
 EOD;
@@ -250,14 +260,14 @@ EOD;
 		return (-1);
 	}
 		
-	function DBF_CreateMessage($db, $threadID,$title,$content) {
+	function DBF_CreateMessage($db, $threadID, $content, $author) {
 		if ($db->connected) {
 			$id = DBF_GetNewMessageID($db);
 			$sql = "INSERT INTO ThreadMessages VALUES ({$id}, {$threadID})";
 			if ($db->query($sql)) {
 				$sql=<<<EOD
 					INSERT INTO ThreadMessageContent
-					VALUES ({$id}, '{$title}', '{$content}')
+					VALUES ({$id}, '{$author}', NOW(), '{$content}')
 EOD;
 				$db->query($sql);
 				return $id;

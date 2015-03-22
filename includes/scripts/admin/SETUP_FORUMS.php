@@ -36,11 +36,11 @@
 					$tid = DBF_CreateThread($db, $cid, "Thread Testing");
 					$success = 'thread';
 					if ($tid > 0) {
-						$mid = DBF_CreateMessage($db, $tid, "Hi", "This is a testing message.");
+						$mid = DBF_CreateMessage($db, $tid, "This is a testing message.","b0rg3r@gmail.com");
 						$success = 'msg';
 						if ($mid > 0) {
 							$success = 'yes';
-							$mid=DBF_CreateMessage($db,$tid,"Hi, again", "This is just another testing message.");
+							$mid=DBF_CreateMessage($db,$tid,"This is just another testing message.","b0rg3r@gmail.com");
 						}
 					}
 				}

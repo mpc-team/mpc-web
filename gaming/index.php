@@ -31,11 +31,12 @@
         <div class="container">
             <div class="content">
                 <div class="row">
-                    <div class="page-header text-center">
-                        <h1>MPC - Gaming Room - "Digitized"</h1>
-                    </div>
+                    <center>
+                    <img src="../pics/mpcgamingbanner.png" alt="mpcgamingbanner.png" title="mpc gaming" class="img-responsive img-rounded" style="height: 200; width: 600px; padding: 25px; border: solid;"/>
+                    </center>
+                    <br />
                     <small>
-                        <p style="margin-left: 15px;">MPC is a multi-level gaming clan that specializes on one main concept... Team. We would like to develope a community that engages both the players, and the games they play. We try to provide the essential fundamentals of gaming, and that includes: ventrilo, website domain, a foundation of solid core members, training, stream zone, and more. It's a friendly environment for all ages, and disrespect to either members, or to public community will not be tolerated.</p>
+                        <p>&ensp;&ensp;&ensp;&ensp;&ensp;MPC is a multi-level gaming clan that specializes on one main concept... Team. We would like to develope a community that engages both the players, and the games they play. We try to provide the essential fundamentals of gaming, and that includes: ventrilo, website domain, a foundation of solid core members, training, stream zone, and more. It's a friendly environment for all ages, and disrespect to either members, or to public community will not be tolerated. Please be advised that the people streaming on this website have complete control of the language filter. Do not be offended, just walk away from that streamer's cast on this website.</p>
                     </small>
                 <div class="col-xs-3">
                     <img src="../pics/starcraft2blizzardlogo.PNG" id="sc2logo-gaming" alt="starcraft2blizzardlogo.PNG" class="img-reponsive" style="max-width: 75%; max-height: 75%; margin-top: 15px;" />
@@ -58,6 +59,7 @@
                     <br />
                     <div class="well">
                         <div class="row" style="height: 300px;">
+                            
                         <script type="text/javascript" src="//www.typefrag.com/Server-Status/script.aspx?id=34656fb0-2938-46d9-a1b0-001bef8e4793"></script>      
                         </div>    
                             <br />
@@ -68,7 +70,7 @@
                     <div class="btn-group">
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target=".ventrilo-installment-video" data-placement="top" title="Youtube Video" data-toggle="tooltip">
                             <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
-                            Getting Started</button>
+                            Getting Started</button> 
                             <div class="modal fade ventrilo-installment-video" tabindex="-1" role="dialog" aria-labelledby="Get-Started-Ventrilo" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
@@ -78,7 +80,7 @@
                                     </div>
                                 </div>
                             </div>
-                                            <button type="button" class="btn btn-success" data-target=".downloadventrilo" data-dismiss="modal" aria-label="close" data-placement="top" title="Download Ventrilo Links" data-toggle="modal" data-toggle="tooltip">
+                                            <button type="button" class="btn btn-success  " data-target=".downloadventrilo" data-dismiss="modal" aria-label="close" data-placement="top" title="Download Ventrilo Links" data-toggle="modal" data-toggle="tooltip">
                                                 <span class="glyphicon glyphicon-download-alt" aria-hidden="true">&times;</span>
                                                     Download
                                                 </button>    
@@ -116,28 +118,27 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                                                                         </div>
                                                                     </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-success  " data-dismiss="modal">Close</button>
                                             </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> 
                         <a href="../forum/index.php" target="_blank">
                             <button type="button" class="btn btn-success" data-placement="top" title="ventrilo forums" data-toggle="tooltip">
                                 <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                                 <!---->Forum<!---->
                             </button>
-                        </a>
-                        <a href="http://www.ventrilo.com/faq.php" target="_blank">
-                            <button type="button" class="btn btn-success" data-placement="right" title="Ventrilo/setup.php" data-toggle="tooltip">
+                        </a> 
+                            <a type="button" class="btn btn-success" data-placement="right" title="Ventrilo/setup.php" data-toggle="tooltip"  href="http://www.ventrilo.com/faq.php" target="_blank">
                                 <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-                                <!---->Additional Setup<!---->
-                            </button>
+                                <!---->Ventrilo FAQ<!---->
+                            </a>
                         </a>
-                        <br />
+                        <br /> 
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target=".ventinfo">
                             <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
                             Ventrilo Information
-                        </button>
+                        </button> 
                         <div class="modal fade ventinfo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -159,11 +160,11 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target=".rules">
                             <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
                                 Rules
-                        </button>
+                        </button> 
                             <div class="modal fade rules" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -206,9 +207,10 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                                 </div>
                 </div>
                 </div>
+            </div>
                 <div class="well">
                     <center>
-                        <img src="../pics/twitchlogo.png" alt="twitchlogo.png" class="img-responsive img-rounded" style="height:100px;"  />
+                        <img src="../pics/mpcstream.png" alt="mpcstream.png" class="img-responsive img-rounded" style="height:100px; width: 600px;"  />
                     <br />
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Streamjoe">
                         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
@@ -237,14 +239,16 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                         <div class="modal fade Streamlungy" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <div class="row">
+                                    <div class="row" id="thelungy-streampopup-bg-image"><!--id global.css-->
                                         <div class="col-xs-6">
                                         <br />
-                                            <iframe src="http://www.twitch.tv/the_lungy/embed" frameborder="0" scrolling="no" height="400px" width="300"></iframe><br /><p>https://support.twitter.com/articles/20164833-adding-a-follow-button-to-your-website#</p>
+                                            <iframe src="http://www.twitch.tv/the_lungy/embed" frameborder="0" scrolling="no" height="400px" width="300"></iframe><br /><p></p>
                                         </div>
-                                        <div class="col-xs-6 pull-right">
+                                        <div class="col-xs-6">
                                         <br />
                                             <iframe src="http://www.twitch.tv/the_lungy/chat?popout=" frameborder="0" scrolling="no" height="400" width="285"></iframe>
+                                            <br />
+                                            <small class="pull-right">Need a Login to Twitch? &ensp;&ensp;&ensp;<a href="http://www.twitch.tv/" class="btn btn-success btn-sm" target="_blank">www.twitch.tv</a></small>
                                         </div>
                                     </div>
                                 </div>
@@ -272,27 +276,26 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                         </div>
                     </center>
                 </div>
-            </div>
-                        <br />
 <div class="well">
+<div class="row">
+    <center>
+    <img src="../pics/gamingservices.png" alt="gamingservices.png" class="img-responsive img-rounded" style="height: 100px; width: 700px;" />
+    </center>
+</div>
 <div class="row">
 <div class="col-md-4 text-center">
 <center>
-<img src="../pics/bnet.PNG" alt="bnt.PNG" class="img-responsive img-rounded" style="min-height: 25px; min-width: 50px; max-height: 200px; width: 300px;" />
+<img src="../pics/bnet.PNG" alt="bnt.PNG" class="img-responsive img-rounded" style="height: 200px; width: 300px;" />
 </center>
-
+<br />
 <div class="btn-group">
-<button type="button" class="btn btn-group-item btn-group-item-success" data-toggle="tooltip" data-placement="left" title="Sign into Battle.net">
-<a href="https://us.battle.net/account/creation/tos.html" target="_blank">
-<span class="gylphicon gylphicon-hdd" aria-hidden="true"></span>
+<a type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="left" title="Sign into Battle.net" href="https://us.battle.net/account/creation/tos.html" target="_blank">
+<span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
 <!---->Battle.net Service<!---->
 </a>
-</button>
-<a href="#">
-<button type="button" class="btn btn-group-item btn-group-item-success" data-toggle="tooltip" data-placement="left" title="View Battle.net MPC Accounts">
+<a type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="left" title="View Battle.net MPC Accounts" href="#">
 <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
 <!---->MPC Battle.net<!---->
-</button>   
 </a>
 </div>
 </div>
@@ -302,18 +305,14 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
 </center>
 <br />
 <div class="btn-group">
-<a href="http://store.steampowered.com/about/" target="_blank">
-<button type="button" class="btn btn-group-item" data-toggle="tooltip" data-placement="left" title="Sign into Steam">
-<span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
+<a type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
+<span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
 <!---->Steam Service<!---->
-</button>
 </a>
-<button type="button" class="btn btn-group-item" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts">
-<a href="#">
+<a type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
 <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
 <!---->MPC Steam<!---->
 </a>
-</button>
 </div>
 </div>
 <div class="col-md-4 text-center">
@@ -322,18 +321,14 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
 </center>
 <br />
 <div class="btn-group">
-<a href="https://www.origin.com/en-us/download" target="_blank">
-<button type="button" class="btn btn-group-item" data-toggle="tooltip" data-placement="bottom" title="Sign into Steam">
+<a type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="Sign into Steam" href="https://www.origin.com/en-us/download" target="_blank">
 <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
 <!---->Origin EA Service<!---->
-</button>
 </a>
-<button type="button" class="btn btn-group-item" data-toggle="tooltip" data-placement="bottom" title="View Origin MPC Accounts">
-<a href="#">
+<a type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="View Origin MPC Accounts" href="https://www.origin.com/en-us/store/?utm_campaign=origin-search-us-pbm-g-origin&utm_medium=cpc&utm_source=google&utm_term=origin%20sign%20in&sourceid=origin-search-us-pbm-g-origin" target="_blank">
 <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
 <!---->MPC Origin<!---->
 </a>
-</button>
 </div>  <!--btn0group-->
 </div>  <!--col-->
 <div class="row" style="height: 100px;">

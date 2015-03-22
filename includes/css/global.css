@@ -81,3 +81,14 @@ tr.alt { border-top: 1px solid #232323; }
 	border-radius: 2px;
   border-color: #4cae4c;
 }
+
+
+/*Streamer's Global CSS Data Only */
+/* ID Only */
+/* Example #name-locationdescription-background-alteringimage*/
+#thelungy-streampopup-bg-image {
+    background-image: url(../../pics/background.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+}

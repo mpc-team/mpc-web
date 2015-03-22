@@ -123,17 +123,14 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                                     </div>
                                 </div>
                             </div> 
-                        <a href="../forum/index.php" target="_blank">
-                            <button type="button" class="btn btn-success" data-placement="top" title="ventrilo forums" data-toggle="tooltip">
+                            <button type="button" class="btn btn-success" data-placement="top" title="ventrilo forums" data-toggle="tooltip" href="../forum/index.php" target="_blank">
                                 <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                                 <!---->Forum<!---->
-                            </button>
-                        </a> 
-                            <a type="button" class="btn btn-success" data-placement="right" title="Ventrilo/setup.php" data-toggle="tooltip"  href="http://www.ventrilo.com/faq.php" target="_blank">
+                            </button> 
+                            <button type="button" class="btn btn-success" data-placement="right" title="Ventrilo/setup.php" data-toggle="tooltip"  href="http://www.ventrilo.com/faq.php" target="_blank">
                                 <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
                                 <!---->Ventrilo FAQ<!---->
-                            </a>
-                        </a>
+                            </button>
                         <br /> 
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target=".ventinfo">
                             <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
@@ -289,14 +286,14 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
 </center>
 <br />
 <div class="btn-group">
-<a type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="left" title="Sign into Battle.net" href="https://us.battle.net/account/creation/tos.html" target="_blank">
+<button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="left" title="Sign into Battle.net" href="https://us.battle.net/account/creation/tos.html" target="_blank">
 <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
 <!---->Battle.net Service<!---->
-</a>
-<a type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="left" title="View Battle.net MPC Accounts" href="#">
+</button>
+<button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="left" title="View Battle.net MPC Accounts" href="#">
 <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
 <!---->MPC Battle.net<!---->
-</a>
+</button>
 </div>
 </div>
 <div class="col-md-4 text-center">
@@ -305,14 +302,14 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
 </center>
 <br />
 <div class="btn-group">
-<a type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
+<button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
 <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
 <!---->Steam Service<!---->
 </a>
-<a type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
+<button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
 <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
 <!---->MPC Steam<!---->
-</a>
+</button>
 </div>
 </div>
 <div class="col-md-4 text-center">
@@ -321,14 +318,14 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
 </center>
 <br />
 <div class="btn-group">
-<a type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="Sign into Steam" href="https://www.origin.com/en-us/download" target="_blank">
+<button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="Sign into Steam" href="https://www.origin.com/en-us/download" target="_blank">
 <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
 <!---->Origin EA Service<!---->
-</a>
-<a type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="View Origin MPC Accounts" href="https://www.origin.com/en-us/store/?utm_campaign=origin-search-us-pbm-g-origin&utm_medium=cpc&utm_source=google&utm_term=origin%20sign%20in&sourceid=origin-search-us-pbm-g-origin" target="_blank">
+</button>
+<button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="View Origin MPC Accounts" href="https://www.origin.com/en-us/store/?utm_campaign=origin-search-us-pbm-g-origin&utm_medium=cpc&utm_source=google&utm_term=origin%20sign%20in&sourceid=origin-search-us-pbm-g-origin" target="_blank">
 <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
 <!---->MPC Origin<!---->
-</a>
+</button>
 </div>  <!--btn0group-->
 </div>  <!--col-->
 <div class="row" style="height: 100px;">
@@ -336,7 +333,36 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
     </div>
 </div>  <!--row-->     
 </div>  <!--well-->
-    </div>
+    <div class="well">
+        <div class="row">
+            <div class="col-xs-6">
+                
+            </div>
+            <div class="col-xs-6">
+                <div class="row">
+                    <div class="modal" id="starcraft2">
+                        <div class="modal-header">
+                            <h3 class="modal-title">
+                                MPC on Starcraft 2 Series
+                            </h3>    
+                        </div>
+                        <div class="modal-content">
+                            <div>
+                                <p>This is a window. It has 3 main elements</p>
+                                <ul>
+                                    <li>header</li>
+                                    <li>body</li>
+                                    <li>footer</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="modal-close button alpha primary">Close Me!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </div><!--container-->
 
     <div class="container-fluid">

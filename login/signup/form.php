@@ -1,5 +1,5 @@
 <?php
-function PrintSignupForm ($root_path) {
+function PrintSignupForm ($root) {
 	$print = <<<EOD
 		<div class="form-group form-signup">
 			<div class="input-group" id="input-signup-email">
@@ -25,7 +25,7 @@ function PrintSignupForm ($root_path) {
 				<input type="text" name="alias" class="form-control" id="alias" placeholder="Name or game tag, or a sequence of 'k's, 'l's, and 'r's" required>
 			</div>
 		</div>
-		<input class="btn btn-signup pull-right" type="submit" value="Sign Up"/>	
+		<input class="btn btn-signup pull-right" type="submit" value="Create Account"/>	
 EOD;
 	echo $print;
 	

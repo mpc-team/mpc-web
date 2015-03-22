@@ -907,14 +907,16 @@ textarea {
   font-size: inherit;
   line-height: inherit;
 }
+a.btn,
 a {
   color: #337ab7;
   text-decoration: none;
 }
+a.btn:hover,
+a.btn:focus,
 a:hover,
 a:focus {
-  color: #23527c;
-  text-decoration: underline;
+  color: #ffffff;
 }
 a:focus {
   outline: thin dotted;
@@ -1199,7 +1201,7 @@ a.bg-danger:hover {
 }
 .page-header {
   padding-bottom: 9px;
-  margin: 40px 0 20px;
+  margin: 20px 0 20px;
   border-bottom: 1px solid #aaaaaa;
 }
 ul,
@@ -2795,9 +2797,10 @@ fieldset[disabled] .btn {
   box-shadow: none;
 }
 .btn-default {
-  color: #333333;
-  background-color: #ffffff;
-  border-color: #cccccc;
+	color: rgb(51, 122, 183);
+	min-width: 100px;
+  background-color: #101010;
+  border-color: rgb(51, 122, 183);
 }
 .btn-default:hover,
 .btn-default:focus,
@@ -2805,9 +2808,9 @@ fieldset[disabled] .btn {
 .btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
-  color: #333333;
-  background-color: #e6e6e6;
-  border-color: #adadad;
+  color: #77aaff;
+  background-color: rgba(97, 155, 240, 0.5);
+  border-color: rgb(133, 178, 243);
 }
 .btn-default:active,
 .btn-default.active,
@@ -5450,17 +5453,17 @@ a.list-group-item-danger.active:focus {
   font-size: 21px;
   font-weight: bold;
   line-height: 1;
-  color: #000000;
+  color: #ffffff;
   text-shadow: 0 1px 0 #ffffff;
-  opacity: 0.2;
+  opacity: 0.7;
   filter: alpha(opacity=20);
 }
 .close:hover,
 .close:focus {
-  color: #000000;
+  color: #777777;
   text-decoration: none;
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 1.0;
   filter: alpha(opacity=50);
 }
 button.close {
@@ -5509,9 +5512,10 @@ button.close {
   width: auto;
   margin: 10px;
 }
+.modal-dialog .panel { border: 0px; }
 .modal-content {
   position: relative;
-  background-color: #ffffff;
+  background-color: #252525;
   border: 1px solid #999999;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;
@@ -5538,7 +5542,7 @@ button.close {
 }
 .modal-header {
   padding: 15px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #337ab7;
   min-height: 16.42857143px;
 }
 .modal-header .close {
@@ -5555,7 +5559,7 @@ button.close {
 .modal-footer {
   padding: 15px;
   text-align: right;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #337ab7;
 }
 .modal-footer .btn + .btn {
   margin-left: 5px;

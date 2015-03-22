@@ -41,35 +41,19 @@
 		return(null);
 	}
 	
-	// Returns set { messageID }
-	function DBF_GetThreadMessages($db, $threadID){
-		if($db->connected){
-			$sql="SELECT tmsgID FROM ThreadMessages";
-			$result=$db->query($sql);
-			if($result){
-				$msgids=array();
-				while($row=$result->fetch_assoc()){
-					array_push($msgids,$row["tmsgID"]);
-				}
-				$result->close();
-				return($msgids);
-			}
-		}
-		return(null);
-	}
-	
 	// Returns set { messageID, messageTitle, messageContent }
 	function DBF_GetThreadContents($db, $threadID){
 		if($db->connected){
 			$sql=<<<EOD
 				SELECT ThreadMessages.tmsgID, ThreadMessageContent.content, ThreadMessageContent.author, UserAlias.userAlias, ThreadMessageContent.tstamp
-				FROM ThreadMessages 
-				LEFT JOIN ThreadMessageContent 
-					ON ThreadMessages.tmsgID=ThreadMessageContent.tmsgID
-				LEFT JOIN User
-					ON ThreadMessageContent.author=User.userName
-				LEFT JOIN UserAlias
-					ON User.userID=UserAlias.userID
+				FROM (((ThreadMessages
+					JOIN ThreadMessageContent 
+						ON ThreadMessages.tmsgID=ThreadMessageContent.tmsgID)
+					JOIN User
+						ON ThreadMessageContent.author=User.userName)
+					JOIN UserAlias
+						ON User.userID=UserAlias.userID)
+				WHERE ThreadMessages.fthreadID={$threadID}
 EOD;
 			$result=$db->query($sql);
 			if($result){
@@ -82,28 +66,6 @@ EOD;
 				$result->close();
 				return($messages);
 			}
-		}
-		return(null);
-	}
-	
-	// Returns set { messageTitle, messageContent }
-	function DBF_GetMessageContent($db, $msgID){
-		if($db->connected){
-			$sql=<<<EOD
-				SELECT title,content FROM ThreadMessageContent
-				WHERE tmsgID={$smgID}
-EOD;
-			$result=$db->query($sql);
-			if($result){
-				$messages=array();
-				while($row=$result->fetch_assoc()){
-					$content=array();
-					array_push($content,$row[0],$row[1]);
-					array_push($messages,$content);
-				}
-				$result->close();
-				return $messages;
-			}	
 		}
 		return(null);
 	}
@@ -136,6 +98,33 @@ EOD;
 			}
 		}
 		return (-1);
+	}
+	
+	function DBF_GetNewCategoryID($db) {
+		if ($db->connected) {
+			$sql = "SELECT categoryID FROM ForumCategory ORDER BY categoryID DESC LIMIT 0, 1";
+			$result = $db->query($sql);
+			$id = 1;
+			if ($result) {
+				$row = $result->fetch_assoc();
+				$id = $row['categoryID'] + 1;
+				$result->close();
+				return $id;
+			}
+		}
+		return (-1);
+	}
+	
+	function DBF_GetThreadTitle($db,$tid){
+		if($db->connected){
+			$sql="SELECT name FROM ForumThreads WHERE fthreadID={$tid}";
+			$result=$db->query($sql);
+			$row=$result->fetch_assoc();
+			$title=$row['name'];
+			$result->close();
+			return($title);
+		}
+		return(null);
 	}
 	
 	function DBF_CheckCategory($db,$cid,$ctag){
@@ -195,6 +184,20 @@ EOD;
 		return (FALSE);
 	}
 	
+	function DBF_CreateThreadInfoTable($db){
+		if($db->connected){
+			$sql=<<<EOD
+				CREATE TABLE ForumThreadInfo (
+					fthreadID INT NOT NULL,
+					author CHAR(64) NOT NULL,
+					tstamp TIMESTAMP
+				)
+EOD;
+			return (boolean)$db->query($sql);
+		}
+		return(FALSE);
+	}
+	
 	function DBF_CreateMessagesTable($db) {
 		if ($db->connected) {
 			$sql = <<<EOD
@@ -223,21 +226,6 @@ EOD;
 		return (FALSE);
 	}
 	
-	function DBF_GetNewCategoryID($db) {
-		if ($db->connected) {
-			$sql = "SELECT categoryID FROM ForumCategory ORDER BY categoryID DESC LIMIT 0, 1";
-			$result = $db->query($sql);
-			$id = 1;
-			if ($result) {
-				$row = $result->fetch_assoc();
-				$id = $row['categoryID'] + 1;
-				$result->close();
-				return $id;
-			}
-		}
-		return (-1);
-	}
-	
 	function DBF_CreateCategory($db, $name) {
 		if ($db->connected) {
 			$id  = DBF_GetNewCategoryID($db);
@@ -249,12 +237,18 @@ EOD;
 		return (-1);
 	}
 	
-	function DBF_CreateThread($db, $categoryID, $name) {
+	function DBF_CreateThread($db, $categoryID, $name, $author) {
 		if ($db->connected) {
 			$id = DBF_GetNewThreadID($db);
 			$sql = "INSERT INTO ForumThreads VALUES ({$id}, {$categoryID}, '{$name}')";
 			if ($db->query($sql)) {
-				return $id;
+				$sql="INSERT INTO ForumThreadInfo VALUES({$id}, '{$author}', NOW())";
+				if($db->query($sql)){
+					return $id;
+				}else{
+					$sql="DELETE FROM ForumThreads WHERE fthreadID={$id}";
+					$db->query($sql);
+				}
 			}
 		}
 		return (-1);

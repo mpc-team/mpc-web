@@ -6,26 +6,40 @@
 	include_once($ROOT . PathDir::$DB);
 	include_once($ROOT . PathDir::$DBFORUM);
 	
-	function ValidateInput($name){
-		if($name==null) return FALSE;
-		if(strlen($name)==0) return FALSE;
+	session_start();
+	
+	function ValidateInput($input){
+		if($input==null) return FALSE;
+		if(strlen($input)==0) return FALSE;
+		if(strlen(trim($input))==0) return FALSE;
 		return TRUE;
 	}
 	
-	if (!isset($_GET["cid"])||!isset($_GET["ctag"])){
-		$header="Location: ".$ROOT."/forum/index.php";
-	}elseif(isset($_GET["cid"])&&isset($_GET["ctag"])){
-		$cid=$_GET["cid"];
-		$ctag=$_GET["ctag"];
-		$name=$_POST["name"];
-		$header="Location: ".$ROOT."/forum/index.php?cid={$cid}&ctag={$ctag}";
-		if(ValidateInput($title,$content)){
-			$db=DB_CreateDefault();
-			$db->connect();
-			$msg=DBF_CreateThread($db,$cid,$name);
-			$db->disconnect();
-		}
-	}	
+	$header="Location: ".$ROOT."/forum/index.php";
+	if(isset($_SESSION["USER"])){
+		$db=DB_CreateDefault();
+		$db->connect();
+		if(isset($_GET["c_id"])&&isset($_GET["c_tag"])){
+			$cid=$_GET["c_id"];
+			$ctag=$_GET["c_tag"];
+			if(DBF_CheckCategory($db,$cid,$ctag)){
+				$title=$_POST["title"];
+				$content=$_POST["content"];
+				if(ValidateInput($title)){
+					$tid=DBF_CreateThread($db,$cid,$title,$_SESSION["USER"]);
+					$title=urlencode($title);
+					$ctag=urlencode($ctag);
+					if($tid > 0 && ValidateInput($content)){
+						$mid=DBF_CreateMessage($db,$tid,$content,$_SESSION["USER"]);
+						if($mid > 0){
+							$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$title}";
+						}
+					}
+				}
+			}
+		}	
+		$db->disconnect();
+	}
 	header($header);
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -49,10 +63,6 @@
 	<div class="container">
 		<div class="page-header text-center">
 			<h1>Create Thread Processing...</h1>
-			<?php
-				echo("<h3>{$cid}</h3>");
-				echo("<h3>{$name}</h3>");
-			 ?>
 		</div>
 	</div>
 </body>

@@ -62,7 +62,7 @@ EOD;
 		$class = ($highlight == "login") ? $ACTIVE : "";
 		echo "<li {$class}> <a href='{$path}'>{$text}</a> </li>";
 		
-		$text = "Signup";
+		$text = "Register";
 		$path = $root . '/login/signup/index.php';
 		$class = ($highlight == "signup") ? $ACTIVE : "";
 		echo "<li {$class}> <a href='{$path}'>{$text}</a> </li>";

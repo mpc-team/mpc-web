@@ -6,6 +6,11 @@
 	include_once($ROOT . PathDir::$DB);
 	include_once($ROOT . PathDir::$DBFORUM);
 	
+	$ALLOWED_HTML_TAGS = <<<EOD
+		<b></b> <i></i> <u></u> <center></center> <h1></h1> <h2></h2> <h3></h3>
+		<ul></ul> <li></li>
+EOD;
+	
 	session_start();
 	
 	function ValidateInput($content){
@@ -22,12 +27,17 @@
 			$cid=$_GET["c_id"];
 			$ttag=urlencode($_GET["t_tag"]);
 			$ctag=urlencode($_GET["c_tag"]);
-			$content=trim($_POST["content"]);
+			
+			$content=strip_tags(trim($_POST["content"]), $ALLOWED_HTML_TAGS);
+			$content=preg_replace('/(<[^>]+) style=".*?"/i', '$1', $content);
+		
 			$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}";
 			if(ValidateInput($content)){
 				$db=DB_CreateDefault();
 				$db->connect();
-				$msg=DBF_CreateMessage($db,$tid,$content,$_SESSION["USER"]);
+				if(DB_GetUserID($db,$_SESSION["USER"]) > 0){
+					$msg=DBF_CreateMessage($db,$tid,$content,$_SESSION["USER"]);
+				}
 				$db->disconnect();
 			}
 		}	

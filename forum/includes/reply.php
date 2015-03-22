@@ -8,7 +8,7 @@ function PrintReplyForm($root,$enabled) {
 						<label class="control-label"><h4>Reply</h4></label>
 					</div>
 					<div class="input-group">
-						<textarea name="content" id="content" class="form-control" placeholder="Reply to thread..." {$disabled}></textarea>
+						<textarea name="content" id="content" class="form-control" placeholder="Reply to thread..." {$disabled} required></textarea>
 					</div>
 					<div class="input-group input-group-bottom">
 						<input type="submit" class="btn btn-reply" value="Post" {$disabled}/>

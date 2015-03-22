@@ -4,6 +4,7 @@
 	include_once($ROOT . '/forum/includes/sidebar.php');
 	include_once($ROOT . '/forum/includes/navbar.php');
 	include_once($ROOT . '/forum/includes/reply.php');
+	include_once($ROOT . '/forum/includes/modal.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$HEADER);
@@ -13,9 +14,9 @@
 	include_once($ROOT . PathDir::$DB_INFO);
 	
 	session_start();
-	$enabled=FALSE;
+	$reply=FALSE;
 	if(isset($_SESSION["USER"])){
-		$enabled=TRUE;
+		$reply=TRUE;
 	}
 	
 	$db=DB_CreateDefault();
@@ -28,7 +29,7 @@
 	$pagetype="categories";
 	$highlight="forum";
 	
-	if(isset($_GET) && isset($_GET["c_id"]) && isset($_GET["c_tag"])){
+	if(isset($_GET["c_id"]) && isset($_GET["c_tag"])){
 		$cid=$_GET["c_id"];
 		$ctag=$_GET["c_tag"];
 		if(DBF_CheckCategory($db,$cid,$ctag)){
@@ -46,10 +47,16 @@
 					$messages=DBF_GetThreadContents($db,$tid);
 				}else{
 					$threads=DBF_GetCategoryThreads($db,$cid);
-				} }else{ $threads=DBF_GetCategoryThreads($db,$cid);	}
+				} 
+			}else{ 
+				$threads=DBF_GetCategoryThreads($db,$cid);	
+			}
 		}else{
 			$categories=DBF_GetCategories($db);
-		}	}else{ $categories=DBF_GetCategories($db); }
+		}	
+	}else{ 
+		$categories=DBF_GetCategories($db); 
+	}
 	//disconnect from database
 	$db->disconnect();
  ?>
@@ -93,11 +100,11 @@
 										$ctag=urlencode($C[1]);
 										echo <<<EOD
 											<div class="panel-group">
-												<a href="index.php?c_id={$C[0]}&c_tag={$ctag}">
-													<div class="panel panel-default">
-														<p>{$C[1]} {$query}</p>
-													</div>
-												</a>
+												<div class="panel panel-default">
+													<a class="btn" href="index.php?c_id={$C[0]}&c_tag={$ctag}">
+														{$C[1]}
+													</a>
+												</div>
 											</div>
 EOD;
 									}
@@ -105,20 +112,23 @@ EOD;
 								case "threads":
 									echo "<div class='page-header'><h1>{$ctag}</h1></div>";
 									$len=count($threads);
+									$ctag=urlencode($ctag);
 									for($i=0; $i<$len; $i++){
 										$thread=$threads[$i];
-										$ctag=urlencode($ctag);
 										$tid=$thread[0];
 										$ttag=urlencode($thread[2]);
 										echo <<<EOD
 											<div class="panel-group">
-												<a href="index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}">
-													<div class="panel panel-default">
-														<p>{$thread[2]}</p>
-													</div>
-												</a>
+												<div class="panel panel-default">
+													<a class="btn" href="index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}">
+														{$thread[2]}
+													</a>
+												</div>
 											</div>
 EOD;
+									}
+									if(isset($_SESSION["USER"])){
+										PrintModal($query);
 									}
 									break;
 								case "messages":
@@ -126,21 +136,26 @@ EOD;
 									$len=count($messages);
 									for($i=0; $i<$len; $i++){
 										$message=$messages[$i];
+										$mid=$message[0];
 										$content=$message[1];
 										$author=$message[3];
 										$timestamp=$message[4];
 										echo <<<EOD
 											<div class="panel-group">
 												<div class="panel panel-default">
-													<p>{$author} - {$timestamp}</p>
-													</br>
-													<p>{$content}</p>
+													<div class="panel-messages">
+														{$author} - {$timestamp} ({$mid})
+														</br>
+														<div class="content-msg">
+															{$content}
+														</div>
+													</div>
 												</div>
 											</div>
 EOD;
 									}
-									echo("<form class='form-horizontal' action='sendmessage.php?{$_SERVER["QUERY_STRING"]}' method='post'>");	
-										PrintReplyForm($ROOT,$enabled);
+									echo("<form class='form-horizontal' action='sendmessage.php?{$query}' method='post'>");	
+										PrintReplyForm($ROOT,$reply);
 									echo("</form>");
 							}
 						 ?>

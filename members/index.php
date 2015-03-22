@@ -96,7 +96,7 @@ EOD;
 									</tr>
 								</thead>
 								<tbody id="search-results">
-									<!-- This section is modified by JavaScript -->
+									<!--JavaScript Here-->
 								</tbody>
 							</table>
 						</div>

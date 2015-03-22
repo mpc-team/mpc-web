@@ -21,26 +21,31 @@
 			$db->query("DROP TABLE ForumThreads");
 			$db->query("DROP TABLE ThreadMessages");
 			$db->query("DROP TABLE ThreadMessageContent");
+			$db->query("DROP TABLE ForumThreadInfo");
 			
 			$createtables = TRUE;
 			$createtables = $createtables && DBF_CreateCategoryTable($db);
 			$createtables = $createtables && DBF_CreateThreadTable($db);
 			$createtables = $createtables && DBF_CreateMessagesTable($db);
 			$createtables = $createtables && DBF_CreateMessageContentTable($db);
+			$createtables = $createtables && DBF_CreateThreadInfoTable($db);
 			
 			$success = 'tables';
 			if ($createtables) {
-				$cid = DBF_CreateCategory($db, "General Testing");
+				$cid = DBF_CreateCategory($db, "General");
 				$success = 'categ';
 				if ($cid > 0) {
-					$tid = DBF_CreateThread($db, $cid, "Thread Testing");
+					$tid = DBF_CreateThread($db, $cid, "Top Thread", "b0rg3r@gmail.com");
 					$success = 'thread';
 					if ($tid > 0) {
 						$mid = DBF_CreateMessage($db, $tid, "This is a testing message.","b0rg3r@gmail.com");
 						$success = 'msg';
 						if ($mid > 0) {
 							$success = 'yes';
-							$mid=DBF_CreateMessage($db,$tid,"This is just another testing message.","b0rg3r@gmail.com");
+							$mid=DBF_CreateMessage($db, $tid,"This is just another testing message.","b0rg3r@gmail.com");
+							if ($mid < 0){
+								$success="almost";
+							}
 						}
 					}
 				}
@@ -78,6 +83,9 @@
 					break;
 				case 'msg':
 					echo '<h4>Message not created.</h4>';
+					break;
+				case 'almost':
+					echo '<h4>Second message not created properly.</h4>';
 					break;
 			}
 			

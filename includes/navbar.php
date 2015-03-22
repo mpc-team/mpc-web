@@ -68,7 +68,7 @@ EOD;
 		$path = $root . '/login/signup/index.php';
 		$class = ($highlight == "signup") ? $ACTIVE : "";
 		$icon="<span class='glyphicon glyphicon-new-window'></span>";
-		echo "<li {$class}> <a href='{$path}'>{$icon} {$text}</a> </li>";
+		echo "<li {$class}> <a href='{$path}'>{$icon} {$text} </a> </li>";
 	}	
 		
 	# ---------------- Close HTML Tags ----------------

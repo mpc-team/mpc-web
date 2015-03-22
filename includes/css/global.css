@@ -55,7 +55,7 @@ a:hover > span.glyphicon-plus {
 .forum .content .panel { padding: 5px; }
 .forum .content .panel-group { margin-bottom: 10px; }
 .forum .content .content-msg img { max-width: 100%; max-height: 300; }
-.content-msg { padding-bottom: 10px; }
+.content-msg { padding-bottom: 7px; }
 
 .well label,
 .form-group p { padding-top: 10px; }

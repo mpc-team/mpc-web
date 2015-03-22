@@ -177,23 +177,45 @@ EOD;
 													<div class="panel-messages">
 														<div class="row">
 															<div class="col-xs-6">
-																<p>{$author}</p>
+																<h4>{$author}</h4>
 															</div>
 															<div class="col-xs-6">
 																<p style="text-align:right">{$timestamp}</p>
 															</div>
 														</div>
-														</br>
 														<div class="row">
 															<div class="content-msg">
-																{$content}
+																$content
+																<!--textarea rows="5">{$content}</textarea-->
 															</div>
+														</div>
+														<div class="row" id='r{$i}'>
+															<button type="button" class="btn btn-edit" id='b{$i}'>
+																<span class="glyphicon glyphicon-edit"></span>
+																Edit
+															</button>
 														</div>
 													</div>
 												</div>
 											</div>
 EOD;
 									}
+									echo<<<EOD
+										<script type="text/javascript">
+											$(document).ready(function(){
+												$(".btn-edit").click(function(){
+													$(this).hide();
+													var id=$(this).attr('id');
+													id=id.substring(1,id.length);
+													console.log("Clicked ("+id+")");
+													$(".panel-messages").find(("#r"+id)).append("<button type='button' class='btn btn-edit'><span class='glyphicon glyphicon-trash'></span> Discard</button>");
+													$(".panel-messages").find(("#r"+id)).append("<button type='button' class='btn btn-edit'><span class='glyphicon glyphicon-check'></span> Confirm</button>");
+													
+													$(".content-message").html("<textarea rows='5'>" + $(".content-message").html() + "</textarea>");
+												});
+											});
+										</script>
+EOD;
 					//
 					//		2.
 									if($reply){

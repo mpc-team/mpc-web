@@ -54,6 +54,7 @@
 					JOIN UserAlias
 						ON User.userID=UserAlias.userID)
 				WHERE ThreadMessages.fthreadID={$threadID}
+				ORDER BY ThreadMessageContent.tstamp DESC
 EOD;
 			$result=$db->query($sql);
 			if($result){
@@ -276,5 +277,17 @@ EOD;
 			return (boolean)$db->query($sql);
 		}
 		return(FALSE);
+	}
+	
+	function DBF_DeleteMessage($db, $mid){
+		if($db->connected){
+			$count=0;
+			$sql="DELETE FROM ThreadMessageContent WHERE tmsgID={$mid}";
+			$count=($db->query($sql))?($count+1):($count);
+			$sql="DELETE FROM ThreadMessages WHERE tmsgID={$mid}";
+			$count=($db->query($sql))?($count+1):($count);
+			return($count);
+		}
+		return(-1);
 	}
  ?>

@@ -6,10 +6,7 @@
 	include_once($ROOT . PathDir::$DB);
 	include_once($ROOT . PathDir::$DBFORUM);
 	
-	$ALLOWED_HTML_TAGS = <<<EOD
-		<b></b> <i></i> <u></u> <center></center> <h1></h1> <h2></h2> <h3></h3>
-		<ul></ul> <li></li> <img></img> <br></br> <a></a> <tag></tag>
-EOD;
+	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><center></center><h1></h1><h2></h2><h3></h3><h4></h4><p></p><ul></ul><li></li><img></img><br><br/><a></a>";
 	
 	session_start();
 	
@@ -31,8 +28,9 @@ EOD;
 				$ttag=urlencode($_GET["t_tag"]);
 				$ctag=urlencode($_GET["c_tag"]);
 				$msgid=$_POST["msgid"];
+				$content=trim($_POST["content"]);
 				
-				$content=strip_tags(trim($_POST["content"]), $ALLOWED_HTML_TAGS);
+				$content=strip_tags($content, $ALLOWED_HTML_TAGS);
 				$content=preg_replace('/(<[^>]+) style=".*?"/i', '$1', $content);
 				$content=str_replace("\r", "", $content);
 				$content=str_replace("\n", "<br>", $content);

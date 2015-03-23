@@ -3,7 +3,7 @@
 #navbar-copyright { padding: 20px; }
 
 #image-banner-login { 
-	max-height: 300px; 
+	max-height: 300px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -49,6 +49,7 @@ span.glyphicon-edit { margin: 2px 0px; }
 a:hover > span.glyphicon-plus,
 a:hover > span.glyphicon-plus { color: #ffffff; }
 
+.panel-messages > form { margin-top: -20px; }
 .forum .content .panel { padding: 5px; }
 .forum .content .panel-group { margin-bottom: 10px; }
 .forum .content .content-msg img { max-width: 100%; max-height: 300; }
@@ -67,8 +68,16 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 
 .panel-messages { padding: 10px; }
 .panel-messages .col-xs-6 { padding: 0px; }
-.panel-login { padding-bottom: 15px; }
+
+@media (min-width: 667px) {
+	.panel-login { 
+		max-width: 80%; 
+		margin: auto;
+	}
+}
 .panel-login h1 { margin-top: 0px; }
+.panel-login .row-remember-me { padding: 10px 0px; }
+.panel-login .row-remember-me span { font-weight: normal; }
 
 .panel-reply { padding-top: 50px; }
 .panel-newthread textarea,

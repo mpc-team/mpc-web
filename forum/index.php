@@ -26,6 +26,7 @@
 	$CREATE_PAGE = $ROOT . '/forum/thread/create.php';
 	$SEND_PAGE = $ROOT . '/forum/message/create.php';
 	$UPDATE_PAGE = $ROOT . '/forum/message/update.php';
+	$DELETE_PAGE = $ROOT . '/forum/message/delete.php';
 	
 	$path=array();
 	$pagetype="categories";
@@ -76,6 +77,7 @@
 	PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
 	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
 	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
+	PrintJavaScriptResource( PathDir::GetJSPath($ROOT, 'util.js') );
  ?>
 </head>
 <body>
@@ -174,7 +176,7 @@ EOD;
 								</div>
 EOD;
 							$len=count($messages);
-							for($i=0; $i<$len; $i++){
+							for( $i=0; $i < $len; $i++ ){
 								$message=$messages[$i];
 								$msgid=$message[0];
 								$content=$message[1];
@@ -191,10 +193,27 @@ EOD;
 														{$author}
 													</div>
 													<div class="col-xs-6">
-														<div class="pull-right">
-															<span class="glyphicon glyphicon-time"></span>													
-															{$timestamp}
-														</div>
+														<form role="form" action='{$DELETE_PAGE}?{$query}' method='post'>
+															<div class="row">
+																<div class="pull-right">
+																	<span class="glyphicon glyphicon-time"></span>													
+																	{$timestamp}
+																</div>
+															</div>
+EOD;
+								if(isset($_SESSION["USER"])&&($_SESSION["USER"]==$email||$_SESSION["USER"]=="b0rg3r@gmail.com")){
+									echo<<<EOD
+															<div class="row">														
+																<button type="submit" class="btn btn-edit pull-right" id='x{$i}' data-id='${msgid}'>
+																	<span class="glyphicon glyphicon-remove"></span>
+																	Delete
+																</buton>
+																<input type="hidden" name='message' value='{$msgid}'/>
+															</div>
+														</form>
+EOD;
+								}
+								echo<<<EOD
 													</div>
 												</div>
 												</br>
@@ -212,7 +231,7 @@ EOD;
 								if(isset($_SESSION["USER"])&&$_SESSION["USER"]==$email){
 									echo<<<EOD
 												<div class="row" id='r{$i}'>
-													<button type="button" class="btn btn-edit" id='b{$i}' data-id='${msgid}'>
+													<button type="button" class="btn btn-edit" id='e{$i}' data-id='${msgid}'>
 														<span class="glyphicon glyphicon-edit"></span>
 														Edit
 													</button>
@@ -230,6 +249,11 @@ EOD;
 								<script type="text/javascript">
 									$(document).ready(function(){
 										$(".btn-edit").click(function(){
+											var thisid=$(this).attr("id");
+											var first=thisid.charAt(0);
+											if(first == 'x'){
+												return;
+											}
 											var editbtn=$(this);
 											editbtn.hide();
 											
@@ -240,7 +264,7 @@ EOD;
 											var msgcontent=$("#c"+id).html();
 											editcontent=msgcontent.trim();
 											editcontent=editcontent.replace("\t","");
-											editcontent=editcontent.replace("<br>","\\n");
+											editcontent=br2nl(editcontent);
 											editcontent="<textarea name='content' class='form-control' rows='6'>"+editcontent+"</textarea>";
 											
 											$("#r"+id).append("<button id='d"+id+"' type='button' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-trash'></span> Discard</button>");
@@ -251,7 +275,6 @@ EOD;
 											
 											$("#c"+id).html(editcontent);
 											$("#d"+id ).click(function(){
-												console.log("dismissed -"+msgid+"-");
 												$("#d"+id).remove();
 												$("#s"+id).remove();
 												$("#h"+id).remove();

@@ -153,8 +153,12 @@ function updateList (userList, permissions) {
 	}
 	$(SEARCH_RESULTS).html(result);
 }
-
-
+/* 
+ *
+ *
+ *
+ */
+function br2nl(str) { return str.replace(/<br\s*\/?>/mg,"\n"); }
 /* #### End of Functions ############################### */
 
 

@@ -2301,7 +2301,6 @@ legend {
 label {
   display: inline-block;
   max-width: 100%;
-  margin-bottom: 5px;
   font-weight: bold;
 }
 input[type="search"] {
@@ -2645,7 +2644,7 @@ select[multiple].form-group-lg .form-control {
   color: #a94442;
 }
 .has-feedback label ~ .form-control-feedback {
-  top: 25px;
+  top: 20px;
 }
 .has-feedback label.sr-only ~ .form-control-feedback {
   top: 0;

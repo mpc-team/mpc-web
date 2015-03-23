@@ -32,17 +32,19 @@
 	<div class="container-fluid">
 		<?php PrintNavbar("login", $ROOT); ?>
 	</div>
-	<div class="container-fluid">
+	<div class="container">
 		<div class="content">
-			<img src="../pics/mpclogo.png" class="img-responsive" id="image-banner-login"/>
-			<div class="panel panel-default panel-login">
-				<h1>Login</h1>
-				<form class="form" role="form" action="complete.php" method="post">
-					<?php PrintLoginForm($ROOT); ?> 
-				</form>
-			</div>
-			<div class="text-center signup-text">	
-				<h5>New to the site? <a href="./signup/index.php">Click here to sign-up/register</a>.</h5>
+			<div class="panel-login">
+				<img src="../pics/mpclogo.png" class="img-responsive" id="image-banner-login"/>
+				<div class="panel panel-default">
+					<h1>Login</h1>
+					<form class="form" role="form" action="complete.php" method="post">
+						<?php PrintLoginForm($ROOT); ?> 
+					</form>
+				</div>
+				<div class="text-center signup-text">	
+					<h5>New to the site? <a href="./signup/index.php">Click here to sign-up/register</a>.</h5>
+				</div>
 			</div>
 		</div>
 	</div>

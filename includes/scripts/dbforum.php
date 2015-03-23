@@ -54,7 +54,7 @@
 					JOIN UserAlias
 						ON User.userID=UserAlias.userID)
 				WHERE ThreadMessages.fthreadID={$threadID}
-				ORDER BY ThreadMessageContent.tstamp DESC
+				ORDER BY ThreadMessageContent.tstamp ASC
 EOD;
 			$result=$db->query($sql);
 			if($result){

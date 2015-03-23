@@ -5,31 +5,27 @@
 	include_once($ROOT . PathDir::$HEADER);
 	include_once($ROOT . PathDir::$DB);
 	include_once($ROOT . PathDir::$DBFORUM);
+	include_once($ROOT . PathDir::$UTILITY);
 	
 	session_start();
 	
-	function ValidateInput($input){
-		if($input==null) return FALSE;
-		if(strlen($input)==0) return FALSE;
-		if(strlen(trim($input))==0) return FALSE;
-		return TRUE;
-	}
-	
+	$title=$_POST["title"];
+	$content=$_POST["content"];
 	$header="Location: ".$ROOT."/forum/index.php";
 	if(isset($_SESSION["USER"])){
+		$params=array();
+		array_push($params,"c_id","c_tag");
 		$db=DB_CreateDefault();
 		$db->connect();
-		if(isset($_GET["c_id"])&&isset($_GET["c_tag"])){
+		if(verifygetvars($params,$_GET)){
 			$cid=$_GET["c_id"];
 			$ctag=$_GET["c_tag"];
 			if(DBF_CheckCategory($db,$cid,$ctag)){
-				$title=$_POST["title"];
-				$content=$_POST["content"];
-				if(ValidateInput($title)){
+				if(validateinput($title)){
 					$tid=DBF_CreateThread($db,$cid,$title,$_SESSION["USER"]);
 					$title=urlencode($title);
 					$ctag=urlencode($ctag);
-					if($tid > 0 && ValidateInput($content)){
+					if($tid > 0 && validateinput($content)){
 						$mid=DBF_CreateMessage($db,$tid,$content,$_SESSION["USER"]);
 						if($mid > 0){
 							$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$title}";

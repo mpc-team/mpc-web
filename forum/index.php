@@ -12,6 +12,14 @@
 	include_once($ROOT . PathDir::$DBFORUM);
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
+	include_once($ROOT . PathDir::$UTILITY);
+	
+	$query=$_SERVER['QUERY_STRING'];
+	$INDEX_PAGE = 'index.php';
+	$CREATE_PAGE = $ROOT . '/forum/thread/create.php';
+	$SEND_PAGE = $ROOT . '/forum/message/create.php';
+	$UPDATE_PAGE = $ROOT . '/forum/message/update.php';
+	$DELETE_PAGE = $ROOT . '/forum/message/delete.php';
 	
 	session_start();
 	$reply=FALSE;
@@ -21,33 +29,33 @@
 	
 	$db=DB_CreateDefault();
 	$db->connect();
-	$query=$_SERVER['QUERY_STRING'];
-	$INDEX_PAGE = 'index.php';
-	$CREATE_PAGE = $ROOT . '/forum/thread/create.php';
-	$SEND_PAGE = $ROOT . '/forum/message/create.php';
-	$UPDATE_PAGE = $ROOT . '/forum/message/update.php';
-	$DELETE_PAGE = $ROOT . '/forum/message/delete.php';
-	
 	$path=array();
 	$pagetype="categories";
 	$highlight="forum";
-	
-	if(isset($_GET["c_id"]) && isset($_GET["c_tag"])){
+	$params=array();
+	array_push($params,"c_id","c_tag");
+	if(verifygetvars($params,$_GET)){
 		$cid=$_GET["c_id"];
 		$ctag=$_GET["c_tag"];
 		if(DBF_CheckCategory($db,$cid,$ctag)){
+		
 			$highlight="path";
 			$pagetype="threads";
 			$dir=array("id"=>$cid,"name"=>$ctag);
 			array_push($path,$dir);
-			if(isset($_GET["t_id"]) && isset($_GET["t_tag"])){
+			
+			$params=array();
+			array_push($params,"t_id","t_tag");
+			if(verifygetvars($params,$_GET)){
 				$tid=$_GET["t_id"];
 				$ttag=$_GET["t_tag"];
 				if(DBF_CheckThread($db,$tid,$ttag)){		
+				
 					$pagetype="messages";
 					$dir=array("id"=>$tid,"name"=>$ttag);
 					array_push($path,$dir);
 					$messages=DBF_GetThreadContents($db,$tid);
+					
 				}else{
 					$threads=DBF_GetCategoryThreads($db,$cid);
 				} 

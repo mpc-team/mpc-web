@@ -13,24 +13,21 @@
 	
 	$header="Location: ".$ROOT."/forum/index.php";
 	if (isset($_SESSION["USER"])){
-		if(isset($_GET["t_id"])&&isset($_GET["c_id"])&&isset($_GET["t_tag"])&&isset($_GET["c_tag"])){
+		$params=array();
+		array_push($params,"t_id","c_id","t_tag","c_tag");
+		if(verifygetvars($params,$_GET)){
+			$tid=$_GET["t_id"];
+			$cid=$_GET["c_id"];
+			$ttag=$_GET["t_tag"];
+			$ctag=$_GET["c_tag"];
 			$db=DB_CreateDefault();
 			$db->connect();
-			if(DBF_CheckCategory($db,$_GET["c_id"],$_GET["c_tag"])&&DBF_CheckThread($db,$_GET["t_id"],$_GET["t_tag"])){
-				$tid=$_GET["t_id"];
-				$cid=$_GET["c_id"];
-				$ttag=urlencode($_GET["t_tag"]);
-				$ctag=urlencode($_GET["c_tag"]);
+			if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
 				$msgid=$_POST["msgid"];
-				
-				$content=trim($_POST["content"]);
-				$content=strip_tags($content, $ALLOWED_HTML_TAGS);
-				$content=preg_replace('/(<[^>]+) style=".*?"/i', '$1', $content);
-				$content=str_replace("\r", "", $content);
-				$content=ShredLinefeeds($content);
-				$content=str_replace("\n", "<br>", $content);
-			
-				if(ValidateInput($content)){
+				$ttag=urlencode($ttag);
+				$ctag=urlencode($ctag);
+				$content=cleanmessage($_POST["content"],$ALLOWED_HTML_TAGS);
+				if(validateinput($content)){
 					if(DBF_UpdateMessage($db,(int)$msgid,$content)){
 						$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}";
 					}

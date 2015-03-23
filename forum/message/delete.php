@@ -5,12 +5,15 @@
 	include_once($ROOT . PathDir::$HEADER);
 	include_once($ROOT . PathDir::$DB);
 	include_once($ROOT . PathDir::$DBFORUM);
+	include_once($ROOT . PathDir::$UTILITY);
 	
 	session_start();
 	
 	$header="Location: ".$ROOT."/forum/index.php";
 	if(isset($_SESSION["USER"])){
-		if(isset($_GET["t_id"])&&isset($_GET["c_id"])&&isset($_GET["t_tag"])&&isset($_GET["c_tag"])){
+		$params=array();
+		array_push($params,"t_id","c_id","t_tag","c_tag");
+		if(verifygetvars($params,$_GET)){
 			$tid=$_GET["t_id"];
 			$cid=$_GET["c_id"];
 			$ttag=$_GET["t_tag"];

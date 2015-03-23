@@ -273,101 +273,877 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                         </div>
                     </center>
                 </div>
-<div class="well">
-<div class="row">
-    <center>
-    <img src="../pics/gamingservices.png" alt="gamingservices.png" class="img-responsive img-rounded" style="height: 100px; width: 700px;" />
-    </center>
-</div>
-<div class="row">
-<div class="col-md-4 text-center">
-<center>
-<img src="../pics/bnet.PNG" alt="bnt.PNG" class="img-responsive img-rounded" style="height: 200px; width: 300px;" />
-</center>
-<br />
-<div class="btn-group">
-<button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="left" title="Sign into Battle.net" href="https://us.battle.net/account/creation/tos.html" target="_blank">
-<span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
-<!---->Battle.net Service<!---->
-</button>
-<button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="left" title="View Battle.net MPC Accounts" href="#">
-<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
-<!---->MPC Battle.net<!---->
-</button>
-</div>
-</div>
-<div class="col-md-4 text-center">
-<center>
-<img src="../pics/steam.png" alt="steam.png" class="img-responsive img-rounded" style="min-height: 25px; min-width: 50px; max-height: 200px; width: 300px;" />
-</center>
-<br />
-<div class="btn-group">
-<button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
-<span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
-<!---->Steam Service<!---->
-</a>
-<button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
-<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
-<!---->MPC Steam<!---->
-</button>
-</div>
-</div>
-<div class="col-md-4 text-center">
-<center>
-<img src="../pics/originlogo.PNG" alt="originlogo.PNG" class="img-responsive img-rounded" style="min-height: 25px; min-width: 50px; max-height: 200px; width: 300px;" />
-</center>
-<br />
-<div class="btn-group">
-<button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="Sign into Steam" href="https://www.origin.com/en-us/download" target="_blank">
-<span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
-<!---->Origin EA Service<!---->
-</button>
-<button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="View Origin MPC Accounts" href="https://www.origin.com/en-us/store/?utm_campaign=origin-search-us-pbm-g-origin&utm_medium=cpc&utm_source=google&utm_term=origin%20sign%20in&sourceid=origin-search-us-pbm-g-origin" target="_blank">
-<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
-<!---->MPC Origin<!---->
-</button>
-</div>  <!--btn0group-->
-</div>  <!--col-->
-<div class="row" style="height: 100px;">
-    &nbsp;
-    </div>
-</div>  <!--row-->     
-</div>  <!--well-->
-    <div class="well">
-        <div class="row">
-            <div class="col-xs-6">
-                
-            </div>
-            <div class="col-xs-6">
+            <div class="well">
                 <div class="row">
-                    <div class="modal" id="starcraft2">
-                        <div class="modal-header">
-                            <h3 class="modal-title">
-                                MPC on Starcraft 2 Series
-                            </h3>    
-                        </div>
+                <center>
+                <img src="../pics/gamingservices.png" alt="gamingservices.png" class="img-responsive img-rounded" style="height: 100px; width: 700px;" />
+                </center>
+                </div>
+                <div class="row">
+                <div class="col-md-4 text-center">
+                <center>
+                <img src="../pics/bnet.PNG" alt="bnt.PNG" class="img-responsive img-rounded" style="height: 200px; width: 300px;" />
+                </center>
+                <br />
+                <div class="btn-group">
+                <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="left" title="Sign into Battle.net" href="https://us.battle.net/account/creation/tos.html" target="_blank">
+                <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
+                <!---->Battle.net Service<!---->
+                </button>
+                <button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="left" title="View Battle.net MPC Accounts" href="#">
+                <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+                <!---->MPC Battle.net<!---->
+                </button>
+                    <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#sc2collapse-gaming" aria-expanded="false" aria-controls="sc2collapse-gaming">Star Craft 2</button>
+                    <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#wowcollapse-gaming" aria-expanded="false" aria-controls="wowcollapse-gaming">World of WarCraft</button>
+                    <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#hotscollapse-gaming" aria-expanded="false" aria-controls="hotscollapse-gaming">Heros of the Storm</button>
+                    <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#hearthcollapse-gaming" aria-expanded="false" aria-controls="hearthcollapse-gaming">Hearth Stone</button>
+                </div>
+                </div>
+                <div class="col-md-4 text-center">
+                <center>
+                <img src="../pics/steam.png" alt="steam.png" class="img-responsive img-rounded" style="min-height: 25px; min-width: 50px; max-height: 200px; width: 300px;" />
+                </center>
+                <br />
+                <div class="btn-group">
+                <button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
+                <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
+                <!---->Steam Service<!---->
+                </a>
+                <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#csgocollapse-gaming" aria-expanded="false" aria-controls="csgocollapse-gaming">Counter Strike GO</button>
+                <button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
+                <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+                <!---->MPC Steam<!---->
+                </button>
+                </div>
+                </div>
+                <div class="col-md-4 text-center">
+                <center>
+                <img src="../pics/originlogo.PNG" alt="originlogo.PNG" class="img-responsive img-rounded" style="min-height: 25px; min-width: 50px; max-height: 200px; width: 300px;" />
+                </center>
+                <br />
+                <div class="btn-group">
+                <button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="Sign into Steam" href="https://www.origin.com/en-us/download" target="_blank">
+                <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
+                <!---->Origin EA Service<!---->
+                </button>
+                <button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="View Origin MPC Accounts" href="https://www.origin.com/en-us/store/?utm_campaign=origin-search-us-pbm-g-origin&utm_medium=cpc&utm_source=google&utm_term=origin%20sign%20in&sourceid=origin-search-us-pbm-g-origin" target="_blank">
+                <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+                <!---->MPC Origin<!---->
+                </button>
+                </div>  <!--btn0group-->
+                </div>  <!--col-->
+            </div><!--row-->     
+
+            <div class="row" style="height: 100px;">
+                &nbsp;<button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Close All Extentions</button>
+            </div>
+        </div> <!--well-->
+    <div class="collapse" id="sc2collapse-gaming">
+        <div class="well">
+            <div class="row">
+               <div class="media">
+                   <div class="media-left">
+                       <a href="#">
+                        <img src="../pics/starcraft2blizzardlogo.PNG" alt="starcraft2blizzardlogo.PNG" title="Starcraft 2 Heart of the Swarm" class="img-responsive img-rounded" style="height: 25px; width: 100px;" /><br />
+                           <img src="../pics/capmpcsc2icon.PNG" alt="capmpcsc2icon.PNG" title="MPC Starcraft 2 Logo" class="img-responsive img-rounded" style="height: 55px; width:100px" /><br />
+                       </a>
+                       </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Star Craft 2 Heart of the Swarm - Battle.net -Blizzard Entertainment.</h4>
+                    <p>&ensp;&ensp;&ensp;&ensp;&ensp;Starcraft is the core foundation of MPC as of current time. The original founders were developing a clan that will stablize based on a mobile web, and communcations to keep the clan in recruiting status, amongst providing fun for the members, and the people they recruit. Starcraft is based on an Real Time Strategy game engine, and very intense when it comes to prioritizing, and performance. Be sure to visit in game with us, and work together in team battles. We do offer 1 vs 1 observer training, and do leagues often to increase our ranks. Learn how to Find out us on Starcraft by Clicking the button Here.</p>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
+                    MPC SC2 INFO
+                </button>
+                <div class="modal fade mpcsc2info-gaming" id="mpcsc2info-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
+                    <div class="modal-dialog">
                         <div class="modal-content">
-                            <div>
-                                <p>This is a window. It has 3 main elements</p>
-                                <ul>
-                                    <li>header</li>
-                                    <li>body</li>
-                                    <li>footer</li>
-                                </ul>
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpcsc2info-gaming">MPC Sc2 Information</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="../pics/sc2bannermpc.PNG" alt="sc2bannermpc.PNG" title="sc2 mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <h3 class="modal-title">How to find us?</h3>
+                            <p> &ensp;&ensp;&ensp;&ensp;&ensp;<b>Copy Link Method:</b> Copy this link and paste it into your chat box, then click on it to reach our in-game HQ to reach out to us. battlenet://starcraft/clan/1/9466 (Tip: Use Control + C to copy this link, and use Control + V to paste it into your starcraft 2 game. See the example photo.</p><br />
+                            <center><img src="../pics/examplelinksc2mpc.PNG" alt="examplelinksc2mpc.PNG" class="img-responsive img-rounded" title="example photo" style="height:100pxl; width:400px;"/></center>
+                            <br />
+                            <h3 class="modal-title pull-right">Search In Game Group Channels</h3>
+                            <p class="pull-right">&ensp;&ensp;&ensp;&ensp;&ensp;Log on to your account, and access the main menu dashboard, and next to the timer, click on the button that shows 2 people icon. This is the group channel section that displays the history, and the allows to do a search.Click on Find, then type in "MPC" in the search field, and changing "featured" to "strategies and coaching", and to send the search, click on the magnifying glass icon. See example photo.</p>
+                            <br />
+                            <img src="../pics/findgroupsc2mpc.PNG" alt="findgroupsc2mpc.PNG" title="Search" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            </div>
+                            <br />
+                            <h3 class="modal-title">These are all of our channels</h3>
+                            <p>Feel Free to find us, using the Game Links Button on the previous page. See example photo on what to look for during the search.</p>
+                            <br />
+                            <img src="../pics/foundgroupsc2mpc.PNG" alt="foundgroupsc2mpc.PNG" title="found example" class="img-responsive img-rounded" style="height:100px; width:600px;" />
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <a class="modal-close button alpha primary">Close Me!</a>
+                    </div>
+                </div>
+                 <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2links" >
+                    GAME LINKS
+                </button>
+                <div class="modal fade mpcsc2links" id="mpcsc2info-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpcsc2links">Link Information:</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="../pics/sc2bannermpc.PNG" alt="sc2bannermpc.PNG" title="sc2 mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2screenshots" >
+                    Screen Shots
+                </button>
+                <div class="modal fade mpcsc2screenshots" id="mpcsc2screenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpcsc2links">Screen Shots</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="../pics/sc2bannermpc.PNG" alt="sc2bannermpc.PNG" title="sc2 mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2video" >
+                    Videos
+                </button>
+                <div class="modal fade mpcsc2video" id="mpcsc2screenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpcsc2video">Video</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="../pics/sc2bannermpc.PNG" alt="sc2bannermpc.PNG" title="sc2 mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2members" >
+                    MPC Members
+                </button>
+                <div class="modal fade mpcsc2members" id="mpcsc2member-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpcsc2members">Video</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="../pics/sc2bannermpc.PNG" alt="sc2bannermpc.PNG" title="sc2 mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+     <div class="collapse" id="csgocollapse-gaming">
+        <div class="well">
+            <div class="row">
+               <div class="media">
+                   <div class="media-left">
+                       <a href="#">
+                        <img src="../pics/cs-go-logo.png" alt="cs-go-logo.png" title="Counter Strike Global Offensive" class="img-responsive img-rounded" style="height: 25px; width: 100px;" /><br />
+                           <img src="../pics/capmpcsc2icon.PNG" alt="capmpcsc2icon.PNG" title="MPC Cs-Go Logo" class="img-responsive img-rounded" style="height: 55px; width:100px" /><br />
+                       </a>
+                       </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Star Craft 2 Heart of the Swarm - Battle.net -Blizzard Entertainment.</h4>
+                    <p>&ensp;&ensp;&ensp;&ensp;&ensp;Starcraft is the core foundation of MPC as of current time. The original founders were developing a clan that will stablize based on a mobile web, and communcations to keep the clan in recruiting status, amongst providing fun for the members, and the people they recruit. Starcraft is based on an Real Time Strategy game engine, and very intense when it comes to prioritizing, and performance. Be sure to visit in game with us, and work together in team battles. We do offer 1 vs 1 observer training, and do leagues often to increase our ranks. Learn how to Find out us on Starcraft by Clicking the button Here.</p>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
+                    MPC CSGO INFO
+                </button>
+                <div class="modal fade mpcsc2info-gaming" id="mpcsc2info-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpcsc2info-gaming">MPC CSGO Information</h4>
+                            </div>
+                        <div class="modal-body">
+                           ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2links" >
+                    GAME LINKS
+                </button>
+                <div class="modal fade mpccsgolinks" id="mpcsc2info-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc CS Go Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpccsgolinks">Link Information:</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="#" alt="csgobannermpc.PNG" title="sc2 mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpccsgoscreenshots" >
+                    Screen Shots
+                </button>
+                <div class="modal fade mpccsgoscreenshots" id="mpcsc2screenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpccsgolinks">Screen Shots</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="#" alt="csgobannermpc.PNG" title="sc2 mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpccsgovideo" >
+                    Videos
+                </button>
+                <div class="modal fade mpccsgovideo" id="mpccsgoscreenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpccsgovideo">Video</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="../pics/csgobannermpc.PNG" alt="csgobannermpc.PNG" title="sc2 mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpccsgomembers" >
+                    MPC Members
+                </button>
+                <div class="modal fade mpccsgomembers" id="mpccsgomember-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Counter Strike Global Offensive Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpcsc2members">Video</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="#" alt="sc2bannermpc.PNG" title="sc2 mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="collapse" id="wowcollapse-gaming">
+        <div class="well">
+            <div class="row">
+               <div class="media">
+                   <div class="media-left">
+                       <a href="#">
+                        <img src="../pics/wow.PNG" alt="wow.PNG" title="World of Warcraft" class="img-responsive img-rounded" style="height: 25px; width: 100px;" /><br />
+                           <img src="#" alt="#" title="Worlf of Warcraft" class="img-responsive img-rounded" style="height: 55px; width:100px" /><br />
+                       </a>
+                       </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Star Craft 2 Heart of the Swarm - Battle.net -Blizzard Entertainment.</h4>
+                    <p>&ensp;&ensp;&ensp;&ensp;&ensp;Starcraft is the core foundation of MPC as of current time. The original founders were developing a clan that will stablize based on a mobile web, and communcations to keep the clan in recruiting status, amongst providing fun for the members, and the people they recruit. Starcraft is based on an Real Time Strategy game engine, and very intense when it comes to prioritizing, and performance. Be sure to visit in game with us, and work together in team battles. We do offer 1 vs 1 observer training, and do leagues often to increase our ranks. Learn how to Find out us on Starcraft by Clicking the button Here.</p>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
+                    MPC WOW INFO
+                </button>
+                <div class="modal fade mpcwowinfo-gaming" id="mpcwowinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpcsc2info-gaming">MPC WoW Information</h4>
+                            </div>
+                        <div class="modal-body">
+                           ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowlinks" >
+                    GAME LINKS
+                </button>
+                <div class="modal fade mpcwowlinks" id="mpcwowinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc WOW Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpcwowlinks">Link Information:</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="#" alt="wowbannermpc.PNG" title="wow mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowscreenshots" >
+                    Screen Shots
+                </button>
+                <div class="modal fade mpcwowscreenshots" id="mpcsc2screenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Wow Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpcwowlinks">Screen Shots</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="#" alt="wowbannermpc.PNG" title="wow mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowvideo" >
+                    Videos
+                </button>
+                <div class="modal fade mpcwowvideo" id="mpcwowscreenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc World of Warcraft Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpcwowvideo">Video</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="../pics/wowbannermpc.PNG" alt="wowbannermpc.PNG" title="wow mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowmembers" >
+                    MPC Members
+                </button>
+                <div class="modal fade mpcwowmembers" id="mpcwowmember-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc World of Warcraft Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpcwowmembers">Video</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="#" alt="wowbannermpc.PNG" title="wow mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+     <div class="collapse" id="hearthcollapse-gaming">
+        <div class="well">
+            <div class="row">
+               <div class="media">
+                   <div class="media-left">
+                       <a href="#">
+                        <img src="../pics/leagueoflegendslogo.png" alt="leagueoflegendslogo.PNG" title="League of Legends" class="img-responsive img-rounded" style="height: 25px; width: 100px;" /><br />
+                           <img src="#" alt="#" title="League of Legends" class="img-responsive img-rounded" style="height: 55px; width:100px" /><br />
+                       </a>
+                       </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Star Craft 2 Heart of the Swarm - Battle.net -Blizzard Entertainment.</h4>
+                    <p>&ensp;&ensp;&ensp;&ensp;&ensp;Starcraft is the core foundation of MPC as of current time. The original founders were developing a clan that will stablize based on a mobile web, and communcations to keep the clan in recruiting status, amongst providing fun for the members, and the people they recruit. Starcraft is based on an Real Time Strategy game engine, and very intense when it comes to prioritizing, and performance. Be sure to visit in game with us, and work together in team battles. We do offer 1 vs 1 observer training, and do leagues often to increase our ranks. Learn how to Find out us on Starcraft by Clicking the button Here.</p>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
+                    MPC hearth INFO
+                </button>
+                <div class="modal fade mpchearthinfo-gaming" id="mpchearthinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpchearthinfo-gaming">MPC hearth Information</h4>
+                            </div>
+                        <div class="modal-body">
+                           ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowlinks" >
+                    GAME LINKS
+                </button>
+                <div class="modal fade mpchearthlinks" id="mpchearthinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc hearth Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpchearthlinks">Link Information:</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="#" alt="hearthbannermpc.PNG" title="hearth mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpchearthscreenshots" >
+                    Screen Shots
+                </button>
+                <div class="modal fade mpchearthscreenshots" id="mpchearthscreenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc hearth Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpchearthlinks">Screen Shots</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="#" alt="hearthbannermpc.PNG" title="wow mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowvideo" >
+                    Videos
+                </button>
+                <div class="modal fade mpchearthvideo" id="mpchearthscreenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpcleaguevideo">Video</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="../pics/hearthbannermpc.PNG" alt="hearthbannermpc.PNG" title="hearth mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpchearthmembers" >
+                    MPC Members
+                </button>
+                <div class="modal fade mpchearthmembers" id="mpchearthmember-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpchearthmembers">Video</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="#" alt="hearthbannermpc.PNG" title="wow mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="collapse" id="hotscollapse-gaming">
+        <div class="well">
+            <div class="row">
+               <div class="media">
+                   <div class="media-left">
+                       <a href="#">
+                        <img src="../pics/leagueoflegendslogo.png" alt="leagueoflegendslogo.PNG" title="League of Legends" class="img-responsive img-rounded" style="height: 25px; width: 100px;" /><br />
+                           <img src="#" alt="#" title="League of Legends" class="img-responsive img-rounded" style="height: 55px; width:100px" /><br />
+                       </a>
+                       </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Star Craft 2 Heart of the Swarm - Battle.net -Blizzard Entertainment.</h4>
+                    <p>&ensp;&ensp;&ensp;&ensp;&ensp;Starcraft is the core foundation of MPC as of current time. The original founders were developing a clan that will stablize based on a mobile web, and communcations to keep the clan in recruiting status, amongst providing fun for the members, and the people they recruit. Starcraft is based on an Real Time Strategy game engine, and very intense when it comes to prioritizing, and performance. Be sure to visit in game with us, and work together in team battles. We do offer 1 vs 1 observer training, and do leagues often to increase our ranks. Learn how to Find out us on Starcraft by Clicking the button Here.</p>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
+                    MPC hots INFO
+                </button>
+                <div class="modal fade mpchotsinfo-gaming" id="mpchotsinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpchotsinfo-gaming">MPC hots Information</h4>
+                            </div>
+                        <div class="modal-body">
+                           ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowlinks" >
+                    GAME LINKS
+                </button>
+                <div class="modal fade mpchotslinks" id="mpchotsinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc hots Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpchotslinks">Link Information:</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="#" alt="hotsbannermpc.PNG" title="hots mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpchotsscreenshots" >
+                    Screen Shots
+                </button>
+                <div class="modal fade mpchotsscreenshots" id="mpchotsscreenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc hots Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpchotslinks">Screen Shots</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="#" alt="hotsbannermpc.PNG" title="wow mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowvideo" >
+                    Videos
+                </button>
+                <div class="modal fade mpchotsvideo" id="mpchotsscreenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpcleaguevideo">Video</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="../pics/hotsbannermpc.PNG" alt="hotsbannermpc.PNG" title="hots mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpchotsmembers" >
+                    MPC Members
+                </button>
+                <div class="modal fade mpchotsmembers" id="mpchotsmember-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpchotsmembers">Video</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="#" alt="hotsbannermpc.PNG" title="wow mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="collapse" id="lolcollapse-gaming">
+        <div class="well">
+            <div class="row">
+               <div class="media">
+                   <div class="media-left">
+                       <a href="#">
+                        <img src="../pics/leagueoflegendslogo.png" alt="leagueoflegendslogo.PNG" title="League of Legends" class="img-responsive img-rounded" style="height: 25px; width: 100px;" /><br />
+                           <img src="#" alt="#" title="League of Legends" class="img-responsive img-rounded" style="height: 55px; width:100px" /><br />
+                       </a>
+                       </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Star Craft 2 Heart of the Swarm - Battle.net -Blizzard Entertainment.</h4>
+                    <p>&ensp;&ensp;&ensp;&ensp;&ensp;Starcraft is the core foundation of MPC as of current time. The original founders were developing a clan that will stablize based on a mobile web, and communcations to keep the clan in recruiting status, amongst providing fun for the members, and the people they recruit. Starcraft is based on an Real Time Strategy game engine, and very intense when it comes to prioritizing, and performance. Be sure to visit in game with us, and work together in team battles. We do offer 1 vs 1 observer training, and do leagues often to increase our ranks. Learn how to Find out us on Starcraft by Clicking the button Here.</p>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
+                    MPC LOL INFO
+                </button>
+                <div class="modal fade mpclolinfo-gaming" id="mpclolinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpclolinfo-gaming">MPC LOL Information</h4>
+                            </div>
+                        <div class="modal-body">
+                           ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowlinks" >
+                    GAME LINKS
+                </button>
+                <div class="modal fade mpclollinks" id="mpclolinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc LOL Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpclollinks">Link Information:</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="#" alt="lolbannermpc.PNG" title="lol mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpclolscreenshots" >
+                    Screen Shots
+                </button>
+                <div class="modal fade mpclolscreenshots" id="mpclolscreenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Lol Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpclollinks">Screen Shots</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="#" alt="lolbannermpc.PNG" title="wow mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowvideo" >
+                    Videos
+                </button>
+                <div class="modal fade mpclolvideo" id="mpclolscreenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpcleaguevideo">Video</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="../pics/lolbannermpc.PNG" alt="lolbannermpc.PNG" title="lol mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpclolmembers" >
+                    MPC Members
+                </button>
+                <div class="modal fade mpclolmembers" id="mpclolmember-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h4 class="modal-title" id="mpclolmembers">Video</h4>
+                            </div>
+                        <div class="modal-body">
+                            <img src="#" alt="lolbannermpc.PNG" title="wow mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
+                            <br />
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div><!--content-->
 </div><!--container-->
 
-    <div class="container-fluid">
-        <?php PrintFooter($ROOT); ?>
-    </div>
+<div class="container-fluid">
+    <?php PrintFooter($ROOT); ?>
+</div>
 </body>
 
 </html>

@@ -174,6 +174,7 @@ EOD;
 							$len=count($messages);
 							for($i=0; $i<$len; $i++){
 								$message=$messages[$i];
+								$msgid=$message[0];
 								$content=$message[1];
 								$author=$message[3];
 								$timestamp=$message[4];
@@ -194,48 +195,60 @@ EOD;
 													</div>
 												</div>
 												</br>
-												<div class="row">
-													<div class="content-msg" id='c{$i}'>
-														{$content}
+												<form role="form" action='update.php?{$query}' method='post'>
+													<div class="row">
+														<div class="content-msg" id='c{$i}'>
+															{$content}
+														</div>
 													</div>
-												</div>
 EOD;
 								echo<<<EOD
-												<div class="row" id='r{$i}'>
-													<button type="button" class="btn btn-edit" id='b{$i}'>
-														<span class="glyphicon glyphicon-edit"></span>
-														Edit
-													</button>
-												</div>
+												
+													<div class="row" id='r{$i}'>
+														<button type="button" class="btn btn-edit" id='b{$i}' data-id='${msgid}'>
+															<span class="glyphicon glyphicon-edit"></span>
+															Edit
+														</button>
+													</div>
+												</form>
 											</div>
 										</div>
 									</div>
 EOD;
 							}
 							echo<<<EOD
+							
 								<script type="text/javascript">
 									$(document).ready(function(){
 										$(".btn-edit").click(function(){
+											
 											var editbtn=$(this);
 											editbtn.hide();
+											
 											var id=editbtn.attr('id');
 											id=id.substring(1,id.length);
+											msgid=editbtn.data("id");
 											
-											var msgcontent=$(".panel-messages").find("#c"+id).html();
+											var msgcontent=$("#c"+id).html();
 											editcontent=msgcontent.trim();
 											editcontent=editcontent.replace("\t", "");
-											editcontent="<textarea class='form-control' rows='5'>"+editcontent+"</textarea>";
+											editcontent="<textarea name='content' class='form-control' rows='6'>"+editcontent+"</textarea>";
+										
+											$("#r"+id).append("<button id='d"+id+"' type='button' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-trash'></span> Discard</button>");
+											$("#r"+id).append("<button id='s"+id+"' type='submit' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-check'></span> Confirm</button>");
 											
-											$(".panel-messages").find(("#r"+id)).append("<button id='d"+id+"' type='button' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-trash'></span> Discard</button>");
-											$(".panel-messages").find(("#r"+id)).append("<button id='s"+id+"' type='button' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-check'></span> Confirm</button>");
+											var hiddenform="<input type='hidden' id='h"+id+"' name='msgid' value='"+msgid+"'></input>";
+											editcontent=editcontent+hiddenform;
+											
+											$("#c"+id).html(editcontent);
 											$("#d"+id ).click(function(){
+												console.log("dismissed -"+msgid+"-");
 												$("#d"+id).remove();
 												$("#s"+id).remove();
+												$("#h"+id).remove();
 												editbtn.show();
 												$("#c"+id).html(msgcontent);
 											});
-											
-											$(".panel-messages").find("#c"+id).html(editcontent);
 										});
 									});
 								</script>

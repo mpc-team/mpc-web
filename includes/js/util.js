@@ -48,7 +48,7 @@ function validateAlias (alias) {
  *
  */
 function updateValidateStatus(valid, inputval, inputid) {
-	var classes=["has-error","has-success","has-feedback"];
+	var classes=["has-error","has-success"];
 	var addclass = (!valid) ? "has-error" : "has-success";
 	var remclass = (!valid) ? "has-success" : "has-error";
 	var icon = (!valid) ? "glyphicon-remove" : "glyphicon-ok";

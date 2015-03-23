@@ -30,14 +30,14 @@ EOD;
 				$cid=$_GET["c_id"];
 				$ttag=urlencode($_GET["t_tag"]);
 				$ctag=urlencode($_GET["c_tag"]);
-				
+				$msgid=$_POST["msgid"];
 				$content=strip_tags(trim($_POST["content"]), $ALLOWED_HTML_TAGS);
 				$content=preg_replace('/(<[^>]+) style=".*?"/i', '$1', $content);
-				$content=nl2br($content);
 			
-				$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}";
 				if(ValidateInput($content)){
-					$msg=DBF_CreateMessage($db,$tid,$content,$_SESSION["USER"]);
+					if(DBF_UpdateMessage($db,(int)$msgid,$content)){
+						$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}";
+					}
 				}
 			}
 			$db->disconnect();
@@ -66,11 +66,14 @@ EOD;
 	<div class="container">
 		<div class="page-header text-center">
 			<h1>Forum Post Processing...</h1>
-			<?php
-				echo("<h3>{$ttag}</h3>");
-				echo("<h3>{$ctag}</h3>");
-				echo("<h3>{$title}</h3>");
-				echo("<h3>{$content}</h3>");
+			<?php	
+				echo "user: ",$_SESSION["USER"],"<br>";
+				echo "tid: ",$_GET["t_id"],"<br>";
+				echo "cid: ",$_GET["c_id"],"<br>";
+				echo "ttag: ",$_GET["t_tag"],"<br>";
+				echo "ctag: ",$_GET["c_tag"],"<br>";
+				echo "msgid: ",$_POST["msgid"],"<br>";
+				echo "content: ",$_POST["content"],"<br>";
 			 ?>
 		</div>
 	</div>

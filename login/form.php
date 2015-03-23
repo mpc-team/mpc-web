@@ -19,16 +19,20 @@ function PrintLoginForm ($root) {
 				<input type="password" name="password" class="form-control" id="password" placeholder="Password">
 			</div>   
 		</div>
-		<div class="form-group form-login">
-			<div class="col-sm-3 col-sm-offset-1">
-				<label style="font-weight:normal; font-size:9pt;"> <input type="checkbox" name="remember"/>
-					$LBL_REMEMBER
-				</label>
+		<div class="row">
+			<div class="form-group form-login">
+				<div class="col-sm-3 col-sm-offset-1">
+					<label style="font-weight:normal; font-size:9pt;"> <input type="checkbox" name="remember"/>
+						$LBL_REMEMBER
+					</label>
+				</div>
 			</div>
 		</div>
-		<div class="form-group form-login">
-			<div class="col-sm-3 col-sm-offset-1">
-				<input type="submit" class="btn btn-login" value="$LBL_LOGIN">
+		<div class="row">
+			<div class="form-group form-login">
+				<div class="col-sm-3 col-sm-offset-1">
+					<input type="submit" class="btn btn-login" value="$LBL_LOGIN">
+				</div>
 			</div>
 		</div>
 EOD;

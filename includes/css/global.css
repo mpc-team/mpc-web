@@ -42,15 +42,12 @@ span.glyphicon-new-window { padding-left: 5px; padding-right: 5px; }
 span.glyphicon-chevron-right { margin: 11px 0px; }
 span.glyphicon-send { font-size: 20pt; margin-right: 7px; }
 span.glyphicon-home {	font-size: 15pt; }
-
 span.glyphicon-check,
 span.glyphicon-trash,
 span.glyphicon-edit { margin: 2px 0px; }
 
 a:hover > span.glyphicon-plus,
-a:hover > span.glyphicon-plus {
-	color: #ffffff; 
-}
+a:hover > span.glyphicon-plus { color: #ffffff; }
 
 .forum .content .panel { padding: 5px; }
 .forum .content .panel-group { margin-bottom: 10px; }

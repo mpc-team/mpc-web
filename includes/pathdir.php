@@ -54,12 +54,12 @@ class PathDir {
 		return $root . self::$BS_SB_CSS;
 	}
     
-    public static function GetBootstrapDateCSSPath($root) {
-        return $root . self::$DATE_CSS;
+	public static function GetBootstrapDateCSSPath($root) {
+		return $root . self::$DATE_CSS;
 	}
     
-    public static function GetBootstrapDateJSPath($root) {
-        return $root . self::$DATE_JS;
+	public static function GetBootstrapDateJSPath($root) {
+		return $root . self::$DATE_JS;
 	}
 	
 	public static function GetCSSPath($root, $cssName) {

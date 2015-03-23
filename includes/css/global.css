@@ -9,7 +9,7 @@
 }
 #image-brand-login { height: 400px; }
 
-textarea { resize: none; }
+textarea { resize: none; width: 100%; }
 
 body { padding-top: 50px; padding-bottom: 49px; }
 html { background: url("../../pics/background.png") center center fixed; }
@@ -42,14 +42,17 @@ span.glyphicon-new-window { padding-left: 5px; padding-right: 5px; }
 span.glyphicon-chevron-right { margin: 11px 0px; }
 span.glyphicon-send { font-size: 20pt; margin-right: 7px; }
 span.glyphicon-home {	font-size: 15pt; }
+span.glyphicon-check,
+span.glyphicon-trash,
+span.glyphicon-edit { margin: 2px 0px; }
+
 a:hover > span.glyphicon-plus,
-a:hover > span.glyphicon-plus {
-	color: #ffffff; 
-}
+a:hover > span.glyphicon-plus { color: #ffffff; }
 
 .forum .content .panel { padding: 5px; }
 .forum .content .panel-group { margin-bottom: 10px; }
 .forum .content .content-msg img { max-width: 100%; max-height: 300; }
+.content-msg { padding-bottom: 7px; }
 
 .well label,
 .form-group p { padding-top: 10px; }
@@ -62,7 +65,7 @@ a:hover > span.glyphicon-plus {
 
 .panel-newthread .panel { background-color: #666666; }
 
-.panel-messages { padding: 15px; }
+.panel-messages { padding: 10px; }
 .panel-messages .col-xs-6 { padding: 0px; }
 .panel-login { padding-bottom: 15px; }
 .panel-login h1 { margin-top: 0px; }
@@ -119,16 +122,27 @@ a:hover > span.glyphicon-plus {
 }
 
 .btn-signup { margin-top: 20px; }
+  
+.btn-reply,
+.btn-signup,
+.btn-login { background-color: #337ab7; }
+.btn-edit {	
+	color: #337ab7;
+	background-color: transparent; 
+}
+.btn-edit:hover,
+.btn-edit:active { 
+	color: #ffffff;
+	background-color: rgba(255,255,255,0.1); 
+}
+
 .btn-reply,
 .btn-signup,
 .btn-login { 
   color: #ffffff;
 	font-size: 12pt;
 	min-width: 100px;
-  background-color: #337ab7;
 	border-radius: 1px;
-	/* border-size: 3px;
-  border-color: #4cae4c; */
 }
 
 

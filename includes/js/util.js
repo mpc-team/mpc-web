@@ -48,7 +48,7 @@ function validateAlias (alias) {
  *
  */
 function updateValidateStatus(valid, inputval, inputid) {
-	var classes=["has-error","has-success","has-feedback"];
+	var classes=["has-error","has-success"];
 	var addclass = (!valid) ? "has-error" : "has-success";
 	var remclass = (!valid) ? "has-success" : "has-error";
 	var icon = (!valid) ? "glyphicon-remove" : "glyphicon-ok";
@@ -133,7 +133,8 @@ function htmlTableEmail (user, permissions) {
 	return "";
 }
 function htmlTableAlias (user, permissions) {
-	return "<td>" + user[FILTER_BY_ALIAS] + "</td>";
+	return "<td><span class='glyphicon glyphicon-user'></span> " 
+		+ user[FILTER_BY_ALIAS] + "</td>";
 }
 function htmlTableClass (rownum) {
 	return (rownum % 2 == 0) ? "alt" : "";

@@ -37,7 +37,7 @@
 			<img src="../pics/mpclogo.png" class="img-responsive" id="image-banner-login"/>
 			<div class="panel panel-default panel-login">
 				<h1>Login</h1>
-				<form class="form-horizontal" role="form" action="complete.php" method="post">
+				<form class="form" role="form" action="complete.php" method="post">
 					<?php PrintLoginForm($ROOT); ?> 
 				</form>
 			</div>

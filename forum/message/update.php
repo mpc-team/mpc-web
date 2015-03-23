@@ -5,17 +5,11 @@
 	include_once($ROOT . PathDir::$HEADER);
 	include_once($ROOT . PathDir::$DB);
 	include_once($ROOT . PathDir::$DBFORUM);
+	include_once($ROOT . PathDir::$UTILITY);
 	
 	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><center></center><h1></h1><h2></h2><h3></h3><h4></h4><p></p><ul></ul><li></li><img></img><br><br/><a></a>";
 	
 	session_start();
-	
-	function ValidateInput($content){
-		if($content==null) return FALSE;
-		if(strlen($content)==0) return FALSE;
-		if(strlen(trim($content))==0) return FALSE;
-		return TRUE;
-	}
 	
 	$header="Location: ".$ROOT."/forum/index.php";
 	if (isset($_SESSION["USER"])){
@@ -28,11 +22,12 @@
 				$ttag=urlencode($_GET["t_tag"]);
 				$ctag=urlencode($_GET["c_tag"]);
 				$msgid=$_POST["msgid"];
-				$content=trim($_POST["content"]);
 				
+				$content=trim($_POST["content"]);
 				$content=strip_tags($content, $ALLOWED_HTML_TAGS);
 				$content=preg_replace('/(<[^>]+) style=".*?"/i', '$1', $content);
 				$content=str_replace("\r", "", $content);
+				$content=ShredLinefeeds($content);
 				$content=str_replace("\n", "<br>", $content);
 			
 				if(ValidateInput($content)){
@@ -75,6 +70,7 @@
 				echo "ctag: ",$_GET["c_tag"],"<br>";
 				echo "msgid: ",$_POST["msgid"],"<br>";
 				echo "content: ",$_POST["content"],"<br>";
+				echo "after: ",$content,"<br>";
 			 ?>
 		</div>
 	</div>

@@ -15,6 +15,7 @@ class PathDir {
 	public static $AUTHENTICATE = '/includes/scripts/auth.php';
 	public static $DB = '/includes/scripts/db.php';
 	public static $DBFORUM = '/includes/scripts/dbforum.php';
+	public static $UTILITY = '/includes/scripts/util.php';
 	
 	# Database PHP
 	public static $DB_UTILITY = '/includes/db/util.php';

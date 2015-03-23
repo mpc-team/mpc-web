@@ -1,11 +1,24 @@
 <?php
+/*
+ *
+ *	Dependencies
+ *	¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+ */ 
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$DB);
 	include_once($ROOT . PathDir::$DBFORUM);
 	include_once($ROOT . PathDir::$UTILITY);
-
+/*
+ *
+ *	Global Definitions
+ *  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+ */ 
 	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><center></center><h1></h1><h2></h2><h3></h3><h4></h4><p></p><ul></ul><li></li><img></img></br><br><br/><a></a>";
-
+/*
+ *
+ *	Thread Message Forum Functions
+ *	¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+ */ 
 	function UpdateMessage($cid,$ctag,$tid,$ttag,$msgid,$content) {
 		global $ALLOWED_HTML_TAGS;
 		$update=-1;
@@ -21,7 +34,18 @@
 		$db->disconnect();
 		return $update;
 	}
-
+	
+	function DeleteMessage($cid,$ctag,$tid,$ttag,$msgid) {
+		$del=-2;
+		$db=DB_CreateDefault();
+		$db->connect();
+		if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
+			$del=DBF_DeleteMessage($db,$msgid);
+		}
+		$db->disconnect();
+		return $del;
+	}
+	
 	function CreateMessage($cid,$ctag,$tid,$ttag,$content,$user) {
 		global $ALLOWED_HTML_TAGS;
 		$msg=-2;
@@ -37,7 +61,11 @@
 		$db->disconnect();
 		return $msg;
 	}
-	
+/*
+ *
+ *	Thread Forum Functions
+ *	¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+ */ 
 	function CreateThread($cid,$ctag,$title,$user) {
 		global $ALLOWED_HTML_TAGS;
 		$tid=-2;

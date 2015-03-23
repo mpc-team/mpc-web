@@ -5,7 +5,6 @@
 	include_once($ROOT . PathDir::$HEADER);
 	include_once($ROOT . PathDir::$FORUMFUNC);
 	
-	
 	$title=$_POST["title"];
 	$content=$_POST["content"];
 	session_start();
@@ -19,7 +18,6 @@
 			$ctag=$_GET["c_tag"];
 			$tid=CreateThread($cid,$ctag,$title,$_SESSION["USER"]);
 			$msg=CreateMessage($cid,$ctag,$tid,$title,$content,$_SESSION["USER"]);
-			
 			if($msg > 0){
 				$title=urlencode($title);
 				$header=$_SERVER["QUERY_STRING"]."&t_id={$tid}&t_tag={$title}";

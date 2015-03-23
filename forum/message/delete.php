@@ -3,13 +3,11 @@
 
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$HEADER);
-	include_once($ROOT . PathDir::$DB);
-	include_once($ROOT . PathDir::$DBFORUM);
-	include_once($ROOT . PathDir::$UTILITY);
+	include_once($ROOT . PathDir::$FORUMFUNC);
 	
 	session_start();
 	
-	$header="Location: ".$ROOT."/forum/index.php";
+	$header="Location: ".$ROOT."/forum/index.php?".$_SERVER["QUERY_STRING"];
 	if(isset($_SESSION["USER"])){
 		$params=array();
 		array_push($params,"t_id","c_id","t_tag","c_tag");
@@ -18,16 +16,7 @@
 			$cid=$_GET["c_id"];
 			$ttag=$_GET["t_tag"];
 			$ctag=$_GET["c_tag"];
-			$db=DB_CreateDefault();
-			$db->connect();
-			if(DBF_CheckCategory($db,$cid,$ctag)&&DBF_CheckThread($db,$tid,$ttag)){
-				$ttag=urlencode($ttag);
-				$ctag=urlencode($ctag);
-				$mid=$_POST["message"];
-				$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}";
-				$msg=DBF_DeleteMessage($db,$mid);
-			}
-			$db->disconnect();
+			$del=DeleteMessage($cid,$ctag,$tid,$ttag,$_POST["message"]);
 		}	
 	}
 	header($header);

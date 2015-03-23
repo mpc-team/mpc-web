@@ -25,9 +25,9 @@
 			if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
 				$ttag=urlencode($ttag);
 				$ctag=urlencode($ctag);
-				$content=cleanmessage($_POST["content"]);
+				$content=cleanmessage($_POST["content"],$ALLOWED_HTML_TAGS);
 				$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}";
-				if(ValidateInput($content)){
+				if(validateinput($content)){
 					$msg=DBF_CreateMessage($db,$tid,$content,$_SESSION["USER"]);
 				}
 			}

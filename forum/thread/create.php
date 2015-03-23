@@ -7,6 +7,8 @@
 	include_once($ROOT . PathDir::$DBFORUM);
 	include_once($ROOT . PathDir::$UTILITY);
 	
+	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><center></center><h1></h1><h2></h2><h3></h3><h4></h4><p></p><ul></ul><li></li><img></img></br><br><br/><a></a>";
+	
 	session_start();
 	
 	$title=$_POST["title"];
@@ -15,26 +17,27 @@
 	if(isset($_SESSION["USER"])){
 		$params=array();
 		array_push($params,"c_id","c_tag");
-		$db=DB_CreateDefault();
-		$db->connect();
 		if(verifygetvars($params,$_GET)){
 			$cid=$_GET["c_id"];
 			$ctag=$_GET["c_tag"];
+			$db=DB_CreateDefault();
+			$db->connect();
 			if(DBF_CheckCategory($db,$cid,$ctag)){
-				if(validateinput($title)){
+				if(validateinput($title) && validateinput($content)){
+					$content=cleanmessage($content,$ALLOWED_HTML_TAGS);
 					$tid=DBF_CreateThread($db,$cid,$title,$_SESSION["USER"]);
-					$title=urlencode($title);
-					$ctag=urlencode($ctag);
-					if($tid > 0 && validateinput($content)){
+					if($tid > 0){
 						$mid=DBF_CreateMessage($db,$tid,$content,$_SESSION["USER"]);
 						if($mid > 0){
+							$title=urlencode($title);
+							$ctag=urlencode($ctag);
 							$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$title}";
 						}
 					}
 				}
 			}
+			$db->disconnect();
 		}	
-		$db->disconnect();
 	}
 	header($header);
  ?>

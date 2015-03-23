@@ -1,5 +1,5 @@
 <?php
-	function PrintModal($query){
+	function PrintModal($query,$createpage){
 		echo<<<EOD
 			<div class="panel-group">
 				<div class="panel-newthread">
@@ -12,7 +12,7 @@
 			</div>
 			<div class="modal fade" id="modal-newthread" tabindex="-1" role="dialog" aria-labelledby="modal-newthread" aria-hidden="true">
 				<div class="modal-dialog">
-					<form action="createthread.php?{$query}" method="post">
+					<form action="{$createpage}?{$query}" method="post">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">

@@ -78,7 +78,7 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 	margin-left: auto;
 	margin-right: auto;
 	padding: 5px; 
-	padding-bottom: 15px;
+	padding-bottom: 5px;
 	background-color: #1f1f1f; 
 }
 
@@ -116,11 +116,7 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 	border-color: #225522; 
 }
 
-.btn-reply { 
-	position: absolute;
-	left: 25px; 
-}
-
+.btn-reply-row { text-align: right; }
 .btn-signup { margin-top: 20px; }
   
 .btn-reply,

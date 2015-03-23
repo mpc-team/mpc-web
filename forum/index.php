@@ -22,8 +22,10 @@
 	$db=DB_CreateDefault();
 	$db->connect();
 	$query=$_SERVER['QUERY_STRING'];
-	$INDEX_PAGE='index.php';
-	$SEND_PAGE='sendmessage.php';
+	$INDEX_PAGE = 'index.php';
+	$CREATE_PAGE = $ROOT . '/forum/thread/create.php';
+	$SEND_PAGE = $ROOT . '/forum/message/create.php';
+	$UPDATE_PAGE = $ROOT . '/forum/message/update.php';
 	
 	$path=array();
 	$pagetype="categories";
@@ -102,7 +104,7 @@
 								echo <<<EOD
 									<div class="panel-group">
 										<div class="panel panel-default">
-											<a class="btn" href="index.php?c_id={$C[0]}&c_tag={$ctag}">
+											<a class="btn" href="{$INDEX_PAGE}?c_id={$C[0]}&c_tag={$ctag}">
 												{$C[1]}
 											</a>
 										</div>
@@ -134,7 +136,7 @@ EOD;
 								echo <<<EOD
 									<div class="panel-group">
 										<div class="panel panel-default">
-											<a class="btn" href="index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}">
+											<a class="btn" href="{$INDEX_PAGE}?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}">
 												{$thread[2]}
 											</a>
 										</div>
@@ -144,7 +146,7 @@ EOD;
 			//
 			//		2.
 							if(isset($_SESSION["USER"])){
-								PrintModal($query);
+								PrintModal($query,$CREATE_PAGE);
 							}else{
 								$loginpath=PathDir::GetLoginPath($ROOT);
 								echo<<<EOD
@@ -176,6 +178,7 @@ EOD;
 								$message=$messages[$i];
 								$msgid=$message[0];
 								$content=$message[1];
+								$email=$message[2];
 								$author=$message[3];
 								$timestamp=$message[4];
 								echo <<<EOD
@@ -195,33 +198,38 @@ EOD;
 													</div>
 												</div>
 												</br>
-												<form role="form" action='update.php?{$query}' method='post'>
-													<div class="row">
-														<div class="content-msg" id='c{$i}'>
-															{$content}
-														</div>
-													</div>
 EOD;
+								if(isset($_SESSION["USER"])&&$_SESSION["USER"]==$email){
+									echo<<<EOD
+											<form role="form" action='{$UPDATE_PAGE}?{$query}' method='post'>
+EOD;
+								}
 								echo<<<EOD
-												
-													<div class="row" id='r{$i}'>
-														<button type="button" class="btn btn-edit" id='b{$i}' data-id='${msgid}'>
-															<span class="glyphicon glyphicon-edit"></span>
-															Edit
-														</button>
-													</div>
-												</form>
-											</div>
+												<div class="row">
+													<div class="content-msg" id='c{$i}'>{$content}</div>
+												</div>
+EOD;
+								if(isset($_SESSION["USER"])&&$_SESSION["USER"]==$email){
+									echo<<<EOD
+												<div class="row" id='r{$i}'>
+													<button type="button" class="btn btn-edit" id='b{$i}' data-id='${msgid}'>
+														<span class="glyphicon glyphicon-edit"></span>
+														Edit
+													</button>
+												</div>
+											</form>
+EOD;
+								}
+								echo<<<EOD
 										</div>
 									</div>
+								</div>
 EOD;
 							}
 							echo<<<EOD
-							
 								<script type="text/javascript">
 									$(document).ready(function(){
 										$(".btn-edit").click(function(){
-											
 											var editbtn=$(this);
 											editbtn.hide();
 											
@@ -231,9 +239,10 @@ EOD;
 											
 											var msgcontent=$("#c"+id).html();
 											editcontent=msgcontent.trim();
-											editcontent=editcontent.replace("\t", "");
+											editcontent=editcontent.replace("\t","");
+											editcontent=editcontent.replace("<br>","\\n");
 											editcontent="<textarea name='content' class='form-control' rows='6'>"+editcontent+"</textarea>";
-										
+											
 											$("#r"+id).append("<button id='d"+id+"' type='button' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-trash'></span> Discard</button>");
 											$("#r"+id).append("<button id='s"+id+"' type='submit' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-check'></span> Confirm</button>");
 											
@@ -256,7 +265,7 @@ EOD;
 			//
 			//		2.
 							if($reply){
-								echo("<form class='form-horizontal' action='sendmessage.php?{$query}' method='post'>");	
+								echo("<form class='form-horizontal' action='{$SEND_PAGE}?{$query}' method='post'>");	
 									PrintReplyForm($ROOT,$reply);
 								echo("</form>");
 							}else{

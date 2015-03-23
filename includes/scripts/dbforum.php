@@ -5,11 +5,11 @@
 	
 	// Returns set { categoryID, categoryName }
 	function DBF_GetCategories($db) {
+		$categories=array();
 		if ($db->connected) {
 			$sql = "SELECT categoryID, categoryName FROM ForumCategory";
 			$result = $db->query($sql);
 			if ($result) {
-				$categories=array();
 				while ($row=$result->fetch_assoc()) {
 					$cat=array();
 					array_push($cat, $row['categoryID'], $row['categoryName']);
@@ -19,16 +19,16 @@
 				return $categories;
 			}
 		}
-		return (null);
+		return $categories;
 	}
 	
 	// Returns set { threadID, categoryID, thread name }
 	function DBF_GetCategoryThreads($db, $categoryID) {
+		$threads=array();
 		if($db->connected){
 			$sql="SELECT fthreadID,categoryID,name FROM ForumThreads WHERE categoryID={$categoryID}";
 			$result=$db->query($sql);
 			if($result){
-				$threads=array();
 				while($row=$result->fetch_row()){
 					$thr=array();
 					array_push($thr,$row[0],$row[1],$row[2]);
@@ -38,11 +38,15 @@
 				return($threads);
 			}
 		}
-		return(null);
+		return($threads);
 	}
-	
-	// Returns set { messageID, messageTitle, messageContent }
+/*
+ *
+ *	Thread Contents Functions
+ *
+ */
 	function DBF_GetThreadContents($db, $threadID){
+		$messages=array();
 		if($db->connected){
 			$sql=<<<EOD
 				SELECT ThreadMessages.tmsgID, ThreadMessageContent.content, ThreadMessageContent.author, UserAlias.userAlias, ThreadMessageContent.tstamp
@@ -58,7 +62,6 @@
 EOD;
 			$result=$db->query($sql);
 			if($result){
-				$messages=array();
 				while($row=$result->fetch_row()){
 					$content=array();
 					array_push($content,$row[0],$row[1],$row[2],$row[3],$row[4]);
@@ -68,7 +71,7 @@ EOD;
 				return($messages);
 			}
 		}
-		return(null);
+		return($message);
 	}
 	
 	function DBF_GetNewMessageID($db) {

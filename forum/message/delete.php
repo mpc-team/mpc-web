@@ -43,10 +43,7 @@
 		<div class="page-header text-center">
 			<h1>Forum Post Processing...</h1>
 			<?php
-				echo("<h3>{$ttag}</h3>");
-				echo("<h3>{$ctag}</h3>");
-				echo("<h3>{$title}</h3>");
-				echo("<h3>{$content}</h3>");
+				echo $del;
 			 ?>
 		</div>
 	</div>

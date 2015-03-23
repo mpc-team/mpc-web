@@ -9,10 +9,7 @@
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$HEADER);
 	include_once($ROOT . PathDir::$DB);
-	include_once($ROOT . PathDir::$DBFORUM);
-	include_once($ROOT . PathDir::$DB_UTILITY);
-	include_once($ROOT . PathDir::$DB_INFO);
-	include_once($ROOT . PathDir::$UTILITY);
+	include_once($ROOT . PathDir::$FORUMFUNC);
 	
 	$query=$_SERVER['QUERY_STRING'];
 	$INDEX_PAGE = 'index.php';
@@ -27,48 +24,27 @@
 		$reply=TRUE;
 	}
 	
-	$db=DB_CreateDefault();
-	$db->connect();
-	$path=array();
-	$pagetype="categories";
-	$highlight="forum";
-	$params=array();
-	array_push($params,"c_id","c_tag");
-	if(verifygetvars($params,$_GET)){
+	$cid = $ctag = $tid = $ttag = null;
+	$c_params=array();
+	array_push($c_params,"c_id","c_tag");
+	$t_params=array();
+	array_push($t_params,"t_id","t_tag");
+	if(verifygetvars($c_params,$_GET)) {
 		$cid=$_GET["c_id"];
 		$ctag=$_GET["c_tag"];
-		if(DBF_CheckCategory($db,$cid,$ctag)){
-		
-			$highlight="path";
-			$pagetype="threads";
-			$dir=array("id"=>$cid,"name"=>$ctag);
-			array_push($path,$dir);
-			
-			$params=array();
-			array_push($params,"t_id","t_tag");
-			if(verifygetvars($params,$_GET)){
-				$tid=$_GET["t_id"];
-				$ttag=$_GET["t_tag"];
-				if(DBF_CheckThread($db,$tid,$ttag)){		
-				
-					$pagetype="messages";
-					$dir=array("id"=>$tid,"name"=>$ttag);
-					array_push($path,$dir);
-					$messages=DBF_GetThreadContents($db,$tid);
-					
-				}else{
-					$threads=DBF_GetCategoryThreads($db,$cid);
-				} 
-			}else{ 
-				$threads=DBF_GetCategoryThreads($db,$cid);	
-			}
-		}else{
-			$categories=DBF_GetCategories($db);
-		}	
-	}else{ 
-		$categories=DBF_GetCategories($db); 
+		if(verifygetvars($t_params,$_GET)) {
+			$tid=$_GET["t_id"];
+			$ttag=$_GET["t_tag"];
+		}
 	}
+	
+	$db=DB_CreateDefault();
+	$db->connect();
+	$pagetype=GetForumPageType($db,$cid,$ctag,$tid,$ttag);
+	$path=GetForumPagePath($db,$cid,$ctag,$tid,$ttag,$pagetype);
+	$content=GetForumPageContent($db,$cid,$ctag,$tid,$ttag,$pagetype);
 	$db->disconnect();
+	
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -95,7 +71,10 @@
 <div class="container">
 	<div id="page-content-wrapper">
 		<div class="navbar-forum">
-			<?php PrintForumNavbar($highlight,$ROOT,$path); ?>
+			<?php 
+				$highlight=($pagetype=="categories") ? "forum" : "path";
+				PrintForumNavbar($highlight,$ROOT,$path); 
+			 ?>
 		</div>
 		<div class="forum">
 			<div class="content">
@@ -107,9 +86,9 @@
 			//
 						case "categories":
 							echo "<div class='page-header'><h1>MPC Forum</h1></div>";
-							$len=count($categories);
+							$len=count($content);
 							for($i=0; $i<$len; $i++){
-								$C=$categories[$i];
+								$C=$content[$i];
 								$ctag=urlencode($C[1]);
 								echo <<<EOD
 									<div class="panel-group">
@@ -137,10 +116,10 @@ EOD;
 								<h1>{$ctag}</h1>
 							</div>
 EOD;
-							$len=count($threads);
+							$len=count($content);
 							$ctag=urlencode($ctag);
 							for($i=0; $i<$len; $i++){
-								$thread=$threads[$i];
+								$thread=$content[$i];
 								$tid=$thread[0];
 								$ttag=urlencode($thread[2]);
 								echo <<<EOD
@@ -183,9 +162,9 @@ EOD;
 									<h1>{$ttag}</h1>
 								</div>
 EOD;
-							$len=count($messages);
+							$len=count($content);
 							for( $i=0; $i < $len; $i++ ){
-								$message=$messages[$i];
+								$message=$content[$i];
 								$msgid=$message[0];
 								$content=$message[1];
 								$email=$message[2];

@@ -3,43 +3,32 @@
 
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$HEADER);
-	include_once($ROOT . PathDir::$DB);
-	include_once($ROOT . PathDir::$DBFORUM);
-	include_once($ROOT . PathDir::$UTILITY);
+	include_once($ROOT . PathDir::$FORUMFUNC);
 	
-	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><center></center><h1></h1><h2></h2><h3></h3><h4></h4><p></p><ul></ul><li></li><img></img></br><br><br/><a></a>";
-	
-	session_start();
 	
 	$title=$_POST["title"];
 	$content=$_POST["content"];
-	$header="Location: ".$ROOT."/forum/index.php";
+	session_start();
+	
+	$header="Location: ".$ROOT."/forum/index.php?{$_SERVER["QUERY_STRING"]}";
 	if(isset($_SESSION["USER"])){
 		$params=array();
 		array_push($params,"c_id","c_tag");
 		if(verifygetvars($params,$_GET)){
 			$cid=$_GET["c_id"];
 			$ctag=$_GET["c_tag"];
-			$db=DB_CreateDefault();
-			$db->connect();
-			if(DBF_CheckCategory($db,$cid,$ctag)){
-				if(validateinput($title) && validateinput($content)){
-					$content=cleanmessage($content,$ALLOWED_HTML_TAGS);
-					$tid=DBF_CreateThread($db,$cid,$title,$_SESSION["USER"]);
-					if($tid > 0){
-						$mid=DBF_CreateMessage($db,$tid,$content,$_SESSION["USER"]);
-						if($mid > 0){
-							$title=urlencode($title);
-							$ctag=urlencode($ctag);
-							$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$title}";
-						}
-					}
-				}
+			$tid=CreateThread($cid,$ctag,$title,$_SESSION["USER"]);
+			$msg=CreateMessage($cid,$ctag,$tid,$title,$content,$_SESSION["USER"]);
+			
+			if($msg > 0){
+				$title=urlencode($title);
+				$header=$_SERVER["QUERY_STRING"]."&t_id={$tid}&t_tag={$title}";
+				$header="Location: ".$ROOT."/forum/index.php?{$header}";
+				header($header);
 			}
-			$db->disconnect();
 		}	
 	}
-	header($header);
+	//header($header);
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"> 
@@ -62,6 +51,10 @@
 	<div class="container">
 		<div class="page-header text-center">
 			<h1>Create Thread Processing...</h1>
+			<?php
+				echo $tid . '<br>';
+				echo $msg;
+			 ?>
 		</div>
 	</div>
 </body>

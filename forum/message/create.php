@@ -3,15 +3,11 @@
 
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$HEADER);
-	include_once($ROOT . PathDir::$DB);
-	include_once($ROOT . PathDir::$DBFORUM);
-	include_once($ROOT . PathDir::$UTILITY);
-	
-	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><center></center><h1></h1><h2></h2><h3></h3><h4></h4><p></p><ul></ul><li></li><img></img></br><br><br/><a></a>";
+	include_once($ROOT . PathDir::$FORUMFUNC);
 	
 	session_start();
 	
-	$header="Location: ".$ROOT."/forum/index.php";
+	$header="Location: ".$ROOT."/forum/index.php?".$_SERVER["QUERY_STRING"];
 	if (isset($_SESSION["USER"])){
 		$params=array();
 		array_push($params,"t_id","c_id","t_tag","c_tag");
@@ -20,18 +16,7 @@
 			$cid=$_GET["c_id"];
 			$ttag=$_GET["t_tag"];
 			$ctag=$_GET["c_tag"];
-			$db=DB_CreateDefault();
-			$db->connect();
-			if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
-				$ttag=urlencode($ttag);
-				$ctag=urlencode($ctag);
-				$content=cleanmessage($_POST["content"],$ALLOWED_HTML_TAGS);
-				$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}";
-				if(validateinput($content)){
-					$msg=DBF_CreateMessage($db,$tid,$content,$_SESSION["USER"]);
-				}
-			}
-			$db->disconnect();
+			$msg=CreateMessage($cid,$ctag,$tid,$ttag,$_POST["content"],$_SESSION["USER"]);
 		}	
 	}
 	header($header);
@@ -57,11 +42,8 @@
 	<div class="container">
 		<div class="page-header text-center">
 			<h1>Forum Post Processing...</h1>
-			<?php
-				echo("<h3>{$ttag}</h3>");
-				echo("<h3>{$ctag}</h3>");
-				echo("<h3>{$title}</h3>");
-				echo("<h3>{$content}</h3>");
+			<?php	
+				echo $msg;
 			 ?>
 		</div>
 	</div>

@@ -3,15 +3,11 @@
 
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$HEADER);
-	include_once($ROOT . PathDir::$DB);
-	include_once($ROOT . PathDir::$DBFORUM);
-	include_once($ROOT . PathDir::$UTILITY);
-	
-	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><center></center><h1></h1><h2></h2><h3></h3><h4></h4><p></p><ul></ul><li></li><img></img><br><br/><a></a>";
+	include_once($ROOT . PathDir::$FORUMFUNC);
 	
 	session_start();
 	
-	$header="Location: ".$ROOT."/forum/index.php";
+	$header="Location: ".$ROOT."/forum/index.php?".$_SERVER["QUERY_STRING"];
 	if (isset($_SESSION["USER"])){
 		$params=array();
 		array_push($params,"t_id","c_id","t_tag","c_tag");
@@ -20,20 +16,7 @@
 			$cid=$_GET["c_id"];
 			$ttag=$_GET["t_tag"];
 			$ctag=$_GET["c_tag"];
-			$db=DB_CreateDefault();
-			$db->connect();
-			if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
-				$msgid=$_POST["msgid"];
-				$ttag=urlencode($ttag);
-				$ctag=urlencode($ctag);
-				$content=cleanmessage($_POST["content"],$ALLOWED_HTML_TAGS);
-				if(validateinput($content)){
-					if(DBF_UpdateMessage($db,(int)$msgid,$content)){
-						$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}";
-					}
-				}
-			}
-			$db->disconnect();
+			$update=UpdateMessage($cid,$ctag,$tid,$ttag,(int)$_POST["msgid"],$_POST["content"]);			
 		}	
 	}
 	header($header);
@@ -60,14 +43,7 @@
 		<div class="page-header text-center">
 			<h1>Forum Post Processing...</h1>
 			<?php	
-				echo "user: ",$_SESSION["USER"],"<br>";
-				echo "tid: ",$_GET["t_id"],"<br>";
-				echo "cid: ",$_GET["c_id"],"<br>";
-				echo "ttag: ",$_GET["t_tag"],"<br>";
-				echo "ctag: ",$_GET["c_tag"],"<br>";
-				echo "msgid: ",$_POST["msgid"],"<br>";
-				echo "content: ",$_POST["content"],"<br>";
-				echo "after: ",$content,"<br>";
+				echo $update;
 			 ?>
 		</div>
 	</div>

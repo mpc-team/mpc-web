@@ -8,7 +8,6 @@ function PrintNavbar ($highlight, $root) {
 	<nav role="navigation" class="navbar navbar-fixed-top navbar-inverse">
 		<div class="navbar-header">
 			<button type="button" data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle">
-				<span class="sr-only">Toggle Navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -32,9 +31,14 @@ EOD;
 	$path  = $root . '/contact/index.php';
 	echo "<li {$class} > <a href='{$path}'>Contact</a> </li>";
 	
-	$class = ($highlight == "members") ? $ACTIVE : "";
-	$path  = $root . '/members/index.php';
-	echo "<li {$class} > <a href='{$path}'>Members</a> </li>";
+	$class = ($highlight == "members") ? ' active' : "";
+	$search= $root . '/members/index.php';
+	echo "<li class='dropdown {$class}'>",
+				"<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'>",
+				"Members ", "<span class='caret'></span> </a>",
+				"<ul class='dropdown-menu' role='menu'>",
+        "<li><a href='{$search}'>Search</a></li>",
+				"</ul></li>";
 	
 	$class = ($highlight == "forum") ? $ACTIVE : "";
 	$path  = $root . '/forum/index.php';
@@ -62,12 +66,10 @@ EOD;
 					"<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'>{$icon} {$text}",
 					" <span class='caret'></span></a>",
 					"<ul class='dropdown-menu' role='menu'>",
-					"<li class='divider'></li>",
           "<li><a href='{$summary}'>Account</a></li>",
           "<li><a href='{$update}'>Edit Profile</a></li>",
           "<li class='divider'></li>",
           "<li><a href='{$signout}'><span class='glyphicon glyphicon-log-out'></span> Sign Out</a></li>",
-					"<li class='divider'></li>",
           "</ul></li>";
 	} else {
 		$text = "Login";

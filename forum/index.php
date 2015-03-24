@@ -130,14 +130,14 @@
 												"<div class='row'>",
 													HtmlMessageAuthor($author),
 													"<div class='col-xs-6'>";
-								if($usersigned && $candelete){echo HtmlMsgDeleteFormOpen($query);}
+								if($candelete){echo HtmlMsgDeleteFormOpen($query);}
 								
 								echo 				HtmlMessageDate($timestamp);
 								
-								if($usersigned && $candelete){echo HtmlMsgDeleteFormClose($msgid);}
+								if($candelete){echo HtmlMsgDeleteFormClose($msgid);}
 								echo 			"</div>",
 												"</div>";											
-								if($usersigned && $canedit){echo HtmlMsgEditFormOpen($query);}
+								if($canedit){echo HtmlMsgEditFormOpen($query);}
 								
 								echo 		"<div class='row'>",
 													"<div class='content-msg' id='c{$i}'>",
@@ -145,7 +145,7 @@
 													"</div>",
 												"</div>";
 														
-								if($usersigned && $canedit){echo HtmlMsgEditFormClose($i, $msgid);}
+								if($canedit){echo HtmlMsgEditFormClose($i, $msgid);}
 								echo 	"</div>",
 										"</div>",
 									"</div>";

@@ -16,7 +16,7 @@
 			$cid=$_GET["c_id"];
 			$ttag=$_GET["t_tag"];
 			$ctag=$_GET["c_tag"];
-			$update=UpdateMessage($cid,$ctag,$tid,$ttag,(int)$_POST["msgid"],$_POST["content"]);			
+			$update=UpdateMessage($cid,$ctag,$tid,$ttag,$_POST["msgid"],$_POST["content"]);			
 		}	
 	}
 	header($header);
@@ -43,7 +43,9 @@
 		<div class="page-header text-center">
 			<h1>Forum Post Processing...</h1>
 			<?php	
-				echo $update;
+				echo "msgid:".$_POST["msgid"]."<br>";
+				echo "update:".$update."<br>";
+				echo "content:".$_POST["content"]."<br>";
 			 ?>
 		</div>
 	</div>

@@ -283,7 +283,7 @@ EOD;
 	
 	function DBF_UpdateMessage($db, $mid, $content){
 		if($db->connected){
-			$sql="UPDATE ThreadMessageContent SET content='{$content}' WHERE tmsgID={$mid}";
+			$sql="UPDATE ThreadMessageContent SET content='{$content}',tstamp=tstamp WHERE tmsgID={$mid}";
 			return (boolean)$db->query($sql);
 		}
 		return(FALSE);

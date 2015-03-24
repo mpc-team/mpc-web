@@ -294,10 +294,6 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                 <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
                 <!---->MPC Battle.net<!---->
                 </button>
-                    <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#sc2collapse-gaming" aria-expanded="false" aria-controls="sc2collapse-gaming">Star Craft 2</button>
-                    <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#wowcollapse-gaming" aria-expanded="false" aria-controls="wowcollapse-gaming">World of WarCraft</button>
-                    <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#hotscollapse-gaming" aria-expanded="false" aria-controls="hotscollapse-gaming">Heros of the Storm</button>
-                    <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#hearthcollapse-gaming" aria-expanded="false" aria-controls="hearthcollapse-gaming">Hearth Stone</button>
                 </div>
                 </div>
                 <div class="col-md-4 text-center">
@@ -310,7 +306,6 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                 <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
                 <!---->Steam Service<!---->
                 </a>
-                <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#csgocollapse-gaming" aria-expanded="false" aria-controls="csgocollapse-gaming">Counter Strike GO</button>
                 <button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
                 <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
                 <!---->MPC Steam<!---->
@@ -336,10 +331,19 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
             </div><!--row-->     
 
             <div class="row" style="height: 100px;">
-                &nbsp;<button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Close All Extentions</button>
             </div>
         </div> <!--well-->
-    <div class="collapse" id="sc2collapse-gaming">
+    <div class="well">
+        <div class="row">
+            <div class="ntn-group">
+                <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#sc2collapse-gaming" aria-expanded="false" aria-controls="sc2collapse-gaming">Star Craft 2</button>
+                <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#wowcollapse-gaming" aria-expanded="false" aria-controls="wowcollapse-gaming">World of WarCraft</button>
+                <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#hotscollapse-gaming" aria-expanded="false" aria-controls="hotscollapse-gaming">Heros of the Storm</button>
+                <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#hearthcollapse-gaming" aria-expanded="false" aria-controls="hearthcollapse-gaming">Hearth Stone</button>
+                <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#csgocollapse-gaming" aria-expanded="false" aria-controls="csgocollapse-gaming">Counter Strike GO</button>
+            </div>
+        </div>
+         <div class="collapse" id="sc2collapse-gaming">
         <div class="well">
             <div class="row">
                <div class="media">
@@ -620,13 +624,13 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                <div class="media">
                    <div class="media-left">
                        <a href="#">
-                        <img src="../pics/wow.PNG" alt="wow.PNG" title="World of Warcraft" class="img-responsive img-rounded" style="height: 25px; width: 100px;" /><br />
-                           <img src="#" alt="#" title="Worlf of Warcraft" class="img-responsive img-rounded" style="height: 55px; width:100px" /><br />
+                        <img src="../pics/blizzardwowlogo.PNG" alt="wow.PNG" title="World of Warcraft" class="img-responsive img-rounded" style="height: 25px; width: 100px;" /><br />
+                           <img src="../pics/mpcwow.PNG" alt="mpcwow.PNG" title="Worlf of Warcraft" class="img-responsive img-rounded" style="height: 55px; width:100px" /><br />
                        </a>
                        </div>
                 <div class="media-body">
-                    <h4 class="media-heading">Star Craft 2 Heart of the Swarm - Battle.net -Blizzard Entertainment.</h4>
-                    <p>&ensp;&ensp;&ensp;&ensp;&ensp;Starcraft is the core foundation of MPC as of current time. The original founders were developing a clan that will stablize based on a mobile web, and communcations to keep the clan in recruiting status, amongst providing fun for the members, and the people they recruit. Starcraft is based on an Real Time Strategy game engine, and very intense when it comes to prioritizing, and performance. Be sure to visit in game with us, and work together in team battles. We do offer 1 vs 1 observer training, and do leagues often to increase our ranks. Learn how to Find out us on Starcraft by Clicking the button Here.</p>
+                    <h4 class="media-heading">World of WarCraft - Battle.net -Blizzard Entertainment.</h4>
+                    <p>&ensp;&ensp;&ensp;&ensp;&ensp;Warcraft is the oldest game MPC partcipates in, but yet one of the best games to support the community. World of Warcraft offers a great guild interface to keep the clan united as one during the experiences of this game. Organization, team work, self geared, and good decision making is required to operate in "pvp" (player vs player) environment. MPC doesn't take part into raids, or role playing, but does love to operate the strategic multiplayer mode for battle grounds, and arena combat. This is a new section for MPC to endorse, and can use as much help that is given.</p>
                 </div>
             </div>
                 <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
@@ -761,16 +765,16 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                 </div>
             </div>
                 <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
-                    MPC hearth INFO
+                    MPC Hearth Stone INFO
                 </button>
-                <div class="modal fade mpchearthinfo-gaming" id="mpchearthinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
+                <div class="modal fade mpchearthinfo-gaming" id="mpchearthinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Hearth Stone Information" aria-hidden="true" >
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <h4 class="modal-title" id="mpchearthinfo-gaming">MPC hearth Information</h4>
+                                <h4 class="modal-title" id="mpchearthinfo-gaming">MPC Hearth Stone Information</h4>
                             </div>
                         <div class="modal-body">
                            ...
@@ -781,10 +785,10 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                         </div>
                     </div>
                 </div>
-                 <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowlinks" >
+                 <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpchearthlinks" >
                     GAME LINKS
                 </button>
-                <div class="modal fade mpchearthlinks" id="mpchearthinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc hearth Information" aria-hidden="true" >
+                <div class="modal fade mpchearthlinks" id="mpchearthinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Hearth Stone Information" aria-hidden="true" >
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -882,17 +886,17 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
                <div class="media">
                    <div class="media-left">
                        <a href="#">
-                        <img src="../pics/leagueoflegendslogo.png" alt="leagueoflegendslogo.PNG" title="League of Legends" class="img-responsive img-rounded" style="height: 25px; width: 100px;" /><br />
-                           <img src="#" alt="#" title="League of Legends" class="img-responsive img-rounded" style="height: 55px; width:100px" /><br />
+                        <img src="../pics/hotslogo.png" alt="hotslogo.PNG" title="Heroes of the Storm Logo" class="img-responsive img-rounded" style="height: 25px; width: 100px;" /><br />
+                           <img src="../pics/heroesimg.jpg" alt="heroesimg.jpg" title="Heros of the Storm" class="img-responsive img-rounded" style="height: 55px; width:100px" /><br />
                        </a>
                        </div>
                 <div class="media-body">
-                    <h4 class="media-heading">Star Craft 2 Heart of the Swarm - Battle.net -Blizzard Entertainment.</h4>
-                    <p>&ensp;&ensp;&ensp;&ensp;&ensp;Starcraft is the core foundation of MPC as of current time. The original founders were developing a clan that will stablize based on a mobile web, and communcations to keep the clan in recruiting status, amongst providing fun for the members, and the people they recruit. Starcraft is based on an Real Time Strategy game engine, and very intense when it comes to prioritizing, and performance. Be sure to visit in game with us, and work together in team battles. We do offer 1 vs 1 observer training, and do leagues often to increase our ranks. Learn how to Find out us on Starcraft by Clicking the button Here.</p>
+                    <h4 class="media-heading">Heroes of the Storm - Battle.net -Blizzard Entertainment.</h4>
+                    <p>&ensp;&ensp;&ensp;&ensp;&ensp;TextTextTextTextTextTextTextTextTextTextTextTextTextTextText</p>
                 </div>
             </div>
-                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
-                    MPC hots INFO
+                <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpchotsinfo-gaming" >
+                    MPC HEROES INFO
                 </button>
                 <div class="modal fade mpchotsinfo-gaming" id="mpchotsinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
                     <div class="modal-dialog">
@@ -1137,6 +1141,10 @@ If voice communication isn't your cup of tea then you can always use Ventrilo as
             </div>
         </div>
     </div>
+    </div>
+        
+        
+        
     </div>
 </div><!--content-->
 </div><!--container-->

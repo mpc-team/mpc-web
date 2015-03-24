@@ -1,7 +1,7 @@
 <?php
 	function NewThreadModal($query,$createpage){
 		return <<<EOD
-			<div class="panel-group">
+			<div class="panel-group panel-newthread">
 				<div class="panel-newthread">
 					<div class="panel panel-default">
 						<a class="btn" data-toggle="modal" data-target="#modal-newthread">

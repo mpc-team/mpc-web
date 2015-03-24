@@ -4,8 +4,7 @@
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$AUTHENTICATE);
 	include_once($ROOT . PathDir::$HEADER);
-	include_once($ROOT . PathDir::$DB_UTILITY);
-	include_once($ROOT . PathDir::$DB_INFO);
+	include_once($ROOT . PathDir::$DB);
 	include_once($ROOT . PathDir::$PASSHASH);
 	
 	$email = trim($_POST["email"]);
@@ -14,8 +13,13 @@
 	$header = "Location: {$ROOT}/login/index.php";
 	$v_email = isValidEmail($email);
 	if ($v_email && AuthenticateUser($email, $password)) {
+		$db=DB_CreateDefault();
+		$db->connect();
+		$alias=DB_GetUserAliasByEmail($db,$email);
+		$db->disconnect();
 		session_start();
 		$_SESSION["USER"] = $email;
+		$_SESSION["ALIAS"] = $alias;
 		session_write_close();
 		$header = "Location: {$ROOT}/profile/index.php";
 	} 

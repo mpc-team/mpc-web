@@ -21,7 +21,8 @@
 	
 	session_start();
 	$usersigned=(isset($_SESSION["USER"]));
-	$user=($usersigned) ? $_SESSION["USER"] : NULL;
+	$s_user=($usersigned) ? $_SESSION["USER"] : NULL;
+	$s_alias=($usersigned) ? $_SESSION["ALIAS"] : NULL;
 	
 	$cid = $ctag = $tid = $ttag = null;
 	$c_params=array();
@@ -90,6 +91,7 @@
 								$glyph=("General" == $category[1]) ? $GLYPH_STAR : "";
 								echo HtmlCategory($category[0],$category[1],$glyph);
 							}
+							echo HtmlPageFooter( );
 							break;		
 				/*
 				 *	CATEGORY > THREADS PAGE
@@ -103,9 +105,9 @@
 								$thread=$content[$i];
 								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],$glyph,$thread[3],$thread[4]);
 							}
-							if($usersigned){echo NewThreadModal($query,$CREATE_PAGE);}else{
-								echo HtmlLoginNotice(PathDir::GetLoginPath($ROOT));
-							}
+							if($usersigned){echo NewThreadModal($query,$CREATE_PAGE);}
+							else{echo HtmlLoginNotice(PathDir::GetLoginPath($ROOT));}
+							echo HtmlPageFooter( );
 							break;
 				/*
 				 *	CATEGORY > THREAD > MESSAGES PAGE
@@ -124,8 +126,8 @@
 								$email=$message[2];
 								$author=$message[3];
 								$timestamp=$message[4];
-								$canedit=($user==$email);
-								$candelete=($user==$email||$user=="b0rg3r@gmail.com");
+								$canedit=($s_user==$email);
+								$candelete=($s_user==$email||$s_user=="b0rg3r@gmail.com");
 								
 								echo	
 									"<div class='panel-group'>",
@@ -154,9 +156,9 @@
 										"</div>",
 									"</div>";
 							}
-							if($usersigned){echo HtmlReplyForm($query);}
+							echo HtmlPageFooter( );
+							if($usersigned){echo HtmlReplyForm($query,$s_alias);}
 							else{echo HtmlLoginNotice(PathDir::GetLoginPath($ROOT));}
-							
 							echo UserToolPanelJavaScript();
 					}
 				 ?>

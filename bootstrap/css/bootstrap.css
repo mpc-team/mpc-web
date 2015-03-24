@@ -1204,6 +1204,11 @@ a.bg-danger:hover {
   margin: 20px 0 20px;
   border-bottom: 1px solid #aaaaaa;
 }
+.page-footer {
+	padding-top: 9px;
+	margin: 20px 0 20px;
+	border-top: 1px solid #aaaaaa;
+}
 ul,
 ol {
   margin-top: 0;

@@ -156,6 +156,10 @@
 		return "<div class='page-header'><h1>{$title}</h1></div>";
 	}
 	
+	function HtmlPageFooter() {
+		return "<div class='page-footer'></div>";
+	}
+	
 	function HtmlPageTitleAuthor($title,$alias) {
 		$result="<div class='page-header'><h1>{$title}</h1>";
 		$result.="Created by <span class='glyphicon glyphicon-user'></span> {$alias}";
@@ -297,29 +301,34 @@ EOD;
 EOD;
 	}
 	
-	function HtmlReplyForm($query) {
+	function HtmlReplyForm($query,$alias) {
 		global $PG_MSG_ADD;
 		return <<<EOD
 			<form role="form" class="form-horizontal" action="{$PG_MSG_ADD}?{$query}" method="post">
-				<div class="panel-reply">
-					<div class="form-group">
-						<div class="row">
-							<div class="input-group">
-								<label class="control-label">
-									<h4>Post</h4>
-								</label>
+				<div class="panel panel-default">
+					<div class="page-header">
+						<h3>Reply to thread</h3>
+					</div>
+					<div class="panel-reply">
+						<div class="form-group">
+							<div class="row">
+								<div class="input-group">
+									<label class="control-label">
+										<h4>Enter:</h4>
+									</label>
+								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="input-group">
-								<textarea name="content" id="content" class="form-control" placeholder="Post to thread..." required></textarea>
+							<div class="row">
+								<div class="input-group">
+									<textarea name="content" id="content" class="form-control" placeholder="Post to thread..." required></textarea>
+								</div>
 							</div>
-						</div>
-						<div class="row btn-reply-row">
-							<div class="input-group">
-								<button type="submit" class="btn btn-reply">
-									<span class="glyphicon glyphicon-send"></span>
-								</button>
+							<div class="row btn-reply-row">
+								<div class="input-group">
+									<button type="submit" class="btn btn-reply">
+										<span class="glyphicon glyphicon-send"></span>
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>

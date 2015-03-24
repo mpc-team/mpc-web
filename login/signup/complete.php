@@ -27,6 +27,7 @@
 			if (DB_CreateNewUser($db, $email, $alias, $perm, $hash)) {
 				session_start();
 				$_SESSION["USER"] = $email;
+				$_SESSION["ALIAS"] = $alias;
 				session_write_close();
 				$header = "Location: {$ROOT}/profile/index.php";
 			}

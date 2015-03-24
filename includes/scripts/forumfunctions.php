@@ -185,7 +185,9 @@ EOD;
 			<div class="panel-group">
 				<div class="panel panel-default">
 					<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}">
-						{$glyph} {$ttag} {$glyph} ({$alias})
+						<h4>{$glyph} {$ttag} {$glyph}</h4> </br>
+						Author: {$alias} </br>
+						Created: {$time}
 					</a>
 				</div>
 			</div>

@@ -3,7 +3,6 @@
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . '/forum/includes/sidebar.php');
 	include_once($ROOT . '/forum/includes/navbar.php');
-	// include_once($ROOT . '/forum/includes/reply.php');
 	include_once($ROOT . '/forum/includes/modal.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);

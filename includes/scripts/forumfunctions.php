@@ -186,8 +186,8 @@ EOD;
 				<div class="panel panel-default">
 					<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}">
 						<h4>{$glyph} {$ttag} {$glyph}</h4> </br>
-						Author: {$alias} </br>
-						Created: {$time}
+						Author: <span class="glyphicon glyphicon-user"></span> {$alias} </br>
+						Created: <span class="glyphicon glyphicon-time"></span> {$time}
 					</a>
 				</div>
 			</div>

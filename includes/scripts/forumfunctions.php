@@ -152,29 +152,18 @@
 //#
 //###############################################################
 
-	function HtmlSectionTitle($section,$sub) {
+	function HtmlPageTitle($title,$sub) {
 		return "<div class='page-header'>"
-			."<div class='panel-group'>"
-			."<div class='panel panel-default'>"
-			."<div class='panel-heading page-header'>"
-			."<h1>{$section}<br><small>{$sub}</small></h1>"
-			."</div>"
-			."</div>"
-			."</div>"
-			."</div>";
-	}
-
-	function HtmlPageTitle($title) {
-		return "<div class='page-header'><h1>{$title}</h1></div>";
+			."<h1>{$title}<br><small>{$sub}</small></h1></div>";
 	}
 	
 	function HtmlPageFooter() {
 		return "<div class='page-footer'></div>";
 	}
 	
-	function HtmlPageTitleAuthorDate($title,$alias,$time) {
+	function HtmlPageTitleAuthorDate($title,$sub,$alias,$time) {
 		$result="<div class='row'>";
-		$result.="<div class='page-header'><h1>{$title}</h1>";
+		$result.="<div class='page-header'><h1>{$title}<br><small>{$sub}</small></h1>";
 		$result.="<div class='row'>";
 		$result.="<div class='col-xs-6'>";
 		$result.="Created by <span class='glyphicon glyphicon-user'></span> {$alias}";
@@ -192,7 +181,7 @@
 			<div class="panel-group">
 				<div class="panel panel-default">
 					<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}">
-						<h4>{$glyph} {$ctag} {$glyph}</h4>
+						<h4>{$glyph} {$ctag} {$glyph}<br> <small>Description</small></h4>
 					</a>
 				</div>
 			</div>
@@ -207,9 +196,9 @@ EOD;
 			<div class="panel-group">
 				<div class="panel panel-default">
 					<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}">
-						<h4>{$glyph} {$ttag} {$glyph}</h4> </br>
+						<h4>{$glyph} {$ttag} {$glyph}</br></br><small>
 						Author: <span class="glyphicon glyphicon-user"></span> {$alias} </br>
-						Created: <span class="glyphicon glyphicon-time"></span> {$time}
+						Created: <span class="glyphicon glyphicon-time"></span> {$time}</small></h4>
 					</a>
 				</div>
 			</div>

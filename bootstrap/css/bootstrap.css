@@ -3661,7 +3661,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  border-color: #337ab7;
+	background-color: #1a1a1a !IMPORTANT;
 }
 .nav .nav-divider {
   height: 1px;
@@ -4273,9 +4273,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #ffffff;
+  color: #aaffaa;
   background-color: #333333;
-	border: 1px solid rgba(190,255,190,0.3);
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,

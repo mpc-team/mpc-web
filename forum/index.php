@@ -10,9 +10,9 @@
 	include_once($ROOT . PathDir::$FORUMFUNC);
 	
 	$query=$_SERVER['QUERY_STRING'];
-	$INDEX_PAGE = 'index.php';
+	$INDEX_PAGE = $ROOT . '/forum/index.php';
 	$CREATE_PAGE = $ROOT . '/forum/thread/create.php';
-	$FORUM_TITLE = "MPC Forum";
+	$LOGIN_PAGE = $ROOT . '/login/index.php';
 	$CATEGORIES = "categories";
 	$THREADS = "threads";
 	$MESSAGES = "messages";
@@ -85,7 +85,10 @@
 				 *	CATEGORY PAGE
 				 */					
 						case $CATEGORIES:
-							echo HtmlSectionTitle("MPC Gaming", "Forums");
+							echo HtmlPageTitle("MPC Gaming", "Forums");
+							if( !$usersigned ){
+								echo HtmlLoginNotice(PathDir::$LOGIN);
+							}
 							for( $i=0; $i<$contentcount; $i++ ){
 								$category=$content[$i];
 								$glyph=("General" == $category[1]) ? $GLYPH_STAR : "";
@@ -98,7 +101,10 @@
 						case $THREADS:
 						
 							$glyph="";
-							echo HtmlPageTitle($ctag);
+							echo HtmlPageTitle($ctag, "Forum");
+							if( !$usersigned ){
+								echo HtmlLoginNotice(PathDir::$LOGIN);
+							}
 							for( $i=0; $i<$contentcount; $i++ ){
 								$thread=$content[$i];
 								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],$glyph,$thread[3],$thread[4]);
@@ -112,8 +118,11 @@
 							$info=$content[0];
 							$messages=$content[1];
 							$mcount=count($messages);
-						
-							echo HtmlPageTitleAuthorDate($info[0],$info[1],$info[2]);
+							
+							echo HtmlPageTitleAuthorDate($info[0],$ctag,$info[1],$info[2]);
+							if( !$usersigned ){
+								echo HtmlLoginNotice(PathDir::$LOGIN);
+							}
 							for( $i=0; $i < $mcount; $i++ ){
 								$message=$messages[$i];
 								$msgid=$message[0];
@@ -160,10 +169,7 @@
 					echo "<div class='navbar-forum'>",
 								ForumNavbar($highlight,$ROOT,$path),
 								"</div>";
-					
-					if( !$usersigned ){
-						echo HtmlLoginNotice(PathDir::GetLoginPath($ROOT));
-					}elseif( $pagetype=="messages" ){
+					if( $usersigned && $pagetype=="messages" ){
 						echo HtmlReplyForm($query,$s_alias);
 						echo UserToolPanelJavaScript();
 					}

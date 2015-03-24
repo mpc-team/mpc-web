@@ -28,7 +28,6 @@ tr.alt { background-color: #2a2f2a; }
 tr.alt { border-top: 1px solid #232323; }
 
 a.btn { 
-	width: 100%; 
 	padding: 10px; 
 	border-radius: 1px;
 }
@@ -69,6 +68,10 @@ form > .panel > .page-header {
 .forum .content .panel-group { margin-bottom: 10px; }
 .forum .content .content-msg img { max-width: 100%; max-height: 300; }
 .content-msg { padding-bottom: 7px; }
+.content-msg h1,
+.content-msg h2,
+.content-msg h3,
+.content-msg h4 { margin-top: 0px; }
 
 .page-footer {
 	padding-top: 9px;
@@ -77,19 +80,26 @@ form > .panel > .page-header {
 }
 
 .well label,
+.form-group h3,
+.form-group h4 { margin: 0px 0px 10px; }
 .form-group p { padding-top: 10px; }
 
 .form-signup { padding-bottom: 10px; }
 .signup-text { padding: 25px; }
 
-.forum .panel-default h3,
-.forum .panel-default h4 { margin-top: 0px; }
+.forum .panel a h3,
+.forum .panel a h4 { margin-top: 0px; margin-bottom: 0px; }
 
 .panel-newthread > .panel > a.btn:hover {
 	background-color: rgba(185,185,255,0.7);
 }
 .panel-newthread .panel { background-color: #666666; }
 .panel-group.panel-newthread { padding-top: 20px; }
+.panel > a.btn { 
+	padding-left: 20px; 
+	text-align: left;
+	width: 250px; 
+}
 
 .forum .panel a.btn:hover,
 .forum .panel a.btn:active { 

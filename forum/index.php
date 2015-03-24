@@ -99,9 +99,10 @@
 						
 							$glyph="";
 							echo HtmlPageTitle($ctag);
+							
 							for( $i=0; $i<$contentcount; $i++ ){
 								$thread=$content[$i];
-								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],$glyph);
+								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],$glyph,$thread[3],$thread[4]);
 							}
 							if($usersigned){echo NewThreadModal($query,$CREATE_PAGE);}else{
 								echo HtmlLoginNotice(PathDir::GetLoginPath($ROOT));
@@ -112,9 +113,13 @@
 				 */
 						case $MESSAGES:
 						
-							echo HtmlPageTitle($ttag);
-							for( $i=0; $i < $contentcount; $i++ ){
-								$message=$content[$i];
+							$info=$content[0];
+							$messages=$content[1];
+							$mcount=count($messages);
+						
+							echo HtmlPageTitleAuthor($info[0],$info[1]);
+							for( $i=0; $i < $mcount; $i++ ){
+								$message=$messages[$i];
 								$msgid=$message[0];
 								$msg=$message[1];
 								$email=$message[2];

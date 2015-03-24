@@ -11,7 +11,7 @@ function ForumNavbar($highlight,$root,$path){
 			<ul class="nav navbar-nav">
 EOD;
 	$active=($highlight == "forum") ? $ACTIVE : "";
-	$icon="<span class='glyphicon glyphicon-home'></span>";
+	$icon="<span class='glyphicon glyphicon-th-list'></span>";
 	
 	$navtip=(count($path) > 0) ? $chevron : "";
 	$result.="<li {$active}><a href='{$home}'>{$icon} Home {$navtip}</a></li>";

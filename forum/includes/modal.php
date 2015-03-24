@@ -5,7 +5,10 @@
 				<div class="panel-newthread">
 					<div class="panel panel-default">
 						<a class="btn" data-toggle="modal" data-target="#modal-newthread">
-							<span class="glyphicon glyphicon-plus"></span>
+							<h4>
+								<span class="glyphicon glyphicon-share-alt"></span>
+								Create Thread
+							</h4>
 						</a>
 					</div>
 				</div>

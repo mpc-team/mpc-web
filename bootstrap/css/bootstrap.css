@@ -6086,6 +6086,9 @@ button.close {
   margin-right: auto;
 }
 .pull-right {
+	max-width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
   float: right !important;
 }
 .pull-left {

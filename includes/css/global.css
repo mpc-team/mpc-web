@@ -27,6 +27,8 @@ span.input-group-addon { border-radius: 0px; }
 tr.alt { background-color: #2a2f2a; }
 tr.alt { border-top: 1px solid #232323; }
 
+.panel-newthread a.btn > h4 { color: #1a1a1a; }
+.panel-newthread a.btn:hover > h4 { color: #cccccc; }
 a.btn { 
 	padding: 10px; 
 	border-radius: 1px;
@@ -68,6 +70,16 @@ form > .panel > .page-header {
 .forum .content .panel-group { margin-bottom: 10px; }
 .forum .content .content-msg img { max-width: 100%; max-height: 300; }
 .content-msg { padding-bottom: 7px; }
+.content-msg a,
+.content-msg small,
+.content-msg li,
+.content-msg tr,
+.content-msg td,
+.content-msg h1,
+.content-msg h2,
+.content-msg h3,
+.content-msg h4,
+.content-msg p { white-space: normal; word-wrap: break-word; }
 .content-msg h1,
 .content-msg h2,
 .content-msg h3,
@@ -103,7 +115,7 @@ form > .panel > .page-header {
 	border: 1px solid rgba(190,220,255,0.8);
 }
 
-.panel-messages { padding: 10px; }
+.panel-messages { padding: 20px; }
 .panel-messages .col-xs-6 { padding: 0px; }
 
 .col-xs-2 > a,

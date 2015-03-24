@@ -19,7 +19,7 @@
 			$msg=CreateMessage($cid,$ctag,$tid,$ttag,$_POST["content"],$_SESSION["USER"]);
 		}	
 	}
-	header($header);
+	//header($header);
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"> 
@@ -43,7 +43,9 @@
 		<div class="page-header text-center">
 			<h1>Forum Post Processing...</h1>
 			<?php	
-				echo $msg;
+				echo "msgid:".$msg."<br>";
+				echo "content:".$_POST["content"]."<br>";
+				echo "user:".$_SESSION["USER"];
 			 ?>
 		</div>
 	</div>

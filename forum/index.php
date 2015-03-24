@@ -3,26 +3,26 @@
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . '/forum/includes/sidebar.php');
 	include_once($ROOT . '/forum/includes/navbar.php');
-	include_once($ROOT . '/forum/includes/reply.php');
+	// include_once($ROOT . '/forum/includes/reply.php');
 	include_once($ROOT . '/forum/includes/modal.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$HEADER);
-	include_once($ROOT . PathDir::$DB);
 	include_once($ROOT . PathDir::$FORUMFUNC);
 	
 	$query=$_SERVER['QUERY_STRING'];
 	$INDEX_PAGE = 'index.php';
 	$CREATE_PAGE = $ROOT . '/forum/thread/create.php';
-	$SEND_PAGE = $ROOT . '/forum/message/create.php';
-	$UPDATE_PAGE = $ROOT . '/forum/message/update.php';
-	$DELETE_PAGE = $ROOT . '/forum/message/delete.php';
+	$FORUM_TITLE = "MPC Forum";
+	$CATEGORIES = "categories";
+	$THREADS = "threads";
+	$MESSAGES = "messages";
+	
+	$GLYPH_STAR="<span class='glyphicon glyphicon-star'></span>";
 	
 	session_start();
-	$reply=FALSE;
-	if(isset($_SESSION["USER"])){
-		$reply=TRUE;
-	}
+	$usersigned=(isset($_SESSION["USER"]));
+	$user=($usersigned) ? $_SESSION["USER"] : NULL;
 	
 	$cid = $ctag = $tid = $ttag = null;
 	$c_params=array();
@@ -43,6 +43,7 @@
 	$pagetype=GetForumPageType($db,$cid,$ctag,$tid,$ttag);
 	$path=GetForumPagePath($db,$cid,$ctag,$tid,$ttag,$pagetype);
 	$content=GetForumPageContent($db,$cid,$ctag,$tid,$ttag,$pagetype);
+	$contentcount=count($content);
 	$db->disconnect();
 	
  ?>
@@ -72,7 +73,7 @@
 	<div id="page-content-wrapper">
 		<div class="navbar-forum">
 			<?php 
-				$highlight=($pagetype=="categories") ? "forum" : "path";
+				$highlight=($pagetype==$CATEGORIES) ? "forum" : "path";
 				PrintForumNavbar($highlight,$ROOT,$path); 
 			 ?>
 		</div>
@@ -80,217 +81,79 @@
 			<div class="content">
 				<?php
 					switch($pagetype){
-			//
-			//	Pull All Categories
-			// 	-----------------------------------------
-			//
-						case "categories":
-							echo "<div class='page-header'><h1>MPC Forum</h1></div>";
-							$len=count($content);
-							for($i=0; $i<$len; $i++){
-								$C=$content[$i];
-								$ctag=urlencode($C[1]);
-								echo <<<EOD
-									<div class="panel-group">
-										<div class="panel panel-default">
-											<a class="btn" href="{$INDEX_PAGE}?c_id={$C[0]}&c_tag={$ctag}">
-												{$C[1]}
-											</a>
-										</div>
-									</div>
-EOD;
+				/*
+				 *	CATEGORY PAGE
+				 */					
+						case $CATEGORIES:
+							echo HtmlPageTitle($FORUM_TITLE);
+							for( $i=0; $i<$contentcount; $i++ ){
+								$category=$content[$i];
+								$glyph=("General" == $category[1]) ? $GLYPH_STAR : "";
+								echo HtmlCategory($category[0],$category[1],$glyph);
 							}
-							break;
-			//
-			// 	Pull Threads From Specific Category
-			// 	------------------------------------------
-			//	
-			//			1. Show Threads (all users)
-			//			2. Show User-Tools (members)
-			//
-						case "threads":
-			//
-			//		1.
-							echo<<<EOD
-							<div class='page-header'>
-								<h1>{$ctag}</h1>
-							</div>
-EOD;
-							$len=count($content);
-							$ctag=urlencode($ctag);
-							for($i=0; $i<$len; $i++){
+							break;		
+				/*
+				 *	CATEGORY > THREADS PAGE
+				 */
+						case $THREADS:
+						
+							$glyph="";
+							echo HtmlPageTitle($ctag);
+							for( $i=0; $i<$contentcount; $i++ ){
 								$thread=$content[$i];
-								$tid=$thread[0];
-								$ttag=urlencode($thread[2]);
-								echo <<<EOD
-									<div class="panel-group">
-										<div class="panel panel-default">
-											<a class="btn" href="{$INDEX_PAGE}?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}">
-												{$thread[2]}
-											</a>
-										</div>
-									</div>
-EOD;
+								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],$glyph);
 							}
-			//
-			//		2.
-							if(isset($_SESSION["USER"])){
-								PrintModal($query,$CREATE_PAGE);
-							}else{
-								$loginpath=PathDir::GetLoginPath($ROOT);
-								echo<<<EOD
-									<div class="alert alert-info" role="alert">
-										<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-										<span class="sr-only">Error:</span>
-										You must <a class="alert-link" href="{$loginpath}">Login/Register</a> before posting on the Forum
-									</div>
-EOD;
+							if($usersigned){echo NewThreadModal($query,$CREATE_PAGE);}else{
+								echo HtmlLoginNotice(PathDir::GetLoginPath($ROOT));
 							}
 							break;
-			//
-			// 	Pull Messages From Specific Thread
-			//	------------------------------------------
-			//
-			//			1. Print Thread Messages (all users)
-			//			2. Print Reply Form
-			//	
-						case "messages":
-			//
-			//		1.
-							echo<<<EOD
-								<div class='page-header'>
-									<h1>{$ttag}</h1>
-								</div>
-EOD;
-							$len=count($content);
-							for( $i=0; $i < $len; $i++ ){
+				/*
+				 *	CATEGORY > THREAD > MESSAGES PAGE
+				 */
+						case $MESSAGES:
+						
+							echo HtmlPageTitle($ttag);
+							for( $i=0; $i < $contentcount; $i++ ){
 								$message=$content[$i];
 								$msgid=$message[0];
-								$content=$message[1];
+								$msg=$message[1];
 								$email=$message[2];
 								$author=$message[3];
 								$timestamp=$message[4];
-								echo <<<EOD
-									<div class="panel-group">
-										<div class="panel panel-default">
-											<div class="panel-messages">
-												<div class="row">
-													<div class="col-xs-6">
-														<span class="glyphicon glyphicon-user"></span>
-														{$author}
-													</div>
-													<div class="col-xs-6">
-														<form role="form" action='{$DELETE_PAGE}?{$query}' method='post'>
-															<div class="row">
-																<div class="pull-right">
-																	<span class="glyphicon glyphicon-time"></span>													
-																	{$timestamp}
-																</div>
-															</div>
-EOD;
-								if(isset($_SESSION["USER"])&&($_SESSION["USER"]==$email||$_SESSION["USER"]=="b0rg3r@gmail.com")){
-									echo<<<EOD
-															<div class="row">														
-																<button type="submit" class="btn btn-edit pull-right" id='x{$i}' data-id='${msgid}'>
-																	<span class="glyphicon glyphicon-remove"></span>
-																	Delete
-																</buton>
-																<input type="hidden" name='message' value='{$msgid}'/>
-															</div>
-														</form>
-EOD;
-								}
-								echo<<<EOD
-													</div>
-												</div>
-												</br>
-EOD;
-								if(isset($_SESSION["USER"])&&$_SESSION["USER"]==$email){
-									echo<<<EOD
-											<form role="form" action='{$UPDATE_PAGE}?{$query}' method='post'>
-EOD;
-								}
-								echo<<<EOD
-												<div class="row">
-													<div class="content-msg" id='c{$i}'>{$content}</div>
-												</div>
-EOD;
-								if(isset($_SESSION["USER"])&&$_SESSION["USER"]==$email){
-									echo<<<EOD
-												<div class="row" id='r{$i}'>
-													<button type="button" class="btn btn-edit" id='e{$i}' data-id='${msgid}'>
-														<span class="glyphicon glyphicon-edit"></span>
-														Edit
-													</button>
-												</div>
-											</form>
-EOD;
-								}
-								echo<<<EOD
-										</div>
-									</div>
-								</div>
-EOD;
+								$canedit=($user==$email);
+								$candelete=($user==$email||$user=="b0rg3r@gmail.com");
+								
+								echo	
+									"<div class='panel-group'>",
+										"<div class='panel panel-default'>",
+											"<div class='panel-messages'>",
+												"<div class='row'>",
+													HtmlMessageAuthor($author),
+													"<div class='col-xs-6'>";
+								if($usersigned && $candelete){echo HtmlMsgDeleteFormOpen($query);}
+								
+								echo 				HtmlMessageDate($timestamp);
+								
+								if($usersigned && $candelete){echo HtmlMsgDeleteFormClose($msgid);}
+								echo 			"</div>",
+												"</div>";											
+								if($usersigned && $canedit){echo HtmlMsgEditFormOpen($query);}
+								
+								echo 		"<div class='row'>",
+													"<div class='content-msg' id='c{$i}'>",
+														"{$msg}",
+													"</div>",
+												"</div>";
+														
+								if($usersigned && $canedit){echo HtmlMsgEditFormClose($i, $msgid);}
+								echo 	"</div>",
+										"</div>",
+									"</div>";
 							}
-							echo<<<EOD
-								<script type="text/javascript">
-									$(document).ready(function(){
-										$(".btn-edit").click(function(){
-											var thisid=$(this).attr("id");
-											var first=thisid.charAt(0);
-											if(first == 'x'){
-												return;
-											}
-											var editbtn=$(this);
-											editbtn.hide();
-											
-											var id=editbtn.attr('id');
-											id=id.substring(1,id.length);
-											msgid=editbtn.data("id");
-											
-											var msgcontent=$("#c"+id).html();
-											editcontent=msgcontent.trim();
-											editcontent=editcontent.replace("\t","");
-											editcontent=br2nl(editcontent);
-											editcontent="<textarea name='content' class='form-control' rows='6'>"+editcontent+"</textarea>";
-											
-											$("#r"+id).append("<button id='d"+id+"' type='button' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-trash'></span> Discard</button>");
-											$("#r"+id).append("<button id='s"+id+"' type='submit' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-check'></span> Confirm</button>");
-											
-											var hiddenform="<input type='hidden' id='h"+id+"' name='msgid' value='"+msgid+"'></input>";
-											editcontent=editcontent+hiddenform;
-											
-											$("#c"+id).html(editcontent);
-											$("#d"+id ).click(function(){
-												$("#d"+id).remove();
-												$("#s"+id).remove();
-												$("#h"+id).remove();
-												editbtn.show();
-												$("#c"+id).html(msgcontent);
-											});
-										});
-									});
-								</script>
-EOD;
-			//
-			//		2.
-							if($reply){
-								echo("<form class='form-horizontal' action='{$SEND_PAGE}?{$query}' method='post'>");	
-									PrintReplyForm($ROOT,$reply);
-								echo("</form>");
-							}else{
-								$loginpath=PathDir::GetLoginPath($ROOT);
-								echo<<<EOD
-									<div class="alert alert-info" role="alert">
-										<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-										<span class="sr-only">(not signed in)</span>
-										You must <a class="alert-link" href="{$loginpath}">Login/Register</a> before posting on the Forum
-									</div>
-EOD;
-			//
-			//				End of Forum Processing
-			//
-							}
+							if($usersigned){echo HtmlReplyForm($query);}
+							else{echo HtmlLoginNotice(PathDir::GetLoginPath($ROOT));}
+							
+							echo UserToolPanelJavaScript();
 					}
 				 ?>
 				 

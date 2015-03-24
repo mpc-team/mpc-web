@@ -14,6 +14,17 @@
  *  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
  */ 
 	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><center></center><h1></h1><h2></h2><h3></h3><h4></h4><p></p><ul></ul><li></li><img></img></br><br><br/><a></a>";
+	
+	$PG_INDEX = 'index.php';
+	$PG_MSG_DEL = $ROOT.'/forum/message/delete.php';
+	$PG_MSG_ADD = $ROOT.'/forum/message/create.php';
+	$PG_MSG_UPD = $ROOT.'/forum/message/update.php';
+	
+//###############################################################
+//#
+//#		DATABASE QUERY SECTION (1.0)
+//#
+//###############################################################
 /*
  *
  *	Forum Functions
@@ -70,6 +81,8 @@
  *
  *	Thread Message Forum Functions
  *	¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+ *		Gives us easy access to functions typically performed in the
+ *	forum. These functions rely on database access through 'db.php'.
  */ 
 	function UpdateMessage($cid,$ctag,$tid,$ttag,$msgid,$content) {
 		global $ALLOWED_HTML_TAGS;
@@ -132,4 +145,178 @@
 		$db->disconnect();
 		return $tid;
 	}
+	
+//###############################################################
+//#
+//#		FORUM PAGE HANDLING SECTION (2.0)
+//#
+//###############################################################
+
+	function HtmlPageTitle($title) {
+		return "<div class='page-header'><h1>{$title}</h1></div>";
+	}
+	
+	function HtmlCategory($cid,$ctag,$glyph) {
+		global $PG_INDEX;
+		$ctagenc=urlencode($ctag);
+		return <<<EOD
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}">
+						{$glyph} {$ctag} {$glyph}
+					</a>
+				</div>
+			</div>
+EOD;
+	}
+	
+	function HtmlThread($cid,$ctag,$tid,$ttag,$glyph) {
+		global $PG_INDEX;
+		$ctagenc=urlencode($ctag);
+		$ttagenc=urlencode($ttag);
+		return <<<EOD
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}">
+						{$glyph} {$ttag} {$glyph}
+					</a>
+				</div>
+			</div>
+EOD;
+	}
+	
+	function HtmlLoginNotice($loginpath) {
+			return <<<EOD
+				<div class="alert alert-info" role="alert">
+					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					<span class="sr-only">Error:</span>
+					You must <a class="alert-link" href="{$loginpath}">Login/Register</a> before posting on the Forum
+				</div>
+EOD;
+	}
+	
+	function HtmlMessageAuthor($author) {
+		return <<<EOD
+			<div class="col-xs-6">
+				<span class="glyphicon glyphicon-user"></span>
+				{$author}
+			</div>
+EOD;
+	}
+	
+	function HtmlMessageDate($timestamp) {
+		return <<<EOD
+			<div class="row">
+				<div class="pull-right">
+					<span class="glyphicon glyphicon-time"></span>													
+					{$timestamp}
+				</div>
+			</div>
+EOD;
+	}
+	
+	function HtmlMsgDeleteFormOpen($query) {
+		global $PG_MSG_DEL;
+		return "<form role='form' action='{$PG_MSG_DEL}?{$query}' method='post'>";
+	}
+	
+	function HtmlMsgEditFormOpen($query) {
+		global $PG_MSG_UPD;
+		return "<form role='form' action='{$PG_MSG_UPD}?{$query}' method='post'>";
+	}
+	
+	function HtmlMsgDeleteFormClose($msgid) {
+		return <<<EOD
+			<div class="row">														
+				<button type="submit" class="btn btn-delete pull-right" data-id='${msgid}'>
+					<span class="glyphicon glyphicon-remove"></span>
+					Delete
+				</buton>
+				<input type="hidden" name='message' value='{$msgid}'/>
+			</div>
+		</form>
+EOD;
+	}
+	
+	function HtmlMsgEditFormClose($i, $msgid) {
+		return <<<EOD
+			<div class="row" id='r{$i}'>
+				<button type="button" class="btn btn-edit" id='e{$i}' data-id='${msgid}'>
+					<span class="glyphicon glyphicon-edit"></span>
+					Edit
+				</button>
+			</div>
+		</form>
+EOD;
+	}
+	
+	function UserToolPanelJavaScript() {
+		return <<<EOD
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$(".btn-edit").click(function(){
+						var editbtn=$(this);
+						editbtn.hide();
+						
+						var id=editbtn.attr('id');
+						id=id.substring(1,id.length);
+						msgid=editbtn.data("id");
+						
+						var msgcontent=$("#c"+id).html();
+						editcontent=msgcontent.trim();
+						editcontent=editcontent.replace("\t","");
+						editcontent=br2nl(editcontent);
+						editcontent="<textarea name='content' class='form-control' rows='6'>"+editcontent+"</textarea>";
+						
+						$("#r"+id).append("<button id='d"+id+"' type='button' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-trash'></span> Discard</button>");
+						$("#r"+id).append("<button id='s"+id+"' type='submit' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-check'></span> Confirm</button>");
+						
+						var hiddenform="<input type='hidden' id='h"+id+"' name='msgid' value='" + msgid + "'></input>";
+						editcontent=editcontent+hiddenform;
+						
+						$("#c"+id).html(editcontent);
+						$("#d"+id ).click(function(){
+							$("#d"+id).remove();
+							$("#s"+id).remove();
+							$("#h"+id).remove();
+							editbtn.show();
+							$("#c"+id).html(msgcontent);
+						});
+					});
+				});
+			</script>
+EOD;
+	}
+	
+	function HtmlReplyForm($query) {
+		global $PG_MSG_ADD;
+		return <<<EOD
+			<form role="form" class="form-horizontal" action="{$PG_MSG_ADD}?{$query}" method="post">
+				<div class="panel-reply">
+					<div class="form-group">
+						<div class="row">
+							<div class="input-group">
+								<label class="control-label">
+									<h4>Post</h4>
+								</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-group">
+								<textarea name="content" id="content" class="form-control" placeholder="Post to thread..." required></textarea>
+							</div>
+						</div>
+						<div class="row btn-reply-row">
+							<div class="input-group">
+								<button type="submit" class="btn btn-reply">
+									<span class="glyphicon glyphicon-send"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+EOD;
+	}
+	
  ?>

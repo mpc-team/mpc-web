@@ -131,10 +131,14 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 .btn-reply,
 .btn-signup,
 .btn-login { background-color: #337ab7; }
+
+.btn-delete,
 .btn-edit {	
 	color: #337ab7;
 	background-color: transparent; 
 }
+.btn-delete:hover,
+.btn-delete:active,
 .btn-edit:hover,
 .btn-edit:active { 
 	color: #ffffff;

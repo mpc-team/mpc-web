@@ -1,6 +1,6 @@
 <?php
-	function PrintModal($query,$createpage){
-		echo<<<EOD
+	function NewThreadModal($query,$createpage){
+		return <<<EOD
 			<div class="panel-group">
 				<div class="panel-newthread">
 					<div class="panel panel-default">

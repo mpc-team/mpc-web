@@ -49,7 +49,11 @@
 		$messages=array();
 		if($db->connected){
 			$sql=<<<EOD
-				SELECT ThreadMessages.tmsgID, ThreadMessageContent.content, ThreadMessageContent.author, UserAlias.userAlias, ThreadMessageContent.tstamp
+				SELECT 	ThreadMessages.tmsgID AS id, 
+								ThreadMessageContent.content AS content, 
+								ThreadMessageContent.author AS author, 
+								UserAlias.userAlias AS alias, 
+								ThreadMessageContent.tstamp AS time 
 				FROM (((ThreadMessages
 					JOIN ThreadMessageContent 
 						ON ThreadMessages.tmsgID=ThreadMessageContent.tmsgID)
@@ -62,16 +66,19 @@
 EOD;
 			$result=$db->query($sql);
 			if($result){
-				while($row=$result->fetch_row()){
+				while($row=$result->fetch_assoc()){
 					$content=array();
-					array_push($content,$row[0],$row[1],$row[2],$row[3],$row[4]);
+					array_push($content,$row['id'],
+															$row['content'],
+															$row['author'],
+															$row['alias'],
+															$row['time']);
 					array_push($messages,$content);
 				}
 				$result->close();
-				return($messages);
 			}
 		}
-		return($message);
+		return($messages);
 	}
 	
 	function DBF_GetNewMessageID($db) {

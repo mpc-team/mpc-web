@@ -74,9 +74,6 @@ EOD;
 EOD;
 			$result=$db->query($sql);
 			if($result){
-				//$info[0]->name
-				//$info[1]->author
-				//$info[2]->time
 				$data=array();
 				while($row=$result->fetch_assoc()){
 					$content=array();

@@ -71,27 +71,26 @@
 </div>
 <div class="container">
 	<div id="page-content-wrapper">
-		<div class="navbar-forum">
-			<?php 
-				$highlight=($pagetype==$CATEGORIES) ? "forum" : "path";
-				PrintForumNavbar($highlight,$ROOT,$path); 
-			 ?>
-		</div>
 		<div class="forum">
 			<div class="content">
+				<div class="navbar-forum">
+					<?php 
+						$highlight=($pagetype==$CATEGORIES) ? "forum" : "path";
+						echo ForumNavbar($highlight,$ROOT,$path); 
+					 ?>
+				</div>
 				<?php
 					switch($pagetype){
 				/*
 				 *	CATEGORY PAGE
 				 */					
 						case $CATEGORIES:
-							echo HtmlPageTitle($FORUM_TITLE);
+							echo HtmlSectionTitle("MPC Gaming", "Forums");
 							for( $i=0; $i<$contentcount; $i++ ){
 								$category=$content[$i];
 								$glyph=("General" == $category[1]) ? $GLYPH_STAR : "";
 								echo HtmlCategory($category[0],$category[1],$glyph);
 							}
-							echo HtmlPageFooter( );
 							break;		
 				/*
 				 *	CATEGORY > THREADS PAGE
@@ -100,14 +99,10 @@
 						
 							$glyph="";
 							echo HtmlPageTitle($ctag);
-							
 							for( $i=0; $i<$contentcount; $i++ ){
 								$thread=$content[$i];
 								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],$glyph,$thread[3],$thread[4]);
 							}
-							if($usersigned){echo NewThreadModal($query,$CREATE_PAGE);}
-							else{echo HtmlLoginNotice(PathDir::GetLoginPath($ROOT));}
-							echo HtmlPageFooter( );
 							break;
 				/*
 				 *	CATEGORY > THREAD > MESSAGES PAGE
@@ -118,7 +113,7 @@
 							$messages=$content[1];
 							$mcount=count($messages);
 						
-							echo HtmlPageTitleAuthor($info[0],$info[1]);
+							echo HtmlPageTitleAuthorDate($info[0],$info[1],$info[2]);
 							for( $i=0; $i < $mcount; $i++ ){
 								$message=$messages[$i];
 								$msgid=$message[0];
@@ -156,13 +151,23 @@
 										"</div>",
 									"</div>";
 							}
-							echo HtmlPageFooter( );
-							if($usersigned){echo HtmlReplyForm($query,$s_alias);}
-							else{echo HtmlLoginNotice(PathDir::GetLoginPath($ROOT));}
-							echo UserToolPanelJavaScript();
+					}
+					if( $usersigned && $pagetype=="threads" ){
+						echo NewThreadModal($query,$CREATE_PAGE);
+					}
+					echo HtmlPageFooter( );
+					$highlight=($pagetype==$CATEGORIES) ? "forum" : "path";
+					echo "<div class='navbar-forum'>",
+								ForumNavbar($highlight,$ROOT,$path),
+								"</div>";
+					
+					if( !$usersigned ){
+						echo HtmlLoginNotice(PathDir::GetLoginPath($ROOT));
+					}elseif( $pagetype=="messages" ){
+						echo HtmlReplyForm($query,$s_alias);
+						echo UserToolPanelJavaScript();
 					}
 				 ?>
-				 
 			</div>
 		</div>
 	</div>

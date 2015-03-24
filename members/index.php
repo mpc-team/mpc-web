@@ -57,6 +57,14 @@
 				<div class="content">
 					<div class="panel-group">
 						<div class="panel panel-default">
+							<div class="panel-heading page-header">
+								<h1>Clan MPC<br><small>Members</small></h1>
+								Currently <?php echo count($json); ?> members have registered.
+							</div>
+						</div>
+					</div>
+					<div class="panel-group">
+						<div class="panel panel-default">
 							<div class="panel-heading">
 								Search
 							</div>

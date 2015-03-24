@@ -53,10 +53,22 @@ EOD;
 	
 	if (isset($_SESSION["USER"])) {
 		$text = $_SESSION["USER"];
-		$path = $root . '/profile/index.php';
-		$class = ($highlight == "profile") ? $ACTIVE : "";
+		$summary = $root . '/profile/index.php';
+		$update = $root . '/profile/update.php';
+		$signout = $root . '/login/signout.php';
+		$class = ($highlight == "profile") ? ' active' : "";
 		$icon="<span class='glyphicon glyphicon-user'></span>";
-		echo "<li {$class}> <a href='{$path}'>{$icon} {$text}</a></li>";
+		echo "<li class='dropdown {$class}'>",
+					"<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'>{$icon} {$text}",
+					" <span class='caret'></span></a>",
+					"<ul class='dropdown-menu' role='menu'>",
+					"<li class='divider'></li>",
+          "<li><a href='{$summary}'>Account</a></li>",
+          "<li><a href='{$update}'>Edit Profile</a></li>",
+          "<li class='divider'></li>",
+          "<li><a href='{$signout}'><span class='glyphicon glyphicon-log-out'></span> Sign Out</a></li>",
+					"<li class='divider'></li>",
+          "</ul></li>";
 	} else {
 		$text = "Login";
 		$path = $root . '/login/index.php';

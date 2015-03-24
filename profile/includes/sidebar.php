@@ -8,11 +8,11 @@ function PrintSidebar ($highlight, $root) {
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav"> 
 EOD;
-	$class = ($highlight == "overview") ? $ACTIVE : "";
-	echo ("<li {$class}><a href='{$MAINPAGE}'>Overview</a></li>");
+	$class = ($highlight == "account") ? $ACTIVE : "";
+	echo ("<li {$class}><a href='{$MAINPAGE}'>Account</a></li>");
 	
 	$class = ($highlight == "update") ? $ACTIVE : "";
-	echo ("<li {$class}><a href='{$UPDATE}'>Update Info</a></li>");
+	echo ("<li {$class}><a href='{$UPDATE}'>Edit Profile</a></li>");
 	
 	$class = ($highlight == "signout") ? $ACTIVE : "";
 	echo '<li style="padding: 20px 0px;"></li>';

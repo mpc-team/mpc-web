@@ -9,7 +9,7 @@
 }
 #image-brand-login { height: 400px; }
 
-textarea { resize: none; width: 100%; }
+textarea { resize: none; width: 100%; height: 15em; }
 
 body { padding-top: 50px; padding-bottom: 49px; }
 html { background: url("../../pics/background.png") center center fixed; }
@@ -42,13 +42,11 @@ span.glyphicon-log-in,
 span.glyphicon-log-out,
 span.glyphicon-send,
 span.glyphicon-new-window { padding-left: 5px; padding-right: 5px; }
-span.glyphicon-chevron-right { margin: 11px 0px; }
 span.glyphicon-send { 
 	font-size: 20pt; 
 	margin-right: 7px; 
 	margni-bottom: 3px;
 }
-span.glyphicon-home {	font-size: 15pt; }
 span.glyphicon-check,
 span.glyphicon-trash,
 span.glyphicon-edit { margin: 2px 0px; }
@@ -71,6 +69,12 @@ form > .panel > .page-header {
 .forum .content .panel-group { margin-bottom: 10px; }
 .forum .content .content-msg img { max-width: 100%; max-height: 300; }
 .content-msg { padding-bottom: 7px; }
+
+.page-footer {
+	padding-top: 9px;
+	margin: 150px 0 0px;
+	border-top: 1px solid #aaaaaa;
+}
 
 .well label,
 .form-group p { padding-top: 10px; }
@@ -108,7 +112,7 @@ form > .panel > .page-header {
 
 .form-group > textarea { height: 12em; }
 /* .panel-reply { padding-top: 50px; } */
-.panel-reply textarea { height: 10em; }
+.panel-reply textarea { height: 15em; }
 .panel-reply .input-group { padding: 0em; }
 .panel-reply .form-group { 
 	margin: 10px;
@@ -118,21 +122,17 @@ form > .panel > .page-header {
 	border: 1px solid #101010;
 }
 
+.modal-content { color: rgb(122, 183, 51); }
 .modal-body > .panel { background-color: transparent; }
 .modal-body > .panel-default > .form-group { margin-bottom: 20px; }
 
-.navbar-forum .navbar { 
-	min-height: 30px; 
-	top: 10px;
-}
 .navbar-forum li > a {
-	font-size: 8pt;
+	font-size: 10pt;
 	padding: 7px; 
-	padding-left: 15px;
-	padding-right: 15px;
+	/* padding-left: 15px;
+	padding-right: 15px; */
 	border: 1px solid transparent;
 }
-.navbar-forum > .navbar-static-top { position: relative; z-index: 1; }
 
 .content-signup {	
 	padding-top: 30px;
@@ -148,32 +148,32 @@ form > .panel > .page-header {
 	margin-bottom: 150px;
 	padding-top: 25px;
 }
+.btn-reply { 
+	background-color: transparent; 
+	border: 1px solid #66aaee;
+}
+.btn-reply { height: 40px; }
+.btn-reply-row { 
+	text-align: right;
+	margin-top: -3px;
+	margin-right: 1px;
+	
+}
+.btn-reply:hover,
+.btn-reply:active { 
+	color: #66aaee;
+	background-color: rgba(255,255,255,0.05);
+}
+
+.btn-signup { margin-top: 20px; }
+  
+.btn-signup,
+.btn-login { background-color: #337ab7; }
 
 .btn-signup:hover,
 .btn-login:hover { 
 	color: #99dd99;
 	border-color: #225522; 
-}
-
-.btn-reply { height: 40px; }
-.btn-reply-row { 
-	text-align: right;
-	margin-top: -1px;
-	margin-right: 1px;
-	
-}
-.btn-signup { margin-top: 20px; }
-  
-.btn-signup,
-.btn-login { background-color: #337ab7; }
-.btn-reply { 
-	background-color: transparent; 
-	border: 1px solid #666666;
-}
-.btn-reply:hover,
-.btn-reply:active { 
-	color: #ffffff;
-	background-color: rgba(255,255,255,0.05);
 }
 
 .btn-delete,

@@ -42,7 +42,7 @@
 	</div>
 	<div class="container">
 		<div id="wrapper">
-			<?php PrintSidebar("overview", $ROOT); ?>
+			<?php PrintSidebar("account", $ROOT); ?>
 			<div id="page-content-wrapper">
 				<div class="content">
 					<?php

@@ -152,6 +152,18 @@
 //#
 //###############################################################
 
+	function HtmlSectionTitle($section,$sub) {
+		return "<div class='page-header'>"
+			."<div class='panel-group'>"
+			."<div class='panel panel-default'>"
+			."<div class='panel-heading page-header'>"
+			."<h1>{$section}<br><small>{$sub}</small></h1>"
+			."</div>"
+			."</div>"
+			."</div>"
+			."</div>";
+	}
+
 	function HtmlPageTitle($title) {
 		return "<div class='page-header'><h1>{$title}</h1></div>";
 	}
@@ -160,10 +172,16 @@
 		return "<div class='page-footer'></div>";
 	}
 	
-	function HtmlPageTitleAuthor($title,$alias) {
-		$result="<div class='page-header'><h1>{$title}</h1>";
+	function HtmlPageTitleAuthorDate($title,$alias,$time) {
+		$result="<div class='row'>";
+		$result.="<div class='page-header'><h1>{$title}</h1>";
+		$result.="<div class='row'>";
+		$result.="<div class='col-xs-6'>";
 		$result.="Created by <span class='glyphicon glyphicon-user'></span> {$alias}";
-		$result.="</div>";
+		$result.="</div><div class='col-xs-6'>";
+		$result.="<div class='pull-right'>";
+		$result.="Created on <span class='glyphicon glyphicon-time'></span> {$time}";
+		$result.="</div></div></div></div></div>";
 		return $result;
 	}
 	
@@ -174,7 +192,7 @@
 			<div class="panel-group">
 				<div class="panel panel-default">
 					<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}">
-						{$glyph} {$ctag} {$glyph}
+						<h4>{$glyph} {$ctag} {$glyph}</h4>
 					</a>
 				</div>
 			</div>
@@ -312,15 +330,11 @@ EOD;
 					<div class="panel-reply">
 						<div class="form-group">
 							<div class="row">
-								<div class="input-group">
-									<label class="control-label">
-										<h4>Enter:</h4>
-									</label>
-								</div>
+								<h4>&nbsp<span class="glyphicon glyphicon-user"></span> {$alias}:</h4>
 							</div>
 							<div class="row">
 								<div class="input-group">
-									<textarea name="content" id="content" class="form-control" placeholder="Post to thread..." required></textarea>
+									<textarea name="content" id="content" class="form-control" required></textarea>
 								</div>
 							</div>
 							<div class="row btn-reply-row">

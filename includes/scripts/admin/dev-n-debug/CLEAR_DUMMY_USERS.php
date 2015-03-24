@@ -14,7 +14,7 @@
 			$db = DB_CreateDefault();
 			$db->connect();
 			
-			$id = DB_GetUserID($db, 'address@example.com');
+			$id = DB_GetUserID($db, 'destiny@bungie.com');
 			DB_DeleteUser($db, $id);
 			
 			$db->disconnect();

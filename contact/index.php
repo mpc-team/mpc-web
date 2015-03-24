@@ -4,6 +4,7 @@
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$HEADER);
+	include_once($ROOT . PathDir::$FORUMFUNC);
 	
 	session_start();
  ?>
@@ -31,9 +32,11 @@
 	</div>	
 	<div class="container">
 		<div class="content">
-			<div class="page-header">
-				<div class="row">
-					<h1>Contact Us!</h1>
+			<div class='panel-group'>
+				<div class='panel panel-default'>
+					<div class='panel-heading page-header'>
+						<h1>Clan MPC<br><small>Contact</small></h1>
+					</div>
 				</div>
 			</div>
 			<div class="row">

@@ -18,7 +18,7 @@
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 									&times;
 								</button>
-								<h1 class="modal-title" id="modal-label">
+								<h1 class="modal-title" id="modal-label" style="color:rgb(122, 183, 51)">
 									Create Thread
 								</h1>
 							</div>

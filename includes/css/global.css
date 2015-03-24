@@ -65,7 +65,6 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 .forum .panel-default h4 { margin-top: 0px; }
 
 .panel-newthread .panel { background-color: #666666; }
-
 .panel-messages { padding: 10px; }
 .panel-messages .col-xs-6 { padding: 0px; }
 
@@ -80,7 +79,7 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 .panel-login .row-remember-me span { font-weight: normal; }
 
 .panel-reply { padding-top: 50px; }
-.panel-newthread textarea,
+.form-group > textarea { height: 12em; }
 .panel-reply textarea { height: 10em; }
 .panel-reply .input-group { padding: 0.2em; }
 .panel-reply .form-group { 
@@ -90,6 +89,9 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 	padding-bottom: 5px;
 	background-color: #1f1f1f; 
 }
+
+.modal-body > .panel { background-color: transparent; }
+.modal-body > .panel-default > .form-group { margin-bottom: 20px; }
 
 .navbar-forum .navbar { 
 	min-height: 30px; 

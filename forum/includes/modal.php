@@ -18,27 +18,23 @@
 								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 									&times;
 								</button>
-								<h3 class="modal-title" id="modal-label">
+								<h1 class="modal-title" id="modal-label">
 									Create Thread
-								</h3>
+								</h1>
 							</div>
 							<div class="modal-body">
-								<div class="panel panel-default panel-newthread">
+								<div class="panel panel-default">
 									<div class="form-group">
-										<div class="input-group">
-											<label class="control-label" for="title">
-												Thread Title
-											</label>
-											<input type="text" name="title" id="title" class="form-control" placeholder="Title..." required/>
-										</div>
+										<label class="control-label" for="title">
+											<h3>Title</h3>
+										</label>
+										<input type="text" name="title" id="title" class="form-control" placeholder="Title..." required/>
 									</div>
-									<div class="form-group">
-										<div class="input-group">
-											<label class="control-label" for="title">
-												Post Contents
-											</label>
-											<textarea name="content" id="content" class="form-control" placeholder="Post content..." required></textarea>
-										</div>
+									<div class="form-group">						
+										<label class="control-label" for="title">
+											<h3>Content</h3>
+										</label>
+										<textarea name="content" id="content" class="form-control" placeholder="Post content..." required></textarea>
 									</div>
 								</div>
 							</div>

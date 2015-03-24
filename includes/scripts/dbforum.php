@@ -3,7 +3,6 @@
 	include_once($ROOT . PathDir::$DB_UTILITY);
 	include_once($ROOT . PathDir::$DB_INFO);
 	
-	// Returns set { categoryID, categoryName }
 	function DBF_GetCategories($db) {
 		$categories=array();
 		if ($db->connected) {
@@ -22,7 +21,6 @@
 		return $categories;
 	}
 	
-	// Returns set { threadID, categoryID, thread name }
 	function DBF_GetCategoryThreads($db, $categoryID) {
 		$threads=array();
 		if($db->connected){

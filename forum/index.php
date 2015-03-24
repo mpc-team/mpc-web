@@ -89,11 +89,17 @@
 							if( !$usersigned ){
 								echo HtmlLoginNotice(PathDir::$LOGIN);
 							}
+							echo "<table class='table-forum-layout'>";
 							for( $i=0; $i<$contentcount; $i++ ){
 								$category=$content[$i];
 								$glyph=("General" == $category[1]) ? $GLYPH_STAR : "";
-								echo HtmlCategory($category[0],$category[1],$glyph);
+								echo "<tr>";
+								echo "<td>";
+								echo HtmlCategory($category[0],$category[1],$category[2],$glyph);
+								echo "</td>";
+								echo "</tr>";
 							}
+							echo "</table>";
 							break;		
 				/*
 				 *	CATEGORY > THREADS PAGE
@@ -105,10 +111,16 @@
 							if( !$usersigned ){
 								echo HtmlLoginNotice(PathDir::$LOGIN);
 							}
+							echo "<table class='table-forum-layout'>";
 							for( $i=0; $i<$contentcount; $i++ ){
 								$thread=$content[$i];
+								echo "<tr>";
+								echo "<td>";
 								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],$glyph,$thread[3],$thread[4]);
+								echo "</td>";
+								echo "</tr>";
 							}
+							echo "</table>";
 							break;
 				/*
 				 *	CATEGORY > THREAD > MESSAGES PAGE

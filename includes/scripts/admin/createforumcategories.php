@@ -12,10 +12,9 @@
 		if ($user == "b0rg3r@gmail.com" || $user == "keatingc88@gmail.com") {
 			$db = DB_CreateDefault();
 			$db->connect();
-			$cid=array();
-			array_push($cid,DBF_CreateCategory($db, "StarCraft II"));
-			array_push($cid,DBF_CreateCategory($db, "Heroes of the Storm"));
-			array_push($cid,DBF_CreateCategory($db, "Admin"));
+			DBF_CreateCategory($db, "StarCraft II", "Posts related to StarCraft II builds, strategies, etc.");
+			DBF_CreateCategory($db, "Heroes of the Storm", "Posts related to Heroes of the Storm gameplay, team-finding, etc.");
+			DBF_CreateCategory($db, "Admin","Administration board. Eventually only available to Admins.");
 			$db->disconnect();
 		} 
 	}

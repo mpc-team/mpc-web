@@ -174,15 +174,22 @@
 		return $result;
 	}
 	
-	function HtmlCategory($cid,$ctag,$glyph) {
+	function HtmlCategory($cid,$ctag,$descr,$glyph) {
 		global $PG_INDEX;
 		$ctagenc=urlencode($ctag);
 		return <<<EOD
 			<div class="panel-group">
 				<div class="panel panel-default">
-					<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}">
-						<h4>{$glyph} {$ctag} {$glyph}<br> <small>Description</small></h4>
-					</a>
+					<div class="row">
+						<div class="col-xs-5">
+							<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}">
+								<h4>{$glyph} {$ctag} {$glyph}<br> <small>{$descr}</small></h4>
+							</a>
+						</div>
+						<div class="col-xs-7">
+						
+						</div>
+					</div>
 				</div>
 			</div>
 EOD;
@@ -195,11 +202,18 @@ EOD;
 		return <<<EOD
 			<div class="panel-group">
 				<div class="panel panel-default">
-					<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}">
-						<h4>{$glyph} {$ttag} {$glyph}</br></br><small>
-						Author: <span class="glyphicon glyphicon-user"></span> {$alias} </br>
-						Created: <span class="glyphicon glyphicon-time"></span> {$time}</small></h4>
-					</a>
+					<div class="row">
+						<div class="col-xs-5">
+							<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}">
+								<h4>{$glyph} {$ttag} {$glyph}</br><small>
+								<span class="glyphicon glyphicon-user"></span> {$alias} </br>
+								<span class="glyphicon glyphicon-time"></span> {$time}</small></h4>
+							</a>
+						</div>
+						<div class="col-xs-7">
+						
+						</div>
+					</div>
 				</div>
 			</div>
 EOD;

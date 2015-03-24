@@ -6,12 +6,17 @@
 	function DBF_GetCategories($db) {
 		$categories=array();
 		if ($db->connected) {
-			$sql = "SELECT categoryID, categoryName FROM ForumCategory";
+			$sql =<<<EOD
+			SELECT ForumCategory.categoryID, ForumCategory.categoryName, ForumCategoryDescr.categoryDescr
+			FROM ForumCategory
+				JOIN ForumCategoryDescr
+					ON ForumCategory.categoryID=ForumCategoryDescr.categoryID
+EOD;
 			$result = $db->query($sql);
 			if ($result) {
-				while ($row=$result->fetch_assoc()) {
+				while ($row=$result->fetch_row()) {
 					$cat=array();
-					array_push($cat, $row['categoryID'], $row['categoryName']);
+					array_push($cat, $row[0], $row[1], $row[2]);
 					array_push($categories, $cat);
 				}
 				$result->close();
@@ -202,6 +207,19 @@ EOD;
 		return (FALSE);
 	}
 	
+	function DBF_CreateCategoryDescriptionTable($db) {
+		if($db->connected) {
+			$sql=<<<EOD
+				CREATE TABLE ForumCategoryDescr (
+					categoryID INT NOT NULL UNIQUE,
+					categoryDescr CHAR(255)
+				)
+EOD;
+			return (boolean)$db->query($sql);
+		}
+		return(FALSE);
+	}
+	
 	function DBF_CreateThreadTable($db) {
 		if ($db->connected) {
 			$sql = <<<EOD
@@ -258,12 +276,18 @@ EOD;
 		return (FALSE);
 	}
 	
-	function DBF_CreateCategory($db, $name) {
+	function DBF_CreateCategory($db, $name, $descr) {
 		if ($db->connected) {
 			$id  = DBF_GetNewCategoryID($db);
 			$sql = "INSERT INTO ForumCategory VALUES ({$id}, '{$name}')";
 			if ($db->query($sql)) {
-				return($id);
+				$sql="INSERT INTO ForumCategoryDescr VALUES ({$id}, '{$descr}')";
+				if($db->query($sql)) {
+					return $id;
+				}else{
+					$sql="DELETE FROM ForumCategory WHERE categoryID={$id}";
+					$db->query($sql);
+				}
 			}
 		}
 		return (-1);

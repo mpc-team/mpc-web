@@ -156,6 +156,13 @@
 		return "<div class='page-header'><h1>{$title}</h1></div>";
 	}
 	
+	function HtmlPageTitleAuthor($title,$alias) {
+		$result="<div class='page-header'><h1>{$title}</h1>";
+		$result.="Created by <span class='glyphicon glyphicon-user'></span> {$alias}";
+		$result.="</div>";
+		return $result;
+	}
+	
 	function HtmlCategory($cid,$ctag,$glyph) {
 		global $PG_INDEX;
 		$ctagenc=urlencode($ctag);
@@ -170,7 +177,7 @@
 EOD;
 	}
 	
-	function HtmlThread($cid,$ctag,$tid,$ttag,$glyph) {
+	function HtmlThread($cid,$ctag,$tid,$ttag,$glyph,$alias,$time) {
 		global $PG_INDEX;
 		$ctagenc=urlencode($ctag);
 		$ttagenc=urlencode($ttag);
@@ -178,7 +185,7 @@ EOD;
 			<div class="panel-group">
 				<div class="panel panel-default">
 					<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}">
-						{$glyph} {$ttag} {$glyph}
+						{$glyph} {$ttag} {$glyph} ({$alias})
 					</a>
 				</div>
 			</div>

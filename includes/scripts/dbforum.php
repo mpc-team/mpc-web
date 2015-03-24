@@ -26,12 +26,22 @@
 	function DBF_GetCategoryThreads($db, $categoryID) {
 		$threads=array();
 		if($db->connected){
-			$sql="SELECT fthreadID,categoryID,name FROM ForumThreads WHERE categoryID={$categoryID}";
+			$sql=<<<EOD
+				SELECT ForumThreads.fthreadID, categoryID, name, UserAlias.userAlias, ForumThreadInfo.tstamp
+				FROM ForumThreads
+					JOIN ForumThreadInfo 
+						ON ForumThreads.fthreadID=ForumThreadInfo.fthreadID
+					JOIN User 
+						ON ForumThreadInfo.author=User.userName
+					JOIN UserAlias
+						ON UserAlias.userID=User.userID
+				WHERE categoryID={$categoryID}
+EOD;
 			$result=$db->query($sql);
 			if($result){
 				while($row=$result->fetch_row()){
 					$thr=array();
-					array_push($thr,$row[0],$row[1],$row[2]);
+					array_push($thr,$row[0],$row[1],$row[2],$row[3],$row[4]);
 					array_push($threads,$thr);
 				}
 				$result->close();
@@ -66,16 +76,21 @@
 EOD;
 			$result=$db->query($sql);
 			if($result){
+				//$info[0]->name
+				//$info[1]->author
+				//$info[2]->time
+				$data=array();
 				while($row=$result->fetch_assoc()){
 					$content=array();
-					array_push($content,$row['id'],
-															$row['content'],
-															$row['author'],
-															$row['alias'],
-															$row['time']);
-					array_push($messages,$content);
+					array_push($content,$row['id'],$row['content'],$row['author'],$row['alias'],$row['time']);
+					array_push($data,$content);
 				}
 				$result->close();
+				$header=array();
+				$info=DBF_GetThreadInfo($db,$threadID);
+				array_push($header,$info[0],$info[1],$info[2]);
+				array_push($messages,$header);
+				array_push($messages,$data);
 			}
 		}
 		return($messages);
@@ -126,14 +141,25 @@ EOD;
 		return (-1);
 	}
 	
-	function DBF_GetThreadTitle($db,$tid){
+	function DBF_GetThreadInfo($db,$tid){
 		if($db->connected){
-			$sql="SELECT name FROM ForumThreads WHERE fthreadID={$tid}";
+			$sql=<<<EOD
+				SELECT name, UserAlias.userAlias, ForumThreadInfo.tstamp
+				FROM ForumThreads 
+					JOIN ForumThreadInfo
+						ON ForumThreads.fthreadID=ForumThreadInfo.fthreadID
+					JOIN User 
+						ON ForumThreadInfo.author=User.userName
+					JOIN UserAlias
+						ON User.userID=UserAlias.userID
+				WHERE ForumThreads.fthreadID={$tid}
+EOD;
 			$result=$db->query($sql);
-			$row=$result->fetch_assoc();
-			$title=$row['name'];
+			$row=$result->fetch_row();
+			$info=array();
+			array_push($info,$row[0],$row[1],$row[2]);
 			$result->close();
-			return($title);
+			return($info);
 		}
 		return(null);
 	}

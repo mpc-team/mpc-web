@@ -7,7 +7,7 @@
 	
 	session_start();
 	
-	$header="Location: ".$ROOT."/forum/index.php?".$_SERVER["QUERY_STRING"];
+	$header="Location: ".$ROOT."/forum/index.php?{$_SERVER["QUERY_STRING"]}";
 	if(isset($_SESSION["USER"])){
 		$params=array();
 		array_push($params,"t_id","c_id","t_tag","c_tag");
@@ -17,6 +17,7 @@
 			$ttag=$_GET["t_tag"];
 			$ctag=$_GET["c_tag"];
 			$del=DeleteThread($cid,$ctag,$tid,$ttag,$_SESSION["USER"]);
+			$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}";
 		}	
 	}
 	header($header);
@@ -44,7 +45,6 @@
 			<h1>Forum Post Processing...</h1>
 			<?php
 				echo "deleted:".$del."<br>";
-				echo "message:".$_POST["message"]."<br>";
 			 ?>
 		</div>
 	</div>

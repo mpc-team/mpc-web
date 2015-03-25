@@ -6,7 +6,6 @@
 	include_once($ROOT . PathDir::$FORUMFUNC);
 	
 	$title=$_POST["title"];
-	$content=$_POST["content"];
 	session_start();
 	
 	$header="Location: ".$ROOT."/forum/index.php?".$_SERVER["QUERY_STRING"];
@@ -17,12 +16,11 @@
 			$cid=$_GET["c_id"];
 			$ctag=$_GET["c_tag"];
 			$tid=CreateThread($cid,$ctag,$title,$_SESSION["USER"]);
-			$msg=CreateMessage($cid,$ctag,$tid,$title,$content,$_SESSION["USER"]);
+			$msg=CreateMessage($cid,$ctag,$tid,$title,$_POST["content"],$_SESSION["USER"]);
 			if($msg > 0){
 				$title=urlencode($title);
 				$header=$_SERVER["QUERY_STRING"]."&t_id={$tid}&t_tag={$title}";
 				$header="Location: ".$ROOT."/forum/index.php?{$header}";
-				header($header);
 			}
 		}	
 	}

@@ -44,8 +44,8 @@
 					<img src="../pics/mpclogo.png" alt="mpclogo.png" class="img-responsive" id="contactlogo" />
 				</div>
 				<div class="col-xs-8">
-					<small class="pull-right">
-						<p>We want to hear from you!</p> </br>
+					<small style="text-align:right">
+						<p>We want to hear from you!</p>  </br>
 						<p>We would not love to hear from you. Be afraid to interact with MPC's admin board for any particular reasons such as: suggestions, reporting, comments, testimonials, events, tournaments, clan wars, clan try-outs, or to simply say hello.</p>
 					</small>
 				</div>

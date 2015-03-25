@@ -70,6 +70,7 @@
 								</div>
 							</div>
 							<script type='text/javascript'>
+							
 								var alias=<?php echo json_encode($alias); ?>;
 								var user=<?php echo json_encode($user); ?>;
 								
@@ -82,7 +83,6 @@
 									}
 									$('#edit-alias-text').html(edithtml);
 								}
-								
 								$(document).ready(function(){
 									$('#edit-alias-text').hide();
 									$('#edit-alias').mouseenter(function(){

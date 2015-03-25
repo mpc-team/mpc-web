@@ -70,6 +70,7 @@ form > .panel > .page-header {
 .forum .content .panel-group { margin-bottom: 10px; }
 .forum .content .content-msg img { max-width: 100%; max-height: 300; }
 .content-msg { padding-bottom: 7px; }
+
 .content-msg a,
 .content-msg small,
 .content-msg li,
@@ -79,11 +80,7 @@ form > .panel > .page-header {
 .content-msg h2,
 .content-msg h3,
 .content-msg h4,
-.content-msg p { white-space: normal; word-wrap: break-word; }
-.content-msg h1,
-.content-msg h2,
-.content-msg h3,
-.content-msg h4 { margin-top: 0px; }
+.content-msg p { white-space: normal; word-wrap: break-word; margin-top: 0px; }
 
 .page-footer {
 	padding-top: 9px;
@@ -118,6 +115,9 @@ form > .panel > .page-header {
 .panel-messages { padding: 20px; }
 .panel-messages .col-xs-6 { padding: 0px; }
 
+
+/* Forum Styles */
+
 .col-xs-1,
 .col-xs-2 { 
 	text-align: center;
@@ -131,18 +131,18 @@ form > .panel > .page-header {
 	text-align: left;
 	padding-left: 10px;
 }
-
 .col-xs-6 > .form-group { 
 	padding-right: 15px; 
 	padding-left: 15px; 
 }
-
-.row.usertool { background: #1a1a1a; }
-
 .table-forum-layout { width: 100%; }
 .table-forum-layout .panel-group a { 
 	min-height: 80px; 
 }
+.row.usertool { background: #1a1a1a; }
+
+
+/* Login Style */
 
 @media (min-width: 667px) {
 	.panel-login { 
@@ -150,75 +150,85 @@ form > .panel > .page-header {
 		margin: auto;
 	}
 }
+.panel-login h3,
+.panel-login h2,
 .panel-login h1 { margin-top: 0px; }
-.panel-login .row-remember-me { padding: 10px 0px; }
-.panel-login .row-remember-me span { font-weight: normal; }
-
-.form-group > textarea { height: 12em; }
-/* .panel-reply { padding-top: 50px; } */
-.panel-reply textarea { height: 15em; }
-.panel-reply .input-group { padding: 0em; }
-.panel-reply .form-group { 
-	margin: 10px;
-	padding: 5px; 
-	padding-bottom: 5px;
-	background-color: #1f1f1f; 
-	border: 1px solid #101010;
-}
-
-.modal-content { color: rgb(122, 183, 51); }
-.modal-body > .panel { background-color: transparent; }
-.modal-body > .panel-default > .form-group { margin-bottom: 20px; }
-
-.navbar-forum li > a {
-	font-size: 10pt;
-	padding: 7px; 
-	/* padding-left: 15px;
-	padding-right: 15px; */
-	border: 1px solid transparent;
-}
-
+.row-remember-me { padding: 10px 0px; }
+.row-remember-me span { font-weight: normal; }
 .content-signup {	
 	padding-top: 30px;
 	max-width: 500px;
 	min-width: 250px;
 }
 
-.container .forum .content { margin-bottom: 300px; }
-.container .content,
-.container-fluid .content {
-	margin: 0px;
-	padding: 0px;
-	margin-bottom: 150px;
+
+/* Create Thread Modal */
+
+.modal-content { color: rgb(122, 183, 51); }
+.modal-body > .panel { background-color: transparent; }
+.modal-body > .panel-default > .form-group { margin-bottom: 20px; }
+
+
+/* Page Content Style */
+
+.container-fluid .content,
+.container .content { 
 	padding-top: 25px;
+	margin-bottom: 300px; 
+}
+
+
+/* General Button Rules */
+
+.btn-signup,
+.btn-login,
+.btn-reply { 	
+  color: #ffffff;
+	min-width: 100px;
+}
+
+
+/* Reply Styles */
+
+.panel-reply .form-group { 
+	margin: 10px;
+	padding: 5px; 
+	background-color: #1f1f1f; 
 }
 .btn-reply { 
 	background-color: transparent; 
 	border: 1px solid #66aaee;
-}
-.btn-reply { height: 40px; }
-.btn-reply-row { 
-	text-align: right;
-	margin-top: -3px;
-	margin-right: 1px;
-	
 }
 .btn-reply:hover,
 .btn-reply:active { 
 	color: #66aaee;
 	background-color: rgba(255,255,255,0.05);
 }
+.btn-reply-row { 
+	text-align: right;
+	margin-top: -3px;
+	margin-right: 1px;	
+}
+
+
+/* Signup & Login Buttons */
 
 .btn-signup { margin-top: 20px; }
-  
 .btn-signup,
 .btn-login { background-color: #337ab7; }
-
 .btn-signup:hover,
 .btn-login:hover { 
 	color: #99dd99;
 	border-color: #225522; 
 }
+.btn-signup,
+.btn-login { 
+  color: #ffffff;
+	min-width: 100px;
+}
+
+
+/* Thread Control Buttons */
 
 .btn-delete,
 .btn-edit {	
@@ -233,18 +243,9 @@ form > .panel > .page-header {
 	background-color: rgba(255,255,255,0.1); 
 }
 
-.btn-reply,
-.btn-signup,
-.btn-login { 
-  color: #ffffff;
-	min-width: 100px;
-	border-radius: 1px;
-}
-
-.btn-signup,
-.btn-login { font-size: 12pt; }
 
 /*Streamer's Global CSS Data Only */
+
 /* ID Only */
 #thelungy-streampopup-bg-image {
     background-image: url(../../pics/background.png);

@@ -188,7 +188,7 @@
 								</a>
 							</div>
 							<div class="col-xs-1">
-								<h4><b>{$count}</b></h4>
+								<h4><b>{$count}</b><br><small>Replies</small></h4>
 							</div>
 							<div class="col-xs-5">
 								
@@ -216,7 +216,7 @@ EOD;
 							</a>
 						</div>
 						<div class="col-xs-1">
-							<h4><b>{$count}</b></h4>
+							<h4><b>{$count}</b><br><small>Threads</small></h4>
 						</div>
 						<div class="col-xs-5">
 						

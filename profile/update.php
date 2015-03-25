@@ -12,11 +12,8 @@
 	if (!isset($_SESSION["USER"])) {
 		header("Location: {$ROOT}/login/index.php");
 	} else {
-		$db = DB_CreateDefault();
-		$db->connect();
-		$email = $_SESSION["USER"];
-		$alias = DB_GetUserAliasByEmail($db, $email);
-		$db->disconnect();
+		$user = $_SESSION["USER"];
+		$alias = $_SESSION["ALIAS"];
 	} 
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -47,169 +44,59 @@
 			<?php PrintSidebar("update", $ROOT); ?>
 			<div id="page-content-wrapper">
 				<div class="content">
-					<div class="panel panel-default">
-						<ul class="nav nav-tabs" data-tabs="tabs">
-							<li class="active"><a href="#profile-account" data-toggle="tab">Account</a></li>
-							<li><a href="#profile-public" data-toggle="tab">Public Information</a></li>
-							<li><a href="#profile-prefs" data-toggle="tab">Preferences</a></li>
-						</ul>
-							
-						<div class="tab-content">
-							<div id="profile-account" class="tab-pane active">
-								<div class="page-header">
-									<h1>Account Settings</h1>
-								</div>								 
-								<div class="col-xs-6">
+					<div class="panel-group">
+						<div class="panel panel-default">
+							<div class='panel-heading page-header'>
+								<h1>Account<br><small> Edit</small></h1>
+							</div>
+						</div>
+					</div>
+					
+					<div class='panel-group'>
+						<div class='panel panel-default'>
+						
+							<div class='row'>
+								<div class='col-xs-6'>
 									<div class="form-group">
-										<label for="alias-profile"><p>Profile Name (Alias):</p></label>
-										<input type="text" class="form-control" id="alias-profile" title="Change Profile Name" placeholder="Change Name">
-									</div>
-									<div class="form-group">
-										<label for="password-profile"><p>New Password:</p></label>
-										<input type="text" class="form-control" id="password-profile" title="Change Profile Password" placeholder="Change Password">
-										<label for="password-profile"><p>Re-Enter Password:</p></label>
-										<input type="text" class="form-control" id="password-profile" title="Re-Enter Password" placeholder="Re-Enter Password">
-									</div>
-									<div class="form-group">
-										<label for="email-profile"><p>Change Email:</p></label>
-										<input type="email" class="form-control" id="email-profile" title="Change Profile Email" placeholder="Change Email">
-									</div>
-								</div>
-								<div class="col-xs-6">
-									<div class="form-group">
-										<label for="fname-profile"><p>First Name:</p></label>
-										<input type="text" class="form-control" id="fname-profile" title="Enter First Name" placeholder="First Name">
-									</div>
-									<div class="form-group">
-										<label for="lname-profile"><p>Last Name:</p></label>
-										<input type="text" class="form-control" id="lname-profile" title="Enter Last Name" placeholder="Last Name">
-									</div>
-									<div class="form-group">
-										<label for="location-profile"><p>Location:</p></label>
-										<input type="text" class="form-control" id="location-profile" title="Enter Location" placeholder="City, State, Province, Country">
-				
+										<h1><small>Alias</small><br>
+											<div id='edit-alias-text'>
+												<input type='text' name='alias' value='<?php echo $alias; ?>'/>
+											</div>
+											<div id='edit-alias-btn'>
+												<a id='edit-alias'><?php echo $alias; ?></a>
+											</div>
+										</h1>
 									</div>
 								</div>
 							</div>
-							<div class="row" style="width:80%">			
-								<div class="col-md-9 col-md-offset-3">
-									<div class="form-group">
-										<label for="comment-profile"><p>Comments:</p></label>
-										<textarea style="max-width: 100%;" class="form-control" rows="3" id="profile-comments"></textarea>
-									</div>
-								</div>
-							</div>
-							
-							<div id="profile-public" class="tab-pane">
-								<div class="page-header">
-									<h1>Public Information</h1>
-								</div>
-								<div class="row">
-									<div class="col-xs-6">
-										<div class="input-group">
-											<div class="checkbox-inline">
-												<label>
-													<input type="checkbox" name="sc2hot-profile">Starcraft 2 Heart of the Swarm
-												</label>
-											</div>
-											<input type="text" class="form-control" placeholder="Character Code">									
-										</div>
-										<div class="input-group">
-											<div class="checkbox-inline">
-												<label>
-													<input type="checkbox" name="wow-profile">World of WarCraft
-												</label>
-											</div>
-											<input type="text" class="form-control" placeholder="Character Code">
-										</div>
-										<div class="input-group">
-											<div class="checkbox-inline">
-												<label>
-													<input type="checkbox" name="hearthstone-profile">Hearth Stone
-												</label>
-											</div>
-											<input type="text" class="form-control" placeholder="Character Code">
-										</div>
-									</div>
-									<div class="col-xs-6">
-										<div class="input-group">
-											<div class="checkbox-inline">
-												<label>
-													<input type="checkbox" name="csgo-profile">Counter Strike Global Offensive
-												</label>
-											</div>
-											<input type="text" class="form-control" placeholder="Character Code">
-										</div>
-										<div class="input-group">
-											<div class="checkbox-inline">
-												<label>
-													<input type="checkbox" name="herosofthestorm-profile">Heroes of the Storm
-												</label>
-											</div>
-											<input type="text" class="form-control" placeholder="Character Code">
-										</div>
-										<div class="input-group">									
-											<div class="checkbox-inline">
-												<label>
-													<input type="checkbox" name="leagueoflegends-profile">League of Legends
-												</label>
-											</div>
-											<input type="text" class="form-control" placeholder="Character Code">
-										</div>
-										<div class="input-group">
-											<div class="checkbox-inline">
-												<label>
-													<input type="checkbox" name="mgsvonline-profile" disabled>Metal Gear Solid V: Multiplayer
-												</label>
-											</div>
-											<input type="text" class="form-control" placeholder="Character Code">
-										</div>
-									</div>
-								</div>
-								</br>
-								<div class="row" style="width:80%">
-									<div class="col-xs-10 col-xs-offset-2">
-										<div class="input-group">
-											<span class="input-group-addon" style="width:100px;" id="sizing-addon2">Steam</span>
-											<input type="text" class="form-control" placeholder="Steam Name" aria-describedby="sizing-addon2">
-										</div>
-										<div class="input-group">
-											<span class="input-group-addon" style="width:100px;" id="sizing-addon2">Battle.net</span>
-											<input type="email" class="form-control" placeholder="Email" aria-describedby="sizing-addon2">
-										</div>
-										<div class="input-group">
-											<span class="input-group-addon" style="width:100px;" id="sizing-addon2">Origin</span>
-											<input type="email" class="form-control" placeholder="Email" aria-describedby="sizing-addon2">
-										</div>
-									</div>
-								</div>
-							</div>
-							<div id="profile-prefs" class="tab-pane">
-								<div class="page-header">
-									<h1>Preferences</h1>
-								</div>
-								<div class="row">
-									<div class="col-xs-6">
-										<div class="checkbox">
-											<label><input type="checkbox" name="display-email-profile"><p>Share Email</p></label>
-										</div>
-										<div class="checkbox">
-											<label><input type="checkbox" name="display-games-profile"><p>Share Games</p></label>
-										</div>
-										<div class="checkbox">
-											<label><input type="checkbox" name="display-location-profile"><p>Share Location</p></label>
-										</div>
-									</div>
-									<div class="col-xs-6">
-										<div class="checkbox">
-											<label><input type="checkbox" name="display-gametag-profile"><p>Share In-Game Character Codes/Alias</p></label>
-										</div>
-										<div class="checkbox">
-											<label><input type="checkbox" name="display-gametag-profile"><p>Share Steam/Battle.net/Origin Accounts</p></label>
-										</div>
-									</div>
-								</div>
-							</div>
+							<script type='text/javascript'>
+								var alias=<?php echo json_encode($alias); ?>;
+								var user=<?php echo json_encode($user); ?>;
+								
+								function toggleEdit(flag) {
+									var edithtml;
+									if(flag){
+										edithtml="<input type='text' name='alias' value='"+alias+"'>";
+									}else{
+										edithtml="<a id='edit-alias'>"+alias+"</a>";
+									}
+									$('#edit-alias-text').html(edithtml);
+								}
+								
+								$(document).ready(function(){
+									$('#edit-alias-text').hide();
+									$('#edit-alias').mouseenter(function(){
+										$('#edit-alias').hide();
+										$('#edit-alias-text').show();
+										$('#edit-alias-text').select();
+									});
+									$('#edit-alias-text').focusout(function(){
+										$('#edit-alias').show();
+										$('#edit-alias-text').hide();
+									});
+								});
+							</script>
+								
 						</div>
 					</div>
 				</div>
@@ -219,32 +106,4 @@
 	<div class="container-fluid">
 		<?php PrintFooter($ROOT); ?>
 	</div>
-    <script type="text/javascript">
-        addboxevents();
-        var active = false;
-        $("#countryselect").click(function () {
-            active = true;
-        });
-        $("#countryselect").blur(function () {
-            active = false;
-        });
-        function addboxevents () {
-            $("#select-wrapper").mouseout(function (){
-                if (!active){
-                    $("#select-wrapper").setStyle("visibility","hidden");
-            
-                }  
-            
-            });
-            $("#countryselect").mouseover(function (){
-                if (!active){
-                    $("#countryselect").setStyle("visibility","visible");
-                    $("#countryselect-btn").setStyle("visibility","visible");
-                    
-                }  
-            
-            });
-            
-        }
-    </script>
 </body>

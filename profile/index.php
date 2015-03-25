@@ -11,12 +11,8 @@
 	if (!isset($_SESSION["USER"])) {
 		header("Location: {$ROOT}/login/index.php");
 	} else {
-		$db = DB_CreateDefault();
-		$db->connect();
 		$user = $_SESSION["USER"];
-		$id = DB_GetUserID($db, $user);
-		$alias = DB_GetUserAliasByID($db, $id);
-		$db->disconnect();
+		$alias = $_SESSION["ALIAS"];
 	} 
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

@@ -132,6 +132,11 @@ form > .panel > .page-header {
 	padding-left: 10px;
 }
 
+.col-xs-6 > .form-group { 
+	padding-right: 15px; 
+	padding-left: 15px; 
+}
+
 .row.usertool { background: #1a1a1a; }
 
 .table-forum-layout { width: 100%; }

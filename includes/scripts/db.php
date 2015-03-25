@@ -1,7 +1,7 @@
 <?php
 	include_once($ROOT . '/includes/pathdir.php');
-	include_once($ROOT . PathDir::$DB_UTILITY);
-	include_once($ROOT . PathDir::$DB_INFO);
+	include_once($ROOT . PathDir::$MYSQLI_UTILITY);
+	include_once($ROOT . PathDir::$MYSQLI_INFO);
 		
 	function DB_CreateDefault() {
 		return new dbutil(dbinfo::$HOST, dbinfo::$USER, dbinfo::$PASS, dbinfo::$NAME);

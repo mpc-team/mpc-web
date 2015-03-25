@@ -6,27 +6,30 @@
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$HEADER);
 	include_once($ROOT . PathDir::$DB);
-	include_once($ROOT . PathDir::$DB_UTILITY);
-	include_once($ROOT . PathDir::$DB_INFO);
 	
-	session_start();
-	$db = DB_CreateDefault();
-	$db->connect();
-	$perm = array();
+	session_start( );
+	$db = DB_CreateDefault( );
+	$db->connect( );
+	
+	$perm = array( );
 	array_push($perm, "public");
 	if (isset($_SESSION["USER"])) {
 		$perm = DB_GetUserPermissionsByEmail($db, $_SESSION["USER"]);
 		if ($perm == null) { 
-			$perm = array();
+			$perm = array( );
 			array_push($perm, 'public');
 		}
 	}
+	
+	$json = array( );
 	if (in_array('member', $perm) || in_array('admin', $perm)) {
 		$json = DB_GetUserMembersList($db);
 	} else {
 		$json = DB_GetUserPublicList($db);
 	}
+	
 	$db->disconnect();
+	
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -55,6 +58,7 @@
 			<?php PrintSidebar("search", $ROOT); ?>
 			<div id="page-content-wrapper">
 				<div class="content">
+				
 					<div class="panel-group">
 						<div class="panel panel-default">
 							<div class="panel-heading page-header">
@@ -63,6 +67,7 @@
 							</div>
 						</div>
 					</div>
+					
 					<div class="panel-group">
 						<div class="panel panel-default">
 							<div class="panel-heading">
@@ -90,6 +95,7 @@ EOD;
 							</form>
 						</div>
 					</div>
+					
 					<div class="panel-group">
 						<div class="panel panel-default">
 							<table class="table">
@@ -109,6 +115,8 @@ EOD;
 							</table>
 						</div>
 					</div>
+					
+					
 				</div>
 			</div>
 		</div>
@@ -116,6 +124,9 @@ EOD;
 	<div class="container-fluid">
 		<?php PrintFooter($ROOT); ?>
 	</div>
+
+	
+	
 	<!-- Here is our JavaScript, loaded after the page loads -->
 	<script type="text/javascript">
 		<?php	echo 'var userList = ', json_encode($json), ';'; ?>

@@ -69,33 +69,7 @@
 									</div>
 								</div>
 							</div>
-							<script type='text/javascript'>
 							
-								var alias=<?php echo json_encode($alias); ?>;
-								var user=<?php echo json_encode($user); ?>;
-								
-								function toggleEdit(flag) {
-									var edithtml;
-									if(flag){
-										edithtml="<input type='text' name='alias' value='"+alias+"'>";
-									}else{
-										edithtml="<a id='edit-alias'>"+alias+"</a>";
-									}
-									$('#edit-alias-text').html(edithtml);
-								}
-								$(document).ready(function(){
-									$('#edit-alias-text').hide();
-									$('#edit-alias').mouseenter(function(){
-										$('#edit-alias').hide();
-										$('#edit-alias-text').show();
-										$('#edit-alias-text').select();
-									});
-									$('#edit-alias-text').focusout(function(){
-										$('#edit-alias').show();
-										$('#edit-alias-text').hide();
-									});
-								});
-							</script>
 								
 						</div>
 					</div>
@@ -106,4 +80,21 @@
 	<div class="container-fluid">
 		<?php PrintFooter($ROOT); ?>
 	</div>
+	
+	<script type='text/javascript'>
+		var alias=<?php echo json_encode($alias); ?>;
+		var user=<?php echo json_encode($user); ?>;
+		$(document).ready(function(){
+			$('#edit-alias-text').hide();
+			$('#edit-alias').mouseenter(function(){
+				$('#edit-alias').hide();
+				$('#edit-alias-text').show();
+			});
+			$('#edit-alias-text').focusout(function(){
+				$('#edit-alias').show();
+				$('#edit-alias-text').hide();
+			});
+		});
+	</script>
 </body>
+</html>

@@ -1,7 +1,7 @@
 <?php
 	include_once($ROOT . '/includes/pathdir.php');
-	include_once($ROOT . PathDir::$DB_UTILITY);
-	include_once($ROOT . PathDir::$DB_INFO);
+	include_once($ROOT . PathDir::$MYSQLI_UTILITY);
+	include_once($ROOT . PathDir::$MYSQLI_INFO);
 	
 	function DBF_GetCategories($db) {
 		$categories=array();

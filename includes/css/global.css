@@ -119,13 +119,10 @@ form > .panel > .page-header {
 .panel-messages .col-xs-6 { padding: 0px; }
 
 .panel .row { min-width: 660px; }
-.panel .row .col-xs-1,
-.panel .row .col-xs-2 { 
+.col-xs-1,
+.col-xs-2 { 
 	text-align: center;
-	margin-top: 5px;
-	margin-bottom: 5px;
 }
-
 .col-xs-3 > a,
 .col-xs-4 > a,
 .col-xs-5 > a,
@@ -133,6 +130,7 @@ form > .panel > .page-header {
 	width: 100%; 
 	text-align: left;
 }
+
 .table-forum-layout { width: 100%; }
 .table-forum-layout .panel-group a { 
 	min-height: 80px; 

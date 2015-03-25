@@ -53,6 +53,12 @@ EOD;
 					array_push($thr,$row[0],$row[1],$row[2],$row[3],$row[4]);
 					array_push($threads,$thr);
 				}
+				$count=count($threads); 
+				for($i=0; $i<$count; $i++) {
+					$thr=$threads[$i];
+					$mcount=DBF_GetThreadMessageCount($db,$thr[0]);
+					array_push($threads[$i],$mcount);
+				}
 				$result->close();
 				return($threads);
 			}
@@ -168,6 +174,20 @@ EOD;
 			return($info);
 		}
 		return(null);
+	}
+	
+	function DBF_GetThreadMessageCount($db,$tid) {
+		if($db->connected) {
+			$sql="SELECT COUNT(*) FROM ThreadMessages WHERE fthreadID={$tid}";
+			$result=$db->query($sql);
+			if($result) {
+				$count=$result->fetch_row();
+				$count=$count[0];
+				$result->close();
+				return $count;
+			}
+		}
+		return -1;
 	}
 	
 	function DBF_GetCategoryThreadCount($db,$cid) {

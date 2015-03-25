@@ -182,7 +182,7 @@
 				<div class="panel panel-default">
 					<div class="category">
 						<div class="row">
-							<div class="col-xs-4">
+							<div class="col-xs-6">
 								<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}">
 									<h4>{$glyph} {$ctag} {$glyph}<br><br><small>{$descr}</small></h4>
 								</a>
@@ -190,7 +190,7 @@
 							<div class="col-xs-1">
 								<h4><b>{$count}</b></h4>
 							</div>
-							<div class="col-xs-7">
+							<div class="col-xs-5">
 								
 							</div>
 						</div>
@@ -208,7 +208,7 @@ EOD;
 			<div class="panel-group">
 				<div class="panel panel-default">
 					<div class="row">
-						<div class="col-xs-4">
+						<div class="col-xs-6">
 							<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}">
 								<h4>{$glyph} {$ttag} {$glyph}<br><br><small>
 								<span class="glyphicon glyphicon-user"></span> {$alias} </br>
@@ -218,7 +218,7 @@ EOD;
 						<div class="col-xs-1">
 							<h4><b>{$count}</b></h4>
 						</div>
-						<div class="col-xs-7">
+						<div class="col-xs-5">
 						
 						</div>
 					</div>

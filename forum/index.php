@@ -114,9 +114,10 @@
 							echo "<table class='table-forum-layout'>";
 							for( $i=0; $i<$contentcount; $i++ ){
 								$thread=$content[$i];
+								$editpanel=($s_user==$thread[3]);
 								echo "<tr>";
 								echo "<td>";
-								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],$glyph,$thread[3],$thread[4],$thread[5]);
+								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],$glyph,$thread[4],$thread[5],$thread[6],$editpanel);
 								echo "</td>";
 								echo "</tr>";
 							}

@@ -225,12 +225,12 @@
 EOD;
 	}
 	
-	function HtmlThread($cid,$ctag,$tid,$ttag,$glyph,$alias,$time,$count) {
+	function HtmlThread($cid,$ctag,$tid,$ttag,$glyph,$alias,$time,$count,$editpanel) {
 		global $PG_INDEX;
 		global $PG_THR_DEL;
 		$ctagenc=urlencode($ctag);
 		$ttagenc=urlencode($ttag);
-		return <<<EOD
+		$result=<<<EOD
 			<div class="panel-group">
 				<div class="panel panel-default">
 					<div class="row">
@@ -247,6 +247,9 @@ EOD;
 						<div class="col-xs-5">
 						</div>
 					</div>
+EOD;
+		if($editpanel){
+			$result.=<<<EOD
 					<div class="row usertool">
 						<form role="form" action="{$PG_THR_DEL}?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}" method="post">
 							<button type="submit" class="btn btn-edit pull-right">
@@ -254,9 +257,10 @@ EOD;
 							</button>
 						</form>
 					</div>
-				</div>
-			</div>
 EOD;
+		}
+		$result.="</div></div>";
+		return $result;
 	}
 	
 	function HtmlLoginNotice($loginpath,$query) {

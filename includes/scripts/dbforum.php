@@ -36,7 +36,7 @@ EOD;
 		$threads=array();
 		if($db->connected){
 			$sql=<<<EOD
-				SELECT ForumThreads.fthreadID, ForumThreads.categoryID, ForumThreads.name, UserAlias.userAlias, ForumThreadInfo.tstamp
+				SELECT ForumThreads.fthreadID, ForumThreads.categoryID, ForumThreads.name, User.userName, UserAlias.userAlias, ForumThreadInfo.tstamp
 				FROM ForumThreads
 					JOIN ForumThreadInfo 
 						ON ForumThreads.fthreadID=ForumThreadInfo.fthreadID
@@ -50,7 +50,7 @@ EOD;
 			if($result){
 				while($row=$result->fetch_row()){
 					$thr=array();
-					array_push($thr,$row[0],$row[1],$row[2],$row[3],$row[4]);
+					array_push($thr,$row[0],$row[1],$row[2],$row[3],$row[4],$row[5]);
 					array_push($threads,$thr);
 				}
 				$count=count($threads); 

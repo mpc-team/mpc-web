@@ -174,20 +174,25 @@
 		return $result;
 	}
 	
-	function HtmlCategory($cid,$ctag,$descr,$glyph) {
+	function HtmlCategory($cid,$ctag,$descr,$glyph,$count) {
 		global $PG_INDEX;
 		$ctagenc=urlencode($ctag);
 		return <<<EOD
 			<div class="panel-group">
 				<div class="panel panel-default">
-					<div class="row">
-						<div class="col-xs-5">
-							<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}">
-								<h4>{$glyph} {$ctag} {$glyph}<br> <small>{$descr}</small></h4>
-							</a>
-						</div>
-						<div class="col-xs-7">
-						
+					<div class="category">
+						<div class="row">
+							<div class="col-xs-4">
+								<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}">
+									<h4>{$glyph} {$ctag} {$glyph}<br> <small>{$descr}</small></h4>
+								</a>
+							</div>
+							<div class="col-xs-1">
+								Threads: <h4><b>{$count}</b></h4>
+							</div>
+							<div class="col-xs-7">
+								
+							</div>
 						</div>
 					</div>
 				</div>
@@ -219,13 +224,14 @@ EOD;
 EOD;
 	}
 	
-	function HtmlLoginNotice($loginpath) {
-			return <<<EOD
-				<div class="alert alert-info" role="alert">
-					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-					<span class="sr-only">Error:</span>
-					You must <a class="alert-link" href="{$loginpath}">Login/Register</a> before posting on the Forum
-				</div>
+	function HtmlLoginNotice($loginpath,$query) {
+		if(strlen($query) > 0) $query='?'.$query;
+		return <<<EOD
+			<div class="alert alert-info" role="alert">
+				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				<span class="sr-only">Error:</span>
+				You must <a class="alert-link" href="{$loginpath}{$query}">Login/Register</a> before posting on the Forum
+			</div>
 EOD;
 	}
 	

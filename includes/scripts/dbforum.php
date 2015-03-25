@@ -15,11 +15,17 @@ EOD;
 			$result = $db->query($sql);
 			if ($result) {
 				while ($row=$result->fetch_row()) {
-					$cat=array();
-					array_push($cat, $row[0], $row[1], $row[2]);
-					array_push($categories, $cat);
+					$category=array();
+					array_push($category, $row[0], $row[1], $row[2]);
+					array_push($categories, $category);
 				}
 				$result->close();
+				$count=count($categories);
+				for($i=0; $i<$count; $i++) {
+					$category=$categories[$i];
+					$threadcount=DBF_GetCategoryThreadCount($db,$category[0]);
+					array_push($categories[$i],$threadcount);
+				}
 				return $categories;
 			}
 		}
@@ -30,7 +36,7 @@ EOD;
 		$threads=array();
 		if($db->connected){
 			$sql=<<<EOD
-				SELECT ForumThreads.fthreadID, categoryID, name, UserAlias.userAlias, ForumThreadInfo.tstamp
+				SELECT ForumThreads.fthreadID, ForumThreads.categoryID, ForumThreads.name, UserAlias.userAlias, ForumThreadInfo.tstamp
 				FROM ForumThreads
 					JOIN ForumThreadInfo 
 						ON ForumThreads.fthreadID=ForumThreadInfo.fthreadID
@@ -162,6 +168,20 @@ EOD;
 			return($info);
 		}
 		return(null);
+	}
+	
+	function DBF_GetCategoryThreadCount($db,$cid) {
+		if($db->connected) {
+			$sql="SELECT COUNT(*) FROM ForumThreads WHERE categoryID={$cid}";
+			$result=$db->query($sql);
+			if($result) {
+				$count=$result->fetch_row();
+				$count=$count[0];
+				$result->close();
+				return $count;
+			}
+		}
+		return -1;
 	}
 	
 	function DBF_CheckCategory($db,$cid,$ctag){

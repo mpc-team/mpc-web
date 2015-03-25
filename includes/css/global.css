@@ -118,7 +118,14 @@ form > .panel > .page-header {
 .panel-messages { padding: 20px; }
 .panel-messages .col-xs-6 { padding: 0px; }
 
-.col-xs-2 > a,
+.panel .row { min-width: 650px; }
+.panel .row .col-xs-1,
+.panel .row .col-xs-2 { 
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
 .col-xs-3 > a,
 .col-xs-4 > a,
 .col-xs-5 > a,

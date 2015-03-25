@@ -87,7 +87,7 @@
 						case $CATEGORIES:
 							echo HtmlPageTitle("MPC Gaming", "Forums");
 							if( !$usersigned ){
-								echo HtmlLoginNotice(PathDir::$LOGIN);
+								echo HtmlLoginNotice(PathDir::$LOGIN,$query);
 							}
 							echo "<table class='table-forum-layout'>";
 							for( $i=0; $i<$contentcount; $i++ ){
@@ -95,7 +95,7 @@
 								$glyph=("General" == $category[1]) ? $GLYPH_STAR : "";
 								echo "<tr>";
 								echo "<td>";
-								echo HtmlCategory($category[0],$category[1],$category[2],$glyph);
+								echo HtmlCategory($category[0],$category[1],$category[2],$glyph,$category[3]);
 								echo "</td>";
 								echo "</tr>";
 							}
@@ -109,7 +109,7 @@
 							$glyph="";
 							echo HtmlPageTitle($ctag, "Forum");
 							if( !$usersigned ){
-								echo HtmlLoginNotice(PathDir::$LOGIN);
+								echo HtmlLoginNotice(PathDir::$LOGIN,$query);
 							}
 							echo "<table class='table-forum-layout'>";
 							for( $i=0; $i<$contentcount; $i++ ){
@@ -133,7 +133,7 @@
 							
 							echo HtmlPageTitleAuthorDate($info[0],$ctag,$info[1],$info[2]);
 							if( !$usersigned ){
-								echo HtmlLoginNotice(PathDir::$LOGIN);
+								echo HtmlLoginNotice(PathDir::$LOGIN,$query);
 							}
 							for( $i=0; $i < $mcount; $i++ ){
 								$message=$messages[$i];

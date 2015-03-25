@@ -1,12 +1,12 @@
 <?php
-function PrintLoginForm ($root) {
+function LoginForm ($root) {
 	$LBL_EMAIL = 'Email:';
 	$LBL_PASSWORD = 'Password:';
 	$LBL_REMEMBER = ' Remember me';
 	$LBL_LOGIN = 'Login';
 	$SIGNUP = $root . '/login/signup/index.php';
 	$COMPLETE = $root . '/login/complete.php';
-	echo <<<EOD
+	return <<<EOD
 		<div class="form-group form-login">
 			<div class="input-group">
 				<span class="input-group-addon">{$LBL_EMAIL}</span>

@@ -10,6 +10,9 @@
 	if (isset($_SESSION["USER"])) {
 		header("Location: {$ROOT}/profile/index.php");
 	}
+	$query=$_SERVER["QUERY_STRING"];
+	if(strlen($query) > 0) $query="?".$query;
+	$action='complete.php'.$query;
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -38,9 +41,11 @@
 				<img src="../pics/mpclogo.png" class="img-responsive" id="image-banner-login"/>
 				<div class="panel panel-default">
 					<h1>Login</h1>
-					<form class="form" role="form" action="complete.php" method="post">
-						<?php PrintLoginForm($ROOT); ?> 
-					</form>
+					<?php
+						echo "<form role='form' action='{$action}' method='post'>";
+						echo LoginForm($ROOT);
+						echo "</form>";
+					 ?>
 				</div>
 				<div class="text-center signup-text">	
 					<h5>New to the site? <a href="./signup/index.php">Click here to sign-up/register</a>.</h5>

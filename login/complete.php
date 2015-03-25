@@ -9,6 +9,8 @@
 	
 	$email = trim($_POST["email"]);
 	$password = $_POST["password"];
+	$query=$_SERVER["QUERY_STRING"];
+	if(strlen($query) > 0) $query="?".$query;
 	
 	$header = "Location: {$ROOT}/login/index.php";
 	$v_email = isValidEmail($email);
@@ -21,7 +23,11 @@
 		$_SESSION["USER"] = $email;
 		$_SESSION["ALIAS"] = $alias;
 		session_write_close();
-		$header = "Location: {$ROOT}/profile/index.php";
+		if(strlen($query) > 0) {
+			$header="Location: {$ROOT}/forum/index.php".$query;
+		}else{
+			$header = "Location: {$ROOT}/profile/index.php";
+		}
 	} 
 	header( $header );
  ?>
@@ -46,6 +52,9 @@
 	<div class="container">
 		<div class="page-header text-center">
 			<h1>Login Redirecting...</h1>
+			<?php
+				echo $query."<br>";
+			 ?>
 		</div>
 	</div>
 </body>

@@ -9,10 +9,8 @@
 	include_once($ROOT . PathDir::$HEADER);
 	include_once($ROOT . PathDir::$FORUMFUNC);
 	
-	$query=$_SERVER['QUERY_STRING'];
-	$INDEX_PAGE = $ROOT . '/forum/index.php';
+	$query = $_SERVER['QUERY_STRING'];
 	$CREATE_PAGE = $ROOT . '/forum/thread/create.php';
-	$LOGIN_PAGE = $ROOT . '/login/index.php';
 	$CATEGORIES = "categories";
 	$THREADS = "threads";
 	$MESSAGES = "messages";
@@ -46,6 +44,35 @@
 	$contentcount=count($content);
 	$db->disconnect();
 	
+	$highlight=($pagetype==$CATEGORIES)?"forum":"path";
+	$navbar="<div class='navbar-forum'>".ForumNavbar($highlight,$ROOT,$path)."</div>";
+	$pagefooter=HtmlPageFooter( );
+	
+	$pagetitle="";
+	switch($pagetype) {
+		case $CATEGORIES:
+			$pagetitle=HtmlPageTitle("MPC Gaming","Forums");
+			break;
+		case $THREADS:
+			$pagetitle=HtmlPageTitle($ctag,"Forum");
+			break;
+		case $MESSAGES:
+			$info=$content[0];
+			$pagetitle=HtmlPageTitleAuthorDate($info[0],$ctag,$info[1],$info[2]);
+			break;
+	}
+	
+	$noticelogin=(!$usersigned) ? HtmlLoginNotice(PathDir::$LOGIN,$query):"";
+	$replyform="";
+	switch($pagetype) {
+		case $MESSAGES:
+			if($usersigned) {
+				$replyform.=HtmlReplyForm($query,$s_alias);
+				$replyform.=UserToolPanelJavaScript();
+			}
+			break;
+	}
+	
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -73,120 +100,53 @@
 	<div id="page-content-wrapper">
 		<div class="forum">
 			<div class="content">
-				<div class="navbar-forum">
-					<?php 
-						$highlight=($pagetype==$CATEGORIES) ? "forum" : "path";
-						echo ForumNavbar($highlight,$ROOT,$path); 
-					 ?>
-				</div>
-				<?php
+				<?php 
+					echo $navbar,$pagetitle,$noticelogin;
+					$layoutopen="<tr><td><div class='panel-group'><div class='panel panel-default'>";
+					$layoutclose="</div></div></td></tr>";
+					
 					switch($pagetype){
-				/*
-				 *	CATEGORY PAGE
-				 */					
 						case $CATEGORIES:
-							echo HtmlPageTitle("MPC Gaming", "Forums");
-							if( !$usersigned ){
-								echo HtmlLoginNotice(PathDir::$LOGIN,$query);
-							}
 							echo "<table class='table-forum-layout'>";
 							for( $i=0; $i<$contentcount; $i++ ){
 								$category=$content[$i];
-								$glyph=("General" == $category[1]) ? $GLYPH_STAR : "";
-								echo "<tr>";
-								echo "<td>";
+								$glyph=("General"==$category[1])?$GLYPH_STAR:"";
+								echo $layoutopen;
 								echo HtmlCategory($category[0],$category[1],$category[2],$glyph,$category[3]);
-								echo "</td>";
-								echo "</tr>";
+								echo $layoutclose;
 							}
 							echo "</table>";
-							break;		
-				/*
-				 *	CATEGORY > THREADS PAGE
-				 */
+							break;	
+							
 						case $THREADS:
-						
-							$glyph="";
-							echo HtmlPageTitle($ctag, "Forum");
-							if( !$usersigned ){
-								echo HtmlLoginNotice(PathDir::$LOGIN,$query);
-							}
 							echo "<table class='table-forum-layout'>";
 							for( $i=0; $i<$contentcount; $i++ ){
 								$thread=$content[$i];
-								$editpanel=($s_user==$thread[3]);
-								echo "<tr>";
-								echo "<td>";
-								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],$glyph,$thread[4],$thread[5],$thread[6],$editpanel);
-								echo "</td>";
-								echo "</tr>";
+								echo $layoutopen;
+								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],"",$thread[4],$thread[5],$thread[6]);
+								$toptions=($s_user == $thread[3]) ? HtmlThreadOptions($cid,$ctag,$thread[0],$thread[2]) : "";
+								echo $toptions;
+								echo $layoutclose;
 							}
 							echo "</table>";
+							if( $usersigned ){ echo NewThreadModal($query,$CREATE_PAGE);	}
 							break;
-				/*
-				 *	CATEGORY > THREAD > MESSAGES PAGE
-				 */
-						case $MESSAGES:
-						
-							$info=$content[0];
-							$messages=$content[1];
-							$mcount=count($messages);
 							
-							echo HtmlPageTitleAuthorDate($info[0],$ctag,$info[1],$info[2]);
-							if( !$usersigned ){
-								echo HtmlLoginNotice(PathDir::$LOGIN,$query);
-							}
-							for( $i=0; $i < $mcount; $i++ ){
-								$message=$messages[$i];
-								$msgid=$message[0];
-								$msg=$message[1];
-								$email=$message[2];
-								$author=$message[3];
-								$timestamp=$message[4];
-								$canedit=($s_user==$email);
-								$candelete=($s_user==$email||$s_user=="b0rg3r@gmail.com");
-								
-								echo	
-									"<div class='panel-group'>",
-										"<div class='panel panel-default'>",
-											"<div class='panel-messages'>",
-												"<div class='row'>",
-													HtmlMessageAuthor($author),
-													"<div class='col-xs-6'>";
-								if($candelete){echo HtmlMsgDeleteFormOpen($query);}
-								
-								echo 				HtmlMessageDate($timestamp);
-								
-								if($candelete){echo HtmlMsgDeleteFormClose($msgid);}
-								echo 			"</div>",
-												"</div>";											
-								if($canedit){echo HtmlMsgEditFormOpen($query);}
-								
-								echo 		"<div class='row'>",
-													"<div class='content-msg' id='c{$i}'>",
-														"{$msg}",
-													"</div>",
-												"</div>";
-														
-								if($canedit){echo HtmlMsgEditFormClose($i, $msgid);}
-								echo 	"</div>",
-										"</div>",
-									"</div>";
+						case $MESSAGES:
+							$messages = $content[1];
+							$mcount = count($messages);
+							for( $i=0; $i<$mcount; $i++ ){
+								$message = $messages[$i];
+								$email = $message[2];
+								$canEdit = ($s_user==$email);
+								$canDelete = ($s_user==$email || $s_user=="b0rg3r@gmail.com");
+								echo HtmlMessage($canEdit,$canDelete,
+									$message[0],$message[1],$message[2],$message[3],$message[4],
+									$query,$i);
 							}
 					}
-					if( $usersigned && $pagetype=="threads" ){
-						echo NewThreadModal($query,$CREATE_PAGE);
-					}
-					echo HtmlPageFooter( );
-					$highlight=($pagetype==$CATEGORIES) ? "forum" : "path";
-					echo "<div class='navbar-forum'>",
-								ForumNavbar($highlight,$ROOT,$path),
-								"</div>";
-					if( $usersigned && $pagetype=="messages" ){
-						echo HtmlReplyForm($query,$s_alias);
-						echo UserToolPanelJavaScript();
-					}
-				 ?>
+					echo $pagefooter,$navbar,$replyform;
+				?>
 			</div>
 		</div>
 	</div>

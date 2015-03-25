@@ -17,7 +17,7 @@
 			$cid=$_GET["c_id"];
 			$ttag=$_GET["t_tag"];
 			$ctag=$_GET["c_tag"];
-			$del=DeleteMessage($cid,$ctag,$tid,$ttag,$_POST["message"]);
+			$del=DeleteMessage($cid,$ctag,$tid,$ttag,$_POST["message"],$s_user);
 		}	
 	}
 	header($header);

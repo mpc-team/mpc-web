@@ -121,6 +121,7 @@ form > .panel > .page-header {
 .col-xs-1,
 .col-xs-2 { 
 	text-align: center;
+	margin-top: 15px;
 }
 .col-xs-3 > a,
 .col-xs-4 > a,
@@ -128,7 +129,7 @@ form > .panel > .page-header {
 .col-xs-6 > a { 
 	width: 100%; 
 	text-align: left;
-	padding-left: 15px;
+	padding-left: 10px;
 }
 
 .row.usertool { background: #1a1a1a; }

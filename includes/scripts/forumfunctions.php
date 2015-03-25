@@ -203,64 +203,85 @@
 		global $PG_INDEX;
 		$ctagenc=urlencode($ctag);
 		return <<<EOD
-			<div class="panel-group">
-				<div class="panel panel-default">
-					<div class="category">
-						<div class="row">
-							<div class="col-xs-6">
-								<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}">
-									<h4>{$glyph} {$ctag} {$glyph}<br><br><small>{$descr}</small></h4>
-								</a>
-							</div>
-							<div class="col-xs-1">
-								<h4><b>{$count}</b><br><small>Threads</small></h4>
-							</div>
-							<div class="col-xs-5">
-								
-							</div>
-						</div>
+			<div class="category">
+				<div class="row">
+					<div class="col-xs-6">
+						<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}">
+							<h4>{$glyph} {$ctag} {$glyph}<br><br><small>{$descr}</small></h4>
+						</a>
+					</div>
+					<div class="col-xs-1">
+						<h4><b>{$count}</b><br><small>threads</small></h4>
+					</div>
+					<div class="col-xs-5">
+						
 					</div>
 				</div>
 			</div>
 EOD;
 	}
 	
-	function HtmlThread($cid,$ctag,$tid,$ttag,$glyph,$alias,$time,$count,$editpanel) {
+	function HtmlThread($cid,$ctag,$tid,$ttag,$glyph,$alias,$time,$count) {
 		global $PG_INDEX;
 		global $PG_THR_DEL;
 		$ctagenc=urlencode($ctag);
 		$ttagenc=urlencode($ttag);
-		$result=<<<EOD
-			<div class="panel-group">
-				<div class="panel panel-default">
-					<div class="row">
-						<div class="col-xs-6">
-							<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}">
-								<h4>{$glyph} {$ttag} {$glyph}<br><br><small>
-								<span class="glyphicon glyphicon-user"></span> {$alias} </br>
-								<span class="glyphicon glyphicon-time"></span> {$time}</small></h4>
-							</a>
-						</div>
-						<div class="col-xs-1">
-							<h4><b>{$count}</b><br><small>Replies</small></h4>
-						</div>
-						<div class="col-xs-5">
-						</div>
-					</div>
+		return <<<EOD
+			<div class="row">
+				<div class="col-xs-6">
+					<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}">
+						<h4>{$glyph} {$ttag} {$glyph}<br><br><small>
+						<span class="glyphicon glyphicon-user"></span> {$alias} </br>
+						<span class="glyphicon glyphicon-time"></span> {$time}</small></h4>
+					</a>
+				</div>
+				<div class="col-xs-1">
+					<h4><b>{$count}</b><br><small>replies</small></h4>
+				</div>
+				<div class="col-xs-5">
+				</div>
+			</div>
 EOD;
-		if($editpanel){
-			$result.=<<<EOD
-					<div class="row usertool">
-						<form role="form" action="{$PG_THR_DEL}?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}" method="post">
-							<button type="submit" class="btn btn-edit pull-right">
-								Delete
-							</button>
-						</form>
-					</div>
+	}
+	
+	function HtmlThreadOptions($cid,$ctag,$tid,$ttag) {
+		global $PG_THR_DEL;
+		$ctagenc=urlencode($ctag);
+		$ttagenc=urlencode($ttag);
+		return <<<EOD
+			<div class='row usertool'>
+				<form role='form' action='{$PG_THR_DEL}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}' method='post'>
+					<button type='submit' class='btn btn-edit pull-right'>
+						Delete
+					</button>
+				</form>
+			</div>
 EOD;
-		}
-		$result.="</div></div>";
-		return $result;
+	}
+	
+	function HtmlMessage($canEdit,$canDelete,$id,$content,$author,$alias,$time,$query,$i) {
+		$headerleft=HtmlMessageAuthor($alias);
+		$headerright=HtmlMessageDate($time);
+		$body=HtmlMessageContent($i,$content);
+		if($canDelete) 
+			$headerright=(HtmlMsgDeleteFormOpen($query).$headerright.HtmlMsgDeleteFormClose($id));
+		if($canEdit) 
+			$body=(HtmlMsgEditFormOpen($query).$body.HtmlMsgEditFormClose($i,$id));
+		return <<<EOD
+			<div class='panel-group'>
+				<div class='panel panel-default'>
+					<div class='panel-messages'>
+						<div class='row'>
+							{$headerleft}
+							<div class='col-xs-6'>
+								{$headerright}
+							</div>
+						</div>
+						{$body}
+					</div>
+				</div>
+			</div>
+EOD;
 	}
 	
 	function HtmlLoginNotice($loginpath,$query) {
@@ -289,6 +310,16 @@ EOD;
 				<div class="pull-right">
 					<span class="glyphicon glyphicon-time"></span>													
 					{$timestamp}
+				</div>
+			</div>
+EOD;
+	}
+	
+	function HtmlMessageContent($i,$msg) {
+		return <<<EOD
+			<div class='row'>
+				<div class='content-msg' id='c{$i}'>
+					{$msg}
 				</div>
 			</div>
 EOD;

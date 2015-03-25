@@ -70,15 +70,15 @@ EOD;
  *	Thread Contents Functions
  *
  */
-	function DBF_GetThreadContents($db, $threadID){
+	function DBF_GetThreadContents($db, $tid){
 		$messages=array();
 		if($db->connected){
 			$sql=<<<EOD
-				SELECT 	ThreadMessages.tmsgID AS id, 
-								ThreadMessageContent.content AS content, 
-								ThreadMessageContent.author AS author, 
-								UserAlias.userAlias AS alias, 
-								ThreadMessageContent.tstamp AS time 
+				SELECT 	ThreadMessages.tmsgID,
+								ThreadMessageContent.content, 
+								ThreadMessageContent.author, 
+								UserAlias.userAlias, 
+								ThreadMessageContent.tstamp 
 				FROM (((ThreadMessages
 					JOIN ThreadMessageContent 
 						ON ThreadMessages.tmsgID=ThreadMessageContent.tmsgID)
@@ -86,19 +86,19 @@ EOD;
 						ON ThreadMessageContent.author=User.userName)
 					JOIN UserAlias
 						ON User.userID=UserAlias.userID)
-				WHERE ThreadMessages.fthreadID={$threadID}
+				WHERE ThreadMessages.fthreadID={$tid}
 				ORDER BY ThreadMessageContent.tstamp ASC
 EOD;
 			$result=$db->query($sql);
 			if($result){
 				$data=array();
-				while($row=$result->fetch_assoc()){
+				while($row=$result->fetch_row()){
 					$content=array();
-					array_push($content,$row['id'],$row['content'],$row['author'],$row['alias'],$row['time']);
+					array_push($content,$row[0],$row[1],$row[2],$row[3],$row[4]);
 					array_push($data,$content);
 				}
 				$result->close();
-				$info=DBF_GetThreadInfo($db,$threadID);
+				$info=DBF_GetThreadInfo($db,$tid);
 				array_push($messages,$info);
 				array_push($messages,$data);
 			}
@@ -381,18 +381,7 @@ EOD;
 		}
 		return FALSE;
 	}
-/*
- *
- *	> DELETE THREAD
- *	-----------------
- *	1. Clear messages that are in the thread.
- *		i. Clear message content table @ msgid.
- *		ii. Clear entry from message table.
- *	2. Remove thread.
- *		i. Clear information from 'ForumThreadInfo'
- *		ii. Clear entry from ForumThreads.
- *
- */
+	
 	function DBF_DeleteThread($db, $tid) {
 		if($db->connected) {
 			$count=0;

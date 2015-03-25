@@ -46,7 +46,7 @@ span.glyphicon-new-window { padding-left: 5px; padding-right: 5px; }
 span.glyphicon-send { 
 	font-size: 20pt; 
 	margin-right: 7px; 
-	margni-bottom: 3px;
+	margin-bottom: 3px;
 }
 span.glyphicon-check,
 span.glyphicon-trash,
@@ -118,7 +118,7 @@ form > .panel > .page-header {
 .panel-messages { padding: 20px; }
 .panel-messages .col-xs-6 { padding: 0px; }
 
-.panel .row { min-width: 650px; }
+.panel .row { min-width: 660px; }
 .panel .row .col-xs-1,
 .panel .row .col-xs-2 { 
 	text-align: center;
@@ -131,9 +131,7 @@ form > .panel > .page-header {
 .col-xs-5 > a,
 .col-xs-6 > a { 
 	width: 100%; 
-	min-width: 225px;
 	text-align: left;
-	padding-left: 30px;
 }
 .table-forum-layout { width: 100%; }
 .table-forum-layout .panel-group a { 

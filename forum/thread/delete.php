@@ -8,7 +8,7 @@
 	session_start();
 	
 	$header="Location: ".$ROOT."/forum/index.php?".$_SERVER["QUERY_STRING"];
-	if (isset($_SESSION["USER"])){
+	if(isset($_SESSION["USER"])){
 		$params=array();
 		array_push($params,"t_id","c_id","t_tag","c_tag");
 		if(verifygetvars($params,$_GET)){
@@ -16,7 +16,7 @@
 			$cid=$_GET["c_id"];
 			$ttag=$_GET["t_tag"];
 			$ctag=$_GET["c_tag"];
-			$update=UpdateMessage($cid,$ctag,$tid,$ttag,$_POST["msgid"],$_POST["content"],$_SESSION["USER"]);			
+			$del=DeleteThread($cid,$ctag,$tid,$ttag,$_SESSION["USER"]);
 		}	
 	}
 	header($header);
@@ -42,10 +42,9 @@
 	<div class="container">
 		<div class="page-header text-center">
 			<h1>Forum Post Processing...</h1>
-			<?php	
-				echo "msgid:".$_POST["msgid"]."<br>";
-				echo "update:".$update."<br>";
-				echo "content:".$_POST["content"]."<br>";
+			<?php
+				echo "deleted:".$del."<br>";
+				echo "message:".$_POST["message"]."<br>";
 			 ?>
 		</div>
 	</div>

@@ -16,6 +16,8 @@
 	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><center></center><h1></h1><h2></h2><h3></h3><h4></h4><p></p><ul></ul><li></li><img></img></br><br><br/><a></a><small></small>";
 	
 	$PG_INDEX = 'index.php';
+	$PG_THR_ADD = $ROOT.'/forum/thread/create.php';
+	$PG_THR_DEL = $ROOT.'/forum/thread/delete.php';
 	$PG_MSG_DEL = $ROOT.'/forum/message/delete.php';
 	$PG_MSG_ADD = $ROOT.'/forum/message/create.php';
 	$PG_MSG_UPD = $ROOT.'/forum/message/update.php';
@@ -84,7 +86,7 @@
  *		Gives us easy access to functions typically performed in the
  *	forum. These functions rely on database access through 'db.php'.
  */ 
-	function UpdateMessage($cid,$ctag,$tid,$ttag,$msgid,$content) {
+	function UpdateMessage($cid,$ctag,$tid,$ttag,$msgid,$content,$user) {
 		global $ALLOWED_HTML_TAGS;
 		$update=-1;
 		$db=DB_CreateDefault();
@@ -93,19 +95,27 @@
 			$content=cleanmessage($content,$ALLOWED_HTML_TAGS);
 			$update=-2;
 			if(validateinput($content)){
-				$update=DBF_UpdateMessage($db,$msgid,$content);
+				$minfo=DBF_GetMessageInfo($db,$msgid);
+				$update=-3;
+				if($minfo[0] == $user) {
+					$update=DBF_UpdateMessage($db,$msgid,$content);
+				}
 			}
 		}
 		$db->disconnect();
 		return $update;
 	}
 	
-	function DeleteMessage($cid,$ctag,$tid,$ttag,$msgid) {
+	function DeleteMessage($cid,$ctag,$tid,$ttag,$msgid,$user) {
 		$del=-2;
 		$db=DB_CreateDefault();
 		$db->connect();
 		if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
-			$del=DBF_DeleteMessage($db,$msgid);
+			$minfo=DBF_GetMessageInfo($db,$msgid);
+			$del=-3;
+			if($minfo[0] == $user) {
+				$del=DBF_DeleteMessage($db,$msgid);
+			}
 		}
 		$db->disconnect();
 		return $del;
@@ -144,6 +154,21 @@
 		}
 		$db->disconnect();
 		return $tid;
+	}
+	
+	function DeleteThread($cid,$ctag,$tid,$ttag,$user) {
+		$del=-2;
+		$db=DB_CreateDefault();
+		$db->connect();
+		if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
+			$info=DBF_GetThreadInfo($db,$tid);
+			$del=-3;
+			if($info[3] == $user) {
+				$del=DBF_DeleteThread($db,$tid);
+			}
+		}
+		$db->disconnect();
+		return $del;
 	}
 	
 //###############################################################
@@ -188,7 +213,7 @@
 								</a>
 							</div>
 							<div class="col-xs-1">
-								<h4><b>{$count}</b><br><small>Replies</small></h4>
+								<h4><b>{$count}</b><br><small>Threads</small></h4>
 							</div>
 							<div class="col-xs-5">
 								
@@ -202,6 +227,7 @@ EOD;
 	
 	function HtmlThread($cid,$ctag,$tid,$ttag,$glyph,$alias,$time,$count) {
 		global $PG_INDEX;
+		global $PG_THR_DEL;
 		$ctagenc=urlencode($ctag);
 		$ttagenc=urlencode($ttag);
 		return <<<EOD
@@ -216,11 +242,17 @@ EOD;
 							</a>
 						</div>
 						<div class="col-xs-1">
-							<h4><b>{$count}</b><br><small>Threads</small></h4>
+							<h4><b>{$count}</b><br><small>Replies</small></h4>
 						</div>
 						<div class="col-xs-5">
-						
 						</div>
+					</div>
+					<div class="row usertool">
+						<form role="form" action="{$PG_THR_DEL}?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}" method="post">
+							<button type="submit" class="btn btn-edit pull-right">
+								Delete
+							</button>
+						</form>
 					</div>
 				</div>
 			</div>

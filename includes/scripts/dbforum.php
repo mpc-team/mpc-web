@@ -98,10 +98,8 @@ EOD;
 					array_push($data,$content);
 				}
 				$result->close();
-				$header=array();
 				$info=DBF_GetThreadInfo($db,$threadID);
-				array_push($header,$info[0],$info[1],$info[2]);
-				array_push($messages,$header);
+				array_push($messages,$info);
 				array_push($messages,$data);
 			}
 		}
@@ -156,7 +154,7 @@ EOD;
 	function DBF_GetThreadInfo($db,$tid){
 		if($db->connected){
 			$sql=<<<EOD
-				SELECT name, UserAlias.userAlias, ForumThreadInfo.tstamp
+				SELECT name, UserAlias.userAlias, ForumThreadInfo.tstamp, User.userName
 				FROM ForumThreads 
 					JOIN ForumThreadInfo
 						ON ForumThreads.fthreadID=ForumThreadInfo.fthreadID
@@ -169,11 +167,30 @@ EOD;
 			$result=$db->query($sql);
 			$row=$result->fetch_row();
 			$info=array();
-			array_push($info,$row[0],$row[1],$row[2]);
+			array_push($info,$row[0],$row[1],$row[2],$row[3]);
 			$result->close();
 			return($info);
 		}
-		return(null);
+		return NULL;
+	}
+	
+	function DBF_GetMessageInfo($db,$mid) {
+		if($db->connected) {
+			$sql=<<<EOD
+				SELECT author, tstamp, content, fthreadID
+				FROM ThreadMessageContent
+					JOIN ThreadMessages
+						ON ThreadMessages.tmsgID=ThreadMessageContent.tmsgID
+				WHERE ThreadMessageContent.tmsgID={$mid}
+EOD;
+			$result=$db->query($sql);
+			$row=$result->fetch_row();
+			$info=array();
+			array_push($info,$row[0],$row[1],$row[2],$row[3]);
+			$result->close();
+			return $info;
+		}
+		return NULL;
 	}
 	
 	function DBF_GetThreadMessageCount($db,$tid) {
@@ -349,11 +366,54 @@ EOD;
 		}
 		return (-1);
 	}
+
+
+	function DBF_DeleteThreadMessages($db,$tid) {
+		if($db->connected) {
+			$sql=<<<EOD
+				DELETE ThreadMessages, ThreadMessageContent
+				FROM ThreadMessages
+					JOIN ThreadMessageContent
+						ON ThreadMessages.tmsgID=ThreadMessageContent.tmsgID
+						AND ThreadMessages.fthreadID={$tid}
+EOD;
+			return (boolean)$db->query($sql);
+		}
+		return FALSE;
+	}
+/*
+ *
+ *	> DELETE THREAD
+ *	-----------------
+ *	1. Clear messages that are in the thread.
+ *		i. Clear message content table @ msgid.
+ *		ii. Clear entry from message table.
+ *	2. Remove thread.
+ *		i. Clear information from 'ForumThreadInfo'
+ *		ii. Clear entry from ForumThreads.
+ *
+ */
+	function DBF_DeleteThread($db, $tid) {
+		if($db->connected) {
+			$count=0;
+			$count=(DBF_DeleteThreadMessages($db,$tid))?($count+1):($count);
+			$sql=<<<EOD
+				DELETE ForumThreads, ForumThreadInfo
+				FROM ForumThreads
+					JOIN ForumThreadInfo
+						ON ForumThreads.fthreadID=ForumThreadInfo.fthreadID
+						AND ForumThreads.fthreadID={$tid}
+EOD;
+			$count=($db->query($sql))?($count+1):($count);
+			return $count;
+		}
+		return -1;
+	}
 		
-	function DBF_CreateMessage($db, $threadID, $content, $author) {
+	function DBF_CreateMessage($db, $tid, $content, $author) {
 		if ($db->connected) {
 			$id = DBF_GetNewMessageID($db);
-			$sql = "INSERT INTO ThreadMessages VALUES ({$id}, {$threadID})";
+			$sql = "INSERT INTO ThreadMessages VALUES ({$id}, {$tid})";
 			if ($db->query($sql)) {
 				$sql=<<<EOD
 					INSERT INTO ThreadMessageContent

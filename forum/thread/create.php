@@ -9,7 +9,7 @@
 	$content=$_POST["content"];
 	session_start();
 	
-	$header="Location: ".$ROOT."/forum/index.php?{$_SERVER["QUERY_STRING"]}";
+	$header="Location: ".$ROOT."/forum/index.php?".$_SERVER["QUERY_STRING"];
 	if(isset($_SESSION["USER"])){
 		$params=array();
 		array_push($params,"c_id","c_tag");

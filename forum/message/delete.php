@@ -9,6 +9,7 @@
 	
 	$header="Location: ".$ROOT."/forum/index.php?".$_SERVER["QUERY_STRING"];
 	if(isset($_SESSION["USER"])){
+		$s_user=$_SESSION["USER"];
 		$params=array();
 		array_push($params,"t_id","c_id","t_tag","c_tag");
 		if(verifygetvars($params,$_GET)){

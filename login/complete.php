@@ -12,7 +12,7 @@
 	$query=$_SERVER["QUERY_STRING"];
 	if(strlen($query) > 0) $query="?".$query;
 	
-	$header = "Location: {$ROOT}/login/index.php";
+	$header = "Location: {$ROOT}/login/index.php".$query;
 	$v_email = isValidEmail($email);
 	if ($v_email && AuthenticateUser($email, $password)) {
 		$db=DB_CreateDefault();

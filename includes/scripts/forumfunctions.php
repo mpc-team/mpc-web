@@ -36,6 +36,23 @@
  *	database server.
  *
  */ 
+	function CheckPagePermissions($db,$cid,$ctag,$signed,$user) {
+		if($cid != NULL && $ctag != NULL){
+			if(DBF_CheckCategory($db,$cid,$ctag)) {
+				$cperms = DBF_GetCategoryPermissions($db,$cid);
+				if($cperms[0] == 'public') return TRUE;
+				if($signed) {
+					$perms = DB_GetUserPermissionsByEmail($db,$user);
+					return in_array($cperms[0],$perms);
+				}else{
+					return FALSE;
+				}
+			}
+			return FALSE;
+		}
+		return TRUE;
+	}
+ 
 	function GetForumPageType($db,$cid,$ctag,$tid,$ttag) {
 		$default="categories";
 		if($cid==null || $ctag==null) {	return $default; }

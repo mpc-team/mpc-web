@@ -247,6 +247,22 @@ EOD;
 		return -1;
 	}
 	
+	function DBF_GetCategoryPermissions($db,$cid) {
+		if($db->connected) {
+			$sql="SELECT permission FROM ForumCategoryPermissions WHERE categoryID={$cid}";
+			$perms=array( );
+			$result=$db->query($sql);
+			if($result) {
+				while($row=$result->fetch_row()) {
+					array_push($perms, $row[0]);
+				}
+				$result->close( );
+			}
+			return $perms;
+		}
+		return NULL;
+	}
+	
 	function DBF_CheckCategory($db,$cid,$ctag){
 		if($db->connected){
 			$sql=<<<EOD

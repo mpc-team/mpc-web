@@ -44,7 +44,7 @@ EOD;
 	$path  = $root . '/forum/index.php';
 	echo "<li {$class} > <a href='{$path}'>Forums</a> </li>";
 	
-	$class = ($highlight == "gaming") ? $ACTIVE : "";
+	$class = ($highlight == "gaming") ? ' active' : "";
     $gaming = $root . '/gaming/index.php';
     $vlive = $root . '/gaming/ventrilolive.php';
     $stream = $root . '/gaming/mpcstream.php';

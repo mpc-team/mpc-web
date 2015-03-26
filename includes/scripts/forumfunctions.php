@@ -114,6 +114,7 @@
 		$db->connect();
 		if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
 			$content=cleanmessage($content,$ALLOWED_HTML_TAGS);
+			$content=$db->escapestr($content);
 			$update=-2;
 			if(validateinput($content)){
 				$minfo=DBF_GetMessageInfo($db,$msgid);
@@ -156,6 +157,7 @@
 		$db->connect();
 		if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
 			$content=cleanmessage($content,$ALLOWED_HTML_TAGS);
+			$content=$db->escapestr($content);
 			$msg=-3;
 			if(validateinput($content)){
 				$msg=DBF_CreateMessage($db,$tid,$content,$user);
@@ -319,7 +321,7 @@ EOD;
 EOD;
 	}
 	
-	function HtmlMessage($canDelete,$id,$content,$author,$alias,$time,$query,$i) {
+	function HtmlMessage($id,$content,$author,$alias,$time,$query,$i) {
 		$headerleft=HtmlMessageAuthor($alias);
 		$headerright=HtmlMessageDate($time);
 		$body=HtmlMessageContent($i,$content);
@@ -333,9 +335,7 @@ EOD;
 						{$headerright}
 					</div>
 				</div>
-				<div class='row'>
-					{$body}
-				</div>
+				<div class='row'>{$body}</div>
 			</div>
 EOD;
 	}
@@ -411,9 +411,7 @@ EOD;
 	
 	function HtmlMessageContent($i,$msg) {
 		return <<<EOD
-			<div class='content-message' id='c{$i}'>
-				{$msg}
-			</div>
+			<div class='content-message' id='c{$i}'>{$msg}</div>
 			<div class='content-message' id='a{$i}'>
 				<textarea name='content' class='form-control editmessage' id='t{$i}'>{$msg}</textarea>
 			</div>

@@ -227,11 +227,9 @@
 								$message = $messages[$i];
 								$msgid = $message[0];
 								$email = $message[2];
-								$canEdit = ($s_user==$email);
-								$canDelete = ($s_user==$email || $s_user=="b0rg3r@gmail.com");
 								
 								echo $LAYOUT_OPEN;
-								echo HtmlMessage($canDelete,$msgid,$message[1],$message[2],$message[3],$message[4],$query,$i);
+								echo HtmlMessage($msgid,$message[1],$email,$message[3],$message[4],$query,$i);
 								$moptions=($s_user == $email) ? HtmlMessageOptions($i,$msgid,$query) : "";
 								echo $moptions;
 								echo $LAYOUT_CLOSE;

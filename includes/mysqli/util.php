@@ -22,6 +22,10 @@ class dbutil {
 		return $this->mysqli->prepare($sql);
 	}
 	
+	public function escapestr($str) {
+		return $this->mysqli->real_escape_string($str);
+	}
+	
 	public function connect()	{
 		$this->mysqli = new mysqli($this->host, $this->user, $this->pass, $this->name);
 		if ($this->mysqli->connect_errno) {

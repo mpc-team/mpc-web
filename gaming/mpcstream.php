@@ -30,7 +30,7 @@
     </div>
         <div class="container">
             <div class="content">
-<div class="well">
+                <div class="well">
                     <center>
                         <img src="../pics/mpcstream.png" alt="mpcstream.png" class="img-responsive img-rounded" style="height:100px; width: 600px;"  />
                     <br />
@@ -98,8 +98,10 @@
                         </div>
                     </center>
                 </div>
-                </div>
-                </div>
-                <div class="container-fluid">
-    <?php PrintFooter($ROOT); ?>
-</div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <?php PrintFooter($ROOT); ?>
+        </div>
+    </body>
+</html>

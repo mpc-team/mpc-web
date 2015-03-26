@@ -112,19 +112,42 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 
 /* Recent Feed Style */
 
-.panel-recentfeed-content { 
+.panel-recentfeed-content {
 	padding: 5px;
-	min-height: 150px; 
-	max-height: 150px;
 	overflow: hidden;
+	min-height: 78px;
+	max-height: 78px;
 }
+
+@media (min-width: 450px) {
+	.panel-recentfeed-content {
+		min-height: 78px;
+		max-height: 78px;
+	}
+}
+
+@media (min-width: 499px) {
+	.panel-recentfeed-content {
+		min-height: 125px;
+		max-height: 125px;
+	}
+}
+
+@media (min-width: 600px) {
+	.panel-recentfeed-content { 
+		min-height: 150px; 
+		max-height: 150px;
+	}
+}
+
 .panel-recentfeed-footer {
 	padding: 0px;
 	padding-top: 8px;
 }
 
-.col-xs-6 .panel > a.btn,
-.col-xs-4 .panel > a.btn {
+.col-md-4 .panel > a.btn,
+.col-xs-4 .panel > a.btn,
+.col-xs-6 .panel > a.btn {
 	text-align: left;
 	padding: 5px;
 }

@@ -238,7 +238,7 @@
 		$feedcontent=rtrim($stripped);
 		$feedlink="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}";
 		return <<<EOD
-			<div class='col-xs-4'>
+			<div class='col-md-4'>
 				<div class='panel-group'>
 					<div class='panel panel-default'>
 						<a class='btn' href='{$feedlink}'>

@@ -162,20 +162,20 @@
 				
 					echo $navbar;
 					
-					echo "<div class='row'>";
-					echo "<h3>Recent</h3>";
-					echo "</div>";
-					echo "<div class='row'>";
 					switch($pagetype) {
 						case $CATEGORIES:
+							echo "<div class='row'>";
+							echo "<h3>Recent</h3>";
+							echo "</div>";
+							echo "<div class='row'>";
 							$count=count($postfeed);
 							for($i=0; $i<$count; $i++) {
 								$recent=$postfeed[$i];
 								echo HtmlRecentFeed($recent[2],$recent[3],$recent[0],$recent[1],$recent[4],$recent[5],$recent[6]);	
 							}
+							echo "</div>";
 							break;
 					}
-					echo "</div>";
 					
 					echo $pagetitle, $noticelogin;
 					

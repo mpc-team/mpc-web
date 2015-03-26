@@ -7,15 +7,7 @@
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$HEADER);
-	include_once($ROOT . PathDir::$FORUMFUNC);
-	
-	$query = $_SERVER['QUERY_STRING'];
-	$CREATE_PAGE = $ROOT . '/forum/thread/create.php';
-	$CATEGORIES = "categories";
-	$THREADS = "threads";
-	$MESSAGES = "messages";
-	
-	$GLYPH_STAR="<span class='glyphicon glyphicon-star'></span>";
+	include_once($ROOT . PathDir::$FORUMFUNC);;
 	
 	session_start();
 	$usersigned=(isset($_SESSION["USER"]));
@@ -35,7 +27,6 @@
 			$ttag=$_GET["t_tag"];
 		}
 	}
-	
 	$db=DB_CreateDefault();
 	$db->connect();
 	$pagetype=GetForumPageType($db,$cid,$ctag,$tid,$ttag);
@@ -44,10 +35,19 @@
 	$contentcount=count($content);
 	$db->disconnect();
 	
+	$query = $_SERVER['QUERY_STRING'];
+	$CREATE_PAGE = $ROOT . '/forum/thread/create.php';
+	$LAYOUT_OPEN = "<tr><td><div class='panel-group'><div class='panel panel-default'>";
+	$LAYOUT_CLOSE = "</div></div></td></tr>";
+	$CATEGORIES = "categories";
+	$THREADS = "threads";
+	$MESSAGES = "messages";
+	
 	$highlight=($pagetype==$CATEGORIES)?"forum":"path";
-	$navbar="<div class='navbar-forum'>".ForumNavbar($highlight,$ROOT,$path)."</div>";
+	$navbar="<div class='navbar-forum'>".ForumNavbar($highlight,$ROOT,$path)."</div>";	
 	$pagefooter=HtmlPageFooter( );
 	
+	/* Title of Page */
 	$pagetitle="";
 	switch($pagetype) {
 		case $CATEGORIES:
@@ -62,6 +62,7 @@
 			break;
 	}
 	
+	/* Login Notice */
 	$noticelogin=(!$usersigned) ? HtmlLoginNotice(PathDir::$LOGIN,$query):"";
 	$replyform="";
 	switch($pagetype) {
@@ -101,37 +102,48 @@
 		<div class="forum">
 			<div class="content">
 				<?php 
-					echo $navbar,$pagetitle,$noticelogin;
-					$layoutopen="<tr><td><div class='panel-group'><div class='panel panel-default'>";
-					$layoutclose="</div></div></td></tr>";
+				
+					echo $navbar, $pagetitle, $noticelogin;
 					
 					switch($pagetype){
+				//////////////////////////////////////////////////////////////////////////////////////////////////////////
+				//
+				//	Forum Categories
+				//
+				//////////////////////////////////////////////////////////////////////////////////////////////////////////	
 						case $CATEGORIES:
 							echo "<table class='table-forum-layout'>";
 							for( $i=0; $i<$contentcount; $i++ ){
 								$category=$content[$i];
-								$glyph=("General"==$category[1])?$GLYPH_STAR:"";
-								echo $layoutopen;
-								echo HtmlCategory($category[0],$category[1],$category[2],$glyph,$category[3]);
-								echo $layoutclose;
+								echo $LAYOUT_OPEN;
+								echo HtmlCategory($category[0],$category[1],$category[2],"",$category[3]);
+								echo $LAYOUT_CLOSE;
 							}
 							echo "</table>";
 							break;	
-							
+				//////////////////////////////////////////////////////////////////////////////////////////////////////////
+				//
+				//	Category Threads
+				//
+				//////////////////////////////////////////////////////////////////////////////////////////////////////////	
 						case $THREADS:
 							echo "<table class='table-forum-layout'>";
 							for( $i=0; $i<$contentcount; $i++ ){
 								$thread=$content[$i];
-								echo $layoutopen;
+								echo $LAYOUT_OPEN;
 								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],"",$thread[4],$thread[5],$thread[6]);
 								$toptions=($s_user == $thread[3]) ? HtmlThreadOptions($cid,$ctag,$thread[0],$thread[2]) : "";
 								echo $toptions;
-								echo $layoutclose;
+								echo $LAYOUT_CLOSE;
 							}
 							echo "</table>";
 							if( $usersigned ){ echo NewThreadModal($query,$CREATE_PAGE);	}
 							break;
-							
+				//////////////////////////////////////////////////////////////////////////////////////////////////////////
+				//
+				//	Forum Categories
+				//
+				//////////////////////////////////////////////////////////////////////////////////////////////////////////	
 						case $MESSAGES:
 							$messages = $content[1];
 							$mcount = count($messages);
@@ -140,12 +152,13 @@
 								$email = $message[2];
 								$canEdit = ($s_user==$email);
 								$canDelete = ($s_user==$email || $s_user=="b0rg3r@gmail.com");
-								echo HtmlMessage($canEdit,$canDelete,
-									$message[0],$message[1],$message[2],$message[3],$message[4],
-									$query,$i);
+								echo HtmlMessage($canEdit,$canDelete,$message[0],$message[1],
+										$message[2],$message[3],$message[4],$query,$i);
 							}
 					}
-					echo $pagefooter,$navbar,$replyform;
+					
+					echo $pagefooter, $navbar, $replyform;
+					
 				?>
 			</div>
 		</div>

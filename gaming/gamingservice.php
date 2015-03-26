@@ -14,12 +14,6 @@
     <title>Multi-Player Clan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <?php
-    PrintJavaScriptResource( PathDir::GetJQueryPath($ROOT) );
-    PrintStyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
-    PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
-    PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
-    PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
 <?php
     echo JavaScriptResource( PathDir::GetJQueryPath($ROOT) );
     echo StyleResource( PathDir::GetBootstrapCSSPath($ROOT) );

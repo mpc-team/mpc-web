@@ -18,6 +18,10 @@ class dbutil {
 		return $this->mysqli->query($sql);
 	}
 	
+	public function prepare($sql) {
+		return $this->mysqli->prepare($sql);
+	}
+	
 	public function connect()	{
 		$this->mysqli = new mysqli($this->host, $this->user, $this->pass, $this->name);
 		if ($this->mysqli->connect_errno) {
@@ -32,6 +36,7 @@ class dbutil {
 		$this->mysqli->close();
 		$this->connected = false;
 	}
+	
 }
 
 

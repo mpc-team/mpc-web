@@ -18,6 +18,9 @@
 			$ttag=$_GET["t_tag"];
 			$ctag=$_GET["c_tag"];
 			$del=DeleteMessage($cid,$ctag,$tid,$ttag,$_POST["msgid"],$s_user);
+			if($del[1] > 0) {
+				$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}";
+			}
 		}	
 	}
 	header($header);

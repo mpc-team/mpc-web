@@ -6,9 +6,27 @@
 	
 	session_start();
 	
-	$STATEMENT=
+	$action='default';
+	if(isset($_GET['action'])) {
+		$action=$_GET['action'];
+	}
+	
+	$CLEAN_STATEMENT=
 <<<EOD
-	SELECT * FROM ForumThreads
+	DELETE ft, fi 
+	FROM ForumThreads AS ft
+		JOIN ForumThreadInfo AS fi
+			ON ft.fthreadID=fi.fthreadID
+	WHERE ft.fthreadID
+		NOT IN (SELECT ThreadMessages.fthreadID FROM ThreadMessages)
+EOD;
+
+	$GET_STATEMENT=
+<<<EOD
+	SELECT * 
+	FROM ForumThreads AS ft
+		JOIN ForumThreadInfo AS fi
+			ON ft.fthreadID=fi.fthreadID
 EOD;
 	
 	$authenticated=FALSE;
@@ -20,17 +38,22 @@ EOD;
 	if( $authenticated ){
 		$db = DB_CreateDefault( );
 		$db->connect();
-		$result = $db->query($STATEMENT);
-		if( $result ){
-			while($row=$result->fetch_row()) {
-				$thread = array( );
-				$count = count($row);
-				for( $i=0; $i<$count; $i++ ){
-					array_push($thread,$row[$i]);
+		
+		if($action == "clean"){
+			$result = $db->query($CLEAN_STATEMENT);
+		}else{
+			$result = $db->query($GET_STATEMENT);
+			if( $result ){
+				while($row=$result->fetch_row()) {
+					$thread = array( );
+					$count = count($row);
+					for( $i=0; $i<$count; $i++ ){
+						array_push($thread,$row[$i]);
+					}
+					array_push($threads,$thread);
 				}
-				array_push($threads,$thread);
+				$result->close( );
 			}
-			$result->close( );
 		}
 		$db->disconnect();
 	}

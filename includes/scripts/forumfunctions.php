@@ -114,7 +114,14 @@
 			$minfo=DBF_GetMessageInfo($db,$msgid);
 			$del=-3;
 			if($minfo[0] == $user) {
-				$del=DBF_DeleteMessage($db,$msgid);
+				$del=array( );
+				$delmsg=DBF_DeleteMessage($db,$msgid);
+				array_push($del,$delmsg);
+				$cnt=DBF_GetThreadMessageCount($db,$tid);
+				if($del[0] > 0 && $cnt == 0) {
+					$delthr=DeleteThread($cid,$ctag,$tid,$ttag,$user);
+				}
+				array_push($del,$delthr);
 			}
 		}
 		$db->disconnect();

@@ -5,8 +5,13 @@
 	include_once($ROOT . PathDir::$DBFORUM);
 	
 	session_start();
+
+	$clean = TRUE;
+	if(isset($_GET["action"])) {
+		$clean = ($_GET['action'] == 'clean');
+	}
 	
-	$STATEMENT=
+	$CLEAN_STATEMENT=
 <<<EOD
 	DELETE FROM ThreadMessages
 	WHERE ThreadMessages.tmsgID NOT IN
@@ -48,7 +53,10 @@ EOD;
 			}
 		}
 		
-		$action = $db->query($STATEMENT);
+		$action=FALSE;
+		if( $clean ) {
+			$action = $db->query($CLEAN_STATEMENT);
+		}
 		$db->disconnect();
 	}
  ?>

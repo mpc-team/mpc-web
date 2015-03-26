@@ -15,12 +15,17 @@
 		if(verifygetvars($params,$_GET)){
 			$cid=$_GET["c_id"];
 			$ctag=$_GET["c_tag"];
+			$user=$_SESSION["USER"];
 			$tid=CreateThread($cid,$ctag,$title,$_SESSION["USER"]);
-			$msg=CreateMessage($cid,$ctag,$tid,$title,$_POST["content"],$_SESSION["USER"]);
-			if($msg > 0){
-				$title=urlencode($title);
-				$header=$_SERVER["QUERY_STRING"]."&t_id={$tid}&t_tag={$title}";
-				$header="Location: ".$ROOT."/forum/index.php?{$header}";
+			if($tid > 0) {
+				$msg=CreateMessage($cid,$ctag,$tid,$title,$_POST["content"],$user);
+				if($msg > 0){
+					$title=urlencode($title);
+					$header=$_SERVER["QUERY_STRING"]."&t_id={$tid}&t_tag={$title}";
+					$header="Location: ".$ROOT."/forum/index.php?{$header}";
+				}else{
+					$del=DeleteThread($cid,$ctag,$tid,$title,$user);
+				}
 			}
 		}	
 	}

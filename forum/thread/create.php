@@ -15,12 +15,17 @@
 		if(verifygetvars($params,$_GET)){
 			$cid=$_GET["c_id"];
 			$ctag=$_GET["c_tag"];
+			$user=$_SESSION["USER"];
 			$tid=CreateThread($cid,$ctag,$title,$_SESSION["USER"]);
-			$msg=CreateMessage($cid,$ctag,$tid,$title,$_POST["content"],$_SESSION["USER"]);
-			if($msg > 0){
-				$title=urlencode($title);
-				$header=$_SERVER["QUERY_STRING"]."&t_id={$tid}&t_tag={$title}";
-				$header="Location: ".$ROOT."/forum/index.php?{$header}";
+			if($tid > 0) {
+				$msg=CreateMessage($cid,$ctag,$tid,$title,$_POST["content"],$user);
+				if($msg > 0){
+					$title=urlencode($title);
+					$header=$_SERVER["QUERY_STRING"]."&t_id={$tid}&t_tag={$title}";
+					$header="Location: ".$ROOT."/forum/index.php?{$header}";
+				}else{
+					$del=DeleteThread($cid,$ctag,$tid,$title,$user);
+				}
 			}
 		}	
 	}
@@ -36,11 +41,11 @@
 	<meta name="keywords" content="mpc, clan mpc, clanmpc, mpcgaming, mpc gaming, gaming clan, multiplayer clan, multiplayer">
 	<meta name="description" content="Multi-Player Clan - Gaming community hosting tournaments for various games including StarCraft II, Heroes of the Storm, Counter-Strike: Global Offense.">
 <?php
-	PrintJavaScriptResource( PathDir::GetJQueryPath($ROOT) );
-	PrintStyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
-	PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
-	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
-	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
+	echo JavaScriptResource( PathDir::GetJQueryPath($ROOT) );
+	echo StyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
+	echo StyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
+	echo JavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
+	echo StyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
  ?>
 </head>
 <body>

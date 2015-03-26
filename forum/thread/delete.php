@@ -32,11 +32,11 @@
 	<meta name="keywords" content="mpc, clan mpc, clanmpc, mpcgaming, mpc gaming, gaming clan, multiplayer clan, multiplayer">
 	<meta name="description" content="Multi-Player Clan - Gaming community hosting tournaments for various games including StarCraft II, Heroes of the Storm, Counter-Strike: Global Offense.">
 <?php
-	PrintJavaScriptResource( PathDir::GetJQueryPath($ROOT) );
-	PrintStyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
-	PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
-	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
-	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
+	echo JavaScriptResource( PathDir::GetJQueryPath($ROOT) );
+	echo StyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
+	echo StyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
+	echo JavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
+	echo StyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
  ?>
 </head>
 <body>
@@ -44,7 +44,11 @@
 		<div class="page-header text-center">
 			<h1>Forum Post Processing...</h1>
 			<?php
-				echo "deleted:".$del."<br>";
+				if($del) {
+					echo "deleted<br>";
+				}else{
+					echo "cancelled";
+				}
 			 ?>
 		</div>
 	</div>

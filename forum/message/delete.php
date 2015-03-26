@@ -17,7 +17,10 @@
 			$cid=$_GET["c_id"];
 			$ttag=$_GET["t_tag"];
 			$ctag=$_GET["c_tag"];
-			$del=DeleteMessage($cid,$ctag,$tid,$ttag,$_POST["message"],$s_user);
+			$del=DeleteMessage($cid,$ctag,$tid,$ttag,$_POST["msgid"],$s_user);
+			if($del[1] > 0) {
+				$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}";
+			}
 		}	
 	}
 	header($header);
@@ -32,11 +35,11 @@
 	<meta name="keywords" content="mpc, clan mpc, clanmpc, mpcgaming, mpc gaming, gaming clan, multiplayer clan, multiplayer">
 	<meta name="description" content="Multi-Player Clan - Gaming community hosting tournaments for various games including StarCraft II, Heroes of the Storm, Counter-Strike: Global Offense.">
 <?php
-	PrintJavaScriptResource( PathDir::GetJQueryPath($ROOT) );
-	PrintStyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
-	PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
-	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
-	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
+	echo JavaScriptResource( PathDir::GetJQueryPath($ROOT) );
+	echo StyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
+	echo StyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
+	echo JavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
+	echo StyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
  ?>
 </head>
 <body>
@@ -45,7 +48,7 @@
 			<h1>Forum Post Processing...</h1>
 			<?php
 				echo "deleted:".$del."<br>";
-				echo "message:".$_POST["message"]."<br>";
+				echo "message ID:".$_POST["msgid"]."<br>";
 			 ?>
 		</div>
 	</div>

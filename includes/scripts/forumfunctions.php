@@ -15,7 +15,7 @@
  */ 
 	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><center></center><h1></h1><h2></h2><h3></h3><h4></h4><p></p><ul></ul><li></li><img></img></br><br><br/><a></a><small></small>";
 	
-	$PG_INDEX = 'index.php';
+	$PG_INDEX = $ROOT . '/forum/index.php';
 	$PG_THR_ADD = $ROOT.'/forum/thread/create.php';
 	$PG_THR_DEL = $ROOT.'/forum/thread/delete.php';
 	$PG_MSG_DEL = $ROOT.'/forum/message/delete.php';
@@ -36,6 +36,23 @@
  *	database server.
  *
  */ 
+	function CheckPagePermissions($db,$cid,$ctag,$signed,$user) {
+		if($cid != NULL && $ctag != NULL){
+			if(DBF_CheckCategory($db,$cid,$ctag)) {
+				$cperms = DBF_GetCategoryPermissions($db,$cid);
+				if($cperms[0] == 'public') return TRUE;
+				if($signed) {
+					$perms = DB_GetUserPermissionsByEmail($db,$user);
+					return in_array($cperms[0],$perms);
+				}else{
+					return FALSE;
+				}
+			}
+			return FALSE;
+		}
+		return TRUE;
+	}
+ 
 	function GetForumPageType($db,$cid,$ctag,$tid,$ttag) {
 		$default="categories";
 		if($cid==null || $ctag==null) {	return $default; }
@@ -64,7 +81,7 @@
 		return $path;
 	}
 	
-	function GetForumPageContent($db,$cid,$ctag,$tid,$ttag,$type) {
+	function GetForumPageContent($db,$cid,$ctag,$tid,$ttag,$type,$user) {
 		$content=array();
 		switch($type) {
 			case "messages":
@@ -74,10 +91,14 @@
 				$content=DBF_GetCategoryThreads($db,$cid);
 				break;
 			case "categories":
-				$content=DBF_GetCategories($db);
+				$content=DBF_GetCategories($db,$user);
 				break;
 		}
 		return $content;
+	}
+	
+	function GetForumRecentFeed($db,$user) {
+		return DBF_GetRecentThreadsInCategory($db,1);
 	}
 /*
  *
@@ -93,11 +114,13 @@
 		$db->connect();
 		if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
 			$content=cleanmessage($content,$ALLOWED_HTML_TAGS);
+			$content=$db->escapestr($content);
 			$update=-2;
 			if(validateinput($content)){
 				$minfo=DBF_GetMessageInfo($db,$msgid);
+				$perms=DB_GetUserPermissionsByEmail($db,$user);
 				$update=-3;
-				if($minfo[0] == $user) {
+				if($minfo[0] == $user || in_array('admin',$perms)) {
 					$update=DBF_UpdateMessage($db,$msgid,$content);
 				}
 			}
@@ -112,9 +135,15 @@
 		$db->connect();
 		if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
 			$minfo=DBF_GetMessageInfo($db,$msgid);
+			$perms=DB_GetUserPermissionsByEmail($db,$user);
 			$del=-3;
-			if($minfo[0] == $user) {
-				$del=DBF_DeleteMessage($db,$msgid);
+			if($minfo[0] == $user || in_array('admin',$perms)) {
+				$cnt=DBF_GetThreadMessageCount($db,$tid);
+				if($cnt == 1) {
+					$del=DeleteThread($cid,$ctag,$tid,$ttag,$user);
+				}else{
+					$del=DBF_DeleteMessage($db,$msgid);
+				}
 			}
 		}
 		$db->disconnect();
@@ -128,6 +157,7 @@
 		$db->connect();
 		if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
 			$content=cleanmessage($content,$ALLOWED_HTML_TAGS);
+			$content=$db->escapestr($content);
 			$msg=-3;
 			if(validateinput($content)){
 				$msg=DBF_CreateMessage($db,$tid,$content,$user);
@@ -162,8 +192,9 @@
 		$db->connect();
 		if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
 			$info=DBF_GetThreadInfo($db,$tid);
+			$perm=DB_GetUserPermissionsByEmail($db,$user);
 			$del=-3;
-			if($info[3] == $user) {
+			if($info[3] == $user || in_array('admin',$perm)) {
 				$del=DBF_DeleteThread($db,$tid);
 			}
 		}
@@ -199,15 +230,45 @@
 		return $result;
 	}
 	
+	function HtmlRecentFeed($cid,$ctag,$tid,$ttag,$author,$content,$date) {
+		global $PG_INDEX; 
+		$ctagenc=urlencode($ctag);
+		$ttagenc=urlencode($ttag);
+		$stripped=strip_tags($content,"<br>");
+		$feedcontent=rtrim($stripped);
+		$feedlink="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}";
+		return <<<EOD
+			<div class='col-md-4'>
+				<div class='panel-group'>
+					<div class='panel panel-default'>
+						<a class='btn' href='{$feedlink}'>
+							<div class='panel-recentfeed-content'>
+								<div class='row'>
+									<h5>{$ttag}<br><small>{$ctag}</small></h5>
+								</div>
+								<div class='row'><i style='font-size:8pt;'>{$feedcontent}</i></div>
+							</div>
+							<div class='panel-recentfeed-footer'>
+								<div class='row'>
+									<span class='glyphicon glyphicon-user'></span> {$author}
+								</div>
+							</div>						
+						</a>
+					</div>
+				</div>
+			</div>
+EOD;
+	}
+	
 	function HtmlCategory($cid,$ctag,$descr,$glyph,$count) {
 		global $PG_INDEX;
 		$ctagenc=urlencode($ctag);
 		return <<<EOD
-			<div class="category">
+			<div class="panel-category">
 				<div class="row">
 					<div class="col-xs-6">
 						<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}">
-							<h4>{$glyph} {$ctag} {$glyph}<br><br><small>{$descr}</small></h4>
+							<h5>{$glyph} {$ctag} {$glyph}<small><br>{$descr}</small></h5>
 						</a>
 					</div>
 					<div class="col-xs-1">
@@ -230,9 +291,9 @@ EOD;
 			<div class="row">
 				<div class="col-xs-6">
 					<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}">
-						<h4>{$glyph} {$ttag} {$glyph}<br><br><small>
+						<h5>{$glyph} {$ttag} {$glyph}<br><small>
 						<span class="glyphicon glyphicon-user"></span> {$alias} </br>
-						<span class="glyphicon glyphicon-time"></span> {$time}</small></h4>
+						<span class="glyphicon glyphicon-time"></span> {$time}</small></h5>
 					</a>
 				</div>
 				<div class="col-xs-1">
@@ -259,28 +320,60 @@ EOD;
 EOD;
 	}
 	
-	function HtmlMessage($canEdit,$canDelete,$id,$content,$author,$alias,$time,$query,$i) {
+	function HtmlMessage($id,$content,$author,$alias,$time,$query,$i) {
 		$headerleft=HtmlMessageAuthor($alias);
 		$headerright=HtmlMessageDate($time);
 		$body=HtmlMessageContent($i,$content);
-		if($canDelete) 
-			$headerright=(HtmlMsgDeleteFormOpen($query).$headerright.HtmlMsgDeleteFormClose($id));
-		if($canEdit) 
-			$body=(HtmlMsgEditFormOpen($query).$body.HtmlMsgEditFormClose($i,$id));
-		return <<<EOD
-			<div class='panel-group'>
-				<div class='panel panel-default'>
-					<div class='panel-messages'>
-						<div class='row'>
-							{$headerleft}
-							<div class='col-xs-6'>
-								{$headerright}
-							</div>
-						</div>
-						{$body}
+		return<<<EOD
+			<div class='panel-messages'>
+				<div class='row'>
+					<div class='col-xs-6'>
+						{$headerleft}
+					</div>
+					<div class='col-xs-6'>
+						{$headerright}
 					</div>
 				</div>
+				<div class='row'>{$body}</div>
 			</div>
+EOD;
+	}
+	
+	function HtmlMessageOptions($i,$msgid,$query) {
+		global $PG_MSG_DEL;
+		global $PG_MSG_UPD;
+		return <<<EOD
+			<div class='row usertool' id='r{$i}'>
+				<div class='col-xs-2'>
+					<button type='button' class='btn btn-edit pull-left' id='e{$i}' data-id='{$msgid}'>
+						<span class='glyphicon glyphicon-edit'></span>
+						Edit
+					</button>
+				</div>
+				<div class='col-xs-3'>
+					<form role='form' action='{$PG_MSG_DEL}?{$query}' method='post'>
+						<button type='submit' class='btn btn-edit' id='x{$i}' data-id={$msgid}>
+							<span class='glyphicon glyphicon-trash'></span>
+							Delete
+						</button>
+						<input type='hidden' name='msgid' value='{$msgid}'/>
+					</form>
+				</div>
+				<div class='col-xs-7'>
+					<button type='button' class='btn btn-edit pull-right' id='d{$i}'>
+						<span class='glyphicon glyphicon-remove'></span>
+						Cancel
+					</button>
+					<form id='f{$i}' role='form' action='{$PG_MSG_UPD}?{$query}' method='post'>
+						<button type='button' class='btn btn-edit pull-right' id='s{$i}'>
+							<span class='glyphicon glyphicon-check'></span>
+							Confirm
+						</button>
+						<input type='hidden' name='message' id='h{$i}'/>
+						<input type='hidden' name='msgid' value='{$msgid}'/>
+					</form>
+				</div>
+			</div>	
 EOD;
 	}
 	
@@ -317,116 +410,42 @@ EOD;
 	
 	function HtmlMessageContent($i,$msg) {
 		return <<<EOD
-			<div class='row'>
-				<div class='content-msg' id='c{$i}'>
-					{$msg}
-				</div>
+			<div class='content-message' id='c{$i}'>{$msg}</div>
+			<div class='content-message' id='a{$i}'>
+				<textarea name='content' class='form-control editmessage' id='t{$i}'>{$msg}</textarea>
 			</div>
-EOD;
-	}
-	
-	function HtmlMsgDeleteFormOpen($query) {
-		global $PG_MSG_DEL;
-		return "<form role='form' action='{$PG_MSG_DEL}?{$query}' method='post'>";
-	}
-	
-	function HtmlMsgEditFormOpen($query) {
-		global $PG_MSG_UPD;
-		return "<form role='form' action='{$PG_MSG_UPD}?{$query}' method='post'>";
-	}
-	
-	function HtmlMsgDeleteFormClose($msgid) {
-		return <<<EOD
-			<div class="row">														
-				<button type="submit" class="btn btn-delete pull-right" data-id='${msgid}'>
-					<span class="glyphicon glyphicon-remove"></span>
-					Delete
-				</buton>
-				<input type="hidden" name='message' value='{$msgid}'/>
-			</div>
-		</form>
-EOD;
-	}
-	
-	function HtmlMsgEditFormClose($i, $msgid) {
-		return <<<EOD
-			<div class="row" id='r{$i}'>
-				<button type="button" class="btn btn-edit" id='e{$i}' data-id='${msgid}'>
-					<span class="glyphicon glyphicon-edit"></span>
-					Edit
-				</button>
-			</div>
-		</form>
-EOD;
-	}
-	
-	function UserToolPanelJavaScript() {
-		return <<<EOD
-			<script type="text/javascript">
-				$(document).ready(function(){
-					$(".btn-edit").click(function(){
-						var editbtn=$(this);
-						editbtn.hide();
-						
-						var id=editbtn.attr('id');
-						id=id.substring(1,id.length);
-						msgid=editbtn.data("id");
-						
-						var msgcontent=$("#c"+id).html();
-						editcontent=msgcontent.trim();
-						editcontent=editcontent.replace("\t","");
-						editcontent=br2nl(editcontent);
-						editcontent="<textarea name='content' class='form-control' rows='6'>"+editcontent+"</textarea>";
-						
-						$("#r"+id).append("<button id='d"+id+"' type='button' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-trash'></span> Discard</button>");
-						$("#r"+id).append("<button id='s"+id+"' type='submit' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-check'></span> Confirm</button>");
-						
-						var hiddenform="<input type='hidden' id='h"+id+"' name='msgid' value='" + msgid + "'></input>";
-						editcontent=editcontent+hiddenform;
-						
-						$("#c"+id).html(editcontent);
-						$("#d"+id ).click(function(){
-							$("#d"+id).remove();
-							$("#s"+id).remove();
-							$("#h"+id).remove();
-							editbtn.show();
-							$("#c"+id).html(msgcontent);
-						});
-					});
-				});
-			</script>
 EOD;
 	}
 	
 	function HtmlReplyForm($query,$alias) {
 		global $PG_MSG_ADD;
 		return <<<EOD
-			<form role="form" class="form-horizontal" action="{$PG_MSG_ADD}?{$query}" method="post">
-				<div class="panel panel-default">
-					<div class="page-header">
-						<h3>Reply to thread</h3>
-					</div>
-					<div class="panel-reply">
+			<div class="panel panel-default">
+				<div class="page-header">
+					<h3>Reply to thread</h3>
+				</div>
+				<div class="panel-reply">
+					<form role='form' class='form-horizontal' action='{$PG_MSG_ADD}?{$query}' method='post'>
 						<div class="form-group">
 							<div class="row">
 								<h4>&nbsp<span class="glyphicon glyphicon-user"></span> {$alias}:</h4>
 							</div>
 							<div class="row">
 								<div class="input-group">
-									<textarea name="content" id="content" class="form-control" required></textarea>
+									<textarea name="content" id='input-reply-text' class="form-control" required></textarea>
 								</div>
 							</div>
 							<div class="row btn-reply-row">
 								<div class="input-group">
-									<button type="submit" class="btn btn-reply">
+									<button title="Submit Reply" type="submit" class="btn btn-reply">
 										<span class="glyphicon glyphicon-send"></span>
 									</button>
 								</div>
 							</div>
 						</div>
-					</div>
+					</form>
 				</div>
-			</form>
+			</div>
 EOD;
 	}
 	

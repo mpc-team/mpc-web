@@ -10,20 +10,24 @@
 		$createtables = TRUE;
 		$createtables = $createtables && DBF_CreateCategoryTable($db);
 		$createtables = $createtables && DBF_CreateCategoryDescriptionTable($db);
+		$createtables = $createtables && DBF_CreateCategoryPermissionsTable($db);
 		$createtables = $createtables && DBF_CreateThreadTable($db);
-		$createtables = $createtables && DBF_CreateMessagesTable($db);
-		$createtables = $createtables && DBF_CreateMessageContentTable($db);
 		$createtables = $createtables && DBF_CreateThreadInfoTable($db);
+		$createtables = $createtables && DBF_CreateMessagesTable($db);
+		$createtables = $createtables && DBF_CreateMessageInfoTable($db);
+		$createtables = $createtables && DBF_CreateMessageContentTable($db);
 		return($createtables);
 	}
 	
 	function DropTables($db){
-		$db->query("DROP TABLE ForumCategoryDescr");
-		$db->query("DROP TABLE ForumCategory");
-		$db->query("DROP TABLE ForumThreads");
-		$db->query("DROP TABLE ThreadMessages");
+		$db->query("DROP TABLE ThreadMessageInfo");
 		$db->query("DROP TABLE ThreadMessageContent");
+		$db->query("DROP TABLE ThreadMessages");
 		$db->query("DROP TABLE ForumThreadInfo");
+		$db->query("DROP TABLE ForumThreads");
+		$db->query("DROP TABLE ForumCategoryDescr");
+		$db->query("DROP TABLE ForumCategoryPermissions");
+		$db->query("DROP TABLE ForumCategory");
 	}
 	
 	// This is a Safe-Guard to prevent people from doing this. Only the Users
@@ -38,9 +42,10 @@
 			DropTables($db);
 			$createtables = CreateTables($db);
 			if ($createtables) {
-				$cid = DBF_CreateCategory($db, "General", "Discussions with no particular topic.");
+				$perms=array( );
+				array_push($perms,"public");
+				$cid = DBF_CreateCategory($db, "General", "Discussions with no particular topic.", $perms);
 				if ($cid > 0) {
-					$tid = DBF_CreateThread($db, $cid, "Welcome to Clan MPC", "b0rg3r@gmail.com");
 					$created=TRUE;
 				}else{
 					DropTables($db);
@@ -54,6 +59,12 @@
 	<head>
 	</head>
 	<body>
-		<?php if($created){echo '<h1>created</h1><br>';} ?>
+		<?php 
+			if($created){
+				echo "<h1>created ({$cid})</h1><br>";
+			}else{
+				echo "error: {$cid}";
+			}			
+		?>
 	</body>
 </html>

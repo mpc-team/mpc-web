@@ -7,7 +7,8 @@ function PrintSidebar ($highlight, $root) {
 			<ul class="sidebar-nav"> 
 EOD;
 	$class = ($highlight == "search") ? $ACTIVE : "";
-	echo ("<li {$class}><a href='{$MAINPAGE}'>Search</a></li>");
+	$searchglyph = "<span class='glyphicon glyphicon-search'></span>";
+	echo ("<li {$class}><a href='{$MAINPAGE}'>{$searchglyph} Search</a></li>");
 	echo("</ul></div>");
 }
  ?>

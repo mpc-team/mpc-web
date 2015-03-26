@@ -14,6 +14,11 @@
 	$s_user=($usersigned) ? $_SESSION["USER"] : NULL;
 	$s_alias=($usersigned) ? $_SESSION["ALIAS"] : NULL;
 	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	VERIFY GET VARIABLES
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$cid = $ctag = $tid = $ttag = null;
 	$c_params=array();
 	array_push($c_params,"c_id","c_tag");
@@ -27,31 +32,76 @@
 			$ttag=$_GET["t_tag"];
 		}
 	}
+	
 	$db=DB_CreateDefault();
 	$db->connect();
+	$s_permissions = array( );
+	if(isset($_SESSION["USER"])) {
+		$s_permissions=DB_GetUserPermissionsByEmail($db,$_SESSION["USER"]);
+	}
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	USER HAS PAGE PERMISSION
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	if(!CheckPagePermissions($db,$cid,$ctag,$usersigned,$s_user)) {
+		header("Location: {$ROOT}/forum/index.php");
+		$db->disconnect( );
+		exit( );
+	}
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	RECENT POST FEED
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	$postfeed = "";
+	$postfeed = GetForumRecentFeed($db,$s_user);
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	LOAD PAGE DATA
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$pagetype=GetForumPageType($db,$cid,$ctag,$tid,$ttag);
 	$path=GetForumPagePath($db,$cid,$ctag,$tid,$ttag,$pagetype);
-	$content=GetForumPageContent($db,$cid,$ctag,$tid,$ttag,$pagetype);
+	$content=GetForumPageContent($db,$cid,$ctag,$tid,$ttag,$pagetype,$s_user);
 	$contentcount=count($content);
+	
 	$db->disconnect();
 	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	DEFINE VALUES USED IN DOCUMENT
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$query = $_SERVER['QUERY_STRING'];
 	$CREATE_PAGE = $ROOT . '/forum/thread/create.php';
-	$LAYOUT_OPEN = "<tr><td><div class='panel-group'><div class='panel panel-default'>";
-	$LAYOUT_CLOSE = "</div></div></td></tr>";
 	$CATEGORIES = "categories";
 	$THREADS = "threads";
 	$MESSAGES = "messages";
+	if( $pagetype == $MESSAGES ){
+		$LAYOUT_OPEN = "<div class='panel-group'><div class='panel panel-default'>";
+		$LAYOUT_CLOSE = "</div></div>";
+	}else{
+		$LAYOUT_OPEN = "<tr><td><div class='panel-group'><div class='panel panel-default'>";
+		$LAYOUT_CLOSE = "</div></div></td></tr>";
+	}
 	
 	$highlight=($pagetype==$CATEGORIES)?"forum":"path";
 	$navbar="<div class='navbar-forum'>".ForumNavbar($highlight,$ROOT,$path)."</div>";	
 	$pagefooter=HtmlPageFooter( );
-	
-	/* Title of Page */
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	PAGE TITLE HTML
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$pagetitle="";
 	switch($pagetype) {
 		case $CATEGORIES:
-			$pagetitle=HtmlPageTitle("MPC Gaming","Forums");
+			$pagetitle=HtmlPageTitle("Forum","Categories");
 			break;
 		case $THREADS:
 			$pagetitle=HtmlPageTitle($ctag,"Forum");
@@ -62,18 +112,20 @@
 			break;
 	}
 	
-	/* Login Notice */
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	LOGIN NOTICE HTML
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$noticelogin=(!$usersigned) ? HtmlLoginNotice(PathDir::$LOGIN,$query):"";
 	$replyform="";
 	switch($pagetype) {
 		case $MESSAGES:
 			if($usersigned) {
 				$replyform.=HtmlReplyForm($query,$s_alias);
-				$replyform.=UserToolPanelJavaScript();
 			}
 			break;
 	}
-	
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -85,17 +137,22 @@
 	<meta name="keywords" content="mpc, clan mpc, clanmpc, mpcgaming, mpc gaming, gaming clan, multiplayer clan, multiplayer">
 	<meta name="description" content="Multi-Player Clan - Gaming community hosting tournaments for various games including StarCraft II, Heroes of the Storm, Counter-Strike: Global Offense.">
 <?php
-	PrintJavaScriptResource( PathDir::GetJQueryPath($ROOT) );
-	PrintStyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
-	PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
-	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
-	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
-	PrintJavaScriptResource( PathDir::GetJSPath($ROOT, 'util.js') );
+	echo JavaScriptResource( PathDir::GetJQueryPath($ROOT) );
+	echo StyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
+	echo StyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
+	echo JavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
+	echo StyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
+	echo JavaScriptResource( PathDir::GetJSPath($ROOT, 'util.js') );
+	echo JavaScriptResource( PathDir::GetJSPath($ROOT, 'forum-message-userpanel.js') );
  ?>
 </head>
 <body>
 <div class="container-fluid">
-	<?php PrintNavbar("forum", $ROOT); ?>
+		<?php 
+			$signed = isset($_SESSION["USER"]);
+			$user = ($signed) ? $_SESSION["USER"] : NULL;
+			PrintNavbar("forum", $ROOT, $signed, $user, $_SERVER["QUERY_STRING"]); 
+		?>	
 </div>
 <div class="container">
 	<div id="page-content-wrapper">
@@ -103,7 +160,24 @@
 			<div class="content">
 				<?php 
 				
-					echo $navbar, $pagetitle, $noticelogin;
+					echo $navbar;
+					
+					switch($pagetype) {
+						case $CATEGORIES:
+							echo "<div class='row'>";
+							echo "<h3>Recent Activity</h3>";
+							echo "</div>";
+							echo "<div class='row'>";
+							$count=count($postfeed);
+							for($i=0; $i<$count; $i++) {
+								$recent=$postfeed[$i];
+								echo HtmlRecentFeed($recent[2],$recent[3],$recent[0],$recent[1],$recent[4],$recent[5],$recent[6]);	
+							}
+							echo "</div>";
+							break;
+					}
+					
+					echo $pagetitle, $noticelogin;
 					
 					switch($pagetype){
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -115,9 +189,11 @@
 							echo "<table class='table-forum-layout'>";
 							for( $i=0; $i<$contentcount; $i++ ){
 								$category=$content[$i];
-								echo $LAYOUT_OPEN;
-								echo HtmlCategory($category[0],$category[1],$category[2],"",$category[3]);
-								echo $LAYOUT_CLOSE;
+								if($category[3] == 'public' || in_array($category[3],$s_permissions)) {
+									echo $LAYOUT_OPEN;
+									echo HtmlCategory($category[0],$category[1],$category[2],"",$category[4]);
+									echo $LAYOUT_CLOSE;
+								}
 							}
 							echo "</table>";
 							break;	
@@ -130,18 +206,21 @@
 							echo "<table class='table-forum-layout'>";
 							for( $i=0; $i<$contentcount; $i++ ){
 								$thread=$content[$i];
+								$editPerm=($s_user==$thread[3] || in_array('admin', $s_permissions));
+								
 								echo $LAYOUT_OPEN;
 								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],"",$thread[4],$thread[5],$thread[6]);
-								$toptions=($s_user == $thread[3]) ? HtmlThreadOptions($cid,$ctag,$thread[0],$thread[2]) : "";
+								$toptions=($editPerm) ? HtmlThreadOptions($cid,$ctag,$thread[0],$thread[2]) : "";
 								echo $toptions;
 								echo $LAYOUT_CLOSE;
+								
 							}
 							echo "</table>";
 							if( $usersigned ){ echo NewThreadModal($query,$CREATE_PAGE);	}
 							break;
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////
 				//
-				//	Forum Categories
+				//	Thread Messages
 				//
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////	
 						case $MESSAGES:
@@ -149,11 +228,15 @@
 							$mcount = count($messages);
 							for( $i=0; $i<$mcount; $i++ ){
 								$message = $messages[$i];
+								$msgid = $message[0];
 								$email = $message[2];
-								$canEdit = ($s_user==$email);
-								$canDelete = ($s_user==$email || $s_user=="b0rg3r@gmail.com");
-								echo HtmlMessage($canEdit,$canDelete,$message[0],$message[1],
-										$message[2],$message[3],$message[4],$query,$i);
+								
+								echo $LAYOUT_OPEN;
+								echo HtmlMessage($msgid,$message[1],$email,$message[3],$message[4],$query,$i);
+								$moptions=($s_user == $email) ? HtmlMessageOptions($i,$msgid,$query) : "";
+								echo $moptions;
+								echo $LAYOUT_CLOSE;
+								
 							}
 					}
 					

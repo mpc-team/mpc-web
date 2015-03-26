@@ -20,6 +20,12 @@
     PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
     PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
     PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
+<?php
+    echo JavaScriptResource( PathDir::GetJQueryPath($ROOT) );
+    echo StyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
+    echo StyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
+    echo JavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
+    echo StyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
 ?>
     <meta name="keywords" content="mpc, clan mpc, clanmpc, mpcgaming, mpc gaming, gaming clan, multiplayer clan, multiplayer">
     <meta name="description" content="Multi-Player Clan - Gaming community hosting tournaments for various games including StarCraft II, Heroes of the Storm, Counter-Strike: Global Offense.">
@@ -32,6 +38,17 @@
     <div class="content">
         <div class="well">
             <div class="row">
+    <div class="container-fluid">
+		<?php 
+			$signed = isset($_SESSION["USER"]);
+			$user = ($signed) ? $_SESSION["USER"] : NULL;
+			PrintNavbar("gaming", $ROOT, $signed, $user, $_SERVER["QUERY_STRING"]); 
+		?>	
+    </div>
+        <div class="container">
+            <div class="content">
+            <div class="well">
+                <div class="row">
                 <center>
                     <img src="../pics/gamingservices.png" alt="gamingservices.png" class="img-responsive img-rounded" style="height: 100px; width: 700px;" />
                 </center>

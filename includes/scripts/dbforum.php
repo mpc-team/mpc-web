@@ -3,20 +3,25 @@
 	include_once($ROOT . PathDir::$MYSQLI_UTILITY);
 	include_once($ROOT . PathDir::$MYSQLI_INFO);
 	
-	function DBF_GetCategories($db) {
+	function DBF_GetCategories($db,$user) {
 		$categories=array();
 		if ($db->connected) {
 			$sql =<<<EOD
-			SELECT ForumCategory.categoryID, ForumCategory.categoryName, ForumCategoryDescr.categoryDescr
+			SELECT ForumCategory.categoryID, ForumCategory.categoryName, ForumCategoryDescr.categoryDescr, ForumCategoryPermissions.permission
 			FROM ForumCategory
 				JOIN ForumCategoryDescr
 					ON ForumCategory.categoryID=ForumCategoryDescr.categoryID
+				JOIN ForumCategoryPermissions
+					ON ForumCategory.categoryID=ForumCategoryPermissions.categoryID
 EOD;
 			$result = $db->query($sql);
 			if ($result) {
 				while ($row=$result->fetch_row()) {
 					$category=array();
-					array_push($category, $row[0], $row[1], $row[2]);
+					$rcount=count($row);
+					for($i=0; $i<$rcount; $i++) {
+						array_push($category, $row[$i]);
+					}
 					array_push($categories, $category);
 				}
 				$result->close();
@@ -32,36 +37,54 @@ EOD;
 		return $categories;
 	}
 	
+/*
+ * 	Threads From Category
+ *	---------------------
+ *	-Thread information is gathered in a single query.
+ *	-IMPORTANT- *		
+ *		!: To order threads by their most recent message activity, merging
+ *			is necessary but we only need N recent results rather than ALL the messages.
+ *
+ *		!: It SHOULD only do this merge on threads within that specific Category,
+ *			meaning it is at least narrowing its search-field slightly.
+ *
+ */
 	function DBF_GetCategoryThreads($db, $categoryID) {
 		$threads=array();
 		if($db->connected){
 			$sql=<<<EOD
-				SELECT ForumThreads.fthreadID, ForumThreads.categoryID, ForumThreads.name, User.userName, UserAlias.userAlias, ForumThreadInfo.tstamp
-				FROM ForumThreads
-					JOIN ForumThreadInfo 
-						ON ForumThreads.fthreadID=ForumThreadInfo.fthreadID
+				SELECT fthreads.fthreadID, fthreads.categoryID, fthreads.name, User.userName, ualias.userAlias, finfo.tstamp, minfo.tstamp AS recent
+				FROM ForumThreads AS fthreads
+					JOIN ForumThreadInfo AS finfo
+						ON fthreads.fthreadID=finfo.fthreadID
+						AND fthreads.categoryID={$categoryID}
 					JOIN User 
-						ON ForumThreadInfo.author=User.userName
-					JOIN UserAlias
-						ON UserAlias.userID=User.userID
-				WHERE categoryID={$categoryID}
+						ON finfo.author=User.userName
+					JOIN UserAlias AS ualias
+						ON User.userID=ualias.userID
+					JOIN ThreadMessages AS tmsgs
+						ON tmsgs.fthreadID=fthreads.fthreadID
+					JOIN ThreadMessageInfo AS minfo
+						ON minfo.tmsgID=tmsgs.tmsgID
+				GROUP BY fthreads.fthreadID
+				ORDER BY recent DESC
 EOD;
-			$result=$db->query($sql);
-			if($result){
-				while($row=$result->fetch_row()){
-					$thr=array();
-					array_push($thr,$row[0],$row[1],$row[2],$row[3],$row[4],$row[5]);
-					array_push($threads,$thr);
-				}
-				$count=count($threads); 
-				for($i=0; $i<$count; $i++) {
-					$thr=$threads[$i];
-					$mcount=DBF_GetThreadMessageCount($db,$thr[0]);
-					array_push($threads[$i],$mcount);
-				}
-				$result->close();
-				return($threads);
+			$statement=$db->prepare($sql);
+			$statement->execute( );
+			$statement->bind_result($tid,$cid,$ttag,$user,$alias,$tstamp,$recent);
+			while($statement->fetch()){
+				$thr=array();
+				array_push($thr,$tid,$cid,$ttag,$user,$alias,$tstamp);
+				array_push($threads,$thr);
 			}
+			$count=count($threads); 
+			for($i=0; $i<$count; $i++) {
+				$thr=$threads[$i];
+				$mcount=DBF_GetThreadMessageCount($db,$thr[0]);
+				array_push($threads[$i],$mcount);
+			}
+			$statement->close();
+			return($threads);
 		}
 		return($threads);
 	}
@@ -76,18 +99,20 @@ EOD;
 			$sql=<<<EOD
 				SELECT 	ThreadMessages.tmsgID,
 								ThreadMessageContent.content, 
-								ThreadMessageContent.author, 
+								ThreadMessageInfo.author, 
 								UserAlias.userAlias, 
-								ThreadMessageContent.tstamp 
+								ThreadMessageInfo.tstamp 
 				FROM (((ThreadMessages
 					JOIN ThreadMessageContent 
 						ON ThreadMessages.tmsgID=ThreadMessageContent.tmsgID)
+					JOIN ThreadMessageInfo
+						ON ThreadMessageInfo.tmsgID=ThreadMessages.tmsgID
 					JOIN User
-						ON ThreadMessageContent.author=User.userName)
+						ON ThreadMessageInfo.author=User.userName)
 					JOIN UserAlias
 						ON User.userID=UserAlias.userID)
 				WHERE ThreadMessages.fthreadID={$tid}
-				ORDER BY ThreadMessageContent.tstamp ASC
+				ORDER BY ThreadMessageInfo.tstamp ASC
 EOD;
 			$result=$db->query($sql);
 			if($result){
@@ -104,6 +129,44 @@ EOD;
 			}
 		}
 		return($messages);
+	}
+	
+	function DBF_GetRecentThreadsInCategory($db,$cid) {
+		if($db->connected) {
+			$threads=array( );
+			$sql=<<<EOD
+				SELECT ft.fthreadID, ft.name, fc.categoryID, fc.categoryName, ualias.userAlias, tmc.content, tmi.tstamp AS date
+				FROM ForumThreads AS ft
+					JOIN ForumCategory AS fc
+						ON ft.categoryID=fc.categoryID
+						AND ft.categoryID={$cid}
+					JOIN ForumThreadInfo AS fti
+						ON fti.fthreadID=ft.fthreadID
+					JOIN ThreadMessages AS tm
+						ON tm.fthreadID=ft.fthreadID
+					JOIN ThreadMessageInfo AS tmi
+						ON tmi.tmsgID=tm.tmsgID
+					JOIN ThreadMessageContent AS tmc
+						ON tmc.tmsgID=tm.tmsgID
+					JOIN User
+						ON tmi.author=User.userName
+					JOIN UserAlias AS ualias
+						ON User.userID=ualias.userID
+				ORDER BY date DESC
+				LIMIT 3
+EOD;
+			$statement=$db->prepare($sql);
+			$statement->execute( );
+			$statement->bind_result($tid,$ttag,$cid,$ctag,$author,$content,$date);
+			while($statement->fetch()) {
+				$thread=array( );
+				array_push($thread,$tid,$ttag,$cid,$ctag,$author,$content,$date);
+				array_push($threads,$thread);
+			}
+			$statement->close( );
+			return $threads;
+		}
+		return NULL;
 	}
 	
 	function DBF_GetNewMessageID($db) {
@@ -177,16 +240,14 @@ EOD;
 	function DBF_GetMessageInfo($db,$mid) {
 		if($db->connected) {
 			$sql=<<<EOD
-				SELECT author, tstamp, content, fthreadID
-				FROM ThreadMessageContent
-					JOIN ThreadMessages
-						ON ThreadMessages.tmsgID=ThreadMessageContent.tmsgID
-				WHERE ThreadMessageContent.tmsgID={$mid}
+				SELECT author, tstamp
+				FROM ThreadMessageInfo
+				WHERE ThreadMessageInfo.tmsgID={$mid}
 EOD;
 			$result=$db->query($sql);
 			$row=$result->fetch_row();
 			$info=array();
-			array_push($info,$row[0],$row[1],$row[2],$row[3]);
+			array_push($info,$row[0],$row[1]);
 			$result->close();
 			return $info;
 		}
@@ -219,6 +280,22 @@ EOD;
 			}
 		}
 		return -1;
+	}
+	
+	function DBF_GetCategoryPermissions($db,$cid) {
+		if($db->connected) {
+			$sql="SELECT permission FROM ForumCategoryPermissions WHERE categoryID={$cid}";
+			$perms=array( );
+			$result=$db->query($sql);
+			if($result) {
+				while($row=$result->fetch_row()) {
+					array_push($perms, $row[0]);
+				}
+				$result->close( );
+			}
+			return $perms;
+		}
+		return NULL;
 	}
 	
 	function DBF_CheckCategory($db,$cid,$ctag){
@@ -277,6 +354,19 @@ EOD;
 		return(FALSE);
 	}
 	
+	function DBF_CreateCategoryPermissionsTable($db) {
+		if($db->connected) {
+			$sql=<<<EOD
+				CREATE TABLE ForumCategoryPermissions (
+					categoryID INT NOT NULL,
+					permission CHAR(32) NOT NULL
+				)
+EOD;
+			return (boolean)$db->query($sql);
+		}
+		return FALSE;
+	}
+	
 	function DBF_CreateThreadTable($db) {
 		if ($db->connected) {
 			$sql = <<<EOD
@@ -318,13 +408,26 @@ EOD;
 		return (FALSE);
 	}
 	
+	function DBF_CreateMessageInfoTable($db) {
+		if($db->connected) {
+			$sql=<<<EOD
+				CREATE TABLE ThreadMessageInfo (
+					tmsgID INT NOT NULL,
+					author CHAR(64) NOT NULL,
+					tstamp TIMESTAMP,
+					UNIQUE (tmsgID)
+				)
+EOD;
+			return (boolean) $db->query($sql);
+		}
+		return FALSE;
+	}
+	
 	function DBF_CreateMessageContentTable($db) {
 		if ($db->connected) {
 			$sql = <<<EOD
 				CREATE TABLE ThreadMessageContent (
-					tmsgID INT NOT NULL,
-					author CHAR(64) NOT NULL,
-					tstamp TIMESTAMP,
+					tmsgID INT NOT NULL UNIQUE,
 					content TEXT
 				)
 EOD;
@@ -333,14 +436,20 @@ EOD;
 		return (FALSE);
 	}
 	
-	function DBF_CreateCategory($db, $name, $descr) {
+	function DBF_CreateCategory($db, $name, $descr, $perms) {
 		if ($db->connected) {
 			$id  = DBF_GetNewCategoryID($db);
 			$sql = "INSERT INTO ForumCategory VALUES ({$id}, '{$name}')";
 			if ($db->query($sql)) {
 				$sql="INSERT INTO ForumCategoryDescr VALUES ({$id}, '{$descr}')";
-				if($db->query($sql)) {
-					return $id;
+				if($db->query($sql)){
+					$pcount=count($perms);
+					$padded=0;
+					for($i=0; $i<$pcount; $i++) {					
+						$sql="INSERT INTO ForumCategoryPermissions VALUES ({$id}, '{$perms[$i]}')";
+						$padded=($db->query($sql))?($padded+1):($padded);
+					}
+					return $padded;
 				}else{
 					$sql="DELETE FROM ForumCategory WHERE categoryID={$id}";
 					$db->query($sql);
@@ -366,38 +475,27 @@ EOD;
 		}
 		return (-1);
 	}
-
-
-	function DBF_DeleteThreadMessages($db,$tid) {
-		if($db->connected) {
-			$sql=<<<EOD
-				DELETE ThreadMessages, ThreadMessageContent
-				FROM ThreadMessages
-					JOIN ThreadMessageContent
-						ON ThreadMessages.tmsgID=ThreadMessageContent.tmsgID
-						AND ThreadMessages.fthreadID={$tid}
-EOD;
-			return (boolean)$db->query($sql);
-		}
-		return FALSE;
-	}
 	
 	function DBF_DeleteThread($db, $tid) {
 		if($db->connected) {
-			$count=0;
-			$count=(DBF_DeleteThreadMessages($db,$tid))?($count+1):($count);
 			$sql=<<<EOD
-				DELETE ForumThreads, ForumThreadInfo
-				FROM ForumThreads
-					JOIN ForumThreadInfo
-						ON ForumThreads.fthreadID=ForumThreadInfo.fthreadID
-						AND ForumThreads.fthreadID={$tid}
+				DELETE ft, fi, tm, tmi, tmc
+				FROM ForumThreads AS ft
+					JOIN ForumThreadInfo AS fi
+						ON ft.fthreadID=fi.fthreadID
+						AND ft.fthreadID={$tid}
+					JOIN ThreadMessages AS tm
+						ON tm.fthreadID=ft.fthreadID
+					JOIN ThreadMessageInfo AS tmi
+						ON tmi.tmsgID=tm.tmsgID
+					JOIN ThreadMessageContent AS tmc
+						ON tmc.tmsgID=tm.tmsgID
 EOD;
-			$count=($db->query($sql))?($count+1):($count);
-			return $count;
+			return $db->query($sql);
 		}
-		return -1;
+		return FALSE;
 	}
+		
 		
 	function DBF_CreateMessage($db, $tid, $content, $author) {
 		if ($db->connected) {
@@ -406,10 +504,30 @@ EOD;
 			if ($db->query($sql)) {
 				$sql=<<<EOD
 					INSERT INTO ThreadMessageContent
-					VALUES ({$id}, '{$author}', NOW(), '{$content}')
+					VALUES ({$id}, '{$content}')
 EOD;
-				$db->query($sql);
-				return $id;
+				if($db->query($sql)) {
+					$sql="INSERT INTO ThreadMessageInfo VALUES ({$id}, '{$author}', NOW())";
+					if($db->query($sql)) {
+					
+						return $id;
+						
+					}else{
+					
+						$sql="DELETE FROM ThreadMessageContent WHERE ThreadMessageContent.tmsgID={$id}";
+						$db->query($sql);
+						$sql="DELETE FROM ThreadMessages WHERE ThreadMessages.tmsgID={$id}";
+						$db->query($sql);
+						return -200;
+						
+					}
+				}else{
+				
+					$sql="DELETE FROM ThreadMessages WHERE ThreadMessages.tmsgID={$id}";
+					$db->query($sql);
+					return -100;
+					
+				}
 			}
 		}
 		return(-1);
@@ -417,7 +535,7 @@ EOD;
 	
 	function DBF_UpdateMessage($db, $mid, $content){
 		if($db->connected){
-			$sql="UPDATE ThreadMessageContent SET content='{$content}',tstamp=tstamp WHERE tmsgID={$mid}";
+			$sql="UPDATE ThreadMessageContent SET content='{$content}' WHERE tmsgID={$mid}";
 			return (boolean)$db->query($sql);
 		}
 		return(FALSE);
@@ -427,6 +545,8 @@ EOD;
 		if($db->connected){
 			$count=0;
 			$sql="DELETE FROM ThreadMessageContent WHERE tmsgID={$mid}";
+			$count=($db->query($sql))?($count+1):($count);
+			$sql="DELETE FROM ThreadMessageInfo WHERE tmsgID={$mid}";
 			$count=($db->query($sql))?($count+1):($count);
 			$sql="DELETE FROM ThreadMessages WHERE tmsgID={$mid}";
 			$count=($db->query($sql))?($count+1):($count);

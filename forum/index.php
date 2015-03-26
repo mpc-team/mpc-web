@@ -165,7 +165,7 @@
 					switch($pagetype) {
 						case $CATEGORIES:
 							echo "<div class='row'>";
-							echo "<h3>Recent</h3>";
+							echo "<h3>Recent Activity</h3>";
 							echo "</div>";
 							echo "<div class='row'>";
 							$count=count($postfeed);

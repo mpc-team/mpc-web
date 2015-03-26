@@ -15,7 +15,7 @@
  */ 
 	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><center></center><h1></h1><h2></h2><h3></h3><h4></h4><p></p><ul></ul><li></li><img></img></br><br><br/><a></a><small></small>";
 	
-	$PG_INDEX = 'index.php';
+	$PG_INDEX = $ROOT . '/forum/index.php';
 	$PG_THR_ADD = $ROOT.'/forum/thread/create.php';
 	$PG_THR_DEL = $ROOT.'/forum/thread/delete.php';
 	$PG_MSG_DEL = $ROOT.'/forum/message/delete.php';
@@ -96,6 +96,10 @@
 		}
 		return $content;
 	}
+	
+	function GetForumRecentFeed($db,$user) {
+		return DBF_GetRecentThreadsInCategory($db,1);
+	}
 /*
  *
  *	Thread Message Forum Functions
@@ -133,14 +137,12 @@
 			$perms=DB_GetUserPermissionsByEmail($db,$user);
 			$del=-3;
 			if($minfo[0] == $user || in_array('admin',$perms)) {
-				$del=array( );
-				$delmsg=DBF_DeleteMessage($db,$msgid);
-				array_push($del,$delmsg);
 				$cnt=DBF_GetThreadMessageCount($db,$tid);
-				if($del[0] > 0 && $cnt == 0) {
-					$delthr=DeleteThread($cid,$ctag,$tid,$ttag,$user);
+				if($cnt == 1) {
+					$del=DeleteThread($cid,$ctag,$tid,$ttag,$user);
+				}else{
+					$del=DBF_DeleteMessage($db,$msgid);
 				}
-				array_push($del,$delthr);
 			}
 		}
 		$db->disconnect();
@@ -226,11 +228,42 @@
 		return $result;
 	}
 	
+	function HtmlRecentFeed($cid,$ctag,$tid,$ttag,$author,$content) {
+		global $PG_INDEX; 
+		$ctagenc=urlencode($ctag);
+		$ttagenc=urlencode($ttag);
+		$feedcontent=strip_tags($content,"<br>");
+		$feedlink="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}";
+		return <<<EOD
+			<div class='col-xs-6'>
+				<div class='panel-group'>
+					<div class='panel panel-default'>
+						<a class='btn' href='{$feedlink}'>
+							<div class='panel-recentfeed-content'>
+								<div class='row'>
+									<h4>{$ttag}<br><small>{$ctag}</small></h4>
+								</div>
+								<div class='row'>
+									<span style='font-weight:bold;font-size:14pt;'>"</span><i>{$feedcontent}</i><span style='font-weight:bold;font-size:14pt;'>"</span>
+								</div>
+							</div>
+							<div class='panel-recentfeed-footer'>
+								<div class='row'>
+									<span class='glyphicon glyphicon-user'></span> {$author}
+								</div>
+							</div>						
+						</a>
+					</div>
+				</div>
+			</div>
+EOD;
+	}
+	
 	function HtmlCategory($cid,$ctag,$descr,$glyph,$count) {
 		global $PG_INDEX;
 		$ctagenc=urlencode($ctag);
 		return <<<EOD
-			<div class="category">
+			<div class="panel-category">
 				<div class="row">
 					<div class="col-xs-6">
 						<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}">

@@ -41,10 +41,7 @@ EOD;
  * 	Threads From Category
  *	---------------------
  *	-Thread information is gathered in a single query.
- *	-IMPORTANT-
- *		!: This query merges with "ThreadMessages" and "ThreadMessageContent".
- *			> We should separate timestamp information from content information.
- *		
+ *	-IMPORTANT- *		
  *		!: To order threads by their most recent message activity, merging
  *			is necessary but we only need N recent results rather than ALL the messages.
  *
@@ -132,6 +129,42 @@ EOD;
 			}
 		}
 		return($messages);
+	}
+	
+	function DBF_GetRecentThreadsInCategory($db,$cid) {
+		if($db->connected) {
+			$threads=array( );
+			$sql=<<<EOD
+				SELECT ft.fthreadID, ft.name, fc.categoryID, fc.categoryName, ualias.userAlias, tmc.content
+				FROM ForumThreads AS ft
+					JOIN ForumCategory AS fc
+						ON ft.categoryID=fc.categoryID
+						AND ft.categoryID={$cid}
+					JOIN ForumThreadInfo AS fti
+						ON fti.fthreadID=ft.fthreadID
+					JOIN ThreadMessages AS tm
+						ON tm.fthreadID=ft.fthreadID
+					JOIN ThreadMessageInfo AS tmi
+						ON tmi.tmsgID=tm.tmsgID
+					JOIN ThreadMessageContent AS tmc
+						ON tmc.tmsgID=tm.tmsgID
+					JOIN User
+						ON tmi.author=User.userName
+					JOIN UserAlias AS ualias
+						ON User.userID=ualias.userID
+EOD;
+			$statement=$db->prepare($sql);
+			$statement->execute( );
+			$statement->bind_result($tid,$ttag,$cid,$ctag,$author,$content);
+			while($statement->fetch()) {
+				$thread=array( );
+				array_push($thread,$tid,$ttag,$cid,$ctag,$author,$content);
+				array_push($threads,$thread);
+			}
+			$statement->close( );
+			return $threads;
+		}
+		return NULL;
 	}
 	
 	function DBF_GetNewMessageID($db) {

@@ -137,6 +137,11 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 
 /* Forum Styles */
 
+.forum .navbar-forum li > a { 
+	font-size: 9pt; 
+	padding: 5px;
+}
+
 .panel-group > .panel .col-xs-1 { margin-top: 13px; }
 
 .col-xs-1,

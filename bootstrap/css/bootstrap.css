@@ -4177,7 +4177,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-	font-weight: bold;
+	color: inherit;
 /*   color: #aaaaff;
 	border: 1px solid rgba(190, 190, 255, 0.3); */
 }

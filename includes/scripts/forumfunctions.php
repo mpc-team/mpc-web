@@ -234,7 +234,8 @@
 		global $PG_INDEX; 
 		$ctagenc=urlencode($ctag);
 		$ttagenc=urlencode($ttag);
-		$feedcontent=strip_tags($content,"<br>");
+		$stripped=strip_tags($content,"<br>");
+		$feedcontent=rtrim($stripped);
 		$feedlink="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}";
 		return <<<EOD
 			<div class='col-xs-4'>
@@ -245,9 +246,7 @@
 								<div class='row'>
 									<h5>{$ttag}<br><small>{$ctag}</small></h5>
 								</div>
-								<div class='row'>
-									"<i style='font-size:8pt;'>{$feedcontent}</i>"
-								</div>
+								<div class='row'><i style='font-size:8pt;'>{$feedcontent}</i></div>
 							</div>
 							<div class='panel-recentfeed-footer'>
 								<div class='row'>
@@ -269,7 +268,7 @@ EOD;
 				<div class="row">
 					<div class="col-xs-6">
 						<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}">
-							<h4>{$glyph} {$ctag} {$glyph}<br><br><small>{$descr}</small></h4>
+							<h5>{$glyph} {$ctag} {$glyph}<small><br><br>{$descr}</small></h5>
 						</a>
 					</div>
 					<div class="col-xs-1">
@@ -292,9 +291,9 @@ EOD;
 			<div class="row">
 				<div class="col-xs-6">
 					<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}">
-						<h4>{$glyph} {$ttag} {$glyph}<br><br><small>
+						<h5>{$glyph} {$ttag} {$glyph}<br><br><small>
 						<span class="glyphicon glyphicon-user"></span> {$alias} </br>
-						<span class="glyphicon glyphicon-time"></span> {$time}</small></h4>
+						<span class="glyphicon glyphicon-time"></span> {$time}</small></h5>
 					</a>
 				</div>
 				<div class="col-xs-1">

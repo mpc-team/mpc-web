@@ -168,7 +168,7 @@
 							$count=count($postfeed);
 							for($i=0; $i<$count; $i++) {
 								$recent=$postfeed[$i];
-								echo HtmlRecentFeed($recent[2],$recent[3],$recent[0],$recent[1],$recent[4],$recent[5]);	
+								echo HtmlRecentFeed($recent[2],$recent[3],$recent[0],$recent[1],$recent[4],$recent[5],$recent[6]);	
 							}
 							break;
 					}

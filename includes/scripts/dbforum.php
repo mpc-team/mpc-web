@@ -135,7 +135,7 @@ EOD;
 		if($db->connected) {
 			$threads=array( );
 			$sql=<<<EOD
-				SELECT ft.fthreadID, ft.name, fc.categoryID, fc.categoryName, ualias.userAlias, tmc.content
+				SELECT ft.fthreadID, ft.name, fc.categoryID, fc.categoryName, ualias.userAlias, tmc.content, tmi.tstamp AS date
 				FROM ForumThreads AS ft
 					JOIN ForumCategory AS fc
 						ON ft.categoryID=fc.categoryID
@@ -152,13 +152,15 @@ EOD;
 						ON tmi.author=User.userName
 					JOIN UserAlias AS ualias
 						ON User.userID=ualias.userID
+				ORDER BY date DESC
+				LIMIT 3
 EOD;
 			$statement=$db->prepare($sql);
 			$statement->execute( );
-			$statement->bind_result($tid,$ttag,$cid,$ctag,$author,$content);
+			$statement->bind_result($tid,$ttag,$cid,$ctag,$author,$content,$date);
 			while($statement->fetch()) {
 				$thread=array( );
-				array_push($thread,$tid,$ttag,$cid,$ctag,$author,$content);
+				array_push($thread,$tid,$ttag,$cid,$ctag,$author,$content,$date);
 				array_push($threads,$thread);
 			}
 			$statement->close( );

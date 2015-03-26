@@ -113,17 +113,20 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 /* Recent Feed Style */
 
 .panel-recentfeed-content { 
-	padding: 10px;
+	padding: 5px;
 	min-height: 150px; 
 	max-height: 150px;
+	overflow: hidden;
 }
 .panel-recentfeed-footer {
-	padding: 5px;
+	padding: 0px;
+	padding-top: 8px;
 }
 
 .col-xs-6 .panel > a.btn,
 .col-xs-4 .panel > a.btn {
 	text-align: left;
+	padding: 5px;
 }
 .col-xs-6 > .panel-group,
 .col-xs-4 > .panel-group {
@@ -133,6 +136,8 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 
 
 /* Forum Styles */
+
+.panel-group > .panel .col-xs-1 { margin-top: 13px; }
 
 .col-xs-1,
 .col-xs-2 { 

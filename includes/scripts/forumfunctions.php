@@ -228,23 +228,23 @@
 		return $result;
 	}
 	
-	function HtmlRecentFeed($cid,$ctag,$tid,$ttag,$author,$content) {
+	function HtmlRecentFeed($cid,$ctag,$tid,$ttag,$author,$content,$date) {
 		global $PG_INDEX; 
 		$ctagenc=urlencode($ctag);
 		$ttagenc=urlencode($ttag);
 		$feedcontent=strip_tags($content,"<br>");
 		$feedlink="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}";
 		return <<<EOD
-			<div class='col-xs-6'>
+			<div class='col-xs-4'>
 				<div class='panel-group'>
 					<div class='panel panel-default'>
 						<a class='btn' href='{$feedlink}'>
 							<div class='panel-recentfeed-content'>
 								<div class='row'>
-									<h4>{$ttag}<br><small>{$ctag}</small></h4>
+									<h5>{$ttag}<br><small>{$ctag}</small></h5>
 								</div>
 								<div class='row'>
-									<span style='font-weight:bold;font-size:14pt;'>"</span><i>{$feedcontent}</i><span style='font-weight:bold;font-size:14pt;'>"</span>
+									"<i style='font-size:8pt;'>{$feedcontent}</i>"
 								</div>
 							</div>
 							<div class='panel-recentfeed-footer'>

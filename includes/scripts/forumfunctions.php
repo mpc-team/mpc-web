@@ -363,12 +363,12 @@ EOD;
 	function HtmlReplyForm($query,$alias) {
 		global $PG_MSG_ADD;
 		return <<<EOD
-			<form role="form" class="form-horizontal" action="{$PG_MSG_ADD}?{$query}" method="post">
-				<div class="panel panel-default">
-					<div class="page-header">
-						<h3>Reply to thread</h3>
-					</div>
-					<div class="panel-reply">
+			<div class="panel panel-default">
+				<div class="page-header">
+					<h3>Reply to thread</h3>
+				</div>
+				<div class="panel-reply">
+					<form role='form' class='form-horizontal' action='{$PG_MSG_ADD}?{$query}' method='post'>
 						<div class="form-group">
 							<div class="row">
 								<h4>&nbsp<span class="glyphicon glyphicon-user"></span> {$alias}:</h4>
@@ -380,15 +380,15 @@ EOD;
 							</div>
 							<div class="row btn-reply-row">
 								<div class="input-group">
-									<button type="submit" class="btn btn-reply">
+									<button title="Submit Reply" type="submit" class="btn btn-reply">
 										<span class="glyphicon glyphicon-send"></span>
 									</button>
 								</div>
 							</div>
 						</div>
-					</div>
+					</form>
 				</div>
-			</form>
+			</div>
 EOD;
 	}
 	

@@ -19,12 +19,18 @@
 //	Toggle UI 
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
+	function Html2Text(html) {
+		var text = html.trim( );
+		text = text.replace("\t","");
+		text = text.replace("<br>", "\n");
+		return text;
+	}
+
 	function ToggleEditControl(element, submit, discard, textdiv, content, edit, hidden, textarea, form) {
 		var attrid = element.attr('id');
 		var id = attrid.substring(1,attrid.length);
 		var type = attrid.charAt(0);
 		var msgid = element.data("id");
-		var editcontent;
 		switch(type) {
 			case edit:
 				element.attr('disabled','disabled');
@@ -32,12 +38,9 @@
 				$("#"+discard+id).show();
 				$("#"+submit+id).show();
 				$("#"+textdiv+id).show();
-				
-				editcontent = $("#"+textarea+id).html().trim();
-				editcontent = editcontent.replace("\t","");
-				editcontent = editcontent.replace("<br>","\n");
-				//editcontent = br2nl(editcontent);
-				$("#"+textarea+id).html(editcontent);
+				var htmlcontent = $("#"+textarea+id).val( );
+				var html2text = Html2Text(htmlcontent);
+				$("#"+textarea+id).html(html2text);
 				break;
 			case discard:
 				$("#"+edit+id).removeAttr('disabled');

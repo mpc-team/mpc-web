@@ -44,7 +44,7 @@ span.glyphicon-log-out,
 span.glyphicon-send,
 span.glyphicon-new-window { padding-left: 5px; padding-right: 5px; }
 span.glyphicon-send { 
-	font-size: 20pt; 
+	font-size: 30pt; 
 	margin-right: 7px; 
 	margin-bottom: 3px;
 }
@@ -55,16 +55,7 @@ span.glyphicon-edit { margin: 2px 0px; }
 
 a:hover > span.glyphicon-plus,
 a:hover > span.glyphicon-plus { color: #ffffff; }
-
-form > .panel > .page-header > h3 { margin-bottom: 0px; }
-form > .panel > .panel-reply > .form-group {
-	padding-top: 15px;
-	padding-bottom: 5px;
-}
-form > .panel > .page-header {
-	padding: 0px 15px;
-	border: 0px;
-}
+.panel > .page-header > h3 { margin-bottom: 0px; }
 
 .panel-messages > form { margin-top: -20px; }
 .forum .content .panel { padding: 0px; }
@@ -88,11 +79,6 @@ form > .panel > .page-header {
 	margin: 150px 0 0px;
 	border-top: 1px solid #aaaaaa;
 }
-
-.well label,
-.form-group h3,
-.form-group h4 { margin: 0px 0px 10px; }
-.form-group p { padding-top: 10px; }
 
 .form-signup { padding-bottom: 10px; }
 .signup-text { padding: 25px; }
@@ -200,24 +186,32 @@ textarea.form-control.editmessage { height: 15em; }
 /* Reply Styles */
 
 #input-reply-text { height: 15em; }
-.panel-reply .form-group { 
-	margin: 10px;
-	padding: 5px; 
-	background-color: #1f1f1f; 
-}
 .btn-reply { 
 	background-color: transparent; 
-	border: 1px solid #66aaee;
+	/* border: 1px solid #66aaee; */
+	margin-left: auto;
+	margin-right: auto;
 }
-.btn-reply:hover,
-.btn-reply:active { 
+.btn-reply:hover {
 	color: #66aaee;
 	background-color: rgba(255,255,255,0.05);
 }
 .btn-reply-row { 
-	text-align: right;
-	margin-top: -3px;
-	margin-right: 1px;	
+	width: 100%;
+}
+.panel-reply .form-group { 
+	margin: 10px;
+	padding: 10px;
+	background-color: #1f1f1f; 
+}
+.panel-reply .input-group {
+	text-align: center;
+	padding: 0px;
+	width: 100%;
+}
+.panel > .page-header {
+	padding: 0px 15px;
+	border: 0px;
 }
 
 

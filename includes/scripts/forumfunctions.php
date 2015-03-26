@@ -259,27 +259,32 @@ EOD;
 EOD;
 	}
 	
-	function HtmlMessage($canEdit,$canDelete,$id,$content,$author,$alias,$time,$query,$i) {
+	function HtmlMessage($canDelete,$id,$content,$author,$alias,$time,$query,$i) {
 		$headerleft=HtmlMessageAuthor($alias);
 		$headerright=HtmlMessageDate($time);
 		$body=HtmlMessageContent($i,$content);
-		if($canDelete) 
+		if($canDelete) {
 			$headerright=(HtmlMsgDeleteFormOpen($query).$headerright.HtmlMsgDeleteFormClose($id));
-		if($canEdit) 
-			$body=(HtmlMsgEditFormOpen($query).$body.HtmlMsgEditFormClose($i,$id));
-		return <<<EOD
-			<div class='panel-group'>
-				<div class='panel panel-default'>
-					<div class='panel-messages'>
-						<div class='row'>
-							{$headerleft}
-							<div class='col-xs-6'>
-								{$headerright}
-							</div>
-						</div>
-						{$body}
+		}
+		return<<<EOD
+			<div class='row'>
+				<div class='panel-messages'>
+					{$headerleft}
+					<div class='col-xs-6'>
+						{$headerright}
 					</div>
+				{$body}
 				</div>
+			</div>
+EOD;
+	}
+	
+	function HtmlMessageOptions() {
+		return <<<EOD
+			<div class='row usertool'>
+				<button type='submit' class='btn btn-edit'>
+					<span class='glyphicon glyphicon-edit'></span> Edit
+				</button>
 			</div>
 EOD;
 	}
@@ -317,6 +322,7 @@ EOD;
 	
 	function HtmlMessageContent($i,$msg) {
 		return <<<EOD
+		
 			<div class='row'>
 				<div class='content-msg' id='c{$i}'>
 					{$msg}

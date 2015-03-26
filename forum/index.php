@@ -37,11 +37,16 @@
 	
 	$query = $_SERVER['QUERY_STRING'];
 	$CREATE_PAGE = $ROOT . '/forum/thread/create.php';
-	$LAYOUT_OPEN = "<tr><td><div class='panel-group'><div class='panel panel-default'>";
-	$LAYOUT_CLOSE = "</div></div></td></tr>";
 	$CATEGORIES = "categories";
 	$THREADS = "threads";
 	$MESSAGES = "messages";
+	if( $pagetype == $MESSAGES ){
+		$LAYOUT_OPEN = "<div class='panel-group'><div class='panel panel-default'>";
+		$LAYOUT_CLOSE = "</div></div>";
+	}else{
+		$LAYOUT_OPEN = "<tr><td><div class='panel-group'><div class='panel panel-default'>";
+		$LAYOUT_CLOSE = "</div></div></td></tr>";
+	}
 	
 	$highlight=($pagetype==$CATEGORIES)?"forum":"path";
 	$navbar="<div class='navbar-forum'>".ForumNavbar($highlight,$ROOT,$path)."</div>";	
@@ -115,9 +120,11 @@
 							echo "<table class='table-forum-layout'>";
 							for( $i=0; $i<$contentcount; $i++ ){
 								$category=$content[$i];
+								
 								echo $LAYOUT_OPEN;
 								echo HtmlCategory($category[0],$category[1],$category[2],"",$category[3]);
 								echo $LAYOUT_CLOSE;
+								
 							}
 							echo "</table>";
 							break;	
@@ -130,18 +137,20 @@
 							echo "<table class='table-forum-layout'>";
 							for( $i=0; $i<$contentcount; $i++ ){
 								$thread=$content[$i];
+								
 								echo $LAYOUT_OPEN;
 								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],"",$thread[4],$thread[5],$thread[6]);
 								$toptions=($s_user == $thread[3]) ? HtmlThreadOptions($cid,$ctag,$thread[0],$thread[2]) : "";
 								echo $toptions;
 								echo $LAYOUT_CLOSE;
+								
 							}
 							echo "</table>";
 							if( $usersigned ){ echo NewThreadModal($query,$CREATE_PAGE);	}
 							break;
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////
 				//
-				//	Forum Categories
+				//	Thread Messages
 				//
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////	
 						case $MESSAGES:
@@ -152,8 +161,13 @@
 								$email = $message[2];
 								$canEdit = ($s_user==$email);
 								$canDelete = ($s_user==$email || $s_user=="b0rg3r@gmail.com");
-								echo HtmlMessage($canEdit,$canDelete,$message[0],$message[1],
-										$message[2],$message[3],$message[4],$query,$i);
+								
+								echo $LAYOUT_OPEN;
+								echo HtmlMessage($canDelete,$message[0],$message[1],$message[2],$message[3],$message[4],$query,$i);
+								$moptions=($s_user == $email) ? HtmlMessageOptions() : "";
+								echo $moptions;
+								echo $LAYOUT_CLOSE;
+								
 							}
 					}
 					

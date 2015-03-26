@@ -3,20 +3,25 @@
 	include_once($ROOT . PathDir::$MYSQLI_UTILITY);
 	include_once($ROOT . PathDir::$MYSQLI_INFO);
 	
-	function DBF_GetCategories($db) {
+	function DBF_GetCategories($db,$user) {
 		$categories=array();
 		if ($db->connected) {
 			$sql =<<<EOD
-			SELECT ForumCategory.categoryID, ForumCategory.categoryName, ForumCategoryDescr.categoryDescr
+			SELECT ForumCategory.categoryID, ForumCategory.categoryName, ForumCategoryDescr.categoryDescr, ForumCategoryPermissions.permission
 			FROM ForumCategory
 				JOIN ForumCategoryDescr
 					ON ForumCategory.categoryID=ForumCategoryDescr.categoryID
+				JOIN ForumCategoryPermissions
+					ON ForumCategory.categoryID=ForumCategoryPermissions.categoryID
 EOD;
 			$result = $db->query($sql);
 			if ($result) {
 				while ($row=$result->fetch_row()) {
 					$category=array();
-					array_push($category, $row[0], $row[1], $row[2]);
+					$rcount=count($row);
+					for($i=0; $i<$rcount; $i++) {
+						array_push($category, $row[$i]);
+					}
 					array_push($categories, $category);
 				}
 				$result->close();
@@ -298,6 +303,19 @@ EOD;
 		return(FALSE);
 	}
 	
+	function DBF_CreateCategoryPermissionsTable($db) {
+		if($db->connected) {
+			$sql=<<<EOD
+				CREATE TABLE ForumCategoryPermissions (
+					categoryID INT NOT NULL,
+					permission CHAR(32) NOT NULL
+				)
+EOD;
+			return (boolean)$db->query($sql);
+		}
+		return FALSE;
+	}
+	
 	function DBF_CreateThreadTable($db) {
 		if ($db->connected) {
 			$sql = <<<EOD
@@ -367,14 +385,20 @@ EOD;
 		return (FALSE);
 	}
 	
-	function DBF_CreateCategory($db, $name, $descr) {
+	function DBF_CreateCategory($db, $name, $descr, $perms) {
 		if ($db->connected) {
 			$id  = DBF_GetNewCategoryID($db);
 			$sql = "INSERT INTO ForumCategory VALUES ({$id}, '{$name}')";
 			if ($db->query($sql)) {
 				$sql="INSERT INTO ForumCategoryDescr VALUES ({$id}, '{$descr}')";
-				if($db->query($sql)) {
-					return $id;
+				if($db->query($sql)){
+					$pcount=count($perms);
+					$padded=0;
+					for($i=0; $i<$pcount; $i++) {					
+						$sql="INSERT INTO ForumCategoryPermissions VALUES ({$id}, '{$perms[$i]}')";
+						$padded=($db->query($sql))?($padded+1):($padded);
+					}
+					return $padded;
 				}else{
 					$sql="DELETE FROM ForumCategory WHERE categoryID={$id}";
 					$db->query($sql);

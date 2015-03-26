@@ -1,6 +1,9 @@
 <?php 
-function PrintNavbar ($highlight, $root) {
+function PrintNavbar ($highlight, $root, $signed, $user, $querystr) {
 	$ACTIVE = "class='active'";
+	if($querystr != NULL && strlen($querystr) > 0) {
+		$querystr='?'.$querystr;
+	}
 	
 	# ---------------- Print Header / Collapse Button ----------------
 	
@@ -71,15 +74,14 @@ EOD;
 			<ul class="nav navbar-nav navbar-right">
 EOD;
 	
-	if (isset($_SESSION["USER"])) {
-		$text = $_SESSION["USER"];
-		$summary = $root . '/profile/index.php';
-		$update = $root . '/profile/update.php';
-		$signout = $root . '/login/signout.php';
+	if ($signed) {
+		$summary = $root . "/profile/index.php{$querystr}";
+		$update = $root . "/profile/update.php{$querystr}";
+		$signout = $root . "/login/signout.php{$querystr}";
 		$class = ($highlight == "profile") ? ' active' : "";
 		$icon="<span class='glyphicon glyphicon-user'></span>";
 		echo "<li class='dropdown {$class}'>",
-					"<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'>{$icon} {$text}",
+					"<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'>{$icon} {$user}",
 					" <span class='caret'></span></a>",
 					"<ul class='dropdown-menu' role='menu'>",
           "<li><a href='{$summary}'>Account</a></li>",

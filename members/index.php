@@ -51,7 +51,11 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<?php PrintNavbar("members", $ROOT); ?>
+		<?php 
+			$signed = isset($_SESSION["USER"]);
+			$user = ($signed) ? $_SESSION["USER"] : NULL;
+			PrintNavbar("members", $ROOT, $signed, $user, $_SERVER["QUERY_STRING"]); 
+		?>	
 	</div>
 	<div class="container">
 		<div id="wrapper">

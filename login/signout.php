@@ -7,10 +7,16 @@
 	session_start();
 	
 	$header = "Location: {$ROOT}/index.php"; 
+	$query="";
 	if (isset($_SESSION["USER"])) { 
 		session_unset();
 		session_destroy();
-		$header = "Location: {$ROOT}/login/index.php";
+		$query = $_SERVER["QUERY_STRING"];
+		if(strlen($query) > 0) {
+			$header = "Location: {$ROOT}/forum/index.php?{$query}";
+		}else{
+			$header = "Location: {$ROOT}/login/index.php";
+		}
 	} 
 	header( $header );
  ?>
@@ -25,7 +31,7 @@
 	echo JavaScriptResource( PathDir::GetJQueryPath($ROOT) );
 	echo StyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
 	echo StyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
-	echo PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
+	echo JavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
 	echo StyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
  ?>
 	<meta name="keywords" content="mpc, clan mpc, clanmpc, mpcgaming, mpc gaming, gaming clan, multiplayer clan, multiplayer">
@@ -35,6 +41,10 @@
 	<div class="container">
 		<div class="page-header text-center">
 			<h1>Signout Processing...</h1>
+			<?php 
+				echo 'header:'.$header.'<br>'; 
+				echo 'query:'.$query; 
+			 ?>
 		</div>
 	</div>
 	<div class="container-fluid">

@@ -75,14 +75,14 @@
 			$result = $db->query($sql);
 			if ($result) {
 				$permissions = array();
-				while ($row = $result->fetch_assoc()) {
-					array_push($permissions, $row['userPermission']);
+				while ($row = $result->fetch_row()) {
+					array_push($permissions, $row[0]);
 				}
 				$result->close();
 				return $permissions;
 			}
 		}
-		return (null);
+		return NULL;
 	}
 	
 	function DB_GetUserPermissionsByEmail($db, $email) {
@@ -109,7 +109,7 @@ EOD;
 			}
 			return $json;
 		}
-		return (null);
+		return NULL;
 	}
 	
 	function DB_GetUserPublicList($db) {

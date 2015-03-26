@@ -64,7 +64,7 @@
 		return $path;
 	}
 	
-	function GetForumPageContent($db,$cid,$ctag,$tid,$ttag,$type) {
+	function GetForumPageContent($db,$cid,$ctag,$tid,$ttag,$type,$user) {
 		$content=array();
 		switch($type) {
 			case "messages":
@@ -74,7 +74,7 @@
 				$content=DBF_GetCategoryThreads($db,$cid);
 				break;
 			case "categories":
-				$content=DBF_GetCategories($db);
+				$content=DBF_GetCategories($db,$user);
 				break;
 		}
 		return $content;
@@ -96,8 +96,9 @@
 			$update=-2;
 			if(validateinput($content)){
 				$minfo=DBF_GetMessageInfo($db,$msgid);
+				$perms=DB_GetUserPermissionsByEmail($db,$user);
 				$update=-3;
-				if($minfo[0] == $user) {
+				if($minfo[0] == $user || in_array('admin',$perms)) {
 					$update=DBF_UpdateMessage($db,$msgid,$content);
 				}
 			}
@@ -112,8 +113,9 @@
 		$db->connect();
 		if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
 			$minfo=DBF_GetMessageInfo($db,$msgid);
+			$perms=DB_GetUserPermissionsByEmail($db,$user);
 			$del=-3;
-			if($minfo[0] == $user) {
+			if($minfo[0] == $user || in_array('admin',$perms)) {
 				$del=array( );
 				$delmsg=DBF_DeleteMessage($db,$msgid);
 				array_push($del,$delmsg);
@@ -169,8 +171,9 @@
 		$db->connect();
 		if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
 			$info=DBF_GetThreadInfo($db,$tid);
+			$perm=DB_GetUserPermissionsByEmail($db,$user);
 			$del=-3;
-			if($info[3] == $user) {
+			if($info[3] == $user || in_array('admin',$perm)) {
 				$del=DBF_DeleteThread($db,$tid);
 			}
 		}

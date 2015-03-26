@@ -29,9 +29,11 @@
 	}
 	$db=DB_CreateDefault();
 	$db->connect();
+	$s_permissions=array();
+	if($usersigned) $s_permissions=DB_GetUserPermissionsByEmail($db,$s_user);
 	$pagetype=GetForumPageType($db,$cid,$ctag,$tid,$ttag);
 	$path=GetForumPagePath($db,$cid,$ctag,$tid,$ttag,$pagetype);
-	$content=GetForumPageContent($db,$cid,$ctag,$tid,$ttag,$pagetype);
+	$content=GetForumPageContent($db,$cid,$ctag,$tid,$ttag,$pagetype,$s_user);
 	$contentcount=count($content);
 	$db->disconnect();
 	
@@ -100,7 +102,11 @@
 </head>
 <body>
 <div class="container-fluid">
-	<?php PrintNavbar("forum", $ROOT); ?>
+		<?php 
+			$signed = isset($_SESSION["USER"]);
+			$user = ($signed) ? $_SESSION["USER"] : NULL;
+			PrintNavbar("forum", $ROOT, $signed, $user, $_SERVER["QUERY_STRING"]); 
+		?>	
 </div>
 <div class="container">
 	<div id="page-content-wrapper">
@@ -120,11 +126,11 @@
 							echo "<table class='table-forum-layout'>";
 							for( $i=0; $i<$contentcount; $i++ ){
 								$category=$content[$i];
-								
-								echo $LAYOUT_OPEN;
-								echo HtmlCategory($category[0],$category[1],$category[2],"",$category[3]);
-								echo $LAYOUT_CLOSE;
-								
+								if($category[3] == 'public' || in_array($category[3],$s_permissions)) {
+									echo $LAYOUT_OPEN;
+									echo HtmlCategory($category[0],$category[1],$category[2],"",$category[4]);
+									echo $LAYOUT_CLOSE;
+								}
 							}
 							echo "</table>";
 							break;	
@@ -137,10 +143,11 @@
 							echo "<table class='table-forum-layout'>";
 							for( $i=0; $i<$contentcount; $i++ ){
 								$thread=$content[$i];
+								$editPerm=($s_user==$thread[3] || in_array('admin', $s_permissions));
 								
 								echo $LAYOUT_OPEN;
 								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],"",$thread[4],$thread[5],$thread[6]);
-								$toptions=($s_user == $thread[3]) ? HtmlThreadOptions($cid,$ctag,$thread[0],$thread[2]) : "";
+								$toptions=($editPerm) ? HtmlThreadOptions($cid,$ctag,$thread[0],$thread[2]) : "";
 								echo $toptions;
 								echo $LAYOUT_CLOSE;
 								

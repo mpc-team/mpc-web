@@ -21,8 +21,8 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////
 	function Html2Text(html) {
 		var text = html.trim( );
-		text = text.replace("\t","");
-		text = text.replace("<br>", "\n");
+		text = text.replace(/\\t/g, "");
+		text = text.replace(/<br>/g, "\n");
 		return text;
 	}
 

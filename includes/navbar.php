@@ -45,9 +45,23 @@ EOD;
 	echo "<li {$class} > <a href='{$path}'>Forums</a> </li>";
 	
 	$class = ($highlight == "gaming") ? $ACTIVE : "";
-	$path  = $root . '/gaming/index.php';
-	echo "<li {$class} > <a href='{$path}'>Gaming Room</a> </li>";
-	
+    $gaming = $root . '/gaming/index.php';
+    $vlive = $root . '/gaming/ventrilolive.php';
+    $stream = $root . '/gaming/mpcstream.php';
+    $gservice = $root . '/gaming/gamingservice.php';
+    $glist = $root . '/gaming/gamelist.php';
+
+	echo "<li class='dropdown {$class}'>",
+				"<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'>",
+				"Gaming Room", "<span class='caret'></span> </a>",
+				"<ul class='dropdown-menu' role='menu'>",
+        "<li><a href='{$gaming}'>Gaming Room</a></li>",
+        "<li><a href='{$vlive}'>Ventrilo</a></li>",
+        "<li><a href='{$stream}'>MPC Stream</a></li>",
+        "<li><a href='{$glist}'>Game Lists</a></li>",
+        "<li><a href='{$gservice}'>Game Services</a></li>",
+				"</ul></li>";
+    	
 	# ---------------- Print Login Button ----------------
 	
 	echo <<<EOD

@@ -21,10 +21,10 @@ function ForumNavbar($highlight,$root,$path){
 EOD;
 
 	$active=($highlight == "forum") ? $ACTIVE : "";
-	$icon="<span class='glyphicon glyphicon-th-list'></span>";
+	$forumglyph="<span class='glyphicon glyphicon-th-list'></span>";
 	
 	$navtip=(count($path) > 0) ? $CHEVRON_RIGHT : "";
-	$result.="<li {$active}><a href='{$home}'>{$icon} Home {$navtip}</a></li>";
+	$result.="<li {$active}><a href='{$home}'>{$forumglyph} Forums {$navtip}</a></li>";
 	
 	if (count($path) > 0){
 		$highlighted=($highlight=="path");

@@ -33,16 +33,18 @@ EOD;
 	
 	$class = ($highlight == "members") ? ' active' : "";
 	$search= $root . '/members/index.php';
+	$searchglyph = "<span class='glyphicon glyphicon-search'></span>";
 	echo "<li class='dropdown {$class}'>",
 				"<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'>",
 				"Members ", "<span class='caret'></span> </a>",
 				"<ul class='dropdown-menu' role='menu'>",
-        "<li><a href='{$search}'>Search</a></li>",
+        "<li><a href='{$search}'>{$searchglyph} Search</a></li>",
 				"</ul></li>";
 	
 	$class = ($highlight == "forum") ? $ACTIVE : "";
 	$path  = $root . '/forum/index.php';
-	echo "<li {$class} > <a href='{$path}'>Forums</a> </li>";
+	$glyph = "<span class='glyphicon glyphicon-th-list'></span>";
+	echo "<li {$class} > <a href='{$path}'>{$glyph} Forums</a> </li>";
 	
 	$class = ($highlight == "gaming") ? ' active' : "";
     $gaming = $root . '/gaming/index.php';

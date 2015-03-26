@@ -74,7 +74,6 @@
 		case $MESSAGES:
 			if($usersigned) {
 				$replyform.=HtmlReplyForm($query,$s_alias);
-				$replyform.=UserToolPanelJavaScript();
 			}
 			break;
 	}
@@ -90,12 +89,13 @@
 	<meta name="keywords" content="mpc, clan mpc, clanmpc, mpcgaming, mpc gaming, gaming clan, multiplayer clan, multiplayer">
 	<meta name="description" content="Multi-Player Clan - Gaming community hosting tournaments for various games including StarCraft II, Heroes of the Storm, Counter-Strike: Global Offense.">
 <?php
-	PrintJavaScriptResource( PathDir::GetJQueryPath($ROOT) );
-	PrintStyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
-	PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
-	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
-	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
-	PrintJavaScriptResource( PathDir::GetJSPath($ROOT, 'util.js') );
+	echo JavaScriptResource( PathDir::GetJQueryPath($ROOT) );
+	echo StyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
+	echo StyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
+	echo JavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
+	echo StyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
+	echo JavaScriptResource( PathDir::GetJSPath($ROOT, 'util.js') );
+	echo JavaScriptResource( PathDir::GetJSPath($ROOT, 'forum-message-userpanel.js') );
  ?>
 </head>
 <body>
@@ -158,13 +158,14 @@
 							$mcount = count($messages);
 							for( $i=0; $i<$mcount; $i++ ){
 								$message = $messages[$i];
+								$msgid = $message[0];
 								$email = $message[2];
 								$canEdit = ($s_user==$email);
 								$canDelete = ($s_user==$email || $s_user=="b0rg3r@gmail.com");
 								
 								echo $LAYOUT_OPEN;
-								echo HtmlMessage($canDelete,$message[0],$message[1],$message[2],$message[3],$message[4],$query,$i);
-								$moptions=($s_user == $email) ? HtmlMessageOptions() : "";
+								echo HtmlMessage($canDelete,$msgid,$message[1],$message[2],$message[3],$message[4],$query,$i);
+								$moptions=($s_user == $email) ? HtmlMessageOptions($i,$msgid,$query) : "";
 								echo $moptions;
 								echo $LAYOUT_CLOSE;
 								

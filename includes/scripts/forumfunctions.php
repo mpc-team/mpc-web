@@ -263,29 +263,58 @@ EOD;
 		$headerleft=HtmlMessageAuthor($alias);
 		$headerright=HtmlMessageDate($time);
 		$body=HtmlMessageContent($i,$content);
-		if($canDelete) {
-			$headerright=(HtmlMsgDeleteFormOpen($query).$headerright.HtmlMsgDeleteFormClose($id));
-		}
 		return<<<EOD
-			<div class='row'>
-				<div class='panel-messages'>
-					{$headerleft}
+			<div class='panel-messages'>
+				<div class='row'>
+					<div class='col-xs-6'>
+						{$headerleft}
+					</div>
 					<div class='col-xs-6'>
 						{$headerright}
 					</div>
-				{$body}
+				</div>
+				<div class='row'>
+					{$body}
 				</div>
 			</div>
 EOD;
 	}
 	
-	function HtmlMessageOptions() {
+	function HtmlMessageOptions($i,$msgid,$query) {
+		global $PG_MSG_DEL;
+		global $PG_MSG_UPD;
 		return <<<EOD
-			<div class='row usertool'>
-				<button type='submit' class='btn btn-edit'>
-					<span class='glyphicon glyphicon-edit'></span> Edit
-				</button>
-			</div>
+			<div class='row usertool' id='r{$i}'>
+				<div class='col-xs-2'>
+					<button type='button' class='btn btn-edit pull-left' id='e{$i}' data-id='{$msgid}'>
+						<span class='glyphicon glyphicon-edit'></span>
+						Edit
+					</button>
+				</div>
+				<div class='col-xs-3'>
+					<form role='form' action='{$PG_MSG_DEL}?{$query}' method='post'>
+						<button type='submit' class='btn btn-edit' id='x{$i}' data-id={$msgid}>
+							<span class='glyphicon glyphicon-trash'></span>
+							Delete
+						</button>
+						<input type='hidden' name='msgid' value='{$msgid}'/>
+					</form>
+				</div>
+				<div class='col-xs-7'>
+					<button type='button' class='btn btn-edit pull-right' id='d{$i}'>
+						<span class='glyphicon glyphicon-remove'></span>
+						Cancel
+					</button>
+					<form id='f{$i}' role='form' action='{$PG_MSG_UPD}?{$query}' method='post'>
+						<button type='button' class='btn btn-edit pull-right' id='s{$i}'>
+							<span class='glyphicon glyphicon-check'></span>
+							Confirm
+						</button>
+						<input type='hidden' name='message' id='h{$i}'/>
+						<input type='hidden' name='msgid' value='{$msgid}'/>
+					</form>
+				</div>
+			</div>	
 EOD;
 	}
 	
@@ -322,85 +351,12 @@ EOD;
 	
 	function HtmlMessageContent($i,$msg) {
 		return <<<EOD
-		
-			<div class='row'>
-				<div class='content-msg' id='c{$i}'>
-					{$msg}
-				</div>
+			<div class='content-message' id='c{$i}'>
+				{$msg}
 			</div>
-EOD;
-	}
-	
-	function HtmlMsgDeleteFormOpen($query) {
-		global $PG_MSG_DEL;
-		return "<form role='form' action='{$PG_MSG_DEL}?{$query}' method='post'>";
-	}
-	
-	function HtmlMsgEditFormOpen($query) {
-		global $PG_MSG_UPD;
-		return "<form role='form' action='{$PG_MSG_UPD}?{$query}' method='post'>";
-	}
-	
-	function HtmlMsgDeleteFormClose($msgid) {
-		return <<<EOD
-			<div class="row">														
-				<button type="submit" class="btn btn-delete pull-right" data-id='${msgid}'>
-					<span class="glyphicon glyphicon-remove"></span>
-					Delete
-				</buton>
-				<input type="hidden" name='message' value='{$msgid}'/>
+			<div class='content-message' id='a{$i}'>
+				<textarea name='content' class='form-control editmessage' id='t{$i}'>{$msg}</textarea>
 			</div>
-		</form>
-EOD;
-	}
-	
-	function HtmlMsgEditFormClose($i, $msgid) {
-		return <<<EOD
-			<div class="row" id='r{$i}'>
-				<button type="button" class="btn btn-edit" id='e{$i}' data-id='${msgid}'>
-					<span class="glyphicon glyphicon-edit"></span>
-					Edit
-				</button>
-			</div>
-		</form>
-EOD;
-	}
-	
-	function UserToolPanelJavaScript() {
-		return <<<EOD
-			<script type="text/javascript">
-				$(document).ready(function(){
-					$(".btn-edit").click(function(){
-						var editbtn=$(this);
-						editbtn.hide();
-						
-						var id=editbtn.attr('id');
-						id=id.substring(1,id.length);
-						msgid=editbtn.data("id");
-						
-						var msgcontent=$("#c"+id).html();
-						editcontent=msgcontent.trim();
-						editcontent=editcontent.replace("\t","");
-						editcontent=br2nl(editcontent);
-						editcontent="<textarea name='content' class='form-control' rows='6'>"+editcontent+"</textarea>";
-						
-						$("#r"+id).append("<button id='d"+id+"' type='button' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-trash'></span> Discard</button>");
-						$("#r"+id).append("<button id='s"+id+"' type='submit' class='btn btn-edit pull-right'><span class='glyphicon glyphicon-check'></span> Confirm</button>");
-						
-						var hiddenform="<input type='hidden' id='h"+id+"' name='msgid' value='" + msgid + "'></input>";
-						editcontent=editcontent+hiddenform;
-						
-						$("#c"+id).html(editcontent);
-						$("#d"+id ).click(function(){
-							$("#d"+id).remove();
-							$("#s"+id).remove();
-							$("#h"+id).remove();
-							editbtn.show();
-							$("#c"+id).html(msgcontent);
-						});
-					});
-				});
-			</script>
 EOD;
 	}
 	
@@ -419,7 +375,7 @@ EOD;
 							</div>
 							<div class="row">
 								<div class="input-group">
-									<textarea name="content" id="content" class="form-control" required></textarea>
+									<textarea name="content" id='input-reply-text' class="form-control" required></textarea>
 								</div>
 							</div>
 							<div class="row btn-reply-row">

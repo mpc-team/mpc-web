@@ -48,6 +48,7 @@ span.glyphicon-send {
 	margin-right: 7px; 
 	margin-bottom: 3px;
 }
+span.glyphicon-remove,
 span.glyphicon-check,
 span.glyphicon-trash,
 span.glyphicon-edit { margin: 2px 0px; }
@@ -68,19 +69,19 @@ form > .panel > .page-header {
 .panel-messages > form { margin-top: -20px; }
 .forum .content .panel { padding: 0px; }
 .forum .content .panel-group { margin-bottom: 10px; }
-.forum .content .content-msg img { max-width: 100%; max-height: 300; }
-.content-msg { padding-bottom: 7px; }
+.forum .content .content-message img { max-width: 100%; max-height: 300; }
 
-.content-msg a,
-.content-msg small,
-.content-msg li,
-.content-msg tr,
-.content-msg td,
-.content-msg h1,
-.content-msg h2,
-.content-msg h3,
-.content-msg h4,
-.content-msg p { white-space: normal; word-wrap: break-word; margin-top: 0px; }
+.content-message a,
+.content-message small,
+.content-message li,
+.content-message tr,
+.content-message td,
+.content-message h1,
+.content-message h2,
+.content-message h3,
+.content-message h4,
+.content-message p { white-space: normal; word-wrap: break-word; }
+.content-message { padding: 20px 5px 5px 5px; }
 
 .page-footer {
 	padding-top: 9px;
@@ -112,8 +113,11 @@ form > .panel > .page-header {
 	border: 1px solid rgba(190,220,255,0.8);
 }
 
-.panel-messages { padding: 20px; }
 .panel-messages .col-xs-6 { padding: 0px; }
+.panel-messages { 
+	padding: 10px; 
+	min-height: 150px;
+}
 
 
 /* Forum Styles */
@@ -121,7 +125,6 @@ form > .panel > .page-header {
 .col-xs-1,
 .col-xs-2 { 
 	text-align: center;
-	margin-top: 15px;
 }
 .col-xs-3 > a,
 .col-xs-4 > a,
@@ -139,7 +142,9 @@ form > .panel > .page-header {
 .table-forum-layout .panel-group a { 
 	min-height: 80px; 
 }
+
 .row.usertool { background: #1a1a1a; }
+.row.usertool > form { display: inline; }
 
 
 /* Login Style */
@@ -160,6 +165,10 @@ form > .panel > .page-header {
 	max-width: 500px;
 	min-width: 250px;
 }
+
+/* Edit Message Styles */
+
+textarea.form-control.editmessage { height: 15em; }
 
 
 /* Create Thread Modal */
@@ -190,6 +199,7 @@ form > .panel > .page-header {
 
 /* Reply Styles */
 
+#input-reply-text { height: 15em; }
 .panel-reply .form-group { 
 	margin: 10px;
 	padding: 5px; 

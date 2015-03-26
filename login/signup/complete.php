@@ -5,8 +5,6 @@
 	include_once($ROOT . PathDir::$HEADER);
 	include_once($ROOT . PathDir::$DB);
 	include_once($ROOT . PathDir::$AUTHENTICATE);
-	include_once($ROOT . PathDir::$DB_UTILITY);
-	include_once($ROOT . PathDir::$DB_INFO);
 	
 	$alias = trim($_POST['alias']);
 	$email = trim($_POST['email']);

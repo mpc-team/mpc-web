@@ -25,11 +25,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <?php
-	PrintJavaScriptResource( PathDir::GetJQueryPath($ROOT) );
-	PrintStyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
-	PrintStyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
-	PrintJavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
-	PrintStyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
+	echo JavaScriptResource( PathDir::GetJQueryPath($ROOT) );
+	echo StyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
+	echo StyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );
+	echo JavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
+	echo StyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
  ?>
 </head>
 <body>

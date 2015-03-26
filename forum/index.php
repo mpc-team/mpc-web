@@ -101,7 +101,7 @@
 	$pagetitle="";
 	switch($pagetype) {
 		case $CATEGORIES:
-			$pagetitle=HtmlPageTitle("MPC Gaming","Forums");
+			$pagetitle=HtmlPageTitle("Forum","Categories");
 			break;
 		case $THREADS:
 			$pagetitle=HtmlPageTitle($ctag,"Forum");
@@ -162,6 +162,9 @@
 				
 					echo $navbar;
 					
+					echo "<div class='row'>";
+					echo "<h3>Recent</h3>";
+					echo "</div>";
 					echo "<div class='row'>";
 					switch($pagetype) {
 						case $CATEGORIES:

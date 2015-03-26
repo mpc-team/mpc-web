@@ -268,7 +268,7 @@ EOD;
 				<div class="row">
 					<div class="col-xs-6">
 						<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}">
-							<h5>{$glyph} {$ctag} {$glyph}<small><br><br>{$descr}</small></h5>
+							<h5>{$glyph} {$ctag} {$glyph}<small><br>{$descr}</small></h5>
 						</a>
 					</div>
 					<div class="col-xs-1">
@@ -291,7 +291,7 @@ EOD;
 			<div class="row">
 				<div class="col-xs-6">
 					<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}">
-						<h5>{$glyph} {$ttag} {$glyph}<br><br><small>
+						<h5>{$glyph} {$ttag} {$glyph}<br><small>
 						<span class="glyphicon glyphicon-user"></span> {$alias} </br>
 						<span class="glyphicon glyphicon-time"></span> {$time}</small></h5>
 					</a>

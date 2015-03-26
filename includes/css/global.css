@@ -142,7 +142,10 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 	padding: 5px;
 }
 
-.panel-group > .panel .col-xs-1 { margin-top: 13px; }
+.panel-category a.btn { min-height: 100px; }
+.panel-group > .panel .col-xs-1 { 
+	margin-top: 15px; 
+}
 
 .col-xs-1,
 .col-xs-2 { 

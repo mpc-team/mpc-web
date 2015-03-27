@@ -132,7 +132,7 @@ EOD;
 		return($messages);
 	}
 	
-	function DBF_GetRecentThreadsInCategory($db,$cid) {
+	function DBF_GetRecentThreadsInCategory($db) {
 		if($db->connected) {
 			$threads=array( );
 			$sql=<<<EOD
@@ -140,7 +140,6 @@ EOD;
 				FROM ForumThreads AS ft
 					JOIN ForumCategory AS fc
 						ON ft.categoryID=fc.categoryID
-						AND ft.categoryID={$cid}
 					JOIN ForumThreadInfo AS fti
 						ON fti.fthreadID=ft.fthreadID
 					JOIN ThreadMessages AS tm

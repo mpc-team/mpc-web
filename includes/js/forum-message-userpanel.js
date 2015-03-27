@@ -38,8 +38,8 @@
 	var TAGS_ULIST				= ["<ul>", "</ul>"];
 	var TAGS_LISTITEM			= ["<li>", "</li>"];
 	var TAGS_PARAGRAPH		= ["<p>", "</p>"];
-	var TAGS_LINK					= ["<a href='", "'>", "</a>"];
-	var TAGS_IMAGE				= ["<img src='", "'></img>"];
+	var TAGS_LINK					= ["<a href=\"", "\">", "</a>"];
+	var TAGS_IMAGE				= ["<img src=\"", "\"></img>"];
 	
 	function Html2Text(html) {
 		var text = html.trim( );

@@ -34,7 +34,7 @@
     </div>
         <div class="container">
             <div class="content">
-<div class="well">
+                <div class="well">
                     <center>
                         <img src="../pics/mpcstream.png" alt="mpcstream.png" class="img-responsive img-rounded" style="height:100px; width: 600px;"  />
                     <br />
@@ -102,8 +102,64 @@
                         </div>
                     </center>
                 </div>
+                <div class="well">
+                    <center>
+                        <img src="../pics/mpccommunitybanner.png" alt="mpccommunitybanner.png" title="mpc community banner" class="img-responsive img-rounded" style="width: 600px; height: 100px;" />
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=".StreamVae">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                        YourName
+                    </button>
+                        <div class="modal fade StreamVae" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                        <br />
+                                            <iframe src="http://www.twitch.tv/vaevictissc/embed" frameborder="0" scrolling="no" height="400" width="300"></iframe><br /><p>https://support.twitter.com/articles/20164833-adding-a-follow-button-to-your-website#</p>
+                                        </div>
+                                        <div class="col-xs-6 pull-right">
+                                        <br />
+                                            <iframe src="http://www.twitch.tv/vaevictissc/chat?popout=" frameborder="0" scrolling="no" height="400" width="285"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </center>
                 </div>
+                <div class="well">
+                    <div class="page-header text-center"><h3>How to be placed on our website?</h3></div>
+                        <div class="panel panel-default">
+                          <div class="panel-body">
+                            <p>Options are posted below, and all you have to do is select an options, then follow directions provided. Thank you very much for allowing MPC to help promote your twitch account subscriber's list.</p>
+                              <br />
+                              <div class="page-header text-center"><h3>Rules for Stream:</h3></div>
+                                <br />
+                              <small>People can repor, or request for your removal... Be respectful.<br /> Failure to comply will result in ban. This is your warning.</small>
+                              <br />
+                              <ul class="list-group">
+                                <li class="presentation">Obey all Twitch Rules, and Terms of Service Contract.</li>
+                                <li class="presentation">No Flaming, also known as, insults towards: viewers, clans, people, or anything at all.</li>
+                                <li class="presentation">No Racial Slurs / Words.</li>
+                                <li class="presentation">No Adultry Words or Visuals.</li>
+                                <li class="presentation">Keep Profanity to a minimum.</li>
+                              </ul>
+                          </div>
+                        </div>
+                    <br />
+                    <div class="btn-group" role="group" aria-label="...">
+                        <div class="btn-group">
+                                <a href="mailto:" title="Email Us a Request" type="button" class="btn btn-success">Via Email</a>
+                                <a type="button" class="btn btn-success" href="ventrilolive.php" title="Email Us a Request">Via Ventrilo</a>
+                                <a type="button" class="btn btn-success" href="gamelist.php" title="Email Us a Request">Via In Game</a>
+                                <a type="button" class="btn btn-success" href="gamingservice.php" title="Email Us a Request">Via Game Service</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="container-fluid">
-    <?php PrintFooter($ROOT); ?>
-</div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <?php PrintFooter($ROOT); ?>
+        </div>
+    </body>
+</html>

@@ -24,6 +24,8 @@
 	var TYPE_EDIT_ULIST		= 'edit-tag-ulist';
 	var TYPE_EDIT_LISTITEM = 'edit-tag-ulist-item';
 	var TYPE_EDIT_PARAGRAPH	= 'edit-tag-paragraph';
+	var TYPE_EDIT_LINK		= 'edit-tag-link';
+	var TYPE_EDIT_IMAGE		= 'edit-tag-image';
 	
 	var TAGS_BOLD					= ["<b>", "</b>"];
 	var TAGS_ITALIC			  = ["<i>", "</i>"];
@@ -36,6 +38,8 @@
 	var TAGS_ULIST				= ["<ul>", "</ul>"];
 	var TAGS_LISTITEM			= ["<li>", "</li>"];
 	var TAGS_PARAGRAPH		= ["<p>", "</p>"];
+	var TAGS_LINK					= ["<a href='", "'>", "</a>"];
+	var TAGS_IMAGE				= ["<img src='", "'></img>"];
 	
 	function Html2Text(html) {
 		var text = html.trim( );
@@ -177,5 +181,21 @@
 			var $elems = $("[data-id=" + msgid + "]");
 			var text = $elems.filter("." + TYPE_TEXT);
 			text.fieldSelection(TAGS_PARAGRAPH[0] + text.fieldSelection().text + TAGS_PARAGRAPH[1]);
+		});
+		
+		$("." + TYPE_EDIT_LINK).click( function () {
+			var $elem = $(this);
+			var msgid = $elem.data("id");
+			var $elems = $("[data-id=" + msgid + "]");
+			var text = $elems.filter("." + TYPE_TEXT);
+			text.fieldSelection(TAGS_LINK[0] + text.fieldSelection().text + TAGS_LINK[1] + TAGS_LINK[2]);
+		});
+		
+		$("." + TYPE_EDIT_IMAGE).click( function () {
+			var $elem = $(this);
+			var msgid = $elem.data("id");
+			var $elems = $("[data-id=" + msgid + "]");
+			var text = $elems.filter("." + TYPE_TEXT);
+			text.fieldSelection(TAGS_IMAGE[0] + text.fieldSelection().text + TAGS_IMAGE[1]);
 		});
 	});

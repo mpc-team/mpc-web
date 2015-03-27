@@ -455,6 +455,12 @@ EOD;
 			<button title='Paragraph' type='button' class='btn btn-edit edit-tag-paragraph' data-id='{$id}'>
 				<i class="fa fa-paragraph"></i>
 			</button>
+			<button title='Internet Link' type='button' class='btn btn-edit edit-tag-link' data-id='{$id}'>
+				<i class="fa fa-link"></i>
+			</button>
+			<button title='Image Reference' type='button' class='btn btn-edit edit-tag-image' data-id='{$id}'>
+				<i class="fa fa-picture-o"></i>
+			</button>
 EOD;
 	}
 	

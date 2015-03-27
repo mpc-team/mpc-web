@@ -17,12 +17,13 @@ textarea.form-control {
 }
 
 body { padding-top: 50px; padding-bottom: 49px; }
-html { background: url("../../pics/background.png") center center fixed; }
+html { background: url("../../pics/background.png"); }
+html { background-attachment: fixed !IMPORTANT; }
 html { background-repeat: no-repeat; }
 html { background-size: cover; }
 html { height: 100%; min-height: 100%; }
 html body { height: inherit; }
-html body { background: inherit; }
+html body { background: transparent; } 
 
 p { margin-bottom: 0px; }
 

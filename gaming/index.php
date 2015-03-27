@@ -47,15 +47,61 @@
 				<div class="col-xs-3">
 					<img src="../pics/leagueoflegendslogo.png" id="leagueofleagends-img" alt="leagueoflegendslogos.png" class="img-responsive" style="margin-top: 5px;" />
 				</div>
-			</div>  
+			</div>
+            <div class="row" style="max-width: 600px;">
 			<center>
 				<img src="../pics/mpcgamingbanner.png" alt="mpcgamingbanner.png" title="mpc gaming" class="img-responsive img-rounded" style="height: 200; width: 600px; padding: 25px; border: solid;"/>
 			</center>
 			<br />
 			<small>
 				<p>&ensp;&ensp;&ensp;&ensp;&ensp;MPC is a multi-level gaming clan that specializes on one main concept... Team. We would like to develope a community that engages both the players, and the games they play. We try to provide the essential fundamentals of gaming, and that includes: ventrilo, website domain, a foundation of solid core members, training, stream zone, and more. It's a friendly environment for all ages, and disrespect to either members, or to public community will not be tolerated. Please be advised that the people streaming on this website have complete control of the language filter. Do not be offended, just walk away from that streamer's cast on this website.</p>
-			</small>           
+			</small>
+                <br />
+                <p>&ensp;&ensp;&ensp;&ensp;&ensp;Use this page as a tool to get a head start on reaching out to our members, and provide all the tools that will help your gaming experience. Don't be afraid to reach out, and give us a shot at becoming a well developed organization. MPC is a non profit, and purpose is reacreational only. Yes there are some expenses, but nothing serious. We wish to meet new people and gather more information about the games everyone is playing as of today. We would like to break the games into science, and provide an education to new members, or current members that are trying a new game, this will create friends along the process, and as to a growing organization, specifically, from the help of this website. We are members who like to help other members, and maintain a nice relationship between gamers, and the games they play. We are a Multi Player Clan, and we share the respect for the community (non clan memmbers), as much as regular members, or officers. MPC's vision is to reach a high volume of members, and very interactive with the game, and the clan itself...</p>
 		</div>
+            <br />
+            <div class="row">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Ventrilo<span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="ventrilolive.php">Ventrilo Live Connection</a></li>
+                        <li><a href="mpcstream.php">Getting Started</a></li>
+                        <li><a href="gamelist.php">Game Room</a></li>
+                        <li><a href="gamingservice.php">Game Service Providers</a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                    </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> MPC Stream<span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="ventrilolive.php">Ventrilo Live Connection</a></li>
+                        <li><a href="mpcstream.php">MPC Stream</a></li>
+                        <li><a href="gamelist.php">Game Room</a></li>
+                        <li><a href="gamingservice.php">Game Service Providers</a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                    </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Game Room<span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="ventrilolive.php">Ventrilo Live Connection</a></li>
+                        <li><a href="mpcstream.php">MPC Stream</a></li>
+                        <li><a href="gamelist.php">Game Room</a></li>
+                        <li><a href="gamingservice.php">Game Service Providers</a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                    </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Distributors<span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="ventrilolive.php">Ventrilo Live Connection</a></li>
+                        <li><a href="mpcstream.php">MPC Stream</a></li>
+                        <li><a href="gamelist.php">Game Room</a></li>
+                        <li><a href="gamingservice.php">Game Service Providers</a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
 	</div>
 </div>
 

@@ -13,6 +13,7 @@
 					ON ForumCategory.categoryID=ForumCategoryDescr.categoryID
 				JOIN ForumCategoryPermissions
 					ON ForumCategory.categoryID=ForumCategoryPermissions.categoryID
+				ORDER BY ForumCategoryPermissions.permission DESC
 EOD;
 			$result = $db->query($sql);
 			if ($result) {

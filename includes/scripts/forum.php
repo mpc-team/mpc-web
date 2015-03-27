@@ -214,7 +214,7 @@
 	
 	function HtmlPageTitleAuthorDate($title,$sub,$alias,$timestamp) {
 		$date = new DateTime($timestamp);
-		$timestamp = $date->format(DateTime::COOKIE);
+		$timestamp = $date->format(DateTime::RFC1123);
 		return <<<EOD
 			<div class='row'>
 				<div class='page-header'>
@@ -247,6 +247,8 @@ EOD;
 	
 	function HtmlRecentFeed($cid,$ctag,$tid,$ttag,$author,$content,$date) {
 		global $PG_INDEX; 
+		$datetime = new DateTime($date);
+		$datetime = $datetime->format(DateTime::RFC1123);
 		$ctagenc=urlencode($ctag);
 		$ttagenc=urlencode($ttag);
 		$stripped=strip_tags($content,"<br>");
@@ -265,7 +267,12 @@ EOD;
 							</div>
 							<div class='panel-recentfeed-footer'>
 								<div class='row'>
-									<span class='glyphicon glyphicon-user'></span> {$author}
+									<div class='col-xs-6'>
+										<span class='glyphicon glyphicon-user'></span> {$author}
+									</div>
+									<div class='col-xs-6 pull-right'>
+										<span class='glyphicon glyphicon-time'></span> {$datetime}
+									</div>
 								</div>
 							</div>						
 						</a>
@@ -475,7 +482,7 @@ EOD;
 	
 	function HtmlMessageDate($timestamp){
 		$date = new DateTime($timestamp);
-		$timestamp = $date->format(DateTime::COOKIE);
+		$timestamp = $date->format(DateTime::RFC1123);
 		return <<<EOD
 			<div class="row">
 				<div class="pull-right">

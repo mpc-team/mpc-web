@@ -155,6 +155,7 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 .panel-recentfeed-footer {
 	padding: 0px;
 	padding-top: 8px;
+	font-size: 8pt;
 }
 
 .col-md-4 .panel > a.btn,

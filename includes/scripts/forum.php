@@ -1,19 +1,23 @@
 <?php
-/*
- *
- *	Dependencies
- *	¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
- */ 
+////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	REQUIREMENTS
+//
+//////////////////////////////////////////////////////////////////////////////////////////////// 
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$DBFORUM);
 	include_once($ROOT . PathDir::$DB);
 	include_once($ROOT . PathDir::$UTILITY);
-/*
- *
- *	Global Definitions
- *  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
- */ 
-	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><center></center><h1></h1><h2></h2><h3></h3><h4></h4><p></p><ul></ul><li></li><img></img></br><br><br/><a></a><small></small>";
+	
+////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	GLOBALS
+//
+////////////////////////////////////////////////////////////////////////////////////////////////
+	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><center></center>"
+											."<h1></h1><h2></h2><h3></h3><h4></h4><h5></h5>"
+											."<sub></sub><sup></sup><p></p>"
+											."<ul></ul><li></li><img></img></br><br><br/><a></a><small></small>";
 	
 	$PG_INDEX = $ROOT . '/forum/index.php';
 	$PG_THR_ADD = $ROOT.'/forum/thread/create.php';
@@ -22,20 +26,11 @@
 	$PG_MSG_ADD = $ROOT.'/forum/message/create.php';
 	$PG_MSG_UPD = $ROOT.'/forum/message/update.php';
 	
-//###############################################################
-//#
-//#		DATABASE QUERY SECTION (1.0)
-//#
-//###############################################################
-/*
- *
- *	Forum Functions
- *	¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
- *		These functions may be called frequently so the database
- *	handle should be passed around to avoid reconnecting to the
- *	database server.
- *
- */ 
+////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	FORUM FUNCTIONS
+//
+////////////////////////////////////////////////////////////////////////////////////////////////
 	function CheckPagePermissions($db,$cid,$ctag,$signed,$user) {
 		if($cid != NULL && $ctag != NULL){
 			if(DBF_CheckCategory($db,$cid,$ctag)) {
@@ -98,16 +93,14 @@
 	}
 	
 	function GetForumRecentFeed($db,$user) {
-		
 		return DBF_GetRecentThreadsInCategory($db,1);
 	}
-/*
- *
- *	Thread Message Forum Functions
- *	¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
- *		Gives us easy access to functions typically performed in the
- *	forum. These functions rely on database access through 'db.php'.
- */ 
+	
+////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	FORUM MESSAGE FUNCTIONS
+//
+////////////////////////////////////////////////////////////////////////////////////////////////
 	function UpdateMessage($cid,$ctag,$tid,$ttag,$msgid,$content,$user) {
 		global $ALLOWED_HTML_TAGS;
 		$update=-1;
@@ -167,11 +160,12 @@
 		$db->disconnect();
 		return $msg;
 	}
-/*
- *
- *	Thread Forum Functions
- *	¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
- */ 
+	
+////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	FORUM THREAD FUNCTIONS
+//
+////////////////////////////////////////////////////////////////////////////////////////////////
 	function CreateThread($cid,$ctag,$title,$user) {
 		global $ALLOWED_HTML_TAGS;
 		$tid=-2;
@@ -203,12 +197,12 @@
 		return $del;
 	}
 	
-//###############################################################
-//#
-//#		FORUM PAGE HANDLING SECTION (2.0)
-//#
-//###############################################################
-
+	
+////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	FORUM HTML COMPONENTS
+//
+////////////////////////////////////////////////////////////////////////////////////////////////
 	function HtmlPageTitle($title,$sub) {
 		return "<div class='page-header'>"
 			."<h1>{$title}<br><small>{$sub}</small></h1></div>";
@@ -218,17 +212,37 @@
 		return "<div class='page-footer'></div>";
 	}
 	
-	function HtmlPageTitleAuthorDate($title,$sub,$alias,$time) {
-		$result="<div class='row'>";
-		$result.="<div class='page-header'><h1>{$title}<br><small>{$sub}</small></h1>";
-		$result.="<div class='row'>";
-		$result.="<div class='col-xs-6'>";
-		$result.="Created by <span class='glyphicon glyphicon-user'></span> {$alias}";
-		$result.="</div><div class='col-xs-6'>";
-		$result.="<div class='pull-right'>";
-		$result.="Created on <span class='glyphicon glyphicon-time'></span> {$time}";
-		$result.="</div></div></div></div></div>";
-		return $result;
+	function HtmlPageTitleAuthorDate($title,$sub,$alias,$timestamp) {
+		$date = new DateTime($timestamp);
+		$timestamp = $date->format(DateTime::COOKIE);
+		return <<<EOD
+			<div class='row'>
+				<div class='page-header'>
+					<h1>{$title}<br><small>{$sub}</small></h1>
+					<div class='row thread-info'>
+						<div class='col-xs-6'>
+							Created by <span class='glyphicon glyphicon-user'></span> {$alias}
+						</div>
+						<div class='col-xs-6'>
+							<div class='pull-right'>
+								Created on <span class='glyphicon glyphicon-time'></span> {$timestamp}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>			
+EOD;
+	}
+	
+	function HtmlLoginNotice($loginpath,$query) {
+		if(strlen($query) > 0) $query='?'.$query;
+		return <<<EOD
+			<div class="alert alert-info" role="alert">
+				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				<span class="sr-only">Error:</span>
+				You must <a class="alert-link" href="{$loginpath}{$query}">Login/Register</a> before posting on the Forum
+			</div>
+EOD;
 	}
 	
 	function HtmlRecentFeed($cid,$ctag,$tid,$ttag,$author,$content,$date) {
@@ -321,18 +335,20 @@ EOD;
 EOD;
 	}
 	
-	function HtmlMessage($id,$content,$author,$alias,$time,$query,$i) {
+	function HtmlMessage($msgid,$content,$author,$alias,$time,$query) {
 		$headerleft=HtmlMessageAuthor($alias);
 		$headerright=HtmlMessageDate($time);
-		$body=HtmlMessageContent($i,$content);
+		$body=HtmlMessageContent($content,$msgid);
 		return<<<EOD
 			<div class='panel-messages'>
-				<div class='row'>
-					<div class='col-xs-6'>
-						{$headerleft}
-					</div>
-					<div class='col-xs-6'>
-						{$headerright}
+				<div class='panel-messages-header'>
+					<div class='row'>
+						<div class='col-xs-6'>
+							{$headerleft}
+						</div>
+						<div class='col-xs-6'>
+							{$headerright}
+						</div>
 					</div>
 				</div>
 				<div class='row'>{$body}</div>
@@ -340,37 +356,56 @@ EOD;
 EOD;
 	}
 	
-	function HtmlMessageOptions($i,$msgid,$query) {
+	function HtmlMessageContent($msg,$msgid) {
+		$taghelper = HtmlTagHelper($msgid);
+		return <<<EOD
+			<div class='content-message edit-content' data-id='{$msgid}'>
+				{$msg}
+			</div>
+			<div class='content-message edit-content-toggle' data-id='{$msgid}'>
+				<div class='row'>
+					{$taghelper}
+				</div>
+				<div class='row'>
+					<textarea name='content' class='form-control editmessage edit-content-text' data-id='{$msgid}'>
+						{$msg}
+					</textarea>
+				</div>
+			</div>
+EOD;
+	}
+	
+	function HtmlMessageOptions($msgid,$query) {
 		global $PG_MSG_DEL;
 		global $PG_MSG_UPD;
 		return <<<EOD
-			<div class='row usertool' id='r{$i}'>
+			<div class='row usertool'>
 				<div class='col-xs-2'>
-					<button type='button' class='btn btn-edit pull-left' id='e{$i}' data-id='{$msgid}'>
+					<button type='button' class='btn btn-edit pull-left edit-content-btn-edit' data-id='{$msgid}'>
 						<span class='glyphicon glyphicon-edit'></span>
 						Edit
 					</button>
 				</div>
-				<div class='col-xs-3'>
+				<div class='col-xs-2'>
 					<form role='form' action='{$PG_MSG_DEL}?{$query}' method='post'>
-						<button type='submit' class='btn btn-edit' id='x{$i}' data-id={$msgid}>
+						<button type='submit' class='btn btn-edit edit-content-btn-delete' data-id='{$msgid}'>
 							<span class='glyphicon glyphicon-trash'></span>
 							Delete
 						</button>
 						<input type='hidden' name='msgid' value='{$msgid}'/>
 					</form>
 				</div>
-				<div class='col-xs-7'>
-					<button type='button' class='btn btn-edit pull-right' id='d{$i}'>
+				<div class='col-xs-8'>
+					<button type='button' class='btn btn-edit pull-right edit-content-btn-cancel' data-id='{$msgid}'>
 						<span class='glyphicon glyphicon-remove'></span>
 						Cancel
 					</button>
-					<form id='f{$i}' role='form' action='{$PG_MSG_UPD}?{$query}' method='post'>
-						<button type='button' class='btn btn-edit pull-right' id='s{$i}'>
+					<form class='edit-content-form' data-id='{$msgid}' role='form' action='{$PG_MSG_UPD}?{$query}' method='post'>
+						<button type='button' class='btn btn-edit pull-right edit-content-btn-update' data-id='{$msgid}'>
 							<span class='glyphicon glyphicon-check'></span>
 							Confirm
 						</button>
-						<input type='hidden' name='message' id='h{$i}'/>
+						<input type='hidden' name='message' class='edit-content-hidden' data-id='{$msgid}'/>
 						<input type='hidden' name='msgid' value='{$msgid}'/>
 					</form>
 				</div>
@@ -378,14 +413,48 @@ EOD;
 EOD;
 	}
 	
-	function HtmlLoginNotice($loginpath,$query) {
-		if(strlen($query) > 0) $query='?'.$query;
-		return <<<EOD
-			<div class="alert alert-info" role="alert">
-				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-				<span class="sr-only">Error:</span>
-				You must <a class="alert-link" href="{$loginpath}{$query}">Login/Register</a> before posting on the Forum
-			</div>
+	function HtmlTagHelper($id) {
+		return<<<EOD
+			<span class='dropdown'>
+				<button type='button' class='btn btn-edit dropdown-toggle' data-toggle='dropdown'>
+					<i class="fa fa-header"></i>
+				</button>
+				<ul class='dropdown-menu' role='menu'>
+					<li><button type='button' class='btn btn-edit edit-tag-header1' data-id='{$id}'>
+						<h1>Heading 1</h1>
+					</button></li>
+					<li><button type='button' class='btn btn-edit edit-tag-header2' data-id='{$id}'>
+						<h2>Heading 2</h2>
+					</button></li>
+					<li><button type='button' class='btn btn-edit edit-tag-header3' data-id='{$id}'>
+						<h3>Heading 3</h3>
+					</button></li>
+				</ul>
+			</span>
+			<button title='Bold' type='button' class='btn btn-edit edit-tag-bold' data-id='{$id}'>
+				<i class="fa fa-bold"></i>
+			</button>
+			<button title='Italic' type='button' class='btn btn-edit edit-tag-italic' data-id='{$id}'>
+				<i class="fa fa-italic"></i>
+			</button>
+			<button title='Underline' type='button' class='btn btn-edit edit-tag-underline' data-id='{$id}'>
+				<i class="fa fa-underline"></i>
+			</button>
+			<button title='Subscript' type='button' class='btn btn-edit edit-tag-subscript' data-id='{$id}'>
+				<i class="fa fa-subscript"></i>
+			</button>
+			<button title='Superscript' type='button' class='btn btn-edit edit-tag-superscript' data-id='{$id}'>
+				<i class="fa fa-superscript"></i>
+			</button>
+			<button title='List' type='button' class='btn btn-edit edit-tag-ulist' data-id='{$id}'>
+				<i class="fa fa-list-ul"></i>
+			</button>
+			<button title='List Item' type='button' class='btn btn-edit edit-tag-ulist-item' data-id='{$id}'>
+				<i class="fa fa-asterisk"></i>
+			</button>
+			<button title='Paragraph' type='button' class='btn btn-edit edit-tag-paragraph' data-id='{$id}'>
+				<i class="fa fa-paragraph"></i>
+			</button>
 EOD;
 	}
 	
@@ -398,7 +467,9 @@ EOD;
 EOD;
 	}
 	
-	function HtmlMessageDate($timestamp) {
+	function HtmlMessageDate($timestamp){
+		$date = new DateTime($timestamp);
+		$timestamp = $date->format(DateTime::COOKIE);
 		return <<<EOD
 			<div class="row">
 				<div class="pull-right">
@@ -409,17 +480,10 @@ EOD;
 EOD;
 	}
 	
-	function HtmlMessageContent($i,$msg) {
-		return <<<EOD
-			<div class='content-message' id='c{$i}'>{$msg}</div>
-			<div class='content-message' id='a{$i}'>
-				<textarea name='content' class='form-control editmessage' id='t{$i}'>{$msg}</textarea>
-			</div>
-EOD;
-	}
-	
 	function HtmlReplyForm($query,$alias) {
 		global $PG_MSG_ADD;
+		$id = "submit-forum-message";
+		$taghelper = HtmlTagHelper($id);
 		return <<<EOD
 			<div class="panel panel-default">
 				<div class="page-header">
@@ -431,9 +495,12 @@ EOD;
 							<div class="row">
 								<h4>&nbsp<span class="glyphicon glyphicon-user"></span> {$alias}:</h4>
 							</div>
+							<div class='row'>
+								{$taghelper}
+							</div>
 							<div class="row">
 								<div class="input-group">
-									<textarea name="content" id='input-reply-text' class="form-control" required></textarea>
+									<textarea name="content" id='input-reply-text' class="form-control edit-content-text" data-id='{$id}' required></textarea>
 								</div>
 							</div>
 							<div class="row btn-reply-row">

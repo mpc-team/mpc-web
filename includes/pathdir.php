@@ -16,7 +16,7 @@ class PathDir {
 	public static $DB = '/includes/scripts/db.php';
 	public static $DBFORUM = '/includes/scripts/dbforum.php';
 	public static $UTILITY = '/includes/scripts/util.php';
-	public static $FORUMFUNC = '/includes/scripts/forumfunctions.php';
+	public static $FORUMFUNC = '/includes/scripts/forum.php';
 	
 	# Database PHP
 	public static $MYSQLI_UTILITY = '/includes/mysqli/util.php';

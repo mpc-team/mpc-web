@@ -9,7 +9,12 @@
 }
 #image-brand-login { height: 400px; }
 
-textarea { resize: none; width: 100%; height: 15em; }
+textarea.form-control { 
+	font-size: 9pt;
+	resize: none; 
+	width: 100%; 
+	height: 15em; 
+}
 
 body { padding-top: 50px; padding-bottom: 49px; }
 html { background: url("../../pics/background.png") center center fixed; }
@@ -21,14 +26,18 @@ html body { background: inherit; }
 
 p { margin-bottom: 0px; }
 
+ul.nav li.dropdown:hover > ul.dropdown-menu { 
+	display: block; 
+}
+
 span.input-group-addon { height: 34px; width: 100px; }
 span.input-group-addon { border-radius: 0px; }
 
 tr.alt { background-color: #2a2f2a; }
 tr.alt { border-top: 1px solid #232323; }
 
-.panel-newthread a.btn > h4 { color: #1a1a1a; }
-.panel-newthread a.btn:hover > h4 { color: #cccccc; }
+.panel-newthread a.btn { color: #1a1a1a; }
+.panel-newthread a.btn:hover { color: #cccccc; }
 a.btn { 
 	padding: 10px; 
 	border-radius: 1px;
@@ -57,7 +66,6 @@ a:hover > span.glyphicon-plus,
 a:hover > span.glyphicon-plus { color: #ffffff; }
 .panel > .page-header > h3 { margin-bottom: 0px; }
 
-.panel-messages > form { margin-top: -20px; }
 .forum .content .panel { padding: 0px; }
 .forum .content .panel-group { margin-bottom: 10px; }
 .forum .content .content-message img { max-width: 100%; max-height: 300; }
@@ -103,10 +111,13 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 	border: 1px solid rgba(190,220,255,0.8);
 }
 
+.panel-messages-header { font-size: 8pt; }
+.panel-messages > form { margin-top: -20px; }
 .panel-messages .col-xs-6 { padding: 0px; }
 .panel-messages { 
 	padding: 10px; 
 	min-height: 150px;
+	font-size: 9pt;
 }
 
 
@@ -190,7 +201,10 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 .table-forum-layout { width: 100%; }
 
 .row.usertool { background: #1a1a1a; }
+.row.thread-info { font-size: 8pt; }
 .row.usertool > form { display: inline; }
+
+
 
 
 /* Login Style */
@@ -212,12 +226,8 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 	min-width: 250px;
 }
 
-/* Edit Message Styles */
-
-textarea.form-control.editmessage { height: 15em; }
-
-
 /* Create Thread Modal */
+
 
 .modal-content { color: rgb(122, 183, 51); }
 .modal-body > .panel { background-color: transparent; }
@@ -235,6 +245,18 @@ textarea.form-control.editmessage { height: 15em; }
 
 /* General Button Rules */
 
+.edit-tag-header1 > h1,
+.edit-tag-header2 > h2,
+.edit-tag-header3 > h3 { 
+	text-align: left;
+	padding: 5px; 
+	margin: 0px;
+}
+
+.edit-tag-header1,
+.edit-tag-header2,
+.edit-tag-header3 { padding: 0px; }
+
 .btn-signup,
 .btn-login,
 .btn-reply { 	
@@ -242,10 +264,9 @@ textarea.form-control.editmessage { height: 15em; }
 	min-width: 100px;
 }
 
+.dropdown-menu > li > button { width: 100%; }
 
-/* Reply Styles */
-
-#input-reply-text { height: 15em; }
+/* #input-reply-text { height: 15em; } */
 .btn-reply { 
 	background-color: transparent; 
 	/* border: 1px solid #66aaee; */
@@ -296,6 +317,7 @@ textarea.form-control.editmessage { height: 15em; }
 
 .btn-delete,
 .btn-edit {	
+	font-size: 9pt;
 	color: #337ab7;
 	background-color: transparent; 
 }

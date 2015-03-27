@@ -136,6 +136,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 	<meta name="keywords" content="mpc, clan mpc, clanmpc, mpcgaming, mpc gaming, gaming clan, multiplayer clan, multiplayer">
 	<meta name="description" content="Multi-Player Clan - Gaming community hosting tournaments for various games including StarCraft II, Heroes of the Storm, Counter-Strike: Global Offense.">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <?php
 	echo JavaScriptResource( PathDir::GetJQueryPath($ROOT) );
 	echo StyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
@@ -144,6 +145,7 @@
 	echo StyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
 	echo JavaScriptResource( PathDir::GetJSPath($ROOT, 'util.js') );
 	echo JavaScriptResource( PathDir::GetJSPath($ROOT, 'forum-message-userpanel.js') );
+	echo JavaScriptResource( PathDir::GetJSPath($ROOT, 'field-selection.js') );
  ?>
 </head>
 <body>
@@ -232,8 +234,8 @@
 								$email = $message[2];
 								
 								echo $LAYOUT_OPEN;
-								echo HtmlMessage($msgid,$message[1],$email,$message[3],$message[4],$query,$i);
-								$moptions=($s_user == $email) ? HtmlMessageOptions($i,$msgid,$query) : "";
+								echo HtmlMessage($msgid,$message[1],$email,$message[3],$message[4],$query);
+								$moptions=($s_user == $email) ? HtmlMessageOptions($msgid,$query) : "";
 								echo $moptions;
 								echo $LAYOUT_CLOSE;
 								

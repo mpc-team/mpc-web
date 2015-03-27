@@ -1,18 +1,18 @@
 <?php
 	function NewThreadModal($query,$createpage){
 		return <<<EOD
+		
 			<div class="panel-group panel-newthread">
 				<div class="panel-newthread">
 					<div class="panel panel-default">
 						<a class="btn" data-toggle="modal" data-target="#modal-newthread">
-							<h4>
-								<span class="glyphicon glyphicon-share-alt"></span>
-								Create Thread
-							</h4>
+							<span class="glyphicon glyphicon-share-alt"></span>
+							Create Thread
 						</a>
 					</div>
 				</div>
 			</div>
+			
 			<div class="modal fade" id="modal-newthread" tabindex="-1" role="dialog" aria-labelledby="modal-newthread" aria-hidden="true">
 				<div class="modal-dialog">
 					<form action="{$createpage}?{$query}" method="post">

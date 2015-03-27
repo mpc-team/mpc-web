@@ -39,10 +39,6 @@
 			PrintNavbar("gaming", $ROOT, $signed, $user, $_SERVER["QUERY_STRING"]); 
 		?>	
     </div>
-        <div class="container">
-            <div class="content">
-            <div class="well">
-                <div class="row">
                 <center>
                     <img src="../pics/gamingservices.png" alt="gamingservices.png" class="img-responsive img-rounded" style="height: 100px; width: 700px;" />
                 </center>
@@ -94,11 +90,12 @@
                         <!---->MPC Origin<!---->
                         </button>
                         </div>  <!--btn0group-->
-                    </div>  <!--col-->
-                </div>    
-            </div>
-        </div> 
-            </div>
+                        </div>  <!--col-->
+                    </div>    
+                </div>
+            </div> 
+    <   /div>
+    </div>
 <div class="container-fluid">
     <?php PrintFooter($ROOT); ?>
 </div>

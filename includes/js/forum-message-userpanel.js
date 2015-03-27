@@ -48,6 +48,11 @@
 		return text;
 	}
 	
+	$.fn.gotoSection = function(section) {
+		$this = $(this);
+		$(window).scrollTop($this.offset().top - 80);
+	}
+	
 	$(document).ready( function () {
 		$("." + TYPE_UPDATE).hide();
 		$("." + TYPE_CANCEL).hide();
@@ -66,6 +71,7 @@
 			$elems.filter("." + TYPE_CANCEL).show();
 			$elems.filter("." + TYPE_UPDATE).show();
 			$elems.filter("." + TYPE_TEXT).html(html2text);
+			$("#forum-thread-message-" + msgid).gotoSection();
 		});
 		
 		$("." + TYPE_CANCEL).click( function () {
@@ -78,6 +84,7 @@
 			$elems.filter("." + TYPE_CANCEL).hide();
 			$elems.filter("." + TYPE_UPDATE).hide();
 			$elems.filter("." + TYPE_DIV_CONTENT).show();
+			$("#forum-thread-message-" + msgid).gotoSection();
 		});
 		
 		$("." + TYPE_UPDATE).click( function () {

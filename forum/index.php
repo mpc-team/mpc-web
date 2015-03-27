@@ -233,6 +233,7 @@
 								$msgid = $message[0];
 								$email = $message[2];
 								
+								echo "<a id='forum-thread-message-{$msgid}'></a>";
 								echo $LAYOUT_OPEN;
 								echo HtmlMessage($msgid,$message[1],$email,$message[3],$message[4],$query);
 								$moptions=($s_user == $email) ? HtmlMessageOptions($msgid,$query) : "";

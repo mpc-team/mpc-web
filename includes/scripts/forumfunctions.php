@@ -98,7 +98,6 @@
 	}
 	
 	function GetForumRecentFeed($db,$user) {
-		$cids=DBF_GetCategoryIDs($db,$user);
 		
 		return DBF_GetRecentThreadsInCategory($db,1);
 	}

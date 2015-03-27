@@ -3,34 +3,6 @@
 	include_once($ROOT . PathDir::$MYSQLI_UTILITY);
 	include_once($ROOT . PathDir::$MYSQLI_INFO);
 	
-	function DBF_GetCategoryIDs($db,$user) {
-		if($db->connected) {
-			$categories=array( );
-			$perms=DB_GetUserPermissionsByEmail($user);
-			$sql=<<<EOD
-				SELECT fc.categoryID 
-				FROM ForumCategory AS fc
-					JOIN ForumCategoryPermissions AS fcp
-						ON fc.categoryID=fcp.categoryID
-				WHERE ForumCategoryPermissions
-					IN (SELECT userPermission 
-							FROM UserPermissions
-								JOIN User
-									ON UserPermissions.userID=User.userID
-									AND User.userName={$user})
-EOD;
-			$statement=$db->prepare($sql);
-			$statement->execute( );
-			$statement->bind_result($cid)
-			while($statement->fetch()) {
-				array_push($categories, $cid);
-			}
-			$statement->close( );
-			return $categories;
-		}
-		return NULL;
-	}
-	
 	function DBF_GetCategories($db,$user) {
 		$categories=array();
 		if ($db->connected) {

@@ -44,11 +44,11 @@
 //	USER HAS PAGE PERMISSION
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// if(!CheckPagePermissions($db,$cid,$ctag,$usersigned,$s_user)) {
-		// header("Location: {$ROOT}/forum/index.php");
-		// $db->disconnect( );
-		// exit( );
-	// }
+	if(!CheckPagePermissions($db,$cid,$ctag,$usersigned,$s_user)) {
+		header("Location: {$ROOT}/forum/index.php");
+		$db->disconnect( );
+		exit( );
+	}
 	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -88,7 +88,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$postfeed = NULL;
 	if($pagetype == $CATEGORIES) {
-		$postfeed = GetForumRecentFeed($db,$s_user);
+		$postfeed = GetForumRecentFeed($db);
 	}
 	$db->disconnect();
 

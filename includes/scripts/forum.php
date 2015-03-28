@@ -99,8 +99,8 @@
 		return $content;
 	}
 	
-	function GetForumRecentFeed($db,$user) {
-		return DBF_GetRecentPosts($db,$user);
+	function GetForumRecentFeed($db) {
+		return DBF_GetRecentPosts($db);
 	}
 	
 ////////////////////////////////////////////////////////////////////////////////////////////////

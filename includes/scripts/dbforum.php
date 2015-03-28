@@ -128,14 +128,17 @@ EOD;
 		return($messages);
 	}
 	
-	function DBF_GetRecentPosts($db,$user) {
+	function DBF_GetRecentPosts($db) {
 		if($db->connected) {
 			$threads=array( );
-			$sql=<<<EOD
+			$sql=
+<<<EOD
 				SELECT ft.fthreadID, ft.name, fc.categoryID, fc.categoryName, ualias.userAlias, tmc.content, tm.tmsgID, tmi.tstamp AS date
 				FROM ForumThreads AS ft
 					JOIN ForumCategory AS fc
 						ON ft.categoryID=fc.categoryID
+					JOIN ForumCategoryPermissions AS fcp
+						ON ft.categoryID=fcp.categoryID
 					JOIN ForumThreadInfo AS fti
 						ON fti.fthreadID=ft.fthreadID
 					JOIN ThreadMessages AS tm
@@ -148,6 +151,7 @@ EOD;
 						ON tmi.author=User.userName
 					JOIN UserAlias AS ualias
 						ON User.userID=ualias.userID
+				WHERE fcp.permission='public'
 				ORDER BY date DESC
 				LIMIT 3
 EOD;

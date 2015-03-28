@@ -58,48 +58,30 @@
 			</small>
                 <br />
                 <p>&ensp;&ensp;&ensp;&ensp;&ensp;Use this page as a tool to get a head start on reaching out to our members, and provide all the tools that will help your gaming experience. Don't be afraid to reach out, and give us a shot at becoming a well developed organization. MPC is a non profit, and purpose is reacreational only. Yes there are some expenses, but nothing serious. We wish to meet new people and gather more information about the games everyone is playing as of today. We would like to break the games into science, and provide an education to new members, or current members that are trying a new game, this will create friends along the process, and as to a growing organization, specifically, from the help of this website. We are members who like to help other members, and maintain a nice relationship between gamers, and the games they play. We are a Multi Player Clan, and we share the respect for the community (non clan memmbers), as much as regular members, or officers. MPC's vision is to reach a high volume of members, and very interactive with the game, and the clan itself...</p>
-		</div>
+		      </div>
             <br />
             <div class="row">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Ventrilo<span class="caret"></span></button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="ventrilolive.php">Ventrilo Live Connection</a></li>
-                        <li><a href="mpcstream.php">Getting Started</a></li>
-                        <li><a href="gamelist.php">Game Room</a></li>
-                        <li><a href="gamingservice.php">Game Service Providers</a></li>
-                        <li><a href="#"></a></li>
-                    </ul>
-                    </div>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> MPC Stream<span class="caret"></span></button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="ventrilolive.php">Ventrilo Live Connection</a></li>
-                        <li><a href="mpcstream.php">MPC Stream</a></li>
-                        <li><a href="gamelist.php">Game Room</a></li>
-                        <li><a href="gamingservice.php">Game Service Providers</a></li>
-                        <li><a href="#"></a></li>
-                    </ul>
-                    </div>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Game Room<span class="caret"></span></button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="ventrilolive.php">Ventrilo Live Connection</a></li>
-                        <li><a href="mpcstream.php">MPC Stream</a></li>
-                        <li><a href="gamelist.php">Game Room</a></li>
-                        <li><a href="gamingservice.php">Game Service Providers</a></li>
-                        <li><a href="#"></a></li>
-                    </ul>
-                    </div>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Distributors<span class="caret"></span></button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="ventrilolive.php">Ventrilo Live Connection</a></li>
-                        <li><a href="mpcstream.php">MPC Stream</a></li>
-                        <li><a href="gamelist.php">Game Room</a></li>
-                        <li><a href="gamingservice.php">Game Service Providers</a></li>
-                        <li><a href="#"></a></li>
-                    </ul>
+                    <a href="ventrilolive.php" type="button" class="btn btn-default" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                        Ventrilo Live
+                    </a>
+                    <a href="mpcstream.php" type="button" class="btn btn-default" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                        Stream Members
+                    </a>
+                    <a href="../forum/index.php" type="button" class="btn btn-default" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                        Forums
+                    </a>
+                    <a href="gamelist.php" type="button" class="btn btn-default" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                        Games
+                    </a>
+                    <a type="button" href="gamingservice.php" class="btn btn-default" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                        Games Services
+                    </a>
                 </div>
             </div>
 	</div>

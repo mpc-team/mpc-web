@@ -29,8 +29,9 @@ EOD;
 		$active=($highlighted && count($path)==1) ? $ACTIVE : "";
 		$path0=$path[0];
 		$cid=$path0["id"];
-		$name = stripslashes($path0["name"]);
-		$ctag=urlencode(stripslashes($name));
+		$name = $path0["name"];
+		$nameStripped= $name;
+		$ctag=urlencode($nameStripped);
 		$navtip=(count($path) > 1) ? $CHEVRON_RIGHT : "";
 		$result.=<<<EOD
 			<li {$active}>
@@ -43,12 +44,13 @@ EOD;
 			$active=($highlighted && count($path)==2) ? $ACTIVE : "";
 			$path1=$path[1];
 			$tid=$path1["id"];
-			$name = stripslashes($path1["name"]);//stripslashes($path1["name"]);
-			$ttag = urlencode($name);
+			$name = $path1["name"];
+			$nameStripped= $name;
+			$ttag = urlencode($nameStripped);
 			$result.=<<<EOD
 				<li {$active}>
 					<a href='{$home}?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}'>
-						{$name}
+						{$nameStripped}
 					</a>
 				</li>
 			</ul>

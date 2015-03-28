@@ -15,24 +15,20 @@
 					ON ForumCategory.categoryID=ForumCategoryPermissions.categoryID
 				ORDER BY ForumCategoryPermissions.permission DESC
 EOD;
-			$result = $db->query($sql);
-			if ($result) {
-				while ($row=$result->fetch_row()) {
-					$category=array();
-					$rcount=count($row);
-					for($i=0; $i<$rcount; $i++) {
-						array_push($category, $row[$i]);
-					}
-					array_push($categories, $category);
-				}
-				$result->close();
-				$count=count($categories);
-				for($i=0; $i<$count; $i++) {
-					$category=$categories[$i];
-					$threadcount=DBF_GetCategoryThreadCount($db,$category[0]);
-					array_push($categories[$i],$threadcount);
-				}
-				return $categories;
+			$statement= $db->prepare($sql);
+			$statement->execute();
+			$statement->bind_result($cid,$ctag,$cdes,$cperm);
+			while($statement->fetch()) {
+				$category= array();
+				array_push($category, $cid,$ctag,$cdes,$cperm);
+				array_push($categories, $category);
+			}
+			$statement->close();
+			$count= count($categories);
+			for($i=0; $i<$count; $i++) {
+				$category=$categories[$i];
+				$threadcount=DBF_GetCategoryThreadCount($db,$category[0]);
+				array_push($categories[$i],$threadcount);
 			}
 		}
 		return $categories;
@@ -78,14 +74,13 @@ EOD;
 				array_push($thr,$tid,$cid,$ttag,$user,$alias,$tstamp);
 				array_push($threads,$thr);
 			}
+			$statement->close();
 			$count=count($threads); 
 			for($i=0; $i<$count; $i++) {
 				$thr=$threads[$i];
 				$mcount=DBF_GetThreadMessageCount($db,$thr[0]);
 				array_push($threads[$i],$mcount);
 			}
-			$statement->close();
-			return($threads);
 		}
 		return($threads);
 	}
@@ -115,19 +110,20 @@ EOD;
 				WHERE ThreadMessages.fthreadID={$tid}
 				ORDER BY ThreadMessageInfo.tstamp ASC
 EOD;
-			$result=$db->query($sql);
-			if($result){
-				$data=array();
-				while($row=$result->fetch_row()){
-					$content=array();
-					array_push($content,$row[0],$row[1],$row[2],$row[3],$row[4]);
-					array_push($data,$content);
-				}
-				$result->close();
-				$info=DBF_GetThreadInfo($db,$tid);
-				array_push($messages,$info);
-				array_push($messages,$data);
+			$statement= $db->prepare($sql);
+			$statement->execute();
+			$statement->bind_result($mid,$content,$author,$alias,$tstamp);
+			$data=array();
+			while($statement->fetch()) {
+				$tcontent=array();
+				array_push($tcontent,$mid,$content,$author,$alias,$tstamp);
+				array_push($data,$tcontent);
 			}
+			$statement->close();
+			$info=DBF_GetThreadInfo($db,$tid);
+			array_push($messages,$info);
+			array_push($messages,$data);
+			
 		}
 		return($messages);
 	}
@@ -172,46 +168,49 @@ EOD;
 	function DBF_GetNewMessageID($db) {
 		if ($db->connected) {
 			$sql = "SELECT tmsgID FROM ThreadMessages ORDER BY tmsgID DESC LIMIT 0, 1";
-			$result = $db->query($sql);
+			$statement= $db->prepare($sql);
+			$statement->execute();
+			$statement->bind_result($mid);
 			$id = 1;
-			if ($result) {
-				$row = $result->fetch_assoc();
-				$id = $row['tmsgID'] + 1;
-				$result->close();
-				return $id;
+			if($statement->fetch()) {
+				$id= $mid + 1;
 			}
+			$statement->close();
+			return $id;
 		}
-		return (-1);
+		return -1;
 	}
 	
 	function DBF_GetNewThreadID($db) {
 		if ($db->connected) {
 			$sql = "SELECT fthreadID FROM ForumThreads ORDER BY fthreadID DESC LIMIT 0, 1";
-			$result = $db->query($sql);
-			$id = 1;
-			if ($result) {
-				$row = $result->fetch_assoc();
-				$id = $row['fthreadID'] + 1;
-				$result->close();
-				return $id;
+			$statement= $db->prepare($sql);
+			$statement->execute();
+			$statement->bind_result($tid);
+			$id= 1;
+			if($statement->fetch()) {
+				$id= $tid + 1;
 			}
+			$statement->close();
+			return $id;
 		}
-		return (-1);
+		return -1;
 	}
 	
 	function DBF_GetNewCategoryID($db) {
 		if ($db->connected) {
 			$sql = "SELECT categoryID FROM ForumCategory ORDER BY categoryID DESC LIMIT 0, 1";
-			$result = $db->query($sql);
-			$id = 1;
-			if ($result) {
-				$row = $result->fetch_assoc();
-				$id = $row['categoryID'] + 1;
-				$result->close();
-				return $id;
+			$statement= $db->prepare($sql);
+			$statement->execute();
+			$statement->bind_result($cid);
+			$id= 1;
+			if($statement->fetch()) {
+				$id= $cid + 1;
 			}
+			$statement->close();
+			return $id;
 		}
-		return (-1);
+		return -1;
 	}
 	
 	function DBF_GetThreadInfo($db,$tid){
@@ -227,12 +226,15 @@ EOD;
 						ON User.userID=UserAlias.userID
 				WHERE ForumThreads.fthreadID={$tid}
 EOD;
-			$result=$db->query($sql);
-			$row=$result->fetch_row();
-			$info=array();
-			array_push($info,$row[0],$row[1],$row[2],$row[3]);
-			$result->close();
-			return($info);
+			$statement= $db->prepare($sql);
+			$statement->execute();
+			$statement->bind_result($name,$alias,$tstamp,$user);
+			$info= array();
+			if($statement->fetch()) {
+				array_push($info,$name,$alias,$tstamp,$user);
+			}
+			$statement->close();
+			return $info;
 		}
 		return NULL;
 	}
@@ -244,11 +246,14 @@ EOD;
 				FROM ThreadMessageInfo
 				WHERE ThreadMessageInfo.tmsgID={$mid}
 EOD;
-			$result=$db->query($sql);
-			$row=$result->fetch_row();
-			$info=array();
-			array_push($info,$row[0],$row[1]);
-			$result->close();
+			$statement= $db->prepare($sql);
+			$statement->execute();
+			$statement->bind_result($author,$tstamp);
+			$info= array();
+			if($statement->fetch()) {
+				array_push($info,$author,$tstamp);
+			}
+			$statement->close();
 			return $info;
 		}
 		return NULL;
@@ -257,13 +262,15 @@ EOD;
 	function DBF_GetThreadMessageCount($db,$tid) {
 		if($db->connected) {
 			$sql="SELECT COUNT(*) FROM ThreadMessages WHERE fthreadID={$tid}";
-			$result=$db->query($sql);
-			if($result) {
-				$count=$result->fetch_row();
-				$count=$count[0];
-				$result->close();
-				return $count;
+			$statement= $db->prepare($sql);
+			$statement->execute();
+			$statement->bind_result($count);
+			$mcount= -2;
+			if($statement->fetch()) {
+				$mcount= $count;
 			}
+			$statement->close();
+			return $mcount;
 		}
 		return -1;
 	}
@@ -271,13 +278,15 @@ EOD;
 	function DBF_GetCategoryThreadCount($db,$cid) {
 		if($db->connected) {
 			$sql="SELECT COUNT(*) FROM ForumThreads WHERE categoryID={$cid}";
-			$result=$db->query($sql);
-			if($result) {
-				$count=$result->fetch_row();
-				$count=$count[0];
-				$result->close();
-				return $count;
+			$statement= $db->prepare($sql);
+			$statement->execute();
+			$statement->bind_result($count);
+			$ccount= -2;
+			if($statement->fetch()) {
+				$ccount= $count;
 			}
+			$statement->close();
+			return $ccount;
 		}
 		return -1;
 	}
@@ -286,13 +295,13 @@ EOD;
 		if($db->connected) {
 			$sql="SELECT permission FROM ForumCategoryPermissions WHERE categoryID={$cid}";
 			$perms=array( );
-			$result=$db->query($sql);
-			if($result) {
-				while($row=$result->fetch_row()) {
-					array_push($perms, $row[0]);
-				}
-				$result->close( );
+			$statement= $db->prepare($sql);
+			$statement->execute();
+			$statement->bind_result($perm);
+			while($statement->fetch()) {
+				array_push($perms,$perm);
 			}
+			$statement->close();
 			return $perms;
 		}
 		return NULL;
@@ -302,157 +311,57 @@ EOD;
 		if($db->connected){
 			$sql=<<<EOD
 				SELECT categoryID FROM ForumCategory
-				WHERE categoryID={$cid} AND categoryName='{$ctag}'
+				WHERE categoryID={$cid} AND categoryName=?
 EOD;
-			$result=$db->query($sql);
-			if($result){
-				$rows=$result->num_rows;
-				return($rows > 0);
-			}
+			$statement= $db->prepare($sql);
+			$statement->bind_param("s", $ctag);
+			$statement->execute();
+			$statement->store_result();
+			$rows= $statement->num_rows;
+			$statement->close();
+			return($rows > 0);
 		}
 		return(FALSE);
 	}
 	
 	function DBF_CheckThread($db,$tid,$ttag){
 		if($db->connected){
-			$sql=<<<EOD
-				SELECT fthreadID FROM ForumThreads 
-				WHERE fthreadID={$tid} AND name='{$ttag}'
-EOD;
-			$result=$db->query($sql);
-			if($result){
-				$rows=$result->num_rows;
-				return($rows > 0);
-			}
+			$sql="SELECT fthreadID FROM ForumThreads WHERE fthreadID={$tid} AND ForumThreads.name=?";
+			$statement= $db->prepare($sql);
+			$statement->bind_param("s", $ttag);
+			$statement->execute();
+			$statement->store_result();	
+			$rows= $statement->num_rows;
+			$statement->close();
+			return($rows > 0);
 		}
 		return(FALSE);
-	}
-	
-	function DBF_CreateCategoryTable($db) {
-		if ($db->connected) {
-			$sql = <<<EOD
-				CREATE TABLE ForumCategory (
-					categoryID INT PRIMARY KEY,
-					categoryName CHAR(128)
-				)
-EOD;
-			return (boolean) $db->query($sql);
-		}
-		return (FALSE);
-	}
-	
-	function DBF_CreateCategoryDescriptionTable($db) {
-		if($db->connected) {
-			$sql=<<<EOD
-				CREATE TABLE ForumCategoryDescr (
-					categoryID INT NOT NULL UNIQUE,
-					categoryDescr CHAR(255)
-				)
-EOD;
-			return (boolean)$db->query($sql);
-		}
-		return(FALSE);
-	}
-	
-	function DBF_CreateCategoryPermissionsTable($db) {
-		if($db->connected) {
-			$sql=<<<EOD
-				CREATE TABLE ForumCategoryPermissions (
-					categoryID INT NOT NULL,
-					permission CHAR(32) NOT NULL
-				)
-EOD;
-			return (boolean)$db->query($sql);
-		}
-		return FALSE;
-	}
-	
-	function DBF_CreateThreadTable($db) {
-		if ($db->connected) {
-			$sql = <<<EOD
-				CREATE TABLE ForumThreads (
-					fthreadID INT PRIMARY KEY,
-					categoryID INT NOT NULL,
-					name CHAR(32)
-				)
-EOD;
-			return (boolean) $db->query($sql);
-		}
-		return (FALSE);
-	}
-	
-	function DBF_CreateThreadInfoTable($db){
-		if($db->connected){
-			$sql=<<<EOD
-				CREATE TABLE ForumThreadInfo (
-					fthreadID INT NOT NULL,
-					author CHAR(64) NOT NULL,
-					tstamp TIMESTAMP
-				)
-EOD;
-			return (boolean)$db->query($sql);
-		}
-		return(FALSE);
-	}
-	
-	function DBF_CreateMessagesTable($db) {
-		if ($db->connected) {
-			$sql = <<<EOD
-				CREATE TABLE ThreadMessages (
-					tmsgID INT PRIMARY KEY,
-					fthreadID INT NOT NULL
-				)
-EOD;
-			return (boolean) $db->query($sql);
-		}
-		return (FALSE);
-	}
-	
-	function DBF_CreateMessageInfoTable($db) {
-		if($db->connected) {
-			$sql=<<<EOD
-				CREATE TABLE ThreadMessageInfo (
-					tmsgID INT NOT NULL,
-					author CHAR(64) NOT NULL,
-					tstamp TIMESTAMP,
-					UNIQUE (tmsgID)
-				)
-EOD;
-			return (boolean) $db->query($sql);
-		}
-		return FALSE;
-	}
-	
-	function DBF_CreateMessageContentTable($db) {
-		if ($db->connected) {
-			$sql = <<<EOD
-				CREATE TABLE ThreadMessageContent (
-					tmsgID INT NOT NULL UNIQUE,
-					content TEXT
-				)
-EOD;
-			return (boolean) $db->query($sql);
-		}
-		return (FALSE);
 	}
 	
 	function DBF_CreateCategory($db, $name, $descr, $perms) {
 		if ($db->connected) {
 			$id  = DBF_GetNewCategoryID($db);
-			$sql = "INSERT INTO ForumCategory VALUES ({$id}, '{$name}')";
-			if ($db->query($sql)) {
-				$sql="INSERT INTO ForumCategoryDescr VALUES ({$id}, '{$descr}')";
-				if($db->query($sql)){
+			$sql = "INSERT INTO ForumCategory VALUES ({$id}, ?)";
+			$statement= $db->prepare($sql);
+			$statement->bind_param("s", $name);
+			if ($statement->execute()) {
+				$sql="INSERT INTO ForumCategoryDescr VALUES ({$id}, ?)";
+				$statement= $db->prepare($sql);
+				$statement->bind_param("s", $descr);
+				if($statement->execute()){
 					$pcount=count($perms);
 					$padded=0;
 					for($i=0; $i<$pcount; $i++) {					
-						$sql="INSERT INTO ForumCategoryPermissions VALUES ({$id}, '{$perms[$i]}')";
-						$padded=($db->query($sql))?($padded+1):($padded);
+						$sql="INSERT INTO ForumCategoryPermissions VALUES ({$id}, ?)";
+						$statement= $db->prepare($sql);
+						$statement->bind_param("s",$perms[$i]);
+						$padded=($statement->execute())?($padded+1):($padded);
 					}
 					return $padded;
 				}else{
 					$sql="DELETE FROM ForumCategory WHERE categoryID={$id}";
-					$db->query($sql);
+					$statement= $db->prepare($sql);
+					$statement->execute();
 				}
 			}
 		}
@@ -462,14 +371,19 @@ EOD;
 	function DBF_CreateThread($db, $categoryID, $name, $author) {
 		if ($db->connected) {
 			$id = DBF_GetNewThreadID($db);
-			$sql = "INSERT INTO ForumThreads VALUES ({$id}, {$categoryID}, '{$name}')";
-			if ($db->query($sql)) {
-				$sql="INSERT INTO ForumThreadInfo VALUES({$id}, '{$author}', NOW())";
-				if($db->query($sql)){
+			$sql = "INSERT INTO ForumThreads VALUES ({$id}, {$categoryID}, ?)";
+			$statement= $db->prepare($sql);
+			$statement->bind_param("s", $name);
+			if ($statement->execute()) {
+				$sql="INSERT INTO ForumThreadInfo VALUES({$id}, ?, NOW())";
+				$statement= $db->prepare($sql);
+				$statement->bind_param("s", $author);
+				if($statement->execute()){
 					return $id;
 				}else{
 					$sql="DELETE FROM ForumThreads WHERE fthreadID={$id}";
-					$db->query($sql);
+					$statement= $db->prepare($sql);
+					$statement->execute();
 				}
 			}
 		}
@@ -491,7 +405,8 @@ EOD;
 					JOIN ThreadMessageContent AS tmc
 						ON tmc.tmsgID=tm.tmsgID
 EOD;
-			return $db->query($sql);
+			$statement= $db->prepare($sql);
+			return $statement->execute();
 		}
 		return FALSE;
 	}
@@ -501,32 +416,34 @@ EOD;
 		if ($db->connected) {
 			$id = DBF_GetNewMessageID($db);
 			$sql = "INSERT INTO ThreadMessages VALUES ({$id}, {$tid})";
-			if ($db->query($sql)) {
+			$statement= $db->prepare($sql);
+			if ($statement->execute()) {
 				$sql=<<<EOD
 					INSERT INTO ThreadMessageContent
-					VALUES ({$id}, '{$content}')
+					VALUES ({$id}, ?)
 EOD;
-				if($db->query($sql)) {
-					$sql="INSERT INTO ThreadMessageInfo VALUES ({$id}, '{$author}', NOW())";
-					if($db->query($sql)) {
-					
+				$statement= $db->prepare($sql);
+				$statement->bind_param("s", $content);
+				if($statement->execute()) {
+					$sql="INSERT INTO ThreadMessageInfo VALUES ({$id}, ?, NOW())";
+					$statement= $db->prepare($sql);
+					$statement->bind_param("s", $author);
+					if($statement->execute()) {
 						return $id;
-						
 					}else{
-					
 						$sql="DELETE FROM ThreadMessageContent WHERE ThreadMessageContent.tmsgID={$id}";
-						$db->query($sql);
+						$statement= $db->prepare($sql);
+						$statement->execute();
 						$sql="DELETE FROM ThreadMessages WHERE ThreadMessages.tmsgID={$id}";
-						$db->query($sql);
+						$statement= $db->prepare($sql);
+						$statement->execute();
 						return -200;
-						
 					}
 				}else{
-				
 					$sql="DELETE FROM ThreadMessages WHERE ThreadMessages.tmsgID={$id}";
-					$db->query($sql);
+					$statement->prepare($sql);
+					$statement->execute();
 					return -100;
-					
 				}
 			}
 		}
@@ -535,8 +452,10 @@ EOD;
 	
 	function DBF_UpdateMessage($db, $mid, $content){
 		if($db->connected){
-			$sql="UPDATE ThreadMessageContent SET content='{$content}' WHERE tmsgID={$mid}";
-			return (boolean)$db->query($sql);
+			$sql="UPDATE ThreadMessageContent SET content=? WHERE tmsgID={$mid}";
+			$statement= $db->prepare($sql);
+			$statement->bind_param('s', $content);
+			return $statement->execute();
 		}
 		return(FALSE);
 	}
@@ -545,13 +464,132 @@ EOD;
 		if($db->connected){
 			$count=0;
 			$sql="DELETE FROM ThreadMessageContent WHERE tmsgID={$mid}";
-			$count=($db->query($sql))?($count+1):($count);
+			$statement= $db->prepare($sql);
+			$count=($statement->execute())?($count+1):($count);
 			$sql="DELETE FROM ThreadMessageInfo WHERE tmsgID={$mid}";
-			$count=($db->query($sql))?($count+1):($count);
+			$statement= $db->prepare($sql);
+			$count=($statement->execute())?($count+1):($count);
 			$sql="DELETE FROM ThreadMessages WHERE tmsgID={$mid}";
-			$count=($db->query($sql))?($count+1):($count);
+			$statement= $db->prepare($sql);
+			$count=($statement->execute())?($count+1):($count);
 			return($count);
 		}
 		return(-1);
+	}
+	
+	function DBF_CreateCategoryTable($db) {
+		if ($db->connected) {
+			$sql = <<<EOD
+				CREATE TABLE ForumCategory (
+					categoryID INT PRIMARY KEY,
+					categoryName CHAR(128)
+				)
+EOD;
+			$statement= $db->prepare($sql);
+			return $statement->execute();
+		}
+		return (FALSE);
+	}
+	
+	function DBF_CreateCategoryDescriptionTable($db) {
+		if($db->connected) {
+			$sql=<<<EOD
+				CREATE TABLE ForumCategoryDescr (
+					categoryID INT NOT NULL UNIQUE,
+					categoryDescr CHAR(255)
+				)
+EOD;
+			$statement= $db->prepare($sql);
+			return $statement->execute();
+		}
+		return(FALSE);
+	}
+	
+	function DBF_CreateCategoryPermissionsTable($db) {
+		if($db->connected) {
+			$sql=<<<EOD
+				CREATE TABLE ForumCategoryPermissions (
+					categoryID INT NOT NULL,
+					permission CHAR(32) NOT NULL
+				)
+EOD;
+			$statement= $db->prepare($sql);
+			return $statement->execute();
+		}
+		return FALSE;
+	}
+	
+	function DBF_CreateThreadTable($db) {
+		if ($db->connected) {
+			$sql = <<<EOD
+				CREATE TABLE ForumThreads (
+					fthreadID INT PRIMARY KEY,
+					categoryID INT NOT NULL,
+					name CHAR(32)
+				)
+EOD;
+			$statement= $db->prepare($sql);
+			return $statement->execute();
+		}
+		return (FALSE);
+	}
+	
+	function DBF_CreateThreadInfoTable($db){
+		if($db->connected){
+			$sql=<<<EOD
+				CREATE TABLE ForumThreadInfo (
+					fthreadID INT NOT NULL,
+					author CHAR(64) NOT NULL,
+					tstamp TIMESTAMP
+				)
+EOD;
+			$statement= $db->prepare($sql);
+			return $statement->execute();
+		}
+		return(FALSE);
+	}
+	
+	function DBF_CreateMessagesTable($db) {
+		if ($db->connected) {
+			$sql = <<<EOD
+				CREATE TABLE ThreadMessages (
+					tmsgID INT PRIMARY KEY,
+					fthreadID INT NOT NULL
+				)
+EOD;
+			$statement= $db->prepare($sql);
+			return $statement->execute();
+		}
+		return (FALSE);
+	}
+	
+	function DBF_CreateMessageInfoTable($db) {
+		if($db->connected) {
+			$sql=<<<EOD
+				CREATE TABLE ThreadMessageInfo (
+					tmsgID INT NOT NULL,
+					author CHAR(64) NOT NULL,
+					tstamp TIMESTAMP,
+					UNIQUE (tmsgID)
+				)
+EOD;
+			$statement= $db->prepare($sql);
+			return $statement->execute();
+		}
+		return FALSE;
+	}
+	
+	function DBF_CreateMessageContentTable($db) {
+		if ($db->connected) {
+			$sql = <<<EOD
+				CREATE TABLE ThreadMessageContent (
+					tmsgID INT NOT NULL UNIQUE,
+					content TEXT
+				)
+EOD;
+			$statement= $db->prepare($sql);
+			return $statement->execute();
+		}
+		return (FALSE);
 	}
  ?>

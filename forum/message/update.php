@@ -14,10 +14,11 @@
 		if(verifygetvars($params,$_GET)){
 			$tid=$_GET["t_id"];
 			$cid=$_GET["c_id"];
-			$ttag=$_GET["t_tag"];
-			$ctag=$_GET["c_tag"];
-			$msgid=$_POST["msgid"];
-			$update=UpdateMessage($cid,$ctag,$tid,$ttag,$msgid,$_POST["message"],$_SESSION["USER"]);			
+			$ttag= stripslashes($_GET["t_tag"]);
+			$ctag= stripslashes($_GET["c_tag"]);
+			$msgid= $_POST["msgid"];
+			$msg= stripslashes($_POST["message"]);
+			$update=UpdateMessage($cid,$ctag,$tid,$ttag,$msgid,$msg,$_SESSION["USER"]);			
 			if($update) {
 				$header.= "#forum-thread-message-{$msgid}";
 			}

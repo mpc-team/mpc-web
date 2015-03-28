@@ -14,9 +14,10 @@
 		if(verifygetvars($params,$_GET)){
 			$tid=$_GET["t_id"];
 			$cid=$_GET["c_id"];
-			$ttag=$_GET["t_tag"];
-			$ctag=$_GET["c_tag"];
-			$msgid=CreateMessage($cid,$ctag,$tid,$ttag,$_POST["content"],$_SESSION["USER"]);
+			$ttag=stripslashes($_GET["t_tag"]);
+			$ctag=stripslashes($_GET["c_tag"]);
+			$content= stripslashes($_POST["content"]);
+			$msgid=CreateMessage($cid,$ctag,$tid,$ttag,$content,$_SESSION["USER"]);
 			if($msgid > 0) {
 				$header.= "#forum-thread-message-{$msgid}";
 			}

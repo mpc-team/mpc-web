@@ -14,8 +14,8 @@
 		if(verifygetvars($params,$_GET)){
 			$tid=$_GET["t_id"];
 			$cid=$_GET["c_id"];
-			$ttag=$_GET["t_tag"];
-			$ctag=$_GET["c_tag"];
+			$ttag=stripslashes($_GET["t_tag"]);
+			$ctag=stripslashes($_GET["c_tag"]);
 			$del=DeleteThread($cid,$ctag,$tid,$ttag,$_SESSION["USER"]);
 			$header="Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctag}";
 		}	
@@ -44,11 +44,9 @@
 		<div class="page-header text-center">
 			<h1>Forum Post Processing...</h1>
 			<?php
-				if($del) {
-					echo "deleted<br>";
-				}else{
-					echo "cancelled";
-				}
+				echo "del:".$del."<br>";
+				echo "ttag:".$ttag."<br>";
+				echo "t_tag:".$_GET["t_tag"]."<br>";
 			 ?>
 		</div>
 	</div>

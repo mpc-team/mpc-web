@@ -25,10 +25,10 @@
 	array_push($t_params,"t_id","t_tag");
 	if(verifygetvars($c_params,$_GET)) {
 		$cid=$_GET["c_id"];
-		$ctag=$_GET["c_tag"];
+		$ctag=stripslashes($_GET["c_tag"]);
 		if(verifygetvars($t_params,$_GET)) {
 			$tid=$_GET["t_id"];
-			$ttag=$_GET["t_tag"];
+			$ttag=stripslashes($_GET["t_tag"]);
 		}
 	}
 	
@@ -44,19 +44,11 @@
 //	USER HAS PAGE PERMISSION
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
-	if(!CheckPagePermissions($db,$cid,$ctag,$usersigned,$s_user)) {
-		header("Location: {$ROOT}/forum/index.php");
-		$db->disconnect( );
-		exit( );
-	}
-	
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//	RECENT POST FEED
-//
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-	$postfeed = "";
-	$postfeed = GetForumRecentFeed($db,$s_user);
+	// if(!CheckPagePermissions($db,$cid,$ctag,$usersigned,$s_user)) {
+		// header("Location: {$ROOT}/forum/index.php");
+		// $db->disconnect( );
+		// exit( );
+	// }
 	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -67,8 +59,6 @@
 	$path=GetForumPagePath($db,$cid,$ctag,$tid,$ttag,$pagetype);
 	$content=GetForumPageContent($db,$cid,$ctag,$tid,$ttag,$pagetype,$s_user);
 	$contentcount=count($content);
-	
-	$db->disconnect();
 	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -90,6 +80,17 @@
 	$highlight=($pagetype==$CATEGORIES)?"forum":"path";
 	$navbar="<div class='navbar-forum'>".ForumNavbar($highlight,$ROOT,$path)."</div>";	
 	$pagefooter=HtmlPageFooter( );
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//	RECENT POST FEED
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+	$postfeed = NULL;
+	if($pagetype == $CATEGORIES) {
+		$postfeed = GetForumRecentFeed($db,$s_user);
+	}
+	$db->disconnect();
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 //

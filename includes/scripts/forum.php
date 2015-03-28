@@ -49,14 +49,21 @@
 	}
  
 	function GetForumPageType($db,$cid,$ctag,$tid,$ttag) {
-		$default="categories";
-		if($cid==null || $ctag==null) {	return $default; }
+		if($cid == NULL || $ctag == NULL) {
+			return "categories";
+		}
 		if(DBF_CheckCategory($db,$cid,$ctag)) {
-			if($tid==null || $ttag==null) { return "threads"; }
-			if(DBF_CheckThread($db,$tid,$ttag)) {
-				return "messages";
-			}
-		}	return $default;
+				if($tid == NULL || $ttag == NULL) {
+					return "threads";
+				}else{
+					if(DBF_CheckThread($db,$tid,$ttag)) {
+						return "messages";
+					}else{
+						return "threads";
+					}
+				}
+		}
+		return "default";
 	}
 	
 	function GetForumPagePath($db,$cid,$ctag,$tid,$ttag,$type) {
@@ -101,6 +108,21 @@
 //	FORUM MESSAGE FUNCTIONS
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
+	function CreateMessage($cid,$ctag,$tid,$ttag,$content,$user) {
+		global $ALLOWED_HTML_TAGS;
+		$msg=-2;
+		$db=DB_CreateDefault();
+		$db->connect();
+		if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
+			$content=cleanmessage($content,$ALLOWED_HTML_TAGS);
+			if(validateinput($content)){
+				$msg=DBF_CreateMessage($db,$tid,$content,$user);
+			}
+		}
+		$db->disconnect();
+		return $msg;
+	}
+	
 	function UpdateMessage($cid,$ctag,$tid,$ttag,$msgid,$content,$user) {
 		global $ALLOWED_HTML_TAGS;
 		$update=-1;
@@ -108,7 +130,6 @@
 		$db->connect();
 		if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
 			$content=cleanmessage($content,$ALLOWED_HTML_TAGS);
-			$content=$db->escapestr($content);
 			$update=-2;
 			if(validateinput($content)){
 				$minfo=DBF_GetMessageInfo($db,$msgid);
@@ -144,22 +165,6 @@
 		return $del;
 	}
 	
-	function CreateMessage($cid,$ctag,$tid,$ttag,$content,$user) {
-		global $ALLOWED_HTML_TAGS;
-		$msg=-2;
-		$db=DB_CreateDefault();
-		$db->connect();
-		if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
-			$content=cleanmessage($content,$ALLOWED_HTML_TAGS);
-			$content=$db->escapestr($content);
-			if(validateinput($content)){
-				$msg=DBF_CreateMessage($db,$tid,$content,$user);
-			}
-		}
-		$db->disconnect();
-		return $msg;
-	}
-	
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //	FORUM THREAD FUNCTIONS
@@ -172,7 +177,6 @@
 		$db->connect();
 		if(DBF_CheckCategory($db,$cid,$ctag)){
 			$title = cleantitle($title);
-			$title = $db->escapestr($title);
 			$tid=-3;
 			if(validateinput($title)){
 				$tid=DBF_CreateThread($db,$cid,$title,$user);
@@ -207,7 +211,6 @@
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
 	function HtmlPageTitle($title,$sub) {
-		$title = stripslashes($title);
 		return "<div class='page-header'>"
 			."<h1>{$title}<br><small>{$sub}</small></h1></div>";
 	}
@@ -254,8 +257,8 @@ EOD;
 		$datetime = new DateTime($date);
 		$datetime = $datetime->format(DateTime::RFC1123);
 		$feedcontent=strip_tags($content,"<br>");
-		$ctagenc=urlencode(addslashes($ctag));
-		$ttagenc=urlencode(addslashes($ttag));
+		$ctagenc=urlencode($ctag);
+		$ttagenc=urlencode($ttag);
 		
 		$feedlink="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}#forum-thread-message-{$mid}";
 		return <<<EOD
@@ -290,7 +293,7 @@ EOD;
 	
 	function HtmlCategory($cid,$ctag,$descr,$glyph,$count) {
 		global $PG_INDEX;
-		$ctagenc=urlencode($ctag);
+		$ctagenc=urlencode(stripslashes($ctag));
 		return <<<EOD
 			<div class="panel-category">
 				<div class="row">
@@ -313,8 +316,8 @@ EOD;
 	function HtmlThread($cid,$ctag,$tid,$ttag,$glyph,$alias,$time,$count) {
 		global $PG_INDEX;
 		global $PG_THR_DEL;
-		$ctagenc=urlencode(addslashes($ctag));
-		$ttagenc=urlencode(addslashes($ttag));
+		$ctagenc=urlencode($ctag);
+		$ttagenc=urlencode($ttag);
 		return <<<EOD
 			<div class="row">
 				<div class="col-xs-6">
@@ -335,8 +338,8 @@ EOD;
 	
 	function HtmlThreadOptions($cid,$ctag,$tid,$ttag) {
 		global $PG_THR_DEL;
-		$ctagenc=urlencode(addslashes($ctag));
-		$ttagenc=urlencode(addslashes($ttag));
+		$ctagenc=urlencode($ctag);
+		$ttagenc=urlencode($ttag);
 		return <<<EOD
 			<div class='row usertool'>
 				<form role='form' action='{$PG_THR_DEL}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}' method='post'>
@@ -372,7 +375,6 @@ EOD;
 	
 	function HtmlMessageContent($msg,$msgid) {
 		$taghelper = HtmlTagHelper($msgid);
-		$msg = stripslashes($msg);
 		return <<<EOD
 			<div class='content-message edit-content' data-id='{$msgid}'>
 				{$msg}
@@ -580,7 +582,7 @@ EOD;
 										<label class="control-label" for="title">
 											<h3>Title</h3>
 										</label>
-										<input type="text" name="title" id="title" class="form-control" placeholder="Title..." required/>
+										<input type="text" name="title" class="form-control" placeholder="Title..." required/>
 									</div>
 									<div class="form-group">						
 										<div class='row'>
@@ -592,7 +594,7 @@ EOD;
 											{$taghelper}
 										</div>
 										<div class='row'>
-											<textarea name="content" id="content" class="form-control edit-content-text" placeholder="Post content..." data-id={$id} required></textarea>
+											<textarea name="content" class="form-control edit-content-text" placeholder="Post content..." data-id={$id} required></textarea>
 										</div>
 									</div>
 								</div>

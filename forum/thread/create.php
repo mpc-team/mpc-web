@@ -4,8 +4,6 @@
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . PathDir::$HEADER);
 	include_once($ROOT . PathDir::$FORUMFUNC);
-	
-	$title = $_POST["title"];
 	session_start();
 	
 	$header="Location: ".$ROOT."/forum/index.php?".$_SERVER["QUERY_STRING"];
@@ -14,21 +12,25 @@
 		array_push($params,"c_id","c_tag");
 		if(verifygetvars($params,$_GET)){
 			$cid = $_GET["c_id"];
-			$ctag = $_GET["c_tag"];
 			$user = $_SESSION["USER"];
+			$title = stripslashes($_POST["title"]);
+			$ctag = stripslashes($_GET["c_tag"]);
+			$content= stripslashes($_POST["content"]);
+			
 			$tinfo = CreateThread($cid,$ctag,$title,$_SESSION["USER"]);
 			$tid = $tinfo[0];
 			$ttag = $tinfo[1];
 			if($tid > 0) {
-				$msg=CreateMessage($cid,$ctag,$tid,$ttag,$_POST["content"],$user);
-				if($msg > 0){
-					$ttag=urlencode($ttag);
-					$header=$_SERVER["QUERY_STRING"]."&t_id={$tid}&t_tag={$ttag}";
+				$msgid=CreateMessage($cid,$ctag,$tid,$ttag,$content,$user);
+				if($msgid > 0){
+					$ttagenc=urlencode($ttag);
+					$header=$_SERVER["QUERY_STRING"]."&t_id={$tid}&t_tag={$ttagenc}";
 					$header="Location: ".$ROOT."/forum/index.php?{$header}";
 				}else{
 					$del=DeleteThread($cid,$ctag,$tid,$ttag,$user);
 				}
 			}
+			
 		}	
 	}
 	header($header);
@@ -57,7 +59,9 @@
 			<?php
 				echo 'tid:'.$tid . '<br>';
 				echo 'ttag:'.$ttag . '<br>';
-				echo 'msg:'.$msg;
+				echo 'ttagenc:'.$ttagenc. '<br>';
+				echo 'title:'.$title . '<br>';
+				echo 'msg:'.$msgid;
 			 ?>
 		</div>
 	</div>

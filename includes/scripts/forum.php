@@ -267,7 +267,9 @@ EOD;
 								<div class='row'>
 									<h5>{$ttag}<br><small>{$ctag}</small></h5>
 								</div>
-								<div class='row'><i style='font-size:8pt;'>{$feedcontent}</i></div>
+								<div class='row'>
+									<i style='font-size:8pt;'>{$feedcontent}</i>
+								</div>
 							</div>
 							<div class='panel-recentfeed-footer'>
 								<div class='row'>

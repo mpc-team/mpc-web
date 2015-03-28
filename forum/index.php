@@ -3,7 +3,6 @@
 	include_once($ROOT . '/includes/pathdir.php');
 	include_once($ROOT . '/forum/includes/sidebar.php');
 	include_once($ROOT . '/forum/includes/navbar.php');
-	include_once($ROOT . '/forum/includes/modal.php');
 	include_once($ROOT . PathDir::$NAVBAR);
 	include_once($ROOT . PathDir::$FOOTER);
 	include_once($ROOT . PathDir::$HEADER);
@@ -233,10 +232,11 @@
 								$message = $messages[$i];
 								$msgid = $message[0];
 								$email = $message[2];
+								$editPerm = ($s_user == $email || in_array('admin', $s_permissions));
 								
 								echo $LAYOUT_OPEN;
 								echo HtmlMessage($msgid,$message[1],$email,$message[3],$message[4],$query);
-								$moptions=($s_user == $email) ? HtmlMessageOptions($msgid,$query) : "";
+								$moptions=($editPerm) ? HtmlMessageOptions($msgid,$query) : "";
 								echo $moptions;
 								echo $LAYOUT_CLOSE;
 								

@@ -126,9 +126,10 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 
 .panel-recentfeed-content {
 	padding: 5px;
-	overflow: hidden;
+	white-space: nowrap;
 	min-height: 78px;
 	max-height: 78px;
+	overflow: hidden;
 }
 
 @media (min-width: 450px) {

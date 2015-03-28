@@ -1270,7 +1270,8 @@ abbr[data-original-title] {
 blockquote {
   background: #1d1d1d;
   border-left: 10px solid #111111;
-  margin: 1.5em 10px;
+	font-style: italic;
+  margin: 0.4em 20px;
 	padding: 10px 10px;
   quotes: "\201C""\201D";
 }
@@ -1392,7 +1393,7 @@ pre code {
 }
 @media (min-width: 668px) {
   .container {
-    width: 650px;
+    width: 670px;
   }
 }
 @media (min-width: 850px) {

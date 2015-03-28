@@ -52,9 +52,9 @@
                         </small> 
                             <br />
                         <div class="btn-group">
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target=".ventrilo-installment-video" data-placement="top" title="Youtube Video" data-toggle="tooltip">
+                            <a type="a" class="btn btn-default" data-toggle="modal" data-target=".ventrilo-installment-video" data-placement="top" title="Youtube Video" data-toggle="tooltip">
                                 <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
-                                Getting Started</button> 
+                                Getting Started</a> 
                                 <div class="modal fade ventrilo-installment-video" tabindex="-1" role="dialog" aria-labelledby="Get-Started-Ventrilo" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
@@ -64,10 +64,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" class="btn btn-success  " data-target=".downloadventrilo" data-dismiss="modal" aria-label="close" data-placement="top" title="Download Ventrilo Links" data-toggle="modal" data-toggle="tooltip">
+                                <a type="a" class="btn btn-default  " data-target=".downloadventrilo" data-dismiss="modal" aria-label="close" data-placement="top" title="Download Ventrilo Links" data-toggle="modal" data-toggle="tooltip">
                                     <span class="glyphicon glyphicon-download-alt" aria-hidden="true">&times;</span>
                                         Download
-                                    </button>    
+                                    </a>    
                                 <div class="modal fade downloadventrilo" tabindex="-1" role="dialog" aria-labelledby="Download-Ventrilo" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
@@ -96,24 +96,24 @@
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-success  " data-dismiss="modal">Close</button>
+                                                        <a type="a" class="btn btn-default  " data-dismiss="modal">Close</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div> 
-                                <button type="button" class="btn btn-success" data-placement="top" title="ventrilo forums" data-toggle="tooltip" href="../forum/index.php" target="_blank">
+                                <a type="a" class="btn btn-default" data-placement="top" title="ventrilo forums" data-toggle="tooltip" href="../forum/index.php" target="_blank">
                                     <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                                     <!---->Forum<!---->
-                                </button> 
-                                <button type="button" class="btn btn-success" data-placement="right" title="Ventrilo/setup.php" data-toggle="tooltip"  href="http://www.ventrilo.com/faq.php" target="_blank">
+                                </a> 
+                                <a type="a" class="btn btn-default" data-placement="right" title="Ventrilo/setup.php" data-toggle="tooltip"  href="http://www.ventrilo.com/faq.php" target="_blank">
                                     <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
                                     <!---->Ventrilo FAQ<!---->
-                                </button>
+                                </a>
                             <br /> 
-                                <button type="button" class="btn btn-success" data-toggle="modal" data-target=".ventinfo">
+                                <a type="a" class="btn btn-default" data-toggle="modal" data-target=".ventinfo">
                                     <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
                                     Ventrilo Information
-                                </button> 
+                                </a> 
                                 <div class="modal fade ventinfo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
@@ -136,10 +136,10 @@
                                         </div>
                                     </div>
                             </div> 
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target=".rules">
+                            <a type="a" class="btn btn-default" data-toggle="modal" data-target=".rules">
                                 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
                                     Rules
-                            </button> 
+                            </a> 
                                 <div class="modal fade rules" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">

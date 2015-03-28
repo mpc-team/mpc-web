@@ -38,7 +38,10 @@
         <div class="container">
             <div class="content">
  <div class="well">
-                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+     <center>
+        <img src="../pics/games.png" alt="games.png" title="Games Banner" class="img-reponsive img-rounded" style="width: 490px;" />
+     </center>
+     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingOne">
                             <h4 class="panel-title">
@@ -56,9 +59,9 @@
                                     <div class="col-xs-9">
                                     <div class="page-header"><h4>Star Craft 2 Heart of the Swarm - Battle.net -Blizzard Entertainment.</h4></div>
                                     <p>&ensp;&ensp;&ensp;&ensp;&ensp;Starcraft is the core foundation of MPC as of current time. The original founders were developing a clan that will stablize based on a mobile web, and communcations to keep the clan in recruiting status, amongst providing fun for the members, and the people they recruit. Starcraft is based on an Real Time Strategy game engine, and very intense when it comes to prioritizing, and performance. Be sure to visit in game with us, and work together in team battles. We do offer 1 vs 1 observer training, and do leagues often to increase our ranks. Learn how to Find out us on Starcraft by Clicking the button Here.</p>
-                                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
+                                    <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
                                     MPC SC2 INFO
-                                    </button>
+                                    </a>
                                     <div class="modal fade mpcsc2info-gaming" id="mpcsc2info-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
                                     <div class="modal-dialog">
                                     <div class="modal-content">
@@ -85,14 +88,14 @@
                                     <br />
                                     <img src="../pics/foundgroupsc2mpc.PNG" alt="foundgroupsc2mpc.PNG" title="found example" class="img-responsive img-rounded" style="height:100px; width:600px;" />
                                     <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                     </div>
                                     </div>
                                     </div>
                                     </div>
-                                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2links" >
+                                    <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcsc2links" >
                                     GAME LINKS
-                                    </button>
+                                    </a>
                                         <div class="modal fade mpcsc2links" id="mpcsc2info-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -107,15 +110,15 @@
                                                     <br />
 
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                     </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2screenshots" >
+                                    <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcsc2screenshots" >
                                     Screen Shots
-                                    </button>
+                                    </a>
                                     <div class="modal fade mpcsc2screenshots" id="mpcsc2screenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -130,15 +133,15 @@
                                                 <br />
 
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                 </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2video" >
+                                    <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcsc2video" >
                                     Videos
-                                    </button>
+                                    </a>
                                     <div class="modal fade mpcsc2video" id="mpcsc2screenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -153,15 +156,17 @@
                                                 <br />
 
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                 </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2members" >
-                                    MPC Members
-                                    </button>
+                                    <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcsc2members" >
+                                    
+                                        MPC Members
+                                        
+                                    </a>
                                         <div class="modal fade mpcsc2members" id="mpcsc2member-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -175,7 +180,7 @@
                                                         <img src="../pics/sc2bannermpc.PNG" alt="sc2bannermpc.PNG" title="sc2 mpc" class="img-responsive img-rounded" style="height: 100px; width: 600px;" />
                                                     <br />
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -204,9 +209,9 @@
                         <div class="col-xs-10">
                         <div class="page-header"><h4 class="media-heading">Counter Strike Global Offensive - Stream - Valve Corp.</h4></div>
                         <p>&ensp;&ensp;&ensp;&ensp;&ensp;Counter-Strike: Global Offensive is an online tactical first-person shooter developed by Valve Corporation and Hidden Path Entertainment, who also maintained Counter-Strike: Source after its release</p>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
                         MPC CSGO INFO
-                        </button>
+                        </a>
                         <div class="modal fade mpcsc2info-gaming" id="mpcsc2info-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -220,14 +225,14 @@
                         ...
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2links" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcsc2links" >
                         GAME LINKS
-                        </button>
+                        </a>
                         <div class="modal fade mpccsgolinks" id="mpcsc2info-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc CS Go Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -242,15 +247,15 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpccsgoscreenshots" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpccsgoscreenshots" >
                         Screen Shots
-                        </button>
+                        </a>
                         <div class="modal fade mpccsgoscreenshots" id="mpcsc2screenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -265,15 +270,15 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpccsgovideo" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpccsgovideo" >
                         Videos
-                        </button>
+                        </a>
                         <div class="modal fade mpccsgovideo" id="mpccsgoscreenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -288,15 +293,15 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpccsgomembers" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpccsgomembers" >
                         MPC Members
-                        </button>
+                        </a>
                         <div class="modal fade mpccsgomembers" id="mpccsgomember-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Counter Strike Global Offensive Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -311,7 +316,7 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
@@ -340,9 +345,9 @@
                         <div class="col-xs-10">
                         <div class="page-header"><h4>World of WarCraft - Battle.net -Blizzard Entertainment.</h4> </div>
                         <p>&ensp;&ensp;&ensp;&ensp;&ensp;Warcraft is the oldest game MPC partcipates in, but yet one of the best games to support the community. World of Warcraft offers a great guild interface to keep the clan united as one during the experiences of this game. Organization, team work, self geared, and good decision making is required to operate in "pvp" (player vs player) environment. MPC doesn't take part into raids, or role playing, but does love to operate the strategic multiplayer mode for battle grounds, and arena combat. This is a new section for MPC to endorse, and can use as much help that is given.</p>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
                         MPC WOW INFO
-                        </button>
+                        </a>
                         <div class="modal fade mpcwowinfo-gaming" id="mpcwowinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Starcraft 2 Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -356,14 +361,14 @@
                         ...
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowlinks" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcwowlinks" >
                         GAME LINKS
-                        </button>
+                        </a>
                         <div class="modal fade mpcwowlinks" id="mpcwowinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc WOW Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -378,15 +383,15 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowscreenshots" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcwowscreenshots" >
                         Screen Shots
-                        </button>
+                        </a>
                         <div class="modal fade mpcwowscreenshots" id="mpcsc2screenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Wow Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -401,15 +406,15 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowvideo" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcwowvideo" >
                         Videos
-                        </button>
+                        </a>
                         <div class="modal fade mpcwowvideo" id="mpcwowscreenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc World of Warcraft Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -424,15 +429,15 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowmembers" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcwowmembers" >
                         MPC Members
-                        </button>
+                        </a>
                         <div class="modal fade mpcwowmembers" id="mpcwowmember-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc World of Warcraft Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -447,7 +452,7 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
@@ -476,9 +481,9 @@
                         <div class="col-xs-10">
                         <div class="page-header"><h3>Header</h3></div>
                             <p>text text text</p>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpchotsinfo-gaming" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpchotsinfo-gaming" >
                         MPC HEROES INFO
-                        </button>
+                        </a>
                         <div class="modal fade mpchotsinfo-gaming" id="mpchotsinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -492,14 +497,14 @@
                         ...
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowlinks" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcwowlinks" >
                         GAME LINKS
-                        </button>
+                        </a>
                         <div class="modal fade mpchotslinks" id="mpchotsinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc hots Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -514,15 +519,15 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpchotsscreenshots" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpchotsscreenshots" >
                         Screen Shots
-                        </button>
+                        </a>
                         <div class="modal fade mpchotsscreenshots" id="mpchotsscreenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc hots Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -537,15 +542,15 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowvideo" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcwowvideo" >
                         Videos
-                        </button>
+                        </a>
                         <div class="modal fade mpchotsvideo" id="mpchotsscreenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -560,15 +565,15 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpchotsmembers" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpchotsmembers" >
                         MPC Members
-                        </button>
+                        </a>
                         <div class="modal fade mpchotsmembers" id="mpchotsmember-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -583,7 +588,7 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
@@ -612,9 +617,9 @@
                         <div class="col-xs-10">
                         <div class="page-header"><h3>Text Header</h3></div> 
                         <p>text text text</p>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcsc2info-gaming" >
                         MPC LOL INFO
-                        </button>
+                        </a>
                         <div class="modal fade mpclolinfo-gaming" id="mpclolinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -628,14 +633,14 @@
                         ...
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowlinks" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcwowlinks" >
                         GAME LINKS
-                        </button>
+                        </a>
                         <div class="modal fade mpclollinks" id="mpclolinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc LOL Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -650,15 +655,15 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpclolscreenshots" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpclolscreenshots" >
                         Screen Shots
-                        </button>
+                        </a>
                         <div class="modal fade mpclolscreenshots" id="mpclolscreenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Lol Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -673,15 +678,15 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpcwowvideo" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpcwowvideo" >
                         Videos
-                        </button>
+                        </a>
                         <div class="modal fade mpclolvideo" id="mpclolscreenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -696,15 +701,15 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpclolmembers" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpclolmembers" >
                         MPC Members
-                        </button>
+                        </a>
                         <div class="modal fade mpclolmembers" id="mpclolmember-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -719,7 +724,7 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
@@ -748,9 +753,9 @@
                         <div class="col-xs-10">
                         <div class="page-header"><h3>Text Header</h3></div> 
                         <p>text text text</p>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpchearthinfo-gaming" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpchearthinfo-gaming" >
                         MPC Hearth Stone INFO
-                        </button>
+                        </a>
                         <div class="modal fade mpchearthinfo-gaming" id="mpchearthinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Hearth Stone Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -764,14 +769,14 @@
                         ...
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpchearthlinks" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpchearthlinks" >
                         GAME LINKS
-                        </button>
+                        </a>
                         <div class="modal fade mpchearthlinks" id="mpchearthinfo-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc Hearth Stone Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -786,15 +791,15 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpchearthscreenshots" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpchearthscreenshots" >
                         Screen Shots
-                        </button>
+                        </a>
                         <div class="modal fade mpchearthscreenshots" id="mpchearthscreenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc hearth Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -809,15 +814,15 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpchearthvideo" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpchearthvideo" >
                         Videos
-                        </button>
+                        </a>
                         <div class="modal fade mpchearthvideo" id="mpchearthscreenshot-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -832,15 +837,15 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>
                         </div>
                         </div>
-                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target=".mpchearthmembers" >
+                        <a type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target=".mpchearthmembers" >
                         MPC Members
-                        </button>
+                        </a>
                         <div class="modal fade mpchearthmembers" id="mpchearthmember-gaming" tabindex="-1" role="dialog" aria-labelledby="Mpc League of Legends Information" aria-hidden="true" >
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -855,7 +860,7 @@
                         <br />
 
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                         </div>
                         </div>

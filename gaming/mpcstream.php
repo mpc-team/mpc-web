@@ -39,7 +39,7 @@
                     <center>
                         <img src="../pics/mpcstream.png" alt="mpcstream.png" class="img-responsive img-rounded" style="height:100px; width: 600px;"  />
                     <br />
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Streamjoe">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target=".Streamjoe">
                         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                         KillerJoe
                     </button>
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                         </div>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=".Streamlungy">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target=".Streamlungy">
                         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                         TheLungy
                     </button>
@@ -75,13 +75,13 @@
                                         <br />
                                             <iframe src="http://www.twitch.tv/the_lungy/chat?popout=" frameborder="0" scrolling="no" height="400" width="285"></iframe>
                                             <br />
-                                            <small class="pull-right">Need a Login to Twitch? &ensp;&ensp;&ensp;<a href="http://www.twitch.tv/" class="btn btn-success btn-sm" target="_blank">www.twitch.tv</a></small>
+                                            <small class="pull-right">Need a Login to Twitch? &ensp;&ensp;&ensp;<a href="http://www.twitch.tv/" class="btn btn-default btn-sm" target="_blank">www.twitch.tv</a></small>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=".StreamVae">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target=".StreamVae">
                         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                         VaeVictus
                     </button>
@@ -106,7 +106,7 @@
                 <div class="well">
                     <center>
                         <img src="../pics/mpccommunitybanner.png" alt="mpccommunitybanner.png" title="mpc community banner" class="img-responsive img-rounded" style="width: 600px; height: 100px;" />
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target=".StreamVae">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target=".StreamVae">
                         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                         YourName
                     </button>
@@ -150,10 +150,10 @@
                     <br />
                     <div class="btn-group" role="group" aria-label="...">
                         <div class="btn-group">
-                                <a href="mailto:" title="Email Us a Request" type="button" class="btn btn-success">Via Email</a>
-                                <a type="button" class="btn btn-success" href="ventrilolive.php" title="Email Us a Request">Via Ventrilo</a>
-                                <a type="button" class="btn btn-success" href="gamelist.php" title="Email Us a Request">Via In Game</a>
-                                <a type="button" class="btn btn-success" href="gamingservice.php" title="Email Us a Request">Via Game Service</a>
+                                <a href="mailto:" title="Email Us a Request" type="button" class="btn btn-default">Via Email</a>
+                                <a type="button" class="btn btn-default" href="ventrilolive.php" title="Email Us a Request">Via Ventrilo</a>
+                                <a type="button" class="btn btn-default" href="gamelist.php" title="Email Us a Request">Via In Game</a>
+                                <a type="button" class="btn btn-default" href="gamingservice.php" title="Email Us a Request">Via Game Service</a>
                         </div>
                     </div>
                 </div>

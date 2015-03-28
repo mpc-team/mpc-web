@@ -50,14 +50,14 @@
                     </center>
                     <br />
                     <div class="btn-group">
-                        <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="left" title="Sign into Battle.net" href="https://us.battle.net/account/creation/tos.html" target="_blank">
+                        <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Sign into Battle.net" href="https://us.battle.net/account/creation/tos.html" target="_blank">
                         <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
                         <!---->Battle.net Service<!---->
-                        </button>
-                        <button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="left" title="View Battle.net MPC Accounts" href="#">
+                        </a>
+                        <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="left" title="View Battle.net MPC Accounts" href="#">
                         <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
                         <!---->MPC Battle.net<!---->
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-4 text-center">
@@ -66,13 +66,13 @@
                     </center>
                 <br />
                     <div class="btn-group">
-                        <button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
+                        <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
                         <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
                         <!---->Steam Service<!---->
-                        <button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
+                        <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
                         <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
                         <!---->MPC Steam<!---->
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-4 text-center">
@@ -81,20 +81,19 @@
                     </center>
                     <br />
                         <div class="btn-group">
-                        <button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="Sign into Steam" href="https://www.origin.com/en-us/download" target="_blank">
+                        <a type="button" class="btn  btn-default" data-toggle="tooltip" data-placement="bottom" title="Sign into Steam" href="https://www.origin.com/en-us/download" target="_blank">
                         <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
                         <!---->Origin EA Service<!---->
-                        </button>
-                        <button type="button" class="btn   btn-success" data-toggle="tooltip" data-placement="bottom" title="View Origin MPC Accounts" href="https://www.origin.com/en-us/store/?utm_campaign=origin-search-us-pbm-g-origin&utm_medium=cpc&utm_source=google&utm_term=origin%20sign%20in&sourceid=origin-search-us-pbm-g-origin" target="_blank">
+                        </a>
+                        <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="View Origin MPC Accounts" href="https://www.origin.com/en-us/store/?utm_campaign=origin-search-us-pbm-g-origin&utm_medium=cpc&utm_source=google&utm_term=origin%20sign%20in&sourceid=origin-search-us-pbm-g-origin" target="_blank">
                         <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
                         <!---->MPC Origin<!---->
-                        </button>
+                        </a>
                         </div>  <!--btn0group-->
                         </div>  <!--col-->
                     </div>    
                 </div>
             </div> 
-    <   /div>
     </div>
 <div class="container-fluid">
     <?php PrintFooter($ROOT); ?>

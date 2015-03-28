@@ -16,7 +16,10 @@
 			$cid=$_GET["c_id"];
 			$ttag=$_GET["t_tag"];
 			$ctag=$_GET["c_tag"];
-			$msg=CreateMessage($cid,$ctag,$tid,$ttag,$_POST["content"],$_SESSION["USER"]);
+			$msgid=CreateMessage($cid,$ctag,$tid,$ttag,$_POST["content"],$_SESSION["USER"]);
+			if($msgid > 0) {
+				$header.= "#forum-thread-message-{$msgid}";
+			}
 		}	
 	}
 	header($header);
@@ -43,7 +46,7 @@
 		<div class="page-header text-center">
 			<h1>Forum Post Processing...</h1>
 			<?php	
-				echo "msgid:".$msg."<br>";
+				echo "msgid:".$msgid."<br>";
 				echo "content:".$_POST["content"]."<br>";
 				echo "user:".$_SESSION["USER"];
 			 ?>

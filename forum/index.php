@@ -77,7 +77,6 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$query = $_SERVER['QUERY_STRING'];
-	$CREATE_PAGE = $ROOT . '/forum/thread/create.php';
 	$CATEGORIES = "categories";
 	$THREADS = "threads";
 	$MESSAGES = "messages";
@@ -146,6 +145,7 @@
 	echo JavaScriptResource( PathDir::GetJSPath($ROOT, 'util.js') );
 	echo JavaScriptResource( PathDir::GetJSPath($ROOT, 'forum-message-userpanel.js') );
 	echo JavaScriptResource( PathDir::GetJSPath($ROOT, 'field-selection.js') );
+	echo JavaScriptResource( PathDir::GetJSPath($ROOT, 'page-scroll-on-load.js') );
  ?>
 </head>
 <body>
@@ -173,7 +173,8 @@
 							$count=count($postfeed);
 							for($i=0; $i<$count; $i++) {
 								$recent=$postfeed[$i];
-								echo HtmlRecentFeed($recent[2],$recent[3],$recent[0],$recent[1],$recent[4],$recent[5],$recent[6]);	
+								echo HtmlRecentFeed($recent[6], $recent[2],$recent[3],
+										$recent[0],$recent[1],$recent[4],$recent[5],$recent[7]);	
 							}
 							echo "</div>";
 							break;
@@ -218,7 +219,7 @@
 								
 							}
 							echo "</table>";
-							if( $usersigned ){ echo NewThreadModal($query,$CREATE_PAGE);	}
+							if( $usersigned ){ echo NewThreadModal($query);	}
 							break;
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////
 				//
@@ -233,7 +234,6 @@
 								$msgid = $message[0];
 								$email = $message[2];
 								
-								echo "<a id='forum-thread-message-{$msgid}'></a>";
 								echo $LAYOUT_OPEN;
 								echo HtmlMessage($msgid,$message[1],$email,$message[3],$message[4],$query);
 								$moptions=($s_user == $email) ? HtmlMessageOptions($msgid,$query) : "";

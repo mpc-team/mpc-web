@@ -29,6 +29,15 @@
 		return true;
 	}
 	
+	function cleantitle($title) {
+		$clean = trim($title);
+		$clean = strip_tags($clean);
+		$clean = str_replace("\r\n", "", $clean);
+		$clean = str_replace("\n", "", $clean);
+		$clean = str_replace("\r", "", $clean);
+		return $clean;
+	}
+	
 	/** typically used when creating/updating a message on forum **/
 	function cleanmessage($message,$allowed){
 		$clean=trim($message);

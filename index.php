@@ -20,6 +20,7 @@
 	<meta name="viewport" content="width=device-width initial-scale=1"/>
 	<meta name="keywords" content="multiplayer clan, multi player clan, mpc, clan mpc, clanmpc, mpcgaming, mpc gaming, gaming clan, multiplayer clan, multiplayer">
 	<meta name="description" content="Multi-Player Clan - Gaming community hosting tournaments for various games including StarCraft II, Heroes of the Storm, Counter-Strike: Global Offense.">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <?php
 	echo JavaScriptResource( PathDir::GetJQueryPath($ROOT) );
 	echo StyleResource( PathDir::GetBootstrapCSSPath($ROOT) );

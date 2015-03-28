@@ -9,11 +9,9 @@
  *
  */
 function ForumNavbar($highlight,$root,$path){
-	$home=$root."/forum/index.php";
-	
-	$CHEVRON_RIGHT="<span class='glyphicon glyphicon-chevron-right'></span>";
-	
-	$ACTIVE="class='active'";
+	$CHEVRON_RIGHT = "<span class='glyphicon glyphicon-chevron-right'></span>";
+	$ACTIVE = "class='active'";
+	$home = $root."/forum/index.php";	
 	
 	$result =<<<EOD
 		<nav role="navigation" class="navbar navbar-default navbar-static-top">
@@ -31,12 +29,13 @@ EOD;
 		$active=($highlighted && count($path)==1) ? $ACTIVE : "";
 		$path0=$path[0];
 		$cid=$path0["id"];
-		$ctag=urlencode($path0["name"]);
+		$name = stripslashes($path0["name"]);
+		$ctag=urlencode(stripslashes($name));
 		$navtip=(count($path) > 1) ? $CHEVRON_RIGHT : "";
 		$result.=<<<EOD
 			<li {$active}>
 				<a href='{$home}?c_id={$cid}&c_tag={$ctag}'>
-					{$path0["name"]}   {$navtip}
+					{$name}   {$navtip}
 				</a>
 			</li>
 EOD;
@@ -44,11 +43,12 @@ EOD;
 			$active=($highlighted && count($path)==2) ? $ACTIVE : "";
 			$path1=$path[1];
 			$tid=$path1["id"];
-			$ttag=urlencode($path1["name"]);
+			$name = stripslashes($path1["name"]);//stripslashes($path1["name"]);
+			$ttag = urlencode($name);
 			$result.=<<<EOD
 				<li {$active}>
 					<a href='{$home}?c_id={$cid}&c_tag={$ctag}&t_id={$tid}&t_tag={$ttag}'>
-						{$path1["name"]}
+						{$name}
 					</a>
 				</li>
 			</ul>

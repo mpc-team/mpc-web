@@ -37,9 +37,10 @@ EOD;
 	$class = ($highlight == "members") ? ' active' : "";
 	$search= $root . '/members/index.php';
 	$searchglyph = "<span class='glyphicon glyphicon-search'></span>";
+	$membersglyph = "<i class='fa fa-users'></i>";
 	echo "<li class='dropdown {$class}'>",
 				"<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'>",
-				"Members ", "<span class='caret'></span> </a>",
+				"{$membersglyph} Members ", "<span class='caret'></span> </a>",
 				"<ul class='dropdown-menu' role='menu'>",
         "<li><a href='{$search}'>{$searchglyph} Search</a></li>",
 				"</ul></li>";

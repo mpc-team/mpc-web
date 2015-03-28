@@ -14,9 +14,9 @@
 //	GLOBALS
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
-	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><center></center>"
+	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><strike></strike><center></center>"
 											."<h1></h1><h2></h2><h3></h3><h4></h4><h5></h5>"
-											."<sub></sub><sup></sup><p></p>"
+											."<sub></sub><sup></sup><p></p><blockquote></blockquote>"
 											."<ul></ul><li></li><img></img></br><br><br/><a></a><small></small>";
 	
 	$PG_INDEX = $ROOT . '/forum/index.php';
@@ -93,7 +93,7 @@
 	}
 	
 	function GetForumRecentFeed($db,$user) {
-		return DBF_GetRecentThreadsInCategory($db);
+		return DBF_GetRecentPosts($db,$user);
 	}
 	
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -152,7 +152,6 @@
 		if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)){
 			$content=cleanmessage($content,$ALLOWED_HTML_TAGS);
 			$content=$db->escapestr($content);
-			$msg=-3;
 			if(validateinput($content)){
 				$msg=DBF_CreateMessage($db,$tid,$content,$user);
 			}
@@ -172,13 +171,17 @@
 		$db=DB_CreateDefault();
 		$db->connect();
 		if(DBF_CheckCategory($db,$cid,$ctag)){
+			$title = cleantitle($title);
+			$title = $db->escapestr($title);
 			$tid=-3;
 			if(validateinput($title)){
 				$tid=DBF_CreateThread($db,$cid,$title,$user);
 			}
 		}
 		$db->disconnect();
-		return $tid;
+		$result = array();
+		array_push($result, $tid, $title);
+		return $result;
 	}
 	
 	function DeleteThread($cid,$ctag,$tid,$ttag,$user) {
@@ -204,6 +207,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
 	function HtmlPageTitle($title,$sub) {
+		$title = stripslashes($title);
 		return "<div class='page-header'>"
 			."<h1>{$title}<br><small>{$sub}</small></h1></div>";
 	}
@@ -245,15 +249,15 @@ EOD;
 EOD;
 	}
 	
-	function HtmlRecentFeed($cid,$ctag,$tid,$ttag,$author,$content,$date) {
+	function HtmlRecentFeed($mid,$cid,$ctag,$tid,$ttag,$author,$content,$date) {
 		global $PG_INDEX; 
 		$datetime = new DateTime($date);
 		$datetime = $datetime->format(DateTime::RFC1123);
-		$ctagenc=urlencode($ctag);
-		$ttagenc=urlencode($ttag);
-		$stripped=strip_tags($content,"<br>");
-		$feedcontent=rtrim($stripped);
-		$feedlink="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}";
+		$feedcontent=strip_tags($content,"<br>");
+		$ctagenc=urlencode(addslashes($ctag));
+		$ttagenc=urlencode(addslashes($ttag));
+		
+		$feedlink="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}#forum-thread-message-{$mid}";
 		return <<<EOD
 			<div class='col-md-4'>
 				<div class='panel-group'>
@@ -307,8 +311,8 @@ EOD;
 	function HtmlThread($cid,$ctag,$tid,$ttag,$glyph,$alias,$time,$count) {
 		global $PG_INDEX;
 		global $PG_THR_DEL;
-		$ctagenc=urlencode($ctag);
-		$ttagenc=urlencode($ttag);
+		$ctagenc=urlencode(addslashes($ctag));
+		$ttagenc=urlencode(addslashes($ttag));
 		return <<<EOD
 			<div class="row">
 				<div class="col-xs-6">
@@ -329,8 +333,8 @@ EOD;
 	
 	function HtmlThreadOptions($cid,$ctag,$tid,$ttag) {
 		global $PG_THR_DEL;
-		$ctagenc=urlencode($ctag);
-		$ttagenc=urlencode($ttag);
+		$ctagenc=urlencode(addslashes($ctag));
+		$ttagenc=urlencode(addslashes($ttag));
 		return <<<EOD
 			<div class='row usertool'>
 				<form role='form' action='{$PG_THR_DEL}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}' method='post'>
@@ -347,6 +351,7 @@ EOD;
 		$headerright=HtmlMessageDate($time);
 		$body=HtmlMessageContent($content,$msgid);
 		return<<<EOD
+			<a id='forum-thread-message-{$msgid}'></a>
 			<div class='panel-messages'>
 				<div class='panel-messages-header'>
 					<div class='row'>
@@ -365,6 +370,7 @@ EOD;
 	
 	function HtmlMessageContent($msg,$msgid) {
 		$taghelper = HtmlTagHelper($msgid);
+		$msg = stripslashes($msg);
 		return <<<EOD
 			<div class='content-message edit-content' data-id='{$msgid}'>
 				{$msg}
@@ -447,6 +453,9 @@ EOD;
 			<button title='Underline' type='button' class='btn btn-edit edit-tag-underline' data-id='{$id}'>
 				<i class="fa fa-underline"></i>
 			</button>
+			<button title='Strikethrough' type='button' class='btn btn-edit edit-tag-strike' data-id='{$id}'>
+				<i class="fa fa-strikethrough"></i>
+			</button>
 			<button title='Subscript' type='button' class='btn btn-edit edit-tag-subscript' data-id='{$id}'>
 				<i class="fa fa-subscript"></i>
 			</button>
@@ -462,11 +471,17 @@ EOD;
 			<button title='Paragraph' type='button' class='btn btn-edit edit-tag-paragraph' data-id='{$id}'>
 				<i class="fa fa-paragraph"></i>
 			</button>
+			<button title='Center Alignment' type='button' class='btn btn-edit edit-tag-center' data-id='{$id}'>
+				<i class="fa fa-align-center"></i>
+			</button>
 			<button title='Internet Link' type='button' class='btn btn-edit edit-tag-link' data-id='{$id}'>
 				<i class="fa fa-link"></i>
 			</button>
 			<button title='Image Reference' type='button' class='btn btn-edit edit-tag-image' data-id='{$id}'>
 				<i class="fa fa-picture-o"></i>
+			</button>
+			<button title='Quote Reference' type='button' class='btn btn-edit edit-tag-quote' data-id='{$id}'>
+				<i class="fa fa-quote-left"></i>
 			</button>
 EOD;
 	}
@@ -522,6 +537,69 @@ EOD;
 										<span class="glyphicon glyphicon-send"></span>
 									</button>
 								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+EOD;
+	}
+		
+	function NewThreadModal($query){
+		global $PG_THR_ADD;
+		$id = "new-thread-message";
+		$taghelper = HtmlTagHelper($id);
+		return <<<EOD
+			<div class="panel-group panel-newthread">
+				<div class="panel-newthread">
+					<div class="panel panel-default">
+						<a class="btn" data-toggle="modal" data-target="#modal-newthread">
+							<span class="glyphicon glyphicon-share-alt"></span>
+							Create Thread
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="modal-newthread" tabindex="-1" role="dialog" aria-labelledby="modal-newthread" aria-hidden="true">
+				<div class="modal-dialog">
+					<form action="{$PG_THR_ADD}?{$query}" method="post">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h1 class="modal-title" id="modal-label" style="color:rgb(122, 183, 51)">
+									Create Thread
+								</h1>
+							</div>
+							<div class="modal-body">
+								<div class="panel panel-default">
+									<div class="form-group">
+										<label class="control-label" for="title">
+											<h3>Title</h3>
+										</label>
+										<input type="text" name="title" id="title" class="form-control" placeholder="Title..." required/>
+									</div>
+									<div class="form-group">						
+										<div class='row'>
+											<label class="control-label" for="title">
+												<h3>Content</h3>
+											</label>
+										</div>
+										<div class='row'>
+											{$taghelper}
+										</div>
+										<div class='row'>
+											<textarea name="content" id="content" class="form-control edit-content-text" placeholder="Post content..." data-id={$id} required></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<input type="submit" class="btn btn-default" value="Create"/>
+								<button type="button" class="btn btn-default" data-dismiss="modal">
+									Cancel
+								</button>
 							</div>
 						</div>
 					</form>

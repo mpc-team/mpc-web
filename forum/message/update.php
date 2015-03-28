@@ -16,7 +16,11 @@
 			$cid=$_GET["c_id"];
 			$ttag=$_GET["t_tag"];
 			$ctag=$_GET["c_tag"];
-			$update=UpdateMessage($cid,$ctag,$tid,$ttag,$_POST["msgid"],$_POST["message"],$_SESSION["USER"]);			
+			$msgid=$_POST["msgid"];
+			$update=UpdateMessage($cid,$ctag,$tid,$ttag,$msgid,$_POST["message"],$_SESSION["USER"]);			
+			if($update) {
+				$header.= "#forum-thread-message-{$msgid}";
+			}
 		}	
 	}
 	header($header);

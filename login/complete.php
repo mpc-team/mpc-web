@@ -38,6 +38,9 @@
 	<title>Multi-Player Clan</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+	<meta name="keywords" content="mpc, clan mpc, clanmpc, mpcgaming, mpc gaming, gaming clan, multiplayer clan, multiplayer">
+	<meta name="description" content="Multi-Player Clan - Gaming community hosting tournaments for various games including StarCraft II, Heroes of the Storm, Counter-Strike: Global Offense.">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <?php
 	echo JavaScriptResource( PathDir::GetJQueryPath($ROOT) );
 	echo StyleResource( PathDir::GetBootstrapCSSPath($ROOT) );
@@ -45,8 +48,6 @@
 	echo JavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );
 	echo StyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
  ?>
-	<meta name="keywords" content="mpc, clan mpc, clanmpc, mpcgaming, mpc gaming, gaming clan, multiplayer clan, multiplayer">
-	<meta name="description" content="Multi-Player Clan - Gaming community hosting tournaments for various games including StarCraft II, Heroes of the Storm, Counter-Strike: Global Offense.">
 </head>
 <body>
 	<div class="container">

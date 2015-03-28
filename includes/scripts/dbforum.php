@@ -132,11 +132,11 @@ EOD;
 		return($messages);
 	}
 	
-	function DBF_GetRecentThreadsInCategory($db) {
+	function DBF_GetRecentPosts($db,$user) {
 		if($db->connected) {
 			$threads=array( );
 			$sql=<<<EOD
-				SELECT ft.fthreadID, ft.name, fc.categoryID, fc.categoryName, ualias.userAlias, tmc.content, tmi.tstamp AS date
+				SELECT ft.fthreadID, ft.name, fc.categoryID, fc.categoryName, ualias.userAlias, tmc.content, tm.tmsgID, tmi.tstamp AS date
 				FROM ForumThreads AS ft
 					JOIN ForumCategory AS fc
 						ON ft.categoryID=fc.categoryID
@@ -157,10 +157,10 @@ EOD;
 EOD;
 			$statement=$db->prepare($sql);
 			$statement->execute( );
-			$statement->bind_result($tid,$ttag,$cid,$ctag,$author,$content,$date);
+			$statement->bind_result($tid,$ttag,$cid,$ctag,$author,$content,$mid,$date);
 			while($statement->fetch()) {
 				$thread=array( );
-				array_push($thread,$tid,$ttag,$cid,$ctag,$author,$content,$date);
+				array_push($thread,$tid,$ttag,$cid,$ctag,$author,$content,$mid,$date);
 				array_push($threads,$thread);
 			}
 			$statement->close( );

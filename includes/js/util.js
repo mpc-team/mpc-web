@@ -133,8 +133,11 @@ function htmlTableEmail (user, permissions) {
 	return "";
 }
 function htmlTableAlias (user, permissions) {
-	return "<td><span class='glyphicon glyphicon-user'></span> " 
-		+ user[FILTER_BY_ALIAS] + "</td>";
+	var icon = (user[FILTER_BY_EMAIL] == 'b0rg3r@gmail.com') ?
+			"<td><i class='fa fa-user-secret'></i> " :
+			"<td><i class='fa fa-user'></i> ";
+			// "<td><span class='glyphicon glyphicon-user'></span> ";
+	return icon + user[FILTER_BY_ALIAS] + "</td>";
 }
 function htmlTableClass (rownum) {
 	return (rownum % 2 == 0) ? "alt" : "";

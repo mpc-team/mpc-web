@@ -16,6 +16,7 @@
 	var TYPE_EDIT_BOLD		= 'edit-tag-bold';
 	var TYPE_EDIT_ITALIC	= 'edit-tag-italic';
 	var TYPE_EDIT_UNDERLINE	= 'edit-tag-underline';
+	var TYPE_EDIT_STRIKE	= 'edit-tag-strike';
 	var TYPE_EDIT_HEAD_1	= 'edit-tag-header1';
 	var TYPE_EDIT_HEAD_2	= 'edit-tag-header2';
 	var TYPE_EDIT_HEAD_3	= 'edit-tag-header3';
@@ -24,12 +25,15 @@
 	var TYPE_EDIT_ULIST		= 'edit-tag-ulist';
 	var TYPE_EDIT_LISTITEM = 'edit-tag-ulist-item';
 	var TYPE_EDIT_PARAGRAPH	= 'edit-tag-paragraph';
+	var TYPE_EDIT_CENTER	= 'edit-tag-center';
 	var TYPE_EDIT_LINK		= 'edit-tag-link';
 	var TYPE_EDIT_IMAGE		= 'edit-tag-image';
+	var TYPE_EDIT_QUOTE		= 'edit-tag-quote';
 	
 	var TAGS_BOLD					= ["<b>", "</b>"];
 	var TAGS_ITALIC			  = ["<i>", "</i>"];
 	var TAGS_UNDERLINE		= ["<u>", "</u>"];
+	var TAGS_STRIKE				= ["<strike>", "</strike>"];
 	var TAGS_HEADER1			= ["<h1>", "</h1>"];
 	var TAGS_HEADER2			= ["<h2>", "</h2>"];
 	var TAGS_HEADER3			= ["<h3>", "</h3>"];
@@ -38,8 +42,10 @@
 	var TAGS_ULIST				= ["<ul>", "</ul>"];
 	var TAGS_LISTITEM			= ["<li>", "</li>"];
 	var TAGS_PARAGRAPH		= ["<p>", "</p>"];
+	var TAGS_CENTER				= ["<center>", "</center>"];
 	var TAGS_LINK					= ["<a href=\"", "\">", "</a>"];
 	var TAGS_IMAGE				= ["<img src=\"", "\"></img>"];
+	var TAGS_QUOTE				= ["<blockquote>", "</blockquote>"];
 	
 	function Html2Text(html) {
 		var text = html.trim( );
@@ -126,6 +132,14 @@
 			text.fieldSelection(TAGS_UNDERLINE[0] + text.fieldSelection().text + TAGS_UNDERLINE[1]);
 		});
 		
+		$("." + TYPE_EDIT_STRIKE).click( function (){
+			var $elem = $(this);
+			var msgid = $elem.data("id");
+			var $elems = $("[data-id=" + msgid + "]");
+			var text = $elems.filter("." + TYPE_TEXT);
+			text.fieldSelection(TAGS_STRIKE[0] + text.fieldSelection().text + TAGS_STRIKE[1]);
+		});
+		
 		$("." + TYPE_EDIT_HEAD_1).click( function () {
 			var $elem = $(this);
 			var msgid = $elem.data("id");
@@ -190,6 +204,14 @@
 			text.fieldSelection(TAGS_PARAGRAPH[0] + text.fieldSelection().text + TAGS_PARAGRAPH[1]);
 		});
 		
+		$("." + TYPE_EDIT_CENTER).click( function () {
+			var $elem = $(this);
+			var msgid = $elem.data("id");
+			var $elems = $("[data-id=" + msgid + "]");
+			var text = $elems.filter("." + TYPE_TEXT);
+			text.fieldSelection(TAGS_CENTER[0] + text.fieldSelection().text + TAGS_CENTER[1]);
+		});
+		
 		$("." + TYPE_EDIT_LINK).click( function () {
 			var $elem = $(this);
 			var msgid = $elem.data("id");
@@ -204,5 +226,13 @@
 			var $elems = $("[data-id=" + msgid + "]");
 			var text = $elems.filter("." + TYPE_TEXT);
 			text.fieldSelection(TAGS_IMAGE[0] + text.fieldSelection().text + TAGS_IMAGE[1]);
+		});
+		
+		$("." + TYPE_EDIT_QUOTE).click( function () {
+			var $elem = $(this);
+			var msgid = $elem.data("id");
+			var $elems = $("[data-id=" + msgid + "]");
+			var text = $elems.filter("." + TYPE_TEXT);
+			text.fieldSelection(TAGS_QUOTE[0] + text.fieldSelection().text + TAGS_QUOTE[1]);
 		});
 	});

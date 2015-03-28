@@ -5,7 +5,7 @@
 	include_once($ROOT . PathDir::$HEADER);
 	include_once($ROOT . PathDir::$FORUMFUNC);
 	
-	$title=$_POST["title"];
+	$title = $_POST["title"];
 	session_start();
 	
 	$header="Location: ".$ROOT."/forum/index.php?".$_SERVER["QUERY_STRING"];
@@ -13,18 +13,20 @@
 		$params=array();
 		array_push($params,"c_id","c_tag");
 		if(verifygetvars($params,$_GET)){
-			$cid=$_GET["c_id"];
-			$ctag=$_GET["c_tag"];
-			$user=$_SESSION["USER"];
-			$tid=CreateThread($cid,$ctag,$title,$_SESSION["USER"]);
+			$cid = $_GET["c_id"];
+			$ctag = $_GET["c_tag"];
+			$user = $_SESSION["USER"];
+			$tinfo = CreateThread($cid,$ctag,$title,$_SESSION["USER"]);
+			$tid = $tinfo[0];
+			$ttag = $tinfo[1];
 			if($tid > 0) {
-				$msg=CreateMessage($cid,$ctag,$tid,$title,$_POST["content"],$user);
+				$msg=CreateMessage($cid,$ctag,$tid,$ttag,$_POST["content"],$user);
 				if($msg > 0){
-					$title=urlencode($title);
-					$header=$_SERVER["QUERY_STRING"]."&t_id={$tid}&t_tag={$title}";
+					$ttag=urlencode($ttag);
+					$header=$_SERVER["QUERY_STRING"]."&t_id={$tid}&t_tag={$ttag}";
 					$header="Location: ".$ROOT."/forum/index.php?{$header}";
 				}else{
-					$del=DeleteThread($cid,$ctag,$tid,$title,$user);
+					$del=DeleteThread($cid,$ctag,$tid,$ttag,$user);
 				}
 			}
 		}	
@@ -53,8 +55,9 @@
 		<div class="page-header text-center">
 			<h1>Create Thread Processing...</h1>
 			<?php
-				echo $tid . '<br>';
-				echo $msg;
+				echo 'tid:'.$tid . '<br>';
+				echo 'ttag:'.$ttag . '<br>';
+				echo 'msg:'.$msg;
 			 ?>
 		</div>
 	</div>

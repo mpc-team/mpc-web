@@ -366,7 +366,7 @@ EOD;
 						<h5>
 						<div class='row'>
 							<div class='pull-right'>
-								Recent Post:
+								<div style='font-size: 9pt'>Recent Post</div>
 							</div>
 						</div>
 						<div class='row'>
@@ -394,7 +394,7 @@ EOD;
 			<div class='row usertool'>
 				<form role='form' action='{$PG_THR_DEL}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}' method='post'>
 					<button type='submit' class='btn btn-edit pull-right'>
-						<span class='glyphicon glyphicon-trash'></span> Delete
+						<i class='fa fa-trash-o'></i> Delete
 					</button>
 				</form>
 			</div>

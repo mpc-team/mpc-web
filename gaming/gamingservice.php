@@ -40,27 +40,244 @@
     <div class="container-fluid">
     </div>
                 <center>
-                    <img src="../pics/gamingservices.png" alt="gamingservices.png" class="img-responsive img-rounded" style="height: 100px; width: 700px;" />
-                </center>
+                    <img src="../pics/gamingservices.png" alt="gamingservices.png" class="img-responsive img-rounded" style="height: 100px; width: 700px;" name="top" />
+                    <br />
+                    <small><p>These are some of the ways to keep track of MPC, and the games they play. These are known as gaming service providers, and distribute software through their company program. Feel free to connect with MPC through these companies. Use any of the information posted below to help in your search.</p></small>
+                     </center>
+                    <br />
+                    <div class="page-header">
+                        <h3>
+                         PC Multi-Player Games: In-Active
+                        </h3>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="...">
+                            <a href="#warcraftbtn" role="button" class="btn-default btn"  title="Warcraft">Warcraft</a>
+                            <a href="#warcraftbtn" role="button" class="btn-default btn"  title="Warcraft">Warcraft 2</a>
+                            <a href="#diablobtn" role="button" class="btn-default btn"  title="Diablo">Diablo</a>
+                            <a href="#starcraftbtn" role="button" class="btn-default btn"  title="Starcraft">Starcraft</a>
+                        </div>
+                <br />
+                    <div class="page-header">
+                        <h3>
+                         PC Multi-Player Games: Active
+                        </h3>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="...">
+                            <a href="#" role="button" class="btn-default btn"  title="Warcraft">World of Warcraft</a>
+                            <a href="#" role="button" class="btn-default btn"  title="Warcraft">Starcraft 2</a>
+                            <a href="#" role="button" class="btn-default btn"  title="Diablo">Diablo</a>
+                            <a href="#" role="button" class="btn-default btn"  title="Starcraft">Counter STrike</a>
+                            <a href="#" role="button" class="btn-default btn"  title="Starcraft">Hearth Stone</a>
+                            <a href="#" role="button" class="btn-default btn"  title="Starcraft">Heroes of the Storm</a>
+                        </div>
+                    </div>
+                    <br />
+               
             </div>
             <div class="row">
-                <div class="col-md-4 text-center">
-                    <center>
-                        <img src="../pics/bnet.PNG" alt="bnt.PNG" class="img-responsive img-rounded" style="height: 200px; width: 300px;" />
-                    </center>
-                    <br />
-                    <div class="btn-group">
-                        <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Sign into Battle.net" href="https://us.battle.net/account/creation/tos.html" target="_blank">
-                        <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
-                        <!---->Battle.net Service<!---->
-                        </a>
-                        <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="left" title="View Battle.net MPC Accounts" href="#">
-                        <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
-                        <!---->MPC Battle.net<!---->
-                        </a>
+                <div class="panel panel-default">
+                    <div class="panel-title">
+                        <h3>Battle.net - Blizzard Ent. - Founded 11/30/1996</h3>
+                    </div>
+                    <div class="pane-body">
+                        <div class="media">
+                            <div class="media-left">
+                                <center>
+                                    <img src="../pics/bnet.PNG" alt="bnt.PNG" class="img-responsive img-rounded" style="height: 200px; width: 300px;" />
+                                    <br />
+                                    <img src="../pics/blizzardentlogo.png" alt="blizzardentlogo.png" class="img-responsive img-rounded" style="width:300px;" title="blizzard entertainment" />
+                                    <br />
+                                    <img src="../pics/blizzardhq.jpg" alt="blizzardhq.jpg" title="Blizzard HeadQuarters" class="img-responsive img-rounded" style="width: 300px;" />
+                                    <small>
+                                        <p>
+                                        Blizzard Head Quarters
+                                        </p>
+                                    </small>
+                                </center>
+                            <br />
+                            <div class="page-header">
+                                <h4>
+                                Currently Active:
+                                </h4>
+                            </div>
+                            <br />
+                                <center>
+                            <img src="../pics/wowactive.jpg" alt="wowactive.jpg" title="World of Warcraft" class="img-responsive img-rounded" style="width: 200px; height: 100px;" />
+                                <br />
+                                
+                                </center>
+                                <div class="page-header">
+                                    <h4>Videos: [Buttons]</h4>
+                                </div>
+                                <div class="btn-group">
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Warcraft
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Warcraft
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Warcraft
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Warcraft
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Warcraft
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Warcraft
+                                    </a>
+                                        </div>
+                                </div>
+                                <br />
+                                <div class="page-header">
+                                    <h4>Screen Shots: [Buttons]</h4>
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <div class="btn-group">
+                                    <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Sign into Battle.net" href="https://us.battle.net/account/creation/tos.html" target="_blank">
+                                    <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
+                                    <!---->Battle.net Site<!---->
+                                    </a>
+                                    <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="left" title="View Battle.net MPC Accounts" href="#">
+                                    <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+                                    <!---->MPC Battle.net<!---->
+                                    </a>
+                                </div>
+                                <br />
+                                <div class="page-header">MPC Briefing:</div>
+                                <br />
+                                <small><p>&ensp;&ensp;&ensp;&ensp;&ensp;Here you will find the tools for playing on battle.net. Battle.net server that their products use to connect to. This connection allows players to play their games, and any interaction through the internet. The links provider here will take you to battle net's website, and allow you to create a login, or purchase downloadable games. There are other things included when visiting <a name="diablobtn" href="http://us.battle.net/en/" target="_blank"> battle.net</a>, but definitly going to need to create a login, or purchase one of their games, then submitting your email as an account. Be sure to have this set up, if you wish to play with MPC, with one of Blizzard's product gaming software. Everything can be purchased through <a name="starcraftbtn"></a>      battle.net.<a name="warcraftbtn"></a>
+</p></small>
+                                <br />
+                                <div class="list-group">
+                                  <a href="http://us.blizzard.com/en-us/games/legacy/" class="list-group-item list-group-item-default" target="_blank">
+                                    <h4 class="list-group-item-heading">Warcraft(RTS) - 11/24/1994 </h4>
+                                    <p class="list-group-item-text">Published by Blizzard, and Interplay Entertainment. This game was the kick off to a popular game today... World of Warcraft.</p>
+                                  </a>
+                                </div>
+                                <div class="list-group">
+                                  <a href="http://us.blizzard.com/en-us/games/legacy/" class="list-group-item list-group-item-default" target="_blank">
+                                    <h4 class="list-group-item-heading">Warcraft 2(RTS) - 12/09/1995 </h4>
+                                    <p class="list-group-item-text">Sequel to Warcraft 1, and was released a year after the original. A popular game in 1996, won most of the major PC gaming awards, and sold over 2 million copies.</p>
+                                  </a>
+                                </div>
+                                <div class="list-group">
+                                  <a href="http://diablo.wikia.com/wiki/Diablo_Wiki" class="list-group-item list-group-item-default" target="_blank">
+                                    <h4 class="list-group-item-heading">Diablo - 11/30/1996 </h4>
+                                    <p class="list-group-item-text">When the service initially launched with Diable, battle.net offered only a few basic services like chatting, and listing. This was the begining of battle net's server operation, and multi player gaming. Find everything about diablo here.</p>
+                                  </a>
+                                </div>
+                                <div class="list-group">
+                                    <a href="http://us.blizzard.com/en-us/games/sc/" class="list-group-item list-group-item-default" target="_blank">
+                                        <h4 class="list-group-item-heading">
+                                        Starcraft(RTS) - 03/31/1998
+                                        </h4>
+                                        <p class="list-group-item-text">Real Time Strategy video game developed late 90's. Was the first of the Starcraft series, and Mac OS version released in 1999, then a Nintendo 64 adaptation co-developed with a mass media released on June 13 2000. This was the starting of Blizzard's developing franchise.</p>
+                                    </a>
+                                </div>
+                                <div class="list-group">
+                                    <a href="http://starcraft.wikia.com/wiki/StarCraft:_Brood_War" class="list-group-item list-group-item-default" target="_blank">
+                                        <h4 class="list-group-item-heading">
+                                        Starcraft: Brood War(RTS) - 11/30/1998
+                                        </h4>
+                                        <p class="list-group-item-text">
+                                            Expansion software for the original game, Starcraft, introduced new campaigns, map tilesets, music,, extra units for each race, and upgrade advancements. Sold almost 10 million copies. Especially popular in South Korea.
+                                        </p>
+                                    </a>
+                                </div>
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-default">
+                                        <h4 class="list-group-item-heading">
+
+                                        </h4>
+                                        <p class="list-group-item-text">
+                                            ...
+                                        </p>
+                                    </a>
+                                </div>
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-default">
+                                        <h4 class="list-group-item-heading">
+
+                                        </h4>
+                                        <p class="list-group-item-text">
+                                            ...
+                                        </p>
+                                    </a>
+                                </div>
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-default">
+                                        <h4 class="list-group-item-heading">
+
+                                        </h4>
+                                        <p class="list-group-item-text">
+                                            ...
+                                        </p>
+                                    </a>
+                                </div>
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-default">
+                                        <h4 class="list-group-item-heading">
+
+                                        </h4>
+                                        <p class="list-group-item-text">
+                                            ...
+                                        </p>
+                                    </a>
+                                </div>
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-default">
+                                        <h4 class="list-group-item-heading">
+
+                                        </h4>
+                                        <p class="list-group-item-text">
+                                            ...
+                                        </p>
+                                    </a>
+                                </div>
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-default">
+                                        <h4 class="list-group-item-heading">
+
+                                        </h4>
+                                        <p class="list-group-item-text">
+                                            ...
+                                        </p>
+                                    </a>
+                                </div>
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item list-group-item-default">
+                                        <h4 class="list-group-item-heading">
+
+                                        </h4>
+                                        <p class="list-group-item-text">
+                                            ...
+                                        </p>
+                                    </a>
+                                </div>
+                                <small class="pull-right"><a href="#top">Back to Top</a></small>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>Steam - Valve Corp.</h3>
+                    </div>
                     <center>
                         <img src="../pics/steam.png" alt="steam.png" class="img-responsive img-rounded" style="min-height: 25px; min-width: 50px; max-height: 200px; width: 300px;" />
                     </center>
@@ -68,7 +285,7 @@
                     <div class="btn-group">
                         <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
                         <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
-                        <!---->Steam Service<!---->
+                        <!---->Steam Site<!---->
                         <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
                         <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
                         <!---->MPC Steam<!---->
@@ -83,11 +300,11 @@
                         <div class="btn-group">
                         <a type="button" class="btn  btn-default" data-toggle="tooltip" data-placement="bottom" title="Sign into Steam" href="https://www.origin.com/en-us/download" target="_blank">
                         <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
-                        <!---->Origin EA Service<!---->
+                        <!---->Origin EA Site<!---->
                         </a>
                         <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="View Origin MPC Accounts" href="https://www.origin.com/en-us/store/?utm_campaign=origin-search-us-pbm-g-origin&utm_medium=cpc&utm_source=google&utm_term=origin%20sign%20in&sourceid=origin-search-us-pbm-g-origin" target="_blank">
                         <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
-                        <!---->MPC Origin<!---->
+                        <!---->MPC EA Origin<!---->
                         </a>
                         </div>  <!--btn0group-->
                         </div>  <!--col-->

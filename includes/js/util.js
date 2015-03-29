@@ -11,6 +11,8 @@ var INPUT_CONFIRM = "#confirm";
 var FILTER_BY_ALIAS = 0;
 var FILTER_BY_EMAIL = 1;
 
+var PERMISSION_ADMIN = 'admin';
+
 /* #### End of Constants ############################### */
 
 /* __Functions__ */
@@ -104,7 +106,7 @@ function doFilter (criteria, userList, filterBy) {
 	return users;
 }
 function doFilterEmail (userList, permissions) {
-	if (permissions.indexOf(PERM_ADMIN) > -1) {
+	if (permissions.indexOf(PERMISSION_ADMIN) > -1) {
 		var criteria = ($(INPUT_EMAIL) == null) ? "" : $(INPUT_EMAIL).val();
 		userList = doFilter(criteria, userList, FILTER_BY_EMAIL);
 	}
@@ -120,15 +122,15 @@ function doFilterAlias (userList, permissions) {
  *
  */
 function htmlTableEmail (user, permissions) {
-	if (permissions.indexOf(PERM_ADMIN) > -1) {
+	if (permissions.indexOf(PERMISSION_ADMIN) > -1) {
 		return "<td>" + user[FILTER_BY_EMAIL] + "</td>";
 	}
 	return "";
 }
 function htmlTableAlias (user, permissions) {
 	var icon = (user[FILTER_BY_EMAIL] == 'b0rg3r@gmail.com') ?
-			"<td><i class='fa fa-user-secret'></i> " :
-			"<td><i class='fa fa-user'></i> ";
+			"<td class='col-xs-6'><i class='fa fa-user-secret'></i> " :
+			"<td class='col-xs-6'><i class='fa fa-user'></i> ";
 			// "<td><span class='glyphicon glyphicon-user'></span> ";
 	return icon + user[FILTER_BY_ALIAS] + "</td>";
 }
@@ -142,9 +144,9 @@ function updateList (userList, permissions) {
 	userList = doFilterAlias(userList, permissions);
 	var result = '';
 	for (var i = 0; i < userList.length; i++)  {
-		result += "<tr class='" + htmlTableClass(i) + "'>";
-		result += htmlTableEmail(userList[i], permissions);
+		result += "<tr class='row " + htmlTableClass(i) + "'>";
 		result += htmlTableAlias(userList[i], permissions);
+		result += htmlTableEmail(userList[i], permissions);
 		result += '</tr>';
 	}
 	$(SEARCH_RESULTS).html(result);

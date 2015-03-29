@@ -387,14 +387,16 @@ EOD;
 						</div>
 					</div>
 				</div>
-				<div class='row'>{$body}</div>
+				<div class='row'>
+					{$body}
+				</div>
 			</div>
 EOD;
 	}
 	
 	function HtmlMessageContent($msg,$msgid,$first) {
 		$taghelper = HtmlTagHelper($msgid);
-		$rename= ($first) ? "<input type='text' class='form-control edit-content-rename' data-id='{$msgid}'/>" : "";
+		$rename= ($first) ? "<input type='text' class='form-control edit-content-rename' placeholder='Type here to edit title' data-id='{$msgid}'/>" : "";
 		return <<<EOD
 			<div class='content-message edit-content' data-id='{$msgid}'>
 				{$msg}
@@ -422,27 +424,31 @@ EOD;
 			<div class='row usertool'>
 				<div class='col-xs-2'>
 					<button type='button' class='btn btn-edit pull-left edit-content-btn-edit' data-id='{$msgid}'>
-						<span class='glyphicon glyphicon-edit'></span>
+						<i class='fa fa-pencil-square-o'></i>
 						Edit
 					</button>
 				</div>
 				<div class='col-xs-2'>
 					<form role='form' action='{$PG_MSG_DEL}?{$query}' method='post'>
 						<button type='submit' class='btn btn-edit edit-content-btn-delete' data-id='{$msgid}'>
-							<span class='glyphicon glyphicon-trash'></span>
+							<i class='fa fa-trash-o'></i>
 							Delete
 						</button>
 						<input type='hidden' name='msgid' value='{$msgid}'/>
 					</form>
 				</div>
 				<div class='col-xs-8'>
+					<button type='button' class='btn btn-edit pull-right content-quote-btn' data-id='{$msgid}'>
+						<i class='fa fa-quote-right'></i>
+						Quote
+					</button>
 					<button type='button' class='btn btn-edit pull-right edit-content-btn-cancel' data-id='{$msgid}'>
-						<span class='glyphicon glyphicon-remove'></span>
+						<i class='fa fa-times'></i>
 						Cancel
 					</button>
 					<form class='edit-content-form' data-id='{$msgid}' role='form' action='{$PG_MSG_UPD}?{$query}' method='post'>
 						<button type='button' class='btn btn-edit pull-right edit-content-btn-update' data-id='{$msgid}'>
-							<span class='glyphicon glyphicon-check'></span>
+							<i class='fa fa-check-square-o'></i>
 							Confirm
 						</button>
 						<input type='hidden' name='rename' class='edit-content-rename-hidden' data-id='{$msgid}' value=''/>

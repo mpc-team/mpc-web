@@ -105,13 +105,13 @@ EOD;
 						<div class="panel panel-default">
 							<table class="table">
 								<thead>
-									<tr>
+									<tr class='row'>
+										<th class='col-xs-6'>Alias</th>
 										<?php 
 											if (in_array("admin", $perm)) {
-												echo '<th>Email</th>'; 
+												echo "<th class='col-xs-6'>Email</th>"; 
 											}
 										 ?>
-										<th>Alias</th>
 									</tr>
 								</thead>
 								<tbody id="search-results">

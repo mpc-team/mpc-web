@@ -9,6 +9,7 @@
 	var TYPE_EDIT 				= 'edit-content-btn-edit';
 	var TYPE_UPDATE 			= 'edit-content-btn-update';
 	var TYPE_DELETE 			= 'edit-content-btn-delete';
+	var TYPE_QUOTE 				= 'content-quote-btn';
 	var TYPE_FORM 				= 'edit-content-form';
 	var TYPE_IN_HIDDEN 		= 'edit-content-hidden';
 	var TYPE_RE_HIDDEN 		= 'edit-content-rename-hidden';
@@ -66,6 +67,16 @@
 		$("." + TYPE_CANCEL).hide();
 		$("." + TYPE_DIV_TOGGLE).hide();
 		
+		$("." + TYPE_QUOTE).click( function () {
+			var $elem= $(this);
+			var msgid= $elem.data("id");
+			var $elems= $("[data-id=" + msgid +"]");
+			var text= $elems.filter("." + TYPE_DIV_CONTENT).text();
+			cleaned= text.trim().replace(/\\t/g, "");
+			
+			$("#input-reply-text").val("<blockquote>" + cleaned + "</blockquote>");
+		});
+		
 		$("." + TYPE_EDIT).click( function () {
 			var $elem = $(this);
 			var msgid = $elem.data("id");
@@ -75,6 +86,7 @@
 			
 			$elem.attr('disabled','disabled');
 			$elems.filter("." + TYPE_DIV_CONTENT).hide();
+			$elems.filter("." + TYPE_QUOTE).hide();
 			$elems.filter("." + TYPE_DIV_TOGGLE).show();
 			$elems.filter("." + TYPE_CANCEL).show();
 			$elems.filter("." + TYPE_UPDATE).show();
@@ -92,6 +104,7 @@
 			$elems.filter("." + TYPE_CANCEL).hide();
 			$elems.filter("." + TYPE_UPDATE).hide();
 			$elems.filter("." + TYPE_DIV_CONTENT).show();
+			$elems.filter("." + TYPE_QUOTE).show();
 			$("#forum-thread-message-" + msgid).gotoSection();
 		});
 		

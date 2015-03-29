@@ -19,6 +19,7 @@
 			$ctag= stripslashes($_GET["c_tag"]);
 			$msg= stripslashes($_POST["message"]);
 			$update=UpdateMessage($cid,$ctag,$tid,$ttag,$msgid,$msg,$_SESSION["USER"]);			
+			$rename= "";
 			if(isset($_POST["rename"]) && strlen($_POST["rename"]) > 0) {
 				$rename= stripslashes($_POST["rename"]);
 				$re= UpdateThread($cid,$ctag,$tid,$ttag,$_SESSION["USER"],$rename);

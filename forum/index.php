@@ -229,6 +229,7 @@
 						case $MESSAGES:
 							$messages = $content[1];
 							$mcount = count($messages);
+							$first = TRUE;
 							for( $i=0; $i<$mcount; $i++ ){
 								$message = $messages[$i];
 								$msgid = $message[0];
@@ -236,11 +237,11 @@
 								$editPerm = ($s_user == $email || in_array('admin', $s_permissions));
 								
 								echo $LAYOUT_OPEN;
-								echo HtmlMessage($msgid,$message[1],$email,$message[3],$message[4],$query);
+								echo HtmlMessage($first,$msgid,$message[1],$email,$message[3],$message[4],$query);
 								$moptions=($editPerm) ? HtmlMessageOptions($msgid,$query) : "";
 								echo $moptions;
 								echo $LAYOUT_CLOSE;
-								
+								$first = FALSE;
 							}
 					}
 					

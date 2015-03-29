@@ -23,6 +23,8 @@
 	<title>Multi-Player Clan</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+	<meta name="keywords" content="mpc, clan mpc, clanmpc, mpcgaming, mpc gaming, gaming clan, multiplayer clan, multiplayer">
+	<meta name="description" content="Multi-Player Clan - Gaming community hosting tournaments for various games including StarCraft II, Heroes of the Storm, Counter-Strike: Global Offense.">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <?php
 	echo JavaScriptResource( PathDir::GetJQueryPath($ROOT) );
@@ -33,8 +35,6 @@
 	echo JavaScriptResource( PathDir::GetBootstrapDateJSPath($ROOT) );
 	echo StyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );
  ?>
-	<meta name="keywords" content="mpc, clan mpc, clanmpc, mpcgaming, mpc gaming, gaming clan, multiplayer clan, multiplayer">
-	<meta name="description" content="Multi-Player Clan - Gaming community hosting tournaments for various games including StarCraft II, Heroes of the Storm, Counter-Strike: Global Offense.">
 </head>
 <body>
 	<div class="container-fluid">
@@ -59,22 +59,32 @@
 					
 					<div class='panel-group'>
 						<div class='panel panel-default'>
-						
 							<div class='row'>
-								<div class='col-xs-6'>
-									<div class="form-group">
-										<h1><small>Alias</small><br>
-											<div id='edit-alias-text'>
-												<input type='text' name='alias' value='<?php echo $alias; ?>'/>
-											</div>
-											<div id='edit-alias-btn'>
-												<a id='edit-alias'><?php echo $alias; ?></a>
-											</div>
-										</h1>
+							
+								<div class='clearfix'>
+									<div class='col-xs-3'>
+										<button type='button' class='btn btn-default'>
+											StarCraft II
+										</button>
+									</div>
+									<div class='col-xs-3'>
+										<button type='button' class='btn btn-default'>
+											Heroes of the Storm
+										</button>
+									</div>
+									<div class='col-xs-3'>
+										<button type='button' class='btn btn-default'>
+											Counter-Strike: Global Offensive
+										</button>
+									</div>
+									<div class='col-xs-3'>
+										<button type='button' class='btn btn-default'>
+											Clash of Clans
+										</button>
 									</div>
 								</div>
+									
 							</div>
-							
 						</div>
 					</div>
 				</div>
@@ -88,17 +98,7 @@
 	<script type='text/javascript'>
 		var alias=<?php echo json_encode($alias); ?>;
 		var user=<?php echo json_encode($user); ?>;
-		$(document).ready(function(){
-			$('#edit-alias-text').hide();
-			$('#edit-alias').mouseenter(function(){
-				$('#edit-alias').hide();
-				$('#edit-alias-text').show();
-			});
-			$('#edit-alias-text').focusout(function(){
-				$('#edit-alias').show();
-				$('#edit-alias-text').hide();
-			});
-		});
+		
 	</script>
 </body>
 </html>

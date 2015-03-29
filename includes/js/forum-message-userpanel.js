@@ -11,6 +11,8 @@
 	var TYPE_DELETE 			= 'edit-content-btn-delete';
 	var TYPE_FORM 				= 'edit-content-form';
 	var TYPE_IN_HIDDEN 		= 'edit-content-hidden';
+	var TYPE_RE_HIDDEN 		= 'edit-content-rename-hidden';
+	var TYPE_RENAME 			= 'edit-content-rename';
 	var TYPE_TEXT 				= 'edit-content-text';
 	
 	var TYPE_EDIT_BOLD		= 'edit-tag-bold';
@@ -104,6 +106,7 @@
 			$elems.filter("." + TYPE_UPDATE).hide();
 			$elems.filter("." + TYPE_DIV_CONTENT).show();
 			
+			$elems.filter("." + TYPE_RE_HIDDEN).val( $elems.filter("." + TYPE_RENAME).val() );
 			$elems.filter("." + TYPE_IN_HIDDEN).val( $elems.filter("." + TYPE_TEXT).val() );
 			$elems.filter("." + TYPE_FORM).submit();
 		});

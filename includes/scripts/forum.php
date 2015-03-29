@@ -332,7 +332,7 @@ EOD;
 EOD;
 	}
 	
-	function HtmlThread($cid,$ctag,$tid,$ttag,$glyph,$alias,$timestamp,$count,$msgid,$recent) {
+	function HtmlThread($cid,$ctag,$tid,$ttag,$glyph,$alias,$timestamp,$count,$msgid,$malias,$recent) {
 		global $PG_INDEX;
 		global $PG_THR_DEL;
 		$date = new DateTime($timestamp);
@@ -354,19 +354,26 @@ EOD;
 				<div class="col-xs-1">
 					<h4><b>{$count}</b><br><small>replies</small></h4>
 				</div>
-				<div class="col-xs-5">
-						<a class='btn' href='{$url}#forum-thread-message-{$msgid}'>
-							<div class='row'>
-								<div class='pull-right'>
-									<b>Recent Post:</b>
-								</div>
+				<div class="col-xs-5" float:'>
+					<a class='btn' href='{$url}#forum-thread-message-{$msgid}'>
+						<h5>
+						<div class='row'>
+							<div class='pull-right'>
+								Recent Post:
 							</div>
-							<div class='row'>
-								<div class='pull-right'>
-									{$recent}
-								</div>
+						</div>
+						<div class='row'>
+							<div class='pull-right'>
+								<small><span class='glyphicon glyphicon-user'></span> {$malias}</small>
 							</div>
-						</a>
+						</div>
+						<div class='row'>
+							<div class='pull-right'>
+								<small><span class='glyphicon glyphicon-time'></span> {$recent}</small>
+							</div>
+						</div>
+						</h5>
+					</a>
 				</div>
 			</div>
 EOD;

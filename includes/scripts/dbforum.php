@@ -394,6 +394,16 @@ EOD;
 		return (-1);
 	}
 	
+	function DBF_UpdateThread($db,$tid,$name) {
+		if($db->connected) {
+			$sql= "UPDATE ForumThreads SET `name`=? WHERE fthreadID={$tid}";
+			$statement= $db->prepare($sql);
+			$statement->bind_param('s', $name);
+			return $statement->execute();
+		}
+		return FALSE;
+	}
+	
 	function DBF_DeleteThread($db, $tid) {
 		if($db->connected) {
 			$sql=<<<EOD

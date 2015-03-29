@@ -14,11 +14,18 @@
 		if(verifygetvars($params,$_GET)){
 			$tid=$_GET["t_id"];
 			$cid=$_GET["c_id"];
+			$msgid= $_POST["msgid"];
 			$ttag= stripslashes($_GET["t_tag"]);
 			$ctag= stripslashes($_GET["c_tag"]);
-			$msgid= $_POST["msgid"];
 			$msg= stripslashes($_POST["message"]);
 			$update=UpdateMessage($cid,$ctag,$tid,$ttag,$msgid,$msg,$_SESSION["USER"]);			
+			if(isset($_POST["rename"]) && strlen($_POST["rename"]) > 0) {
+				$rename= stripslashes($_POST["rename"]);
+				$re= UpdateThread($cid,$ctag,$tid,$ttag,$_SESSION["USER"],$rename);
+				$ctagURL= urlencode($ctag);
+				$ttagURL= urlencode($rename);
+				$header= "Location: ".$ROOT."/forum/index.php?c_id={$cid}&c_tag={$ctagURL}&t_id={$tid}&t_tag={$ttagURL}";
+			}
 			if($update) {
 				$header.= "#forum-thread-message-{$msgid}";
 			}
@@ -50,6 +57,11 @@
 			<?php	
 				echo "msgid:".$_POST["msgid"]."<br>";
 				echo "update:".$update."<br>";
+				if(strlen($rename) > 0) {
+					echo "rename:".$rename."<br>";
+				}else{
+					echo "rename: NONE<br>";
+				}
 				echo "message:--start--".$_POST["message"]."--end--";
 			 ?>
 		</div>

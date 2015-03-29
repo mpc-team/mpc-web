@@ -11,13 +11,6 @@ var INPUT_CONFIRM = "#confirm";
 var FILTER_BY_ALIAS = 0;
 var FILTER_BY_EMAIL = 1;
 
-var PERM_PUBLIC = "public";
-var PERM_MEMBER = "member";
-var PERM_ADMIN = "admin"
-
-var JSON_TYPE = 0;
-var JSON_LIST = 1;
-
 /* #### End of Constants ############################### */
 
 /* __Functions__ */

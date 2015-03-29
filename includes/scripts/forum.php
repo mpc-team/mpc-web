@@ -16,7 +16,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////
 	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><strike></strike><center></center>"
 											."<h1></h1><h2></h2><h3></h3><h4></h4><h5></h5>"
-											."<sub></sub><sup></sup><p></p><blockquote></blockquote>"
+											."<sub></sub><sup></sup><p></p><blockquote></blockquote><cite></cite>"
 											."<ul></ul><li></li><img></img></br><br><br/><a></a><small></small>";
 	
 	$PG_INDEX = $ROOT . '/forum/index.php';
@@ -204,6 +204,25 @@
 		return $del;
 	}
 	
+	function UpdateThread($cid,$ctag,$tid,$ttag,$user,$rename) {
+		$up= -2;
+		$db= DB_CreateDefault();
+		$db->connect();
+		if(DBF_CheckCategory($db,$cid,$ctag) && DBF_CheckThread($db,$tid,$ttag)) {
+			$rename= cleantitle($rename);
+			$perm= DB_GetUserPermissionsByEmail($db,$user);
+			$info= DBF_GetThreadInfo($db,$tid);
+			$up= -3;
+			if(validateinput($rename)) {
+				if($info[3] == $user || in_array('admin',$perm)) {
+					$up= DBF_UpdateThread($db,$tid,$rename);
+				}
+			}
+		}
+		$db->disconnect();
+		return $up;
+	}
+	
 	
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -344,17 +363,17 @@ EOD;
 			<div class='row usertool'>
 				<form role='form' action='{$PG_THR_DEL}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}' method='post'>
 					<button type='submit' class='btn btn-edit pull-right'>
-						Delete
+						<span class='glyphicon glyphicon-trash'></span> Delete
 					</button>
 				</form>
 			</div>
 EOD;
 	}
 	
-	function HtmlMessage($msgid,$content,$author,$alias,$time,$query) {
+	function HtmlMessage($first,$msgid,$msg,$author,$alias,$time,$query) {
 		$headerleft=HtmlMessageAuthor($alias);
 		$headerright=HtmlMessageDate($time);
-		$body=HtmlMessageContent($content,$msgid);
+		$body=HtmlMessageContent($msg,$msgid,$first);
 		return<<<EOD
 			<a id='forum-thread-message-{$msgid}'></a>
 			<div class='panel-messages'>
@@ -373,18 +392,22 @@ EOD;
 EOD;
 	}
 	
-	function HtmlMessageContent($msg,$msgid) {
+	function HtmlMessageContent($msg,$msgid,$first) {
 		$taghelper = HtmlTagHelper($msgid);
+		$rename= ($first) ? "<input type='text' class='form-control edit-content-rename' data-id='{$msgid}'/>" : "";
 		return <<<EOD
 			<div class='content-message edit-content' data-id='{$msgid}'>
 				{$msg}
 			</div>
 			<div class='content-message edit-content-toggle' data-id='{$msgid}'>
 				<div class='row'>
+					{$rename}
+				</div>
+				<div class='row'>
 					{$taghelper}
 				</div>
 				<div class='row'>
-					<textarea name='content' class='form-control editmessage edit-content-text' data-id='{$msgid}'>
+					<textarea class='form-control editmessage edit-content-text' data-id='{$msgid}'>
 						{$msg}
 					</textarea>
 				</div>
@@ -422,6 +445,7 @@ EOD;
 							<span class='glyphicon glyphicon-check'></span>
 							Confirm
 						</button>
+						<input type='hidden' name='rename' class='edit-content-rename-hidden' data-id='{$msgid}' value=''/>
 						<input type='hidden' name='message' class='edit-content-hidden' data-id='{$msgid}'/>
 						<input type='hidden' name='msgid' value='{$msgid}'/>
 					</form>

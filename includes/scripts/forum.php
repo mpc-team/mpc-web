@@ -16,7 +16,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////
 	$ALLOWED_HTML_TAGS = "<b></b><i></i><u></u><strike></strike><center></center>"
 											."<h1></h1><h2></h2><h3></h3><h4></h4><h5></h5>"
-											."<sub></sub><sup></sup><p></p><blockquote></blockquote><cite></cite>"
+											."<sub></sub><sup></sup><p></p><blockquote></blockquote><cite></cite><q></q>"
 											."<ul></ul><li></li><img></img></br><br><br/><a></a><small></small>";
 	
 	$PG_INDEX = $ROOT . '/forum/index.php';
@@ -547,6 +547,7 @@ EOD;
 		$id = "submit-forum-message";
 		$taghelper = HtmlTagHelper($id);
 		return <<<EOD
+			<a id='reply-to-thread'></a>
 			<div class="panel panel-default">
 				<div class="page-header">
 					<h3>Reply to thread</h3>

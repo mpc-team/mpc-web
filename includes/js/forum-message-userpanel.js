@@ -74,7 +74,8 @@
 			var text= $elems.filter("." + TYPE_DIV_CONTENT).text();
 			cleaned= text.trim().replace(/\\t/g, "");
 			
-			$("#input-reply-text").val("<blockquote>" + cleaned + "</blockquote>");
+			$("#input-reply-text").fieldSelection("<blockquote>" + cleaned + "</blockquote>");
+			$("#reply-to-thread").gotoSection();
 		});
 		
 		$("." + TYPE_EDIT).click( function () {

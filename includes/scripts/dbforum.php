@@ -50,7 +50,7 @@ EOD;
 		$threads=array();
 		if($db->connected){
 			$sql=<<<EOD
-				SELECT fthreads.fthreadID, fthreads.categoryID, fthreads.name, User.userName, ualias.userAlias, finfo.tstamp, minfo.tstamp AS recent
+				SELECT fthreads.fthreadID, fthreads.categoryID, fthreads.name, User.userName, ualias.userAlias, finfo.tstamp, minfo.tmsgID, minfo.tstamp AS recent
 				FROM ForumThreads AS fthreads
 					JOIN ForumThreadInfo AS finfo
 						ON fthreads.fthreadID=finfo.fthreadID
@@ -63,15 +63,21 @@ EOD;
 						ON tmsgs.fthreadID=fthreads.fthreadID
 					JOIN ThreadMessageInfo AS minfo
 						ON minfo.tmsgID=tmsgs.tmsgID
-				GROUP BY fthreads.fthreadID
+				WHERE minfo.tstamp = (
+					SELECT MAX(minfo2.tstamp) 
+					FROM ThreadMessageInfo AS minfo2
+						JOIN ThreadMessages AS tmsgs2
+							ON minfo2.tmsgID=tmsgs2.tmsgID
+					WHERE tmsgs2.fthreadID=tmsgs.fthreadID
+				)
 				ORDER BY recent DESC
 EOD;
 			$statement=$db->prepare($sql);
 			$statement->execute( );
-			$statement->bind_result($tid,$cid,$ttag,$user,$alias,$tstamp,$recent);
+			$statement->bind_result($tid,$cid,$ttag,$user,$alias,$tstamp,$msgid,$recent);
 			while($statement->fetch()){
 				$thr=array();
-				array_push($thr,$tid,$cid,$ttag,$user,$alias,$tstamp);
+				array_push($thr,$tid,$cid,$ttag,$user,$alias,$tstamp,$msgid,$recent);
 				array_push($threads,$thr);
 			}
 			$statement->close();

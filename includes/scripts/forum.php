@@ -332,24 +332,41 @@ EOD;
 EOD;
 	}
 	
-	function HtmlThread($cid,$ctag,$tid,$ttag,$glyph,$alias,$time,$count) {
+	function HtmlThread($cid,$ctag,$tid,$ttag,$glyph,$alias,$timestamp,$count,$msgid,$recent) {
 		global $PG_INDEX;
 		global $PG_THR_DEL;
+		$date = new DateTime($timestamp);
+		$timestamp = $date->format(DateTime::RFC1123);
+		$date = new DateTime($recent);
+		$recent = $date->format(DateTime::RFC1123);
 		$ctagenc=urlencode($ctag);
 		$ttagenc=urlencode($ttag);
+		$url= "{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}";
 		return <<<EOD
 			<div class="row">
 				<div class="col-xs-6">
-					<a class="btn" href="{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}">
+					<a class="btn" href="{$url}">
 						<h5>{$glyph} {$ttag} {$glyph}<br><small>
 						<span class="glyphicon glyphicon-user"></span> {$alias} </br>
-						<span class="glyphicon glyphicon-time"></span> {$time}</small></h5>
+						<span class="glyphicon glyphicon-time"></span> {$timestamp}</small></h5>
 					</a>
 				</div>
 				<div class="col-xs-1">
 					<h4><b>{$count}</b><br><small>replies</small></h4>
 				</div>
 				<div class="col-xs-5">
+						<a class='btn' href='{$url}#forum-thread-message-{$msgid}'>
+							<div class='row'>
+								<div class='pull-right'>
+									<b>Recent Post:</b>
+								</div>
+							</div>
+							<div class='row'>
+								<div class='pull-right'>
+									{$recent}
+								</div>
+							</div>
+						</a>
 				</div>
 			</div>
 EOD;

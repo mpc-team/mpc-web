@@ -514,9 +514,6 @@ EOD;
 			<button title='Image Reference' type='button' class='btn btn-edit edit-tag-image' data-id='{$id}'>
 				<i class="fa fa-picture-o"></i>
 			</button>
-			<button title='Quote Reference' type='button' class='btn btn-edit edit-tag-quote' data-id='{$id}'>
-				<i class="fa fa-quote-left"></i>
-			</button>
 EOD;
 	}
 	

@@ -9,12 +9,12 @@
 	var TYPE_EDIT 				= 'edit-content-btn-edit';
 	var TYPE_UPDATE 			= 'edit-content-btn-update';
 	var TYPE_DELETE 			= 'edit-content-btn-delete';
-	var TYPE_QUOTE 				= 'content-quote-btn';
 	var TYPE_FORM 				= 'edit-content-form';
 	var TYPE_IN_HIDDEN 		= 'edit-content-hidden';
 	var TYPE_RE_HIDDEN 		= 'edit-content-rename-hidden';
 	var TYPE_RENAME 			= 'edit-content-rename';
 	var TYPE_TEXT 				= 'edit-content-text';
+	var TYPE_QUOTE				= 'content-quote-btn';
 	
 	var TYPE_EDIT_BOLD		= 'edit-tag-bold';
 	var TYPE_EDIT_ITALIC	= 'edit-tag-italic';
@@ -31,7 +31,6 @@
 	var TYPE_EDIT_CENTER	= 'edit-tag-center';
 	var TYPE_EDIT_LINK		= 'edit-tag-link';
 	var TYPE_EDIT_IMAGE		= 'edit-tag-image';
-	var TYPE_EDIT_QUOTE		= 'edit-tag-quote';
 	
 	var TAGS_BOLD					= ["<b>", "</b>"];
 	var TAGS_ITALIC			  = ["<i>", "</i>"];
@@ -48,7 +47,6 @@
 	var TAGS_CENTER				= ["<center>", "</center>"];
 	var TAGS_LINK					= ["<a href=\"", "\">", "</a>"];
 	var TAGS_IMAGE				= ["<img src=\"", "\"></img>"];
-	var TAGS_QUOTE				= ["<blockquote>", "</blockquote>"];
 	
 	function Html2Text(html) {
 		var text = html.trim( );
@@ -243,13 +241,5 @@
 			var $elems = $("[data-id=" + msgid + "]");
 			var text = $elems.filter("." + TYPE_TEXT);
 			text.fieldSelection(TAGS_IMAGE[0] + text.fieldSelection().text + TAGS_IMAGE[1]);
-		});
-		
-		$("." + TYPE_EDIT_QUOTE).click( function () {
-			var $elem = $(this);
-			var msgid = $elem.data("id");
-			var $elems = $("[data-id=" + msgid + "]");
-			var text = $elems.filter("." + TYPE_TEXT);
-			text.fieldSelection(TAGS_QUOTE[0] + text.fieldSelection().text + TAGS_QUOTE[1]);
 		});
 	});

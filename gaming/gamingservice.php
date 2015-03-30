@@ -125,15 +125,15 @@
                     <div class="panel-title">
                         <h3>Battle.net - Blizzard Ent. - Founded 11/30/1996</h3>
                     </div>
-                    <div class="pane-body">
+                    <div class="panel-body">
                         <div class="media">
                             <div class="media-left">
                                 <center>
-                                    <img src="../pics/bnet.PNG" alt="bnt.PNG" class="img-responsive img-rounded" style="height: 200px; width: 300px;" />
+                                    <img src="../pics/bnet.PNG" alt="bnt.PNG" class="img-responsive img-rounded media-object" style="height: 200px; width: 300px;" />
                                     <br />
-                                    <img src="../pics/blizzardentlogo.png" alt="blizzardentlogo.png" class="img-responsive img-rounded" style="width:300px;" title="blizzard entertainment" />
+                                    <img src="../pics/blizzardentlogo.png" alt="blizzardentlogo.png" class="img-responsive img-rounded media-object" style="width:300px;" title="blizzard entertainment" />
                                     <br />
-                                    <img src="../pics/blizzardhq.jpg" alt="blizzardhq.jpg" title="Blizzard HeadQuarters" class="img-responsive img-rounded" style="width: 300px;" />
+                                    <img src="../pics/blizzardhq.jpg" alt="blizzardhq.jpg" title="Blizzard HeadQuarters" class="img-responsive img-rounded media-object" style="width: 300px;" />
                                     <small>
                                         <p>
                                         Blizzard Head Quarters
@@ -335,24 +335,29 @@
                     </div>
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3>Steam - Valve Corp.</h3>
+                    <div class="panel-body">
+                        <div class="panel-heading">
+                            <h3>Steam.com - Valve Corp. - Founded - 08/24/1996</h3>
                     </div>
-                    <center>
-                        <img src="../pics/steam.png" alt="steam.png" class="img-responsive img-rounded" style="min-height: 25px; min-width: 50px; max-height: 200px; width: 300px;" />
-                    </center>
-                <br />
-                    <div class="btn-group">
-                        <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
-                        <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
-                        <!---->Steam Site<!---->
-                        <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
-                        <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
-                        <!---->MPC Steam<!---->
-                        </a>
+                        <div class="media">
+                            <div class="media-right pull-right">
+                                   <img src="../pics/steam.png" alt="steam.png" class="img-responsive img-rounded media-object" style="min-height: 25px; min-width: 50px; max-height: 100px; width: 200px;" />
+                            </div>
+                            <div class="media-body pull-left">
+                                 <div class="btn-group">
+                                    <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
+                                    <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
+                                    <!---->Steam Site<!---->
+                                    <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
+                                    <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+                                    <!---->MPC Steam<!---->
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="panel panel-default">
                     <center>
                         <img src="../pics/originlogo.PNG" alt="originlogo.PNG" class="img-responsive img-rounded" style="min-height: 25px; min-width: 50px; max-height: 200px; width: 300px;" />
                     </center>

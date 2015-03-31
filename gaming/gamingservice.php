@@ -97,12 +97,12 @@
                           <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingTwo">
                               <h4 class="panel-title">
-                               <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                               <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#mpcothergamescollapse-gaming" aria-expanded="false" aria-controls="mpcothergamescollapse-gaming">
                                   MPC Other Games... 
                                 </a>
                               </h4>
                             </div>
-                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div id="mpcothergamescollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                               <div class="list-group">
                                 <li class="presentation list-group-item list-group-item-default">
                                     <a href="">League of Legends</a>
@@ -120,7 +120,6 @@
                     </div>
                 </div>
             </div>               
-            <div class="row">
                 <div class="panel panel-default">
                     <div class="panel-title">
                         <h3>Battle.net - Blizzard Ent. - Founded 11/30/1996</h3>
@@ -227,7 +226,7 @@
                                     </a>
                                 </div>
                                 <br />
-                                <div class="page-header">MPC Briefing:</div>
+                                <div class="page-header"><h3>MPC Briefing:</h3></div>
                                 <br />
                                 <small><p>&ensp;&ensp;&ensp;&ensp;&ensp;Here you will find the tools for playing on battle.net. Battle.net server that their products use to connect to. This connection allows players to play their games, and any interaction through the internet. The links provider here will take you to battle net's website, and allow you to create a login, or purchase downloadable games. There are other things included when visiting <a name="diablobtn" href="http://us.battle.net/en/" target="_blank"> battle.net</a>, but definitly going to need to create a login, or purchase one of their games, then submitting your email as an account. Be sure to have this set up, if you wish to play with MPC, with one of Blizzard's product gaming software. Everything can be purchased through <a name="starcraftbtn"></a>      battle.net.<a name="warcraftbtn"></a>
 </p></small>
@@ -340,10 +339,8 @@
                             <h3>Steam.com - Valve Corp. - Founded - 08/24/1996</h3>
                     </div>
                         <div class="media">
-                            <div class="media-right pull-right">
-                                   <img src="../pics/steam.png" alt="steam.png" class="img-responsive img-rounded media-object" style="min-height: 25px; min-width: 50px; max-height: 100px; width: 200px;" />
-                            </div>
-                            <div class="media-body pull-left">
+                            
+                            <div class="media-body">
                                  <div class="btn-group">
                                     <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
                                     <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
@@ -353,27 +350,294 @@
                                     <!---->MPC Steam<!---->
                                     </a>
                                 </div>
+                                     <br />
+                                <div class="page-header">
+                                    <h3>MPC Briefing:</h3>     
+                                </div>
+                                <small><p>Ultilizing Steam will allow yourself to connect with MPC through Steam buddy system. Locate our members, and begin playing the simliar games. Learn our tatics, and learn how to perform better as a team, or as a player. You can get the steam software from the original website at www.steam.com. Steam offers alot of downloadable games, and servers to connect to play these games. They offer some really good deals, and make sure to take advantage on the promotions that steam has to provider. They usually offer these deals in the Xmas, and Summer Seasons.</p></small>
+                                    <br />
+                                <div class="page-header"><h4>Games Developed:</h4></div>
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="gameseries-gaming">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#gamecollapse-gaming" aria-expanded="false" aria-controls="gamecollapse-gaming">
+          Collapsible Group Item #2
+        </a>
+      </h4>
+    </div>
+    <div id="gamecollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="gameseries-gaming">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+                                    
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="game2series-gaming">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#game2collapse-gaming" aria-expanded="false" aria-controls="game2collapse-gaming">
+          Collapsible Group Item #2
+        </a>
+      </h4>
+    </div>
+    <div id="game2collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="game2series-gaming">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+                                    
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="game3series-gaming">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#game3collapse-gaming" aria-expanded="false" aria-controls="game3collapse-gaming">
+          Collapsible Group Item #3
+        </a>
+      </h4>
+    </div>
+    <div id="game3collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="game3series-gaming">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+                            </div>
+                            <div class="media-right">
+                                <img src="../pics/steam.png" alt="steam.png" class="img-responsive img-rounded media-object" style=" width: 285px;" />
+                                <br />
+                                <img src="../pics/valvelogo.jpg" alt="valvelogo.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                <br />
+                                <img src="../pics/valve-offices.jpg" alt="valve-offices.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                <br />
+                                <small class="text-center"><p>Valve Office Lobby.</p></small>
+                                <br />
+                                <div class="page-header">
+                                <h4>
+                                Currently Active:
+                                </h4>
+                            </div>
+                            <br />
+                                <div class="page-header">
+                                    <h4>Series Videos:</h4>
+                                </div>
+                                <div class="btn-group">
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 1
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 2 
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 3
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 4
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 5
+                                    </a>
+                                        </div>
+                                </div>
+                                <br />
+                                <div class="page-header">
+                                    <h4>Screen Shots: [Buttons]</h4>
+                                </div>
+                                <br />
+                                 <div class="btn-group">
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 1
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 2
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 3
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 4
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 5
+                                    </a>
+                                        </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <center>
-                        <img src="../pics/originlogo.PNG" alt="originlogo.PNG" class="img-responsive img-rounded" style="min-height: 25px; min-width: 50px; max-height: 200px; width: 300px;" />
-                    </center>
-                    <br />
-                        <div class="btn-group">
-                        <a type="button" class="btn  btn-default" data-toggle="tooltip" data-placement="bottom" title="Sign into Steam" href="https://www.origin.com/en-us/download" target="_blank">
-                        <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
-                        <!---->Origin EA Site<!---->
-                        </a>
-                        <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="View Origin MPC Accounts" href="https://www.origin.com/en-us/store/?utm_campaign=origin-search-us-pbm-g-origin&utm_medium=cpc&utm_source=google&utm_term=origin%20sign%20in&sourceid=origin-search-us-pbm-g-origin" target="_blank">
-                        <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
-                        <!---->MPC EA Origin<!---->
-                        </a>
-                        </div>  <!--btn0group-->
-                        </div>  <!--col-->
-                    </div>    
+                    <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="panel-heading">
+                            <h3>Origin - EA Corp. - Founded - 08/24/1996</h3>
+                    </div>
+                        <div class="media">
+                            <div class="media-left">
+                                <img src="../pics/originlogo.PNG" alt="originlogo.PNG" class="img-responsive img-rounded media-object" style=" width: 285px;" />
+                                <br />
+                                <img src="../pics/valvelogo.jpg" alt="valvelogo.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                <br />
+                                <img src="../pics/valve-offices.jpg" alt="valve-offices.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                <br />
+                                <small class="text-center"><p>Origin Office Lobby.</p></small>
+                                <br />
+                                <div class="page-header">
+                                <h4>
+                                Currently Active:
+                                </h4>
+                            </div>
+                            <br />
+                                <div class="page-header">
+                                    <h4>Series Videos:</h4>
+                                </div>
+                                <div class="btn-group">
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 1
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 2 
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 3
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 4
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 5
+                                    </a>
+                                        </div>
+                                </div>
+                                <br />
+                                <div class="page-header">
+                                    <h4>Screen Shots: [Buttons]</h4>
+                                </div>
+                                <br />
+                                 <div class="btn-group">
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 1
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 2
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 3
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 4
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 5
+                                    </a>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                 <div class="btn-group">
+                                    <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
+                                    <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
+                                    <!---->Steam Site<!---->
+                                    <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
+                                    <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+                                    <!---->MPC Steam<!---->
+                                    </a>
+                                </div>
+                                     <br />
+                                <div class="page-header">
+                                    <h3>MPC Briefing:</h3>     
+                                </div>
+                                <small><p>Ultilizing Steam will allow yourself to connect with MPC through Steam buddy system. Locate our members, and begin playing the simliar games. Learn our tatics, and learn how to perform better as a team, or as a player. You can get the steam software from the original website at www.steam.com. Steam offers alot of downloadable games, and servers to connect to play these games. They offer some really good deals, and make sure to take advantage on the promotions that steam has to provider. They usually offer these deals in the Xmas, and Summer Seasons.</p></small>
+                                    <br />
+                                <div class="page-header"><h4>Games Developed:</h4></div>
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="gameseries-gaming">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#gamecollapse-gaming" aria-expanded="false" aria-controls="gamecollapse-gaming">
+          Collapsible Group Item #2
+        </a>
+      </h4>
+    </div>
+    <div id="gamecollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="gameseries-gaming">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+                                    
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="game2series-gaming">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#game2collapse-gaming" aria-expanded="false" aria-controls="game2collapse-gaming">
+          Collapsible Group Item #2
+        </a>
+      </h4>
+    </div>
+    <div id="game2collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="game2series-gaming">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+                                    
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="game3series-gaming">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#game3collapse-gaming" aria-expanded="false" aria-controls="game3collapse-gaming">
+          Collapsible Group Item #3
+        </a>
+      </h4>
+    </div>
+    <div id="game3collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="game3series-gaming">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div>
             </div> 
     </div>

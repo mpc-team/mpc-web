@@ -42,52 +42,97 @@
                 <center>
                     <img src="../pics/gamingservices.png" alt="gamingservices.png" class="img-responsive img-rounded" style="height: 100px; width: 700px;" name="top" />
                     <br />
-                    <small><p>These are some of the ways to keep track of MPC, and the games they play. These are known as gaming service providers, and distribute software through their company program. Feel free to connect with MPC through these companies. Use any of the information posted below to help in your search.</p></small>
+                    <small><p>These are some of the ways to keep track of MPC, and the games they play. These are known as gaming service providers, and distribute software through their company program. Feel free to connect with MPC through these companies. Use any of the information posted below to help in your search. These are some of the actives games we participate in.</p></small>
                      </center>
                     <br />
-                    <div class="page-header">
-                        <h3>
-                         PC Multi-Player Games: In-Active
-                        </h3>
-                    </div>
-                    <div class="btn-group" role="group" aria-label="...">
-                            <a href="#warcraftbtn" role="button" class="btn-default btn"  title="Warcraft">Warcraft</a>
-                            <a href="#warcraftbtn" role="button" class="btn-default btn"  title="Warcraft">Warcraft 2</a>
-                            <a href="#diablobtn" role="button" class="btn-default btn"  title="Diablo">Diablo</a>
-                            <a href="#starcraftbtn" role="button" class="btn-default btn"  title="Starcraft">Starcraft</a>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="panel-group" id="mpcblizzardaccordion-gaming" role="tablist" aria-multiselectable="true">
+                          <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="mpcblizzardseries-gaming">
+                              <h4 class="panel-title">
+                               <a class="collapsed" data-toggle="collapse" data-parent="#mpcblizzardaccordion-gaming" href="#mpcblizzardcollapse-gaming" aria-expanded="false" aria-controls="mpcblizzardcollapse-gaming">
+                                  MPC Blizzard
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="mpcblizzardcollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="mpcblizzardseries-gaming">
+                              <div class="list-group">
+                                <li class="presentation list-group-item list-group-item-default">
+                                    <a href="">Starcraft 2</a>
+                                </li>
+                                  
+                                <li class="presentation list-group-item list-group-item-default">
+                                    <a href="">World of Warcraft</a>
+                                </li>
+                                  
+                                <li class="presentation list-group-item list-group-item-default">
+                                    <a href="">Hearth Stone</a>
+                                </li>
+                                  
+                                <li class="presentation list-group-item list-group-item-default">
+                                    <a href="">Heroes of the Storm</a>
+                                </li>
+                              </div>
+                            </div>
+                          </div>
                         </div>
+                    </div>
+                    <div class="col-xs-9">
+                        <center>
+                            <img src="../pics/activegames.png" alt="activegames.png" title="Active Games Banner" class="img-responsive img-rounded" style="width: 800px;" />
+                            <br />
+                        </center>
+                    
                 <br />
-                    <div class="page-header">
-                        <h3>
-                         PC Multi-Player Games: Active
-                        </h3>
                     </div>
-                    <div class="btn-group" role="group" aria-label="...">
-                            <a href="#" role="button" class="btn-default btn"  title="Warcraft">World of Warcraft</a>
-                            <a href="#" role="button" class="btn-default btn"  title="Warcraft">Starcraft 2</a>
-                            <a href="#" role="button" class="btn-default btn"  title="Diablo">Diablo</a>
-                            <a href="#" role="button" class="btn-default btn"  title="Starcraft">Counter STrike</a>
-                            <a href="#" role="button" class="btn-default btn"  title="Starcraft">Hearth Stone</a>
-                            <a href="#" role="button" class="btn-default btn"  title="Starcraft">Heroes of the Storm</a>
+                </div>
+            <div class="row">
+                <div class="col-xs-9">
+                    <img src="../pics/activegames.png" alt="activegames.png" title="Active Games Banner" class="img-responsive img-rounded" style="width: 800px;" />
+                </div>
+                <div class="col-xs-3">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                          <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                              <h4 class="panel-title">
+                               <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#mpcothergamescollapse-gaming" aria-expanded="false" aria-controls="mpcothergamescollapse-gaming">
+                                  MPC Other Games... 
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="mpcothergamescollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                              <div class="list-group">
+                                <li class="presentation list-group-item list-group-item-default">
+                                    <a href="">League of Legends</a>
+                                </li>
+                                <li class="presentation list-group-item list-group-item-default">
+                                    <a href="">Clash of Clans</a>
+                                </li>
+                                <li class="presentation list-group-item list-group-item-default">
+                                    <a href="">Counter Strike GO</a>
+                                </li>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                     </div>
-                    <br />
-               
-            </div>
-            <div class="row">
+                </div>
+            </div>               
                 <div class="panel panel-default">
                     <div class="panel-title">
                         <h3>Battle.net - Blizzard Ent. - Founded 11/30/1996</h3>
                     </div>
-                    <div class="pane-body">
+                    <div class="panel-body">
                         <div class="media">
                             <div class="media-left">
                                 <center>
-                                    <img src="../pics/bnet.PNG" alt="bnt.PNG" class="img-responsive img-rounded" style="height: 200px; width: 300px;" />
+                                    <img src="../pics/bnet.PNG" alt="bnt.PNG" class="img-responsive img-rounded media-object" style="height: 200px; width: 300px;" />
                                     <br />
-                                    <img src="../pics/blizzardentlogo.png" alt="blizzardentlogo.png" class="img-responsive img-rounded" style="width:300px;" title="blizzard entertainment" />
+                                    <img src="../pics/blizzardentlogo.png" alt="blizzardentlogo.png" class="img-responsive img-rounded media-object" style="width:300px;" title="blizzard entertainment" />
                                     <br />
-                                    <img src="../pics/blizzardhq.jpg" alt="blizzardhq.jpg" title="Blizzard HeadQuarters" class="img-responsive img-rounded" style="width: 300px;" />
+                                    <img src="../pics/blizzardhq.jpg" alt="blizzardhq.jpg" title="Blizzard HeadQuarters" class="img-responsive img-rounded media-object" style="width: 300px;" />
                                     <small>
                                         <p>
                                         Blizzard Head Quarters
@@ -107,7 +152,7 @@
                                 
                                 </center>
                                 <div class="page-header">
-                                    <h4>Videos: [Buttons]</h4>
+                                    <h4>Series Videos:</h4>
                                 </div>
                                 <div class="btn-group">
                                     <div class="btn btn-default">
@@ -117,33 +162,56 @@
                                         </div>
                                     <div class="btn btn-default">
                                     <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                        Warcraft
+                                        Starcraft
                                     </a>
                                         </div>
                                     <div class="btn btn-default">
                                     <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                        Warcraft
+                                        Diablo
                                     </a>
                                         </div>
                                     <div class="btn btn-default">
                                     <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                        Warcraft
+                                        Hearth Stone
                                     </a>
                                         </div>
                                     <div class="btn btn-default">
                                     <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                        Warcraft
-                                    </a>
-                                        </div>
-                                    <div class="btn btn-default">
-                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                        Warcraft
+                                        Heroes of the Storm
                                     </a>
                                         </div>
                                 </div>
                                 <br />
                                 <div class="page-header">
                                     <h4>Screen Shots: [Buttons]</h4>
+                                </div>
+                                <br />
+                                 <div class="btn-group">
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Warcraft
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Starcraft
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Diablo
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Hearth Stone
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Heroes of the Storm
+                                    </a>
+                                        </div>
                                 </div>
                             </div>
                             <div class="media-body">
@@ -158,157 +226,418 @@
                                     </a>
                                 </div>
                                 <br />
-                                <div class="page-header">MPC Briefing:</div>
+                                <div class="page-header"><h3>MPC Briefing:</h3></div>
                                 <br />
                                 <small><p>&ensp;&ensp;&ensp;&ensp;&ensp;Here you will find the tools for playing on battle.net. Battle.net server that their products use to connect to. This connection allows players to play their games, and any interaction through the internet. The links provider here will take you to battle net's website, and allow you to create a login, or purchase downloadable games. There are other things included when visiting <a name="diablobtn" href="http://us.battle.net/en/" target="_blank"> battle.net</a>, but definitly going to need to create a login, or purchase one of their games, then submitting your email as an account. Be sure to have this set up, if you wish to play with MPC, with one of Blizzard's product gaming software. Everything can be purchased through <a name="starcraftbtn"></a>      battle.net.<a name="warcraftbtn"></a>
 </p></small>
                                 <br />
-                                <div class="list-group">
-                                  <a href="http://us.blizzard.com/en-us/games/legacy/" class="list-group-item list-group-item-default" target="_blank">
-                                    <h4 class="list-group-item-heading">Warcraft(RTS) - 11/24/1994 </h4>
-                                    <p class="list-group-item-text">Published by Blizzard, and Interplay Entertainment. This game was the kick off to a popular game today... World of Warcraft.</p>
-                                  </a>
-                                </div>
-                                <div class="list-group">
-                                  <a href="http://us.blizzard.com/en-us/games/legacy/" class="list-group-item list-group-item-default" target="_blank">
-                                    <h4 class="list-group-item-heading">Warcraft 2(RTS) - 12/09/1995 </h4>
-                                    <p class="list-group-item-text">Sequel to Warcraft 1, and was released a year after the original. A popular game in 1996, won most of the major PC gaming awards, and sold over 2 million copies.</p>
-                                  </a>
-                                </div>
-                                <div class="list-group">
-                                  <a href="http://diablo.wikia.com/wiki/Diablo_Wiki" class="list-group-item list-group-item-default" target="_blank">
-                                    <h4 class="list-group-item-heading">Diablo - 11/30/1996 </h4>
-                                    <p class="list-group-item-text">When the service initially launched with Diable, battle.net offered only a few basic services like chatting, and listing. This was the begining of battle net's server operation, and multi player gaming. Find everything about diablo here.</p>
-                                  </a>
-                                </div>
-                                <div class="list-group">
-                                    <a href="http://us.blizzard.com/en-us/games/sc/" class="list-group-item list-group-item-default" target="_blank">
-                                        <h4 class="list-group-item-heading">
-                                        Starcraft(RTS) - 03/31/1998
-                                        </h4>
-                                        <p class="list-group-item-text">Real Time Strategy video game developed late 90's. Was the first of the Starcraft series, and Mac OS version released in 1999, then a Nintendo 64 adaptation co-developed with a mass media released on June 13 2000. This was the starting of Blizzard's developing franchise.</p>
-                                    </a>
-                                </div>
-                                <div class="list-group">
-                                    <a href="http://starcraft.wikia.com/wiki/StarCraft:_Brood_War" class="list-group-item list-group-item-default" target="_blank">
-                                        <h4 class="list-group-item-heading">
-                                        Starcraft: Brood War(RTS) - 11/30/1998
-                                        </h4>
-                                        <p class="list-group-item-text">
-                                            Expansion software for the original game, Starcraft, introduced new campaigns, map tilesets, music,, extra units for each race, and upgrade advancements. Sold almost 10 million copies. Especially popular in South Korea.
-                                        </p>
-                                    </a>
-                                </div>
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-default">
-                                        <h4 class="list-group-item-heading">
-
-                                        </h4>
-                                        <p class="list-group-item-text">
-                                            ...
-                                        </p>
-                                    </a>
-                                </div>
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-default">
-                                        <h4 class="list-group-item-heading">
-
-                                        </h4>
-                                        <p class="list-group-item-text">
-                                            ...
-                                        </p>
-                                    </a>
-                                </div>
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-default">
-                                        <h4 class="list-group-item-heading">
-
-                                        </h4>
-                                        <p class="list-group-item-text">
-                                            ...
-                                        </p>
-                                    </a>
-                                </div>
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-default">
-                                        <h4 class="list-group-item-heading">
-
-                                        </h4>
-                                        <p class="list-group-item-text">
-                                            ...
-                                        </p>
-                                    </a>
-                                </div>
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-default">
-                                        <h4 class="list-group-item-heading">
-
-                                        </h4>
-                                        <p class="list-group-item-text">
-                                            ...
-                                        </p>
-                                    </a>
-                                </div>
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-default">
-                                        <h4 class="list-group-item-heading">
-
-                                        </h4>
-                                        <p class="list-group-item-text">
-                                            ...
-                                        </p>
-                                    </a>
-                                </div>
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-default">
-                                        <h4 class="list-group-item-heading">
-
-                                        </h4>
-                                        <p class="list-group-item-text">
-                                            ...
-                                        </p>
-                                    </a>
-                                </div>
-                                <small class="pull-right"><a href="#top">Back to Top</a></small>
+                                <div class="page-header"><h4>Games Developed:</h4></div>
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="warcraftseries-gaming">
+                                      <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#warcraftcollapse-gaming" aria-expanded="false" aria-controls="warcraftcollapse-gaming">
+                                            Warcraft Series 1994 - 2015
+                                          </a>
+                                      </h4>
+                                    </div>
+                                    <div id="warcraftcollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="warcraftseries-gaming">
+                                      <div class="panel-body">
+                                          <div class="list-group">
+                                          <a href="http://us.blizzard.com/en-us/games/legacy/" class="list-group-item list-group-item-default" target="_blank">
+                                            <h4 class="list-group-item-heading">Warcraft(RTS) - 11/24/1994 </h4>
+                                            <p class="list-group-item-text">Published by Blizzard, and Interplay Entertainment. This game was the kick off to a popular game today... World of Warcraft.</p>
+                                          </a>
+                                        </div>
+                                        <div class="list-group">
+                                          <a href="http://us.blizzard.com/en-us/games/legacy/" class="list-group-item list-group-item-default" target="_blank">
+                                            <h4 class="list-group-item-heading">Warcraft 2(RTS) - 12/09/1995 </h4>
+                                            <p class="list-group-item-text">Sequel to Warcraft 1, and was released a year after the original. A popular game in 1996, won most of the major PC gaming awards, and sold over 2 million copies.</p>
+                                          </a>
+                                        </div>  
+                                          <div class="list-group">
+                                              <a href="http://us.blizzard.com/en-us/games/legacy/" class="list-group-item list-group-item-default" target="_blank">
+                                                <h4 class="list-group-item-heading">Warcraft 2(RTS) - 12/09/1995 </h4>
+                                                <p class="list-group-item-text">Sequel to Warcraft 1, and was released a year after the original. A popular game in 1996, won most of the major PC gaming awards, and sold over 2 million copies.</p>
+                                              </a>
+                                            </div>
+                                          <div class="list-group">
+                                              <a href="http://us.blizzard.com/en-us/games/legacy/" class="list-group-item list-group-item-default" target="_blank">
+                                                <h4 class="list-group-item-heading">Warcraft 2(RTS) - 12/09/1995 </h4>
+                                                <p class="list-group-item-text">Sequel to Warcraft 1, and was released a year after the original. A popular game in 1996, won most of the major PC gaming awards, and sold over 2 million copies.</p>
+                                              </a>
+                                          </div> 
+                                          <div class="list-group">
+                                              <a href="http://us.blizzard.com/en-us/games/legacy/" class="list-group-item list-group-item-default" target="_blank">
+                                                <h4 class="list-group-item-heading">Warcraft 2(RTS) - 12/09/1995 </h4>
+                                                <p class="list-group-item-text">Sequel to Warcraft 1, and was released a year after the original. A popular game in 1996, won most of the major PC gaming awards, and sold over 2 million copies.</p>
+                                              </a>
+                                          </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="diabloseries-gaming">
+                                      <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#diablocollapse-gaming" aria-expanded="false" aria-controls="diablocollapse-gaming">
+                                          Diablo 1996 - 2012
+                                        </a>
+                                      </h4>
+                                    </div>
+                                    <div id="diablocollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="diabloseries-gaming">
+                                      <div class="panel-body">
+                                        <div class="list-group">
+                                          <a href="http://diablo.wikia.com/wiki/Diablo_Wiki" class="list-group-item list-group-item-default" target="_blank">
+                                            <h4 class="list-group-item-heading">Diablo - 11/30/1996 </h4>
+                                            <p class="list-group-item-text">When the service initially launched with Diable, battle.net offered only a few basic services like chatting, and listing. This was the begining of battle net's server operation, and multi player gaming. Find everything about diablo here.</p>
+                                          </a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="starcraftseries-gaming">
+                                      <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#starcraftcollapse-gaming" aria-expanded="false" aria-controls="starcraftcollapse-gaming">
+                                            Starcraft Series 1998 - 2013
+                                          </a>
+                                      </h4>
+                                    </div>
+                                    <div id="starcraftcollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="starcraftseries-gaming">
+                                      <div class="panel-body">
+                                         <div class="list-group">
+                                            <a href="http://us.blizzard.com/en-us/games/sc/" class="list-group-item list-group-item-default" target="_blank">
+                                                <h4 class="list-group-item-heading">
+                                                Starcraft(RTS) - 03/31/1998
+                                                </h4>
+                                                <p class="list-group-item-text">Real Time Strategy video game developed late 90's. Was the first of the Starcraft series, and Mac OS version released in 1999, then a Nintendo 64 adaptation co-developed with a mass media released on June 13 2000. This was the starting of Blizzard's developing franchise.</p>
+                                            </a>
+                                        </div>
+                                        <div class="list-group">
+                                            <a href="http://starcraft.wikia.com/wiki/StarCraft:_Brood_War" class="list-group-item list-group-item-default" target="_blank">
+                                                <h4 class="list-group-item-heading">
+                                                Starcraft: Brood War(RTS) - 11/30/1998
+                                                </h4>
+                                                <p class="list-group-item-text">
+                                                    Expansion software for the original game, Starcraft, introduced new campaigns, map tilesets, music,, extra units for each race, and upgrade advancements. Sold almost 10 million copies. Especially popular in South Korea.
+                                                </p>
+                                            </a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                
+                                </div><!--tablist-->
+                              <small class="pull-right"><a href="#top">Back to Top</a></small>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3>Steam - Valve Corp.</h3>
+                    <div class="panel-body">
+                        <div class="panel-heading">
+                            <h3>Steam.com - Valve Corp. - Founded - 08/24/1996</h3>
                     </div>
-                    <center>
-                        <img src="../pics/steam.png" alt="steam.png" class="img-responsive img-rounded" style="min-height: 25px; min-width: 50px; max-height: 200px; width: 300px;" />
-                    </center>
-                <br />
-                    <div class="btn-group">
-                        <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
-                        <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
-                        <!---->Steam Site<!---->
-                        <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
-                        <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
-                        <!---->MPC Steam<!---->
-                        </a>
+                        <div class="media">
+                            
+                            <div class="media-body">
+                                 <div class="btn-group">
+                                    <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
+                                    <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
+                                    <!---->Steam Site<!---->
+                                    <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
+                                    <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+                                    <!---->MPC Steam<!---->
+                                    </a>
+                                </div>
+                                     <br />
+                                <div class="page-header">
+                                    <h3>MPC Briefing:</h3>     
+                                </div>
+                                <small><p>Ultilizing Steam will allow yourself to connect with MPC through Steam buddy system. Locate our members, and begin playing the simliar games. Learn our tatics, and learn how to perform better as a team, or as a player. You can get the steam software from the original website at www.steam.com. Steam offers alot of downloadable games, and servers to connect to play these games. They offer some really good deals, and make sure to take advantage on the promotions that steam has to provider. They usually offer these deals in the Xmas, and Summer Seasons.</p></small>
+                                    <br />
+                                <div class="page-header"><h4>Games Developed:</h4></div>
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="gameseries-gaming">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#gamecollapse-gaming" aria-expanded="false" aria-controls="gamecollapse-gaming">
+          Collapsible Group Item #2
+        </a>
+      </h4>
+    </div>
+    <div id="gamecollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="gameseries-gaming">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+                                    
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="game2series-gaming">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#game2collapse-gaming" aria-expanded="false" aria-controls="game2collapse-gaming">
+          Collapsible Group Item #2
+        </a>
+      </h4>
+    </div>
+    <div id="game2collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="game2series-gaming">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+                                    
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="game3series-gaming">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#game3collapse-gaming" aria-expanded="false" aria-controls="game3collapse-gaming">
+          Collapsible Group Item #3
+        </a>
+      </h4>
+    </div>
+    <div id="game3collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="game3series-gaming">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+                            </div>
+                            <div class="media-right">
+                                <img src="../pics/steam.png" alt="steam.png" class="img-responsive img-rounded media-object" style=" width: 285px;" />
+                                <br />
+                                <img src="../pics/valvelogo.jpg" alt="valvelogo.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                <br />
+                                <img src="../pics/valve-offices.jpg" alt="valve-offices.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                <br />
+                                <small class="text-center"><p>Valve Office Lobby.</p></small>
+                                <br />
+                                <div class="page-header">
+                                <h4>
+                                Currently Active:
+                                </h4>
+                            </div>
+                            <br />
+                                <div class="page-header">
+                                    <h4>Series Videos:</h4>
+                                </div>
+                                <div class="btn-group">
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 1
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 2 
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 3
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 4
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 5
+                                    </a>
+                                        </div>
+                                </div>
+                                <br />
+                                <div class="page-header">
+                                    <h4>Screen Shots: [Buttons]</h4>
+                                </div>
+                                <br />
+                                 <div class="btn-group">
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 1
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 2
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 3
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 4
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 5
+                                    </a>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4 text-center">
-                    <center>
-                        <img src="../pics/originlogo.PNG" alt="originlogo.PNG" class="img-responsive img-rounded" style="min-height: 25px; min-width: 50px; max-height: 200px; width: 300px;" />
-                    </center>
-                    <br />
-                        <div class="btn-group">
-                        <a type="button" class="btn  btn-default" data-toggle="tooltip" data-placement="bottom" title="Sign into Steam" href="https://www.origin.com/en-us/download" target="_blank">
-                        <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
-                        <!---->Origin EA Site<!---->
-                        </a>
-                        <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="View Origin MPC Accounts" href="https://www.origin.com/en-us/store/?utm_campaign=origin-search-us-pbm-g-origin&utm_medium=cpc&utm_source=google&utm_term=origin%20sign%20in&sourceid=origin-search-us-pbm-g-origin" target="_blank">
-                        <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
-                        <!---->MPC EA Origin<!---->
-                        </a>
-                        </div>  <!--btn0group-->
-                        </div>  <!--col-->
-                    </div>    
+                    <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="panel-heading">
+                            <h3>Origin - EA Corp. - Founded - 08/24/1996</h3>
+                    </div>
+                        <div class="media">
+                            <div class="media-left">
+                                <img src="../pics/originlogo.PNG" alt="originlogo.PNG" class="img-responsive img-rounded media-object" style=" width: 285px;" />
+                                <br />
+                                <img src="../pics/valvelogo.jpg" alt="valvelogo.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                <br />
+                                <img src="../pics/valve-offices.jpg" alt="valve-offices.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                <br />
+                                <small class="text-center"><p>Origin Office Lobby.</p></small>
+                                <br />
+                                <div class="page-header">
+                                <h4>
+                                Currently Active:
+                                </h4>
+                            </div>
+                            <br />
+                                <div class="page-header">
+                                    <h4>Series Videos:</h4>
+                                </div>
+                                <div class="btn-group">
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 1
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 2 
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 3
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 4
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 5
+                                    </a>
+                                        </div>
+                                </div>
+                                <br />
+                                <div class="page-header">
+                                    <h4>Screen Shots: [Buttons]</h4>
+                                </div>
+                                <br />
+                                 <div class="btn-group">
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 1
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 2
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 3
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 4
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 5
+                                    </a>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                 <div class="btn-group">
+                                    <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
+                                    <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
+                                    <!---->Steam Site<!---->
+                                    <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
+                                    <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+                                    <!---->MPC Steam<!---->
+                                    </a>
+                                </div>
+                                     <br />
+                                <div class="page-header">
+                                    <h3>MPC Briefing:</h3>     
+                                </div>
+                                <small><p>Ultilizing Steam will allow yourself to connect with MPC through Steam buddy system. Locate our members, and begin playing the simliar games. Learn our tatics, and learn how to perform better as a team, or as a player. You can get the steam software from the original website at www.steam.com. Steam offers alot of downloadable games, and servers to connect to play these games. They offer some really good deals, and make sure to take advantage on the promotions that steam has to provider. They usually offer these deals in the Xmas, and Summer Seasons.</p></small>
+                                    <br />
+                                <div class="page-header"><h4>Games Developed:</h4></div>
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="gameseries-gaming">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#gamecollapse-gaming" aria-expanded="false" aria-controls="gamecollapse-gaming">
+          Collapsible Group Item #2
+        </a>
+      </h4>
+    </div>
+    <div id="gamecollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="gameseries-gaming">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+                                    
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="game2series-gaming">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#game2collapse-gaming" aria-expanded="false" aria-controls="game2collapse-gaming">
+          Collapsible Group Item #2
+        </a>
+      </h4>
+    </div>
+    <div id="game2collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="game2series-gaming">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+                                    
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="game3series-gaming">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#game3collapse-gaming" aria-expanded="false" aria-controls="game3collapse-gaming">
+          Collapsible Group Item #3
+        </a>
+      </h4>
+    </div>
+    <div id="game3collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="game3series-gaming">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div>
             </div> 
     </div>

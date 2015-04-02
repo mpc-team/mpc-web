@@ -17,7 +17,7 @@
 			$ctag = stripslashes($_GET["c_tag"]);
 			$content= stripslashes($_POST["content"]);
 			
-			$tinfo = CreateThread($cid,$ctag,$title,$_SESSION["USER"]);
+			$tinfo = CreateThread($cid,$ctag,$title,$user);
 			$tid = $tinfo[0];
 			$ttag = $tinfo[1];
 			if($tid > 0) {
@@ -33,7 +33,7 @@
 			
 		}	
 	}
-	header($header);
+	//header($header);
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"> 
@@ -59,8 +59,8 @@
 			<?php
 				echo 'tid:'.$tid . '<br>';
 				echo 'ttag:'.$ttag . '<br>';
-				echo 'ttagenc:'.$ttagenc. '<br>';
 				echo 'title:'.$title . '<br>';
+				echo 'del: '.$del.'<br>';
 				echo 'msg:'.$msgid;
 			 ?>
 		</div>

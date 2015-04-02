@@ -422,11 +422,11 @@ EOD;
 					JOIN ForumThreadInfo AS fi
 						ON ft.fthreadID=fi.fthreadID
 						AND ft.fthreadID={$tid}
-					JOIN ThreadMessages AS tm
+					LEFT JOIN ThreadMessages AS tm
 						ON tm.fthreadID=ft.fthreadID
-					JOIN ThreadMessageInfo AS tmi
+					LEFT JOIN ThreadMessageInfo AS tmi
 						ON tmi.tmsgID=tm.tmsgID
-					JOIN ThreadMessageContent AS tmc
+					LEFT JOIN ThreadMessageContent AS tmc
 						ON tmc.tmsgID=tm.tmsgID
 EOD;
 			$statement= $db->prepare($sql);

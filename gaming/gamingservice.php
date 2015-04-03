@@ -42,12 +42,12 @@
                 <center>
                     <img src="../pics/gamingservices.png" alt="gamingservices.png" class="img-responsive img-rounded" style="height: 100px; width: 700px;" name="top" />
                     <br />
-                    <small><p>These are some of the ways to keep track of MPC, and the games they play. These are known as gaming service providers, and distribute software through their company program. Feel free to connect with MPC through these companies. Use any of the information posted below to help in your search. These are some of the actives games we participate in.</p></small>
+                    <small><p>Search the games, and learn more about them with this page. Maybe there will be some interest in another game that MPC plays in. Find the MPC group in that game, and begin creating new friends, or learning more about that game from the MPC community.</p></small>
                      </center>
                     <br />
                 </div>
                 <div class="row">
-                    <div class="col-xs-3">
+                <div class="col-xs-3">
                         <div class="panel-group" id="mpcblizzardaccordion-gaming" role="tablist" aria-multiselectable="true">
                           <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="mpcblizzardseries-gaming">
@@ -79,30 +79,64 @@
                           </div>
                         </div>
                     </div>
-                    <div class="col-xs-9">
-                        <center>
-                            <img src="../pics/activegames.png" alt="activegames.png" title="Active Games Banner" class="img-responsive img-rounded" style="width: 800px;" />
-                            <br />
-                        </center>
-                    
-                <br />
-                    </div>
-                </div>
-            <div class="row">
-                <div class="col-xs-9">
-                    <img src="../pics/activegames.png" alt="activegames.png" title="Active Games Banner" class="img-responsive img-rounded" style="width: 800px;" />
-                </div>
-                <div class="col-xs-3">
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="col-xs-3">
+                        <div class="panel-group" id="mpcsteamaccordion-gaming" role="tablist" aria-multiselectable="true">
                           <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingTwo">
+                            <div class="panel-heading" role="tab" id="mpcsteamseries-gaming">
                               <h4 class="panel-title">
-                               <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#mpcothergamescollapse-gaming" aria-expanded="false" aria-controls="mpcothergamescollapse-gaming">
-                                  MPC Other Games... 
+                               <a class="collapsed" data-toggle="collapse" data-parent="mpcsteamaccordion-gaming" href="#mpcsteamcollapse-gaming" aria-expanded="false" aria-controls="mpcsteamcollapse-gaming">
+                                  MPC Steam
                                 </a>
                               </h4>
                             </div>
-                            <div id="mpcothergamescollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div id="mpcsteamcollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="mpcsteamseries-gaming">
+                              <div class="list-group">
+                                <li class="presentation list-group-item list-group-item-default">
+                                    <a href="">Counter Strike GO</a>
+                                </li>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="panel-group" id="mpcoriginaccordion-gaming" role="tablist" aria-multiselectable="true">
+                          <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="mpcoriginseries-gaming">
+                              <h4 class="panel-title">
+                               <a class="collapsed" data-toggle="collapse" data-parent="mpcoriginaccordion-gaming" href="#mpcorigincollapse-gaming" aria-expanded="false" aria-controls="mpcsteamcollapse-gaming">
+                                  MPC Origin
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="mpcorigincollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="mpcoriginseries-gaming">
+                              <div class="list-group">
+                                <li class="presentation list-group-item list-group-item-default">
+                                    <a href="">Sim City</a>
+                                </li>
+                                <li class="presentation list-group-item list-group-item-default">
+                                    <a href="">Red Alert Series</a>
+                                </li>
+                                <li class="presentation list-group-item list-group-item-default">
+                                    <a href="">Generals Series</a>
+                                </li>
+
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="panel-group" id="mpcotheraccordion-gaming" role="tablist" aria-multiselectable="true">
+                          <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="mpcotherseries-gaming">
+                              <h4 class="panel-title">
+                               <a class="collapsed" data-toggle="collapse" data-parent="mpcotheraccordion-gaming" href="#mpcothercollapse-gaming" aria-expanded="false" aria-controls="mpcothercollapse-gaming">
+                                  MPC Other
+                                </a>
+                              </h4>
+                            </div>
+                            <div id="mpcothercollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="mpcotherseries-gaming">
                               <div class="list-group">
                                 <li class="presentation list-group-item list-group-item-default">
                                     <a href="">League of Legends</a>
@@ -110,16 +144,13 @@
                                 <li class="presentation list-group-item list-group-item-default">
                                     <a href="">Clash of Clans</a>
                                 </li>
-                                <li class="presentation list-group-item list-group-item-default">
-                                    <a href="">Counter Strike GO</a>
-                                </li>
+                                </div>
                               </div>
                             </div>
-                          </div>
                         </div>
                     </div>
                 </div>
-            </div>               
+                </div>               
                 <div class="panel panel-default">
                     <div class="panel-title">
                         <h3>Battle.net - Blizzard Ent. - Founded 11/30/1996</h3>
@@ -358,52 +389,51 @@
                                     <br />
                                 <div class="page-header"><h4>Games Developed:</h4></div>
                                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="gameseries-gaming">
+                                      <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#gamecollapse-gaming" aria-expanded="false" aria-controls="gamecollapse-gaming">
+                                          Collapsible Group Item #2
+                                        </a>
+                                      </h4>
+                                    </div>
+                                    <div id="gamecollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="gameseries-gaming">
+                                      <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                      </div>
+                                    </div>
+                                  </div>
 
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="gameseries-gaming">
-      <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#gamecollapse-gaming" aria-expanded="false" aria-controls="gamecollapse-gaming">
-          Collapsible Group Item #2
-        </a>
-      </h4>
-    </div>
-    <div id="gamecollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="gameseries-gaming">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-                                    
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="game2series-gaming">
-      <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#game2collapse-gaming" aria-expanded="false" aria-controls="game2collapse-gaming">
-          Collapsible Group Item #2
-        </a>
-      </h4>
-    </div>
-    <div id="game2collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="game2series-gaming">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-                                    
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="game3series-gaming">
-      <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#game3collapse-gaming" aria-expanded="false" aria-controls="game3collapse-gaming">
-          Collapsible Group Item #3
-        </a>
-      </h4>
-    </div>
-    <div id="game3collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="game3series-gaming">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="game2series-gaming">
+                                      <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#game2collapse-gaming" aria-expanded="false" aria-controls="game2collapse-gaming">
+                                          Collapsible Group Item #2
+                                        </a>
+                                      </h4>
+                                    </div>
+                                    <div id="game2collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="game2series-gaming">
+                                      <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="game3series-gaming">
+                                      <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#game3collapse-gaming" aria-expanded="false" aria-controls="game3collapse-gaming">
+                                          Collapsible Group Item #3
+                                        </a>
+                                      </h4>
+                                    </div>
+                                    <div id="game3collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="game3series-gaming">
+                                      <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                             </div>
                             <div class="media-right">
                                 <img src="../pics/steam.png" alt="steam.png" class="img-responsive img-rounded media-object" style=" width: 285px;" />
@@ -574,10 +604,10 @@
                                  <div class="btn-group">
                                     <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
                                     <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
-                                    <!---->Steam Site<!---->
+                                    <!---->Orgin Site<!---->
                                     <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
                                     <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
-                                    <!---->MPC Steam<!---->
+                                    <!---->MPC Origin<!---->
                                     </a>
                                 </div>
                                      <br />
@@ -588,54 +618,201 @@
                                     <br />
                                 <div class="page-header"><h4>Games Developed:</h4></div>
                                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="steamgameseries-gaming">
+                                      <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#steamgamecollapse-gaming" aria-expanded="false" aria-controls="steamgamecollapse-gaming">
+                                          Collapsible Group Item #2
+                                        </a>
+                                      </h4>
+                                    </div>
+                                    <div id="steamgamecollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="steamgameseries-gaming">
+                                      <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                      </div>
+                                    </div>
+                                  </div>
 
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="gameseries-gaming">
-      <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#gamecollapse-gaming" aria-expanded="false" aria-controls="gamecollapse-gaming">
-          Collapsible Group Item #2
-        </a>
-      </h4>
-    </div>
-    <div id="gamecollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="gameseries-gaming">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-                                    
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="game2series-gaming">
-      <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#game2collapse-gaming" aria-expanded="false" aria-controls="game2collapse-gaming">
-          Collapsible Group Item #2
-        </a>
-      </h4>
-    </div>
-    <div id="game2collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="game2series-gaming">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-                                    
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="game3series-gaming">
-      <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#game3collapse-gaming" aria-expanded="false" aria-controls="game3collapse-gaming">
-          Collapsible Group Item #3
-        </a>
-      </h4>
-    </div>
-    <div id="game3collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="game3series-gaming">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="game2series-gaming">
+                                      <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#steamgame2collapse-gaming" aria-expanded="false" aria-controls="steamgame2collapse-gaming">
+                                          Collapsible Group Item #2
+                                        </a>
+                                      </h4>
+                                    </div>
+                                    <div id="steamgame2collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="steamgame2series-gaming">
+                                      <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="steamgame3series-gaming">
+                                      <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#steamgame3collapse-gaming" aria-expanded="false" aria-controls="steamgame3collapse-gaming">
+                                          Collapsible Group Item #3
+                                        </a>
+                                      </h4>
+                                    </div>
+                                    <div id="steamgame3collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="game3series-gaming">
+                                      <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="panel-heading">
+                            <h3>Other Games</h3>
+                    </div>
+                        <div class="media">
                             
+                            <div class="media-body">
+                                 <div class="btn-group">
+                                    <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="left" title="Sign into Steam href=" href="http://store.steampowered.com/about/" target="_blank">
+                                    <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
+                                    <!---->Other Games Site<!---->
+                                    <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
+                                    <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+                                    <!---->MPC Other Games<!---->
+                                    </a>
+                                </div>
+                                     <br />
+                                <div class="page-header">
+                                    <h3>MPC Briefing:</h3>     
+                                </div>
+                                <small><p>MPC participates in other mobile, and third party software developing companies that create video games for the home computer. Check out here what else is available that MPC can help you with.</p></small>
+                                    <br />
+                                <div class="page-header"><h4>Games Developed:</h4></div>
+                                <div class="panel-group" id="othergamecollapseaccordion-gaming" role="tablist" aria-multiselectable="true">
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="gameseries-gaming">
+                                      <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="othergamecollapseaccordion-gaming" href="#othergamecollapse-gaming" aria-expanded="false" aria-controls="othergamecollapse-gaming">
+                                          League of Legends
+                                        </a>
+                                      </h4>
+                                    </div>
+                                    <div id="othergamecollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="othergameseries-gaming">
+                                      <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="othergame2series-gaming">
+                                      <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#othergame2collapse-gaming" aria-expanded="false" aria-controls="othergame2collapse-gaming">
+                                          Clash of Clans
+                                        </a>
+                                      </h4>
+                                    </div>
+                                    <div id="othergame2collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="othergame2series-gaming">
+                                      <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="panel panel-default">
+                                    <div class="panel-heading" role="tab" id="othergame3series-gaming">
+                                      <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="othergame3accordion-gaming" href="#othergame3collapse-gaming" aria-expanded="false" aria-controls="othergame3collapse-gaming">
+                                          Extra Button for Game
+                                        </a>
+                                      </h4>
+                                    </div>
+                                    <div id="othergame3collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="othergame3series-gaming">
+                                      <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="media-right">
+                                <img src="../pics/steam.png" alt="steam.png" class="img-responsive img-rounded media-object" style=" width: 285px;" />
+                                <br />
+                                <img src="../pics/valvelogo.jpg" alt="valvelogo.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                <br />
+                                <img src="../pics/valve-offices.jpg" alt="valve-offices.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                <br />
+                                <small class="text-center"><p>Valve Office Lobby.</p></small>
+                                <br />
+                                <div class="page-header">
+                                <h4>
+                                Currently Active:
+                                </h4>
+                            </div>
+                            <br />
+                                <div class="page-header">
+                                    <h4>Series Videos:</h4>
+                                </div>
+                                <div class="btn-group">
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 1
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 2 
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 3
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 4
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 5
+                                    </a>
+                                        </div>
+                                </div>
+                                <br />
+                                <div class="page-header">
+                                    <h4>Screen Shots: [Buttons]</h4>
+                                </div>
+                                <br />
+                                 <div class="btn-group">
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 1
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 2
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 3
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 4
+                                    </a>
+                                        </div>
+                                    <div class="btn btn-default">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Game 5
+                                    </a>
+                                        </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

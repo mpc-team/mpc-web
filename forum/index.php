@@ -212,7 +212,7 @@
 								$editPerm=($s_user==$thread[3] || in_array('admin', $s_permissions));
 								
 								echo $LAYOUT_OPEN;
-								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],"",$thread[4],$thread[5],$thread[8],$thread[6],$thread[7]);
+								echo HtmlThread($cid,$ctag,$thread[0],$thread[2],"",$thread[4],$thread[5],$thread[9],$thread[6],$thread[7],$thread[8]);
 								$toptions=($editPerm) ? HtmlThreadOptions($cid,$ctag,$thread[0],$thread[2]) : "";
 								echo $toptions;
 								echo $LAYOUT_CLOSE;

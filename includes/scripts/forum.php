@@ -26,6 +26,8 @@
 	$PG_MSG_ADD = $ROOT.'/forum/message/create.php';
 	$PG_MSG_UPD = $ROOT.'/forum/message/update.php';
 	
+	$FORMAT_DATE = "D, d M Y g:i:s A";
+	
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //	FORUM FUNCTIONS
@@ -224,11 +226,17 @@
 	}
 	
 	
+	
+	
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //	FORUM HTML COMPONENTS
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 	function HtmlPageTitle($title,$sub) {
 		return "<div class='page-header'>"
 			."<h1>{$title}<br><small>{$sub}</small></h1></div>";
@@ -239,8 +247,8 @@
 	}
 	
 	function HtmlPageTitleAuthorDate($title,$sub,$alias,$timestamp) {
-		$date = new DateTime($timestamp);
-		$timestamp = $date->format(DateTime::RFC1123);
+		global $FORMAT_DATE;
+		$timestamp = date($FORMAT_DATE,strtotime($timestamp));
 		return <<<EOD
 			<div class='row'>
 				<div class='page-header'>
@@ -273,8 +281,8 @@ EOD;
 	
 	function HtmlRecentFeed($mid,$cid,$ctag,$tid,$ttag,$author,$content,$date) {
 		global $PG_INDEX; 
-		$datetime = new DateTime($date);
-		$datetime = $datetime->format(DateTime::RFC1123);
+		global $FORMAT_DATE;
+		$date = date($FORMAT_DATE,strtotime($date));
 		$feedcontent=strip_tags($content,"<br>");
 		$ctagenc=urlencode($ctag);
 		$ttagenc=urlencode($ttag);
@@ -299,7 +307,7 @@ EOD;
 										<span class='glyphicon glyphicon-user'></span> {$author}
 									</div>
 									<div class='col-xs-6 pull-right'>
-										<span class='glyphicon glyphicon-time'></span> {$datetime}
+										<span class='glyphicon glyphicon-time'></span> {$date}
 									</div>
 								</div>
 							</div>						
@@ -332,13 +340,12 @@ EOD;
 EOD;
 	}
 	
-	function HtmlThread($cid,$ctag,$tid,$ttag,$glyph,$alias,$timestamp,$count,$msgid,$recent) {
+	function HtmlThread($cid,$ctag,$tid,$ttag,$glyph,$alias,$timestamp,$count,$msgid,$malias,$recent) {
 		global $PG_INDEX;
 		global $PG_THR_DEL;
-		$date = new DateTime($timestamp);
-		$timestamp = $date->format(DateTime::RFC1123);
-		$date = new DateTime($recent);
-		$recent = $date->format(DateTime::RFC1123);
+		global $FORMAT_DATE;
+		$timestamp = date($FORMAT_DATE,strtotime($timestamp));
+		$recent = date($FORMAT_DATE,strtotime($recent));
 		$ctagenc=urlencode($ctag);
 		$ttagenc=urlencode($ttag);
 		$url= "{$PG_INDEX}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}";
@@ -354,19 +361,26 @@ EOD;
 				<div class="col-xs-1">
 					<h4><b>{$count}</b><br><small>replies</small></h4>
 				</div>
-				<div class="col-xs-5">
-						<a class='btn' href='{$url}#forum-thread-message-{$msgid}'>
-							<div class='row'>
-								<div class='pull-right'>
-									<b>Recent Post:</b>
-								</div>
+				<div class="col-xs-5" float:'>
+					<a class='btn' href='{$url}#forum-thread-message-{$msgid}'>
+						<h5>
+						<div class='row'>
+							<div class='pull-right'>
+								<div style='font-size: 9pt'>Recent Post</div>
 							</div>
-							<div class='row'>
-								<div class='pull-right'>
-									{$recent}
-								</div>
+						</div>
+						<div class='row'>
+							<div class='pull-right'>
+								<small><span class='glyphicon glyphicon-user'></span> {$malias}</small>
 							</div>
-						</a>
+						</div>
+						<div class='row'>
+							<div class='pull-right'>
+								<small><span class='glyphicon glyphicon-time'></span> {$recent}</small>
+							</div>
+						</div>
+						</h5>
+					</a>
 				</div>
 			</div>
 EOD;
@@ -380,9 +394,31 @@ EOD;
 			<div class='row usertool'>
 				<form role='form' action='{$PG_THR_DEL}?c_id={$cid}&c_tag={$ctagenc}&t_id={$tid}&t_tag={$ttagenc}' method='post'>
 					<button type='submit' class='btn btn-edit pull-right'>
-						<span class='glyphicon glyphicon-trash'></span> Delete
+						<i class='fa fa-trash-o'></i> Delete
 					</button>
 				</form>
+			</div>
+EOD;
+	}
+	
+	function HtmlMessageAuthor($author) {
+		return <<<EOD
+			<div class="col-xs-6">
+				<span class="glyphicon glyphicon-user"></span>
+				{$author}
+			</div>
+EOD;
+	}
+	
+	function HtmlMessageDate($timestamp){
+		global $FORMAT_DATE;
+		$timestamp= date($FORMAT_DATE,strtotime($timestamp));
+		return <<<EOD
+			<div class="row">
+				<div class="pull-right">
+					<span class="glyphicon glyphicon-time"></span>													
+					{$timestamp}
+				</div>
 			</div>
 EOD;
 	}
@@ -531,28 +567,6 @@ EOD;
 			<button title='Image Reference' type='button' class='btn btn-edit edit-tag-image' data-id='{$id}'>
 				<i class="fa fa-picture-o"></i>
 			</button>
-EOD;
-	}
-	
-	function HtmlMessageAuthor($author) {
-		return <<<EOD
-			<div class="col-xs-6">
-				<span class="glyphicon glyphicon-user"></span>
-				{$author}
-			</div>
-EOD;
-	}
-	
-	function HtmlMessageDate($timestamp){
-		$date = new DateTime($timestamp);
-		$timestamp = $date->format(DateTime::RFC1123);
-		return <<<EOD
-			<div class="row">
-				<div class="pull-right">
-					<span class="glyphicon glyphicon-time"></span>													
-					{$timestamp}
-				</div>
-			</div>
 EOD;
 	}
 	

@@ -63,7 +63,7 @@
 			if($created){
 				echo "<h1>created ({$cid})</h1><br>";
 			}else{
-				echo "error: {$cid}";
+				//echo "error: {$cid}";
 			}			
 		?>
 	</body>

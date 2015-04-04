@@ -4,11 +4,15 @@
 var SEARCH_RESULTS = "#search-results";
 
 var INPUT_EMAIL = "#email";
+
 var INPUT_ALIAS = "#alias";
+
 var INPUT_PASSWORD = "#password";
+
 var INPUT_CONFIRM = "#confirm";
 
 var FILTER_BY_ALIAS = 0;
+
 var FILTER_BY_EMAIL = 1;
 
 var PERMISSION_ADMIN = 'admin';
@@ -20,17 +24,22 @@ var PERMISSION_ADMIN = 'admin';
 function isListEmpty (list) { 
 	return (list.length == 0); 
 }
+
+/* validation functions */
 function validatePassword (password, confirmed) {
 	return (password != null && password != "" && (password == confirmed)); 
 }
+
 function validateEmail (email) {
 	var regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 	return((email != null) && (regex.test(email))); 
 }
+
 function validateAlias (alias) {
 	var regex = /^(?=[0-9a-zA-Z\s]{3,32}$)[a-zA-Z\s]+[a-zA-Z0-9\s]*/;
 	return((alias != null) && regex.test(alias)); 
 }
+
 /*
  *
  * function updateValidateStatus:
@@ -105,6 +114,7 @@ function doFilter (criteria, userList, filterBy) {
 	}
 	return users;
 }
+
 function doFilterEmail (userList, permissions) {
 	if (permissions.indexOf(PERMISSION_ADMIN) > -1) {
 		var criteria = ($(INPUT_EMAIL) == null) ? "" : $(INPUT_EMAIL).val();
@@ -112,6 +122,7 @@ function doFilterEmail (userList, permissions) {
 	}
 	return userList;
 }
+
 function doFilterAlias (userList, permissions) {
 	var criteria = ($(INPUT_ALIAS) == null) ? "" : $(INPUT_ALIAS).val();
 	return doFilter(criteria, userList, FILTER_BY_ALIAS);

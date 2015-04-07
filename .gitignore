@@ -1,8 +1,3 @@
-#:hidden dev folder
 dev/
-
-#:db credentials
 includes/mysqli/info.php
-
-#:this is an IIS artifact
 web.config

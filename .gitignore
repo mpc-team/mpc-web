@@ -2,7 +2,7 @@
 dev/
 
 #:db credentials
-/mysqli/info.php
+includes/mysqli/info.php
 
 #:this is an IIS artifact
 web.config

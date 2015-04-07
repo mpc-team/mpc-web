@@ -47,12 +47,13 @@
                     <br />
                 </div>
                 <div class="row">
-                <div class="col-xs-3">
+                <div class="col-xs-6">
                         <div class="panel-group" id="mpcblizzardaccordion-gaming" role="tablist" aria-multiselectable="true">
                           <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="mpcblizzardseries-gaming">
                               <h4 class="panel-title">
-                               <a class="collapsed" data-toggle="collapse" data-parent="#mpcblizzardaccordion-gaming" href="#mpcblizzardcollapse-gaming" aria-expanded="false" aria-controls="mpcblizzardcollapse-gaming">
+                               <a class="collapsed btn btn-default" data-toggle="collapse" data-parent="#mpcblizzardaccordion-gaming" href="#mpcblizzardcollapse-gaming" aria-expanded="false" aria-controls="mpcblizzardcollapse-gaming">
+                                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
                                   MPC Blizzard
                                 </a>
                               </h4>
@@ -79,12 +80,13 @@
                           </div>
                         </div>
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col-xs-6">
                         <div class="panel-group" id="mpcsteamaccordion-gaming" role="tablist" aria-multiselectable="true">
                           <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="mpcsteamseries-gaming">
                               <h4 class="panel-title">
-                               <a class="collapsed" data-toggle="collapse" data-parent="mpcsteamaccordion-gaming" href="#mpcsteamcollapse-gaming" aria-expanded="false" aria-controls="mpcsteamcollapse-gaming">
+                               <a class="collapsed btn btn-default" data-toggle="collapse" data-parent="mpcsteamaccordion-gaming" href="#mpcsteamcollapse-gaming" aria-expanded="false" aria-controls="mpcsteamcollapse-gaming">
+                                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
                                   MPC Steam
                                 </a>
                               </h4>
@@ -99,12 +101,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-3">
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
                         <div class="panel-group" id="mpcoriginaccordion-gaming" role="tablist" aria-multiselectable="true">
                           <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="mpcoriginseries-gaming">
                               <h4 class="panel-title">
-                               <a class="collapsed" data-toggle="collapse" data-parent="mpcoriginaccordion-gaming" href="#mpcorigincollapse-gaming" aria-expanded="false" aria-controls="mpcsteamcollapse-gaming">
+                               <a class="collapsed btn btn-default" data-toggle="collapse" data-parent="mpcoriginaccordion-gaming" href="#mpcorigincollapse-gaming" aria-expanded="false" aria-controls="mpcsteamcollapse-gaming">
+                                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
                                   MPC Origin
                                 </a>
                               </h4>
@@ -122,12 +127,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col-xs-6">
                         <div class="panel-group" id="mpcotheraccordion-gaming" role="tablist" aria-multiselectable="true">
                           <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="mpcotherseries-gaming">
                               <h4 class="panel-title">
-                               <a class="collapsed" data-toggle="collapse" data-parent="mpcotheraccordion-gaming" href="#mpcothercollapse-gaming" aria-expanded="false" aria-controls="mpcothercollapse-gaming">
+                               <a class="collapsed btn btn-default" data-toggle="collapse" data-parent="mpcotheraccordion-gaming" href="#mpcothercollapse-gaming" aria-expanded="false" aria-controls="mpcothercollapse-gaming"> 
+                                   <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+
                                   MPC Other
                                 </a>
                               </h4>
@@ -155,16 +162,18 @@
                         <div class="media">
                             <div class="media-left">
                                 <div class="row text-center">
-                                    <img src="../pics/bnet.PNG" alt="bnt.PNG" class="img-responsive img-rounded media-object" style="height: 200px; width: 300px;" />
-                                    <br />
-                                    <img src="../pics/blizzardentlogo.png" alt="blizzardentlogo.png" class="img-responsive img-rounded media-object" style="width:300px;" title="blizzard entertainment" />
-                                    <br />
-                                    <img src="../pics/blizzardhq.jpg" alt="blizzardhq.jpg" title="Blizzard HeadQuarters" class="img-responsive img-rounded media-object" style="width: 300px;" />
-                                    <small>
-                                        <p>
-                                        Blizzard Head Quarters
-                                        </p>
-                                    </small>
+                                    <div class="col-lg-12">
+                                        <img src="../pics/bnet.PNG" alt="bnt.PNG" class="img-responsive img-rounded media-object" style="height: 200px; width: 300px;" />
+                                        <br />
+                                        <img src="../pics/blizzardentlogo.png" alt="blizzardentlogo.png" class="img-responsive img-rounded media-object" style="width:300px;" title="blizzard entertainment" />
+                                        <br />
+                                        <img src="../pics/blizzardhq.jpg" alt="blizzardhq.jpg" title="Blizzard HeadQuarters" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                        <small>
+                                            <p>
+                                            Blizzard Head Quarters
+                                            </p>
+                                        </small>
+                                    </div>
                                 </div>
                                 <div class="row text-center">
                                     <div class="page-header">
@@ -172,7 +181,7 @@
                                         Currently Active:
                                         </h4>
                                     </div>
-                                    <div class="col-xs-12">
+                                    <div class="col-lg-12" style="width: 300px;">
                             <img src="../pics/warlordsofdraenor.PNG" alt="warlordsofdraenor.PNG" title="World of Warcraft Warlords of Draenor" class="img-responsive img-rounded" style="width: 300px; height: 130px;" />
                             <img src="../pics/starcraft2blizzardlogo.PNG" alt="starcraft2blizzardlogo.PNG" title="Starcraft 2" class="img-responsive img-rounded" style="width: 300px; height: 130px;" />
                             <img src="../pics/diablo3logo.PNG" alt="diablo3logo.PNG" title="Diablo 3" class="img-responsive img-rounded" style="width: 300px; height: 130px;" />
@@ -457,7 +466,6 @@
                             <h3>Steam.com - Valve Corp. - Founded - 08/24/1996</h3>
                     </div>
                         <div class="media">
-                            
                             <div class="media-body">
                                  <div class="btn-group">
                                     <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Go to Steam" href="http://store.steampowered.com/about/" target="_blank">
@@ -546,7 +554,7 @@
                             </div>
                             <div class="media-right">
                                 <div class="row">
-                                    <div class="col-xs-12 text-center">
+                                    <div class="col-lg-12 text-center" style="width: 300px;">
                                         <img src="../pics/steam.png" alt="steam.png" class="img-responsive img-rounded media-object" style=" width: 285px;" />
                                         <img src="../pics/valvelogo.jpg" alt="valvelogo.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
                                         <img src="../pics/valve-offices.jpg" alt="valve-offices.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
@@ -636,28 +644,28 @@
                     </div>
                 </div>
                     <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div class="panel-heading">
+                        <div class="panel-title">
                             <h3>Origin - EA Corp. - Founded - 08/24/1996</h3>
-                    </div>
+                        </div>
+                    <div class="panel-body">
                         <div class="media">
                             <div class="media-left">
-                                <div class="row">
-                                    <div class="col-xs-12"> 
-                                        <img src="../pics/eahq.PNG" alt="eahq.PNG" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                <div class="row text-center">
+                                    <div class="col-lg-12">
+                                        <img src="../pics/eahq.PNG" alt="eahq.PNG" class="img-responsive img-rounded media-object" style="width: 200px;" />
                                         <small class="text-center"><p>Origin Office Lobby.</p></small>
 
-                                        <img src="../pics/originlogo.PNG" alt="originlogo.PNG" class="img-responsive img-rounded media-object" style=" width: 285px;" />
+                                        <img src="../pics/originlogo.PNG" alt="originlogo.PNG" class="img-responsive img-rounded media-object" style=" width: 185px;" />
                                         <img src="../pics/victorygameslogo.jpg" alt="victorygameslogo.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
-                                    </div>
+                                        </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xs-12 text-center">
+                                <div class="row text-center">
                                         <div class="page-header">
                                             <h4>
                                             Currently Active:
                                             </h4>
                                         </div>
+                                    <div class="col-lg-12" style="width: 300px;">
                                         <img src="../pics/simcityimg.PNG" alt="simcityimg.PNG" class="img-responsive img-rounded media-object" style="width: 300px;" />
                                         <img src="../pics/bf4img.PNG" alt="bf3img.PNG" class="img-responsive img-rounded media-object" style="width: 300px;" />
                                     </div>
@@ -736,7 +744,7 @@
                                     <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Go to Origin" href="https://www.origin.com/en-us/store/" target="_blank">
                                     <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
                                     <!---->Origin Site<!---->
-                                    <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="#" target="_blank">
+                                    <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="#" target="_blank">
                                     <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
                                     <!---->MPC Origin<!---->
                                     </a>
@@ -885,20 +893,6 @@
 Clash of Clans is a 2012 freemium mobile MMO strategy video game developed and published by Supercell, a video game company based in Helsinki, Finland. The game was released for iOS platforms on August 2, 2012</p>
                                               </a>
                                           </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="othergame3series-gaming">
-                                      <h4 class="panel-title">
-                                        <a class="collapsed" data-toggle="collapse" data-parent="#otheraccordion" href="#othergame3collapse-gaming" aria-expanded="false" aria-controls="othergame3collapse-gaming">
-                                          Extra Button for Game
-                                        </a>
-                                      </h4>
-                                    </div>
-                                    <div id="othergame3collapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="othergame3series-gaming">
-                                      <div class="panel-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                                       </div>
                                     </div>
                                   </div>

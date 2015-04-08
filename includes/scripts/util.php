@@ -40,12 +40,12 @@
 	
 	/** typically used when creating/updating a message on forum **/
 	function cleanmessage($message,$allowed){
-		$clean=trim($message);
-		$clean=strip_tags($clean,$allowed);
-		$clean=preg_replace('/(<[^>]+) style=".*?"/i', '$1', $clean);
-		$clean=str_replace("\r","",$clean);
-		$clean=shredlinefeeds($clean);
-		$clean=str_replace("\n","<br>",$clean);
-		return($clean);
+		$clean= trim($message);
+		$clean= strip_tags($clean,$allowed);
+		//$clean= preg_replace("/<([a-z][a-z0-9]*)[^>]*?(\/?)>/i",'<$1$2>', $clean);
+		$clean= str_replace("\r","",$clean);
+		$clean= shredlinefeeds($clean);
+		$clean= str_replace("\n","<br>",$clean);
+		return ($clean);
 	}
  ?>

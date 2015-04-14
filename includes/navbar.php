@@ -61,11 +61,11 @@ EOD;
 				"<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'>",
 				"Gaming Room", "<span class='caret'></span> </a>",
 				"<ul class='dropdown-menu' role='menu'>",
-        "<li><a href='{$gaming}'>Gaming Room</a></li>",
-        "<li><a href='{$vlive}'>Ventrilo</a></li>",
-        "<li><a href='{$stream}'>MPC Stream</a></li>",
-        "<li><a href='{$glist}'>Game Lists</a></li>",
-        "<li><a href='{$gservice}'>Game Services</a></li>",
+        "<li><a href='{$gaming}'>Gaming Home</a></li>",
+        "<li><a href='{$vlive}'>Game Communication</a></li>",
+        "<li><a href='{$stream}'>Live Video Stream</a></li>",
+        "<li><a href='{$glist}'>Games We Play</a></li>",
+        "<li><a href='{$gservice}'>Game Service Providers</a></li>",
 				"</ul></li>";
     	
 	# ---------------- Print Login Button ----------------

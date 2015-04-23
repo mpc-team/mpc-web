@@ -46,11 +46,43 @@
 				<img src="../pics/mpclogo.png" class="img-responsive" id="image-banner-login"/>
 				<div class="panel panel-default">
 					<h1>Login</h1>
-					<?php
-						echo "<form role='form' action='{$action}' method='post'>";
-						echo LoginForm($ROOT);
-						echo "</form>";
-					 ?>
+					<?="<form role='form' action='{$action}' method='post'>";?>
+						<div class="form-group form-login">
+							<div class="input-group">
+								<span class="input-group-addon">
+									Email:
+								</span>
+								<input type="email" class="form-control" name="email" id="email" placeholder="address@example.com">
+							</div>
+						</div>
+						<div class="form-group form-login">
+							<div class="input-group">
+								<span class="input-group-addon">
+									Password:
+								</span>     
+								<input type="password" name="password" class="form-control" id="password" placeholder="Password">
+							</div>   
+						</div>
+						<div class="row row-remember-me">
+							<div class="form-group form-login">
+								<div class="col-sm-4 col-sm-offset-1">
+									<label> 
+										<input type="checkbox" name="remember"/>
+										<span>
+											Remember me
+										</span>
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group form-login">
+								<div class="col-sm-3 col-sm-offset-1">
+									<input type="submit" class="btn btn-login" value="Login">
+								</div>
+							</div>
+						</div>
+						<?="</form>"; ?>
 				</div>
 				<div class="text-center signup-text">	
 					<h5>New to the site? <a href="./signup/index.php">Click here to sign-up/register</a>.</h5>

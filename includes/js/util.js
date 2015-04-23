@@ -71,7 +71,7 @@ function updateValidateStatus(valid, inputval, inputid) {
 /*
  *
  * function validateSignup:
- *		Uses:
+ *		uses:
  *			validateEmail()
  *			validateAlias()
  *			validatePassword()

@@ -3,30 +3,30 @@
 		access to know what the ROOT folder is by conventional PHP (due to server situation).
 		
 		For single-nested folders, ".." is the root. For double-nested, "../..", and so on. */
-	$ROOT = '.';
-	require($ROOT . '/includes/pathdir.php');
-	require($ROOT . PathDir::$NAVBAR);
-	require($ROOT . PathDir::$FOOTER);
-	require($ROOT . PathDir::$HEADER);
-	require($ROOT . '/includes/session.php');
+	$root = '.';
+	require($root . '/includes/pathdir.php');
+	require($root . PathDir::$NAVBAR);
+	require($root . PathDir::$FOOTER);
+	require($root . PathDir::$HEADER);
+	require($root . '/includes/session.php');
 	
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<?=($htmlheader)?>
-	<?=JavaScriptResource( PathDir::GetJQueryPath($ROOT) );?>
-	<?=StyleResource( PathDir::GetBootstrapCSSPath($ROOT) );?>
-	<?=StyleResource( PathDir::GetBootstrapSidebarCSSPath($ROOT) );?>
-	<?=JavaScriptResource( PathDir::GetBootstrapJSPath($ROOT) );?>
-	<?=StyleResource( PathDir::GetCSSPath($ROOT, 'global.css') );?>
+	<?=$htmlheader()?>
+	<?=JavaScriptResource( PathDir::GetJQueryPath($root) );?>
+	<?=StyleResource( PathDir::GetBootstrapCSSPath($root) );?>
+	<?=StyleResource( PathDir::GetBootstrapSidebarCSSPath($root) );?>
+	<?=JavaScriptResource( PathDir::GetBootstrapJSPath($root) );?>
+	<?=StyleResource( PathDir::GetCSSPath($root, 'global.css') );?>
 </head>
 <body>
 	<div class="container-fluid">	
 		<?php 
 			$signed = isset($_SESSION["USER"]);
 			$user = ($signed) ? $_SESSION["USER"] : NULL;
-			PrintNavbar("index", $ROOT, $signed, $user, $_SERVER["QUERY_STRING"]); 
+			PrintNavbar("index", $root, $signed, $user, $_SERVER["QUERY_STRING"]); 
 		?>		
 	</div>
 	<div class="container">
@@ -50,12 +50,15 @@
 							</center>
 						</div>
 					</div>
+					<div class="panel panel-default">
+						<?=phpversion();?>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="container-fluid">
-		<?php PrintFooter($ROOT); ?>
+		<?php PrintFooter($root); ?>
 	</div>
 </body>
 </html>

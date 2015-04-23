@@ -144,25 +144,25 @@ EOD;
 			$sql=
 <<<EOD
 				SELECT ft.fthreadID, ft.name, fc.categoryID, fc.categoryName, ualias.userAlias, tmc.content, tm.tmsgID, tmi.tstamp AS date
-				FROM ForumThreads AS ft
-					JOIN ForumCategory AS fc
-						ON ft.categoryID=fc.categoryID
-					JOIN ForumCategoryPermissions AS fcp
-						ON ft.categoryID=fcp.categoryID
-					JOIN ForumThreadInfo AS fti
-						ON fti.fthreadID=ft.fthreadID
-					JOIN ThreadMessages AS tm
-						ON tm.fthreadID=ft.fthreadID
-					JOIN ThreadMessageInfo AS tmi
-						ON tmi.tmsgID=tm.tmsgID
-					JOIN ThreadMessageContent AS tmc
-						ON tmc.tmsgID=tm.tmsgID
-					JOIN User
-						ON tmi.author=User.userName
-					JOIN UserAlias AS ualias
-						ON User.userID=ualias.userID
-				WHERE fcp.permission='public'
-				ORDER BY date DESC
+					FROM ForumThreads AS ft
+						JOIN ForumCategory AS fc
+							ON ft.categoryID=fc.categoryID
+						JOIN ForumCategoryPermissions AS fcp
+							ON ft.categoryID=fcp.categoryID
+						JOIN ForumThreadInfo AS fti
+							ON fti.fthreadID=ft.fthreadID
+						JOIN ThreadMessages AS tm
+							ON tm.fthreadID=ft.fthreadID
+						JOIN ThreadMessageInfo AS tmi
+							ON tmi.tmsgID=tm.tmsgID
+						JOIN ThreadMessageContent AS tmc
+							ON tmc.tmsgID=tm.tmsgID
+						JOIN User
+							ON tmi.author=User.userName
+						JOIN UserAlias AS ualias
+							ON User.userID=ualias.userID
+					WHERE fcp.permission='public'
+						ORDER BY date DESC
 				LIMIT 3
 EOD;
 			$statement=$db->prepare($sql);

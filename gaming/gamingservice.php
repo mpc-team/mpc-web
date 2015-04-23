@@ -652,11 +652,13 @@
                             <div class="media-left">
                                 <div class="row text-center">
                                     <div class="col-lg-12">
-                                        <img src="../pics/eahq.PNG" alt="eahq.PNG" class="img-responsive img-rounded media-object" style="width: 200px;" />
+                                        <center>
+                                        <img src="../pics/eahq.PNG" alt="eahq.PNG" class="img-responsive img-rounded media-object" style="width: 300px;" />
                                         <small class="text-center"><p>Origin Office Lobby.</p></small>
 
-                                        <img src="../pics/originlogo.PNG" alt="originlogo.PNG" class="img-responsive img-rounded media-object" style=" width: 185px;" />
+                                        <img src="../pics/originlogo.PNG" alt="originlogo.PNG" class="img-responsive img-rounded media-object" style=" width: 300px;" />
                                         <img src="../pics/victorygameslogo.jpg" alt="victorygameslogo.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                        </center>
                                         </div>
                                 </div>
                                 <div class="row text-center">
@@ -665,14 +667,14 @@
                                             Currently Active:
                                             </h4>
                                         </div>
-                                    <div class="col-lg-12" style="width: 300px;">
+                                    <div class="col-lg-12">
+                                        <center>
                                         <img src="../pics/simcityimg.PNG" alt="simcityimg.PNG" class="img-responsive img-rounded media-object" style="width: 300px;" />
                                         <img src="../pics/bf4img.PNG" alt="bf3img.PNG" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                        </center>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xs-12 text-center">
-                                        <div class="page-header">
+                                        <div class="page-header text-center">
                                             <h4>Series Videos:</h4>
                                         </div>
                                         <div class="btn-group">
@@ -702,13 +704,12 @@
                                             </a>
                                                 </div>
                                           </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12">
+                                    <br />
+                                      
                                             <div class="page-header">
                                                 <h4>Screen Shots: [Buttons]</h4>
                                             </div>
+                                    <br />
                                              <div class="btn-group">
                                                 <div class="btn btn-default">
                                                     <a href="video/warcraft.php" type="button" role="group" aria-label="...">
@@ -736,9 +737,7 @@
                                                     </a>
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
-                                </div>
                             <div class="media-body">
                                  <div class="btn-group">
                                     <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Go to Origin" href="https://www.origin.com/en-us/store/" target="_blank">

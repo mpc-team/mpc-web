@@ -335,12 +335,19 @@ a:hover > span.glyphicon-plus { color: #ffffff; }
 }
 
 
-/*Streamer's Global CSS Data Only */
+/*Gaming Service's Data */
+/* Pix Sizing */
+#gaming_blizzardpix {
+width: 200px;
+height: 70px;
+}
+#gaming_valvepix {
+width: 200px;
+}
+#gaming_originpix {
+width: 200px;
+}
 
-/* ID Only */
-#thelungy-streampopup-bg-image {
-    background-image: url(../../pics/background.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: auto;
+#gaming_otherpix {
+width: 200px;
 }

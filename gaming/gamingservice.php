@@ -34,126 +34,183 @@
 		?>
 </div>
 <div class="container">
-    <div class="content">
-        <div class="well">
-            <div class="row">
-    <div class="container-fluid">
-    </div>
-                <center>
-                    <img src="../pics/gamingservices.png" alt="gamingservices.png" class="img-responsive img-rounded" style="height: 100px; width: 700px;" name="top" />
-                    <br />
-                    <small><p>Search the games, and learn more about them with this page. Maybe there will be some interest in another game that MPC plays in. Find the MPC group in that game, and begin creating new friends, or learning more about that game from the MPC community.</p></small>
-                     </center>
-                    <br />
-                </div>
-                <div class="row">
-                <div class="col-xs-6">
-                        <div class="panel-group" id="mpcblizzardaccordion-gaming" role="tablist" aria-multiselectable="true">
-                          <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="mpcblizzardseries-gaming">
-                              <h4 class="panel-title">
-                               <a class="collapsed btn btn-default" data-toggle="collapse" data-parent="#mpcblizzardaccordion-gaming" href="#mpcblizzardcollapse-gaming" aria-expanded="false" aria-controls="mpcblizzardcollapse-gaming">
-                                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                                  MPC Blizzard
-                                </a>
-                              </h4>
-                            </div>
-                            <div id="mpcblizzardcollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="mpcblizzardseries-gaming">
-                              <div class="list-group">
-                                <li class="presentation list-group-item list-group-item-default">
-                                    <a href="#sc2info">Starcraft 2</a>
-                                </li>
-                                  
-                                <li class="presentation list-group-item list-group-item-default">
-                                    <a href="#wowinfo">World of Warcraft</a>
-                                </li>
-                                  
-                                <li class="presentation list-group-item list-group-item-default">
-                                    <a href="#hearthstoneinfo">Hearth Stone</a>
-                                </li>
-                                  
-                                <li class="presentation list-group-item list-group-item-default">
-                                    <a href="#herosofthestorminfo">Heroes of the Storm</a>
-                                </li>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-6">
-                        <div class="panel-group" id="mpcsteamaccordion-gaming" role="tablist" aria-multiselectable="true">
-                          <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="mpcsteamseries-gaming">
-                              <h4 class="panel-title">
-                               <a class="collapsed btn btn-default" data-toggle="collapse" data-parent="mpcsteamaccordion-gaming" href="#mpcsteamcollapse-gaming" aria-expanded="false" aria-controls="mpcsteamcollapse-gaming">
-                                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                                  MPC Steam
-                                </a>
-                              </h4>
-                            </div>
-                            <div id="mpcsteamcollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="mpcsteamseries-gaming">
-                              <div class="list-group">
-                                <li class="presentation list-group-item list-group-item-default">
-                                    <a href="#counterstrikeinfo">Counter Strike GO</a>
-                                </li>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-6">
-                        <div class="panel-group" id="mpcoriginaccordion-gaming" role="tablist" aria-multiselectable="true">
-                          <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="mpcoriginseries-gaming">
-                              <h4 class="panel-title">
-                               <a class="collapsed btn btn-default" data-toggle="collapse" data-parent="mpcoriginaccordion-gaming" href="#mpcorigincollapse-gaming" aria-expanded="false" aria-controls="mpcsteamcollapse-gaming">
-                                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                                  MPC Origin
-                                </a>
-                              </h4>
-                            </div>
-                            <div id="mpcorigincollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="mpcoriginseries-gaming">
-                              <div class="list-group">
-                                <li class="presentation list-group-item list-group-item-default">
-                                    <a href="#simcityinfo">Sim City</a>
-                                </li>
-                                <li class="presentation list-group-item list-group-item-default">
-                                    <a href="#battlefieldinfo">Battlefield</a>
-                                </li>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-6">
-                        <div class="panel-group" id="mpcotheraccordion-gaming" role="tablist" aria-multiselectable="true">
-                          <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="mpcotherseries-gaming">
-                              <h4 class="panel-title">
-                               <a class="collapsed btn btn-default" data-toggle="collapse" data-parent="mpcotheraccordion-gaming" href="#mpcothercollapse-gaming" aria-expanded="false" aria-controls="mpcothercollapse-gaming"> 
-                                   <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-
-                                  MPC Other
-                                </a>
-                              </h4>
-                            </div>
-                            <div id="mpcothercollapse-gaming" class="panel-collapse collapse" role="tabpanel" aria-labelledby="mpcotherseries-gaming">
-                              <div class="list-group">
-                                <li class="presentation list-group-item list-group-item-default">
-                                    <a href="#leagueoflegendsinfo">League of Legends</a>
-                                </li>
-                                <li class="presentation list-group-item list-group-item-default">
-                                    <a href="#clashofclansinfo">Clash of Clans</a>
-                                </li>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>               
+	<div id="wrapper">
+			<div id="sidebar-wrapper">
+				<ul class="sidebar-nav">
+					<li role="presentation">
+					<a href="index.php">
+						<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+							MPCGaming
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="ventrilolive.php">
+					<span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+						Ventrilo
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="mpcstream.php">
+						<span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+						Streaming
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="../forum/index.php">
+						<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+						Forum
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="gamelist.php">
+						<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+						PC Games
+					</a>
+				</li>
+				<li role="presentation" class="active">
+					<a href="#">
+						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+						GSP
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="developers.php"> 
+						<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+						Game Developers
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="../dojo/index.php">
+						<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+						The Dojo
+					</a>
+				</li>
+				</ul>
+			</div>
+    <div id="page-content-wrapper" style="padding-top: 55px; padding-bottom: 55px;">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="row">
+					<center>
+						<img src="../pics/gamingservices.png" alt="gamingservices.png" class="img-responsive img-rounded" style="height: 100px; width: 700px;" name="top" />
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<ul class="nav nav-pills">
+					<li role="presentation">
+						<a href="index.php">
+							<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+								MPCGaming
+						</a>
+						</li>
+						<li role="presentation">
+							<a href="ventrilolive.php">
+							<span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+								Ventrilo
+							</a>
+						</li>
+						<li role="presentation">
+							<a href="mpcstream.php">
+								<span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+								Streaming
+							</a>
+						</li>
+						<li role="presentation">
+							<a href="../forum/index.php">
+								<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+								Forum
+							</a>
+						</li>
+						<li role="presentation">
+							<a href="gamelist.php">
+								<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+								PC Games
+							</a>
+						</li>
+						<li role="presentation" class="disabled">
+							<a href="#" >
+								<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+								GSP
+							</a>
+						</li>
+						<li role="presentation">
+							<a href="developers.php"> 
+								<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+								Game Developers
+							</a>
+						</li>
+						<li role="presentation">
+							<a href="../dojo/index.php">
+								<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+								The Dojo
+							</a>
+						</li>
+					</ul>
+				<small><p>Search the games, and learn more about them with this page. Maybe there will be some interest in another game that MPC plays in. Find the MPC group in that game, and begin creating new friends, or learning more about that game from the MPC community.</p></small>
+				 </center>
+				</div>
+				<div class="panel-body">
+					<nav class="navbar navbar-default">
+					  <div class="container-fluid">
+						<div class="navbar-header">
+						  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						  </button>
+						  <a class="navbar-brand" href="#">GSP's</a>
+						</div>
+						  <div class="collapse navbar-collapse" id="gspbtn-blizzard">
+							  <ul class="nav navbar-nav">
+								<li class="dropdown">
+								  <a href="#blizzardinfo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+										Blizzard
+								  <span class="caret"></span></a>
+								  <ul class="dropdown-menu" role="menu">
+									<li><a href="#sc2info">Star Craft 2</a></li>
+									<li><a href="#wowinfo">Warcraft Series</a></li>
+									<li><a href="#hearthstoneinfo">Hearth Stone</a></li>
+									<li><a href="#herosofthestorminfo">Heroes of the Storm</a></li>
+								  </ul>
+								</li>
+								<li class="dropdown">
+								  <a href="#steaminfo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+										Valve(Steam)
+								  <span class="caret"></span></a>
+								  <ul class="dropdown-menu" role="menu">
+									<li><a href="#sc2info">Star Craft 2</a></li>
+									<li><a href="#counterstrikeinfo">Counter Strike: GO</a></li>
+									<li><a href="#gtavinfo">GTAV</a></li>
+									<li><a href="#mgsvinfo">MGSV: Phantom Pain</a></li>
+								  </ul>
+								</li>
+								<li class="dropdown">
+								  <a href="#origininfo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+										EA Games(Origin)
+								  <span class="caret"></span></a>
+								  <ul class="dropdown-menu" role="menu">
+									<li><a href="#simcityinfo">Sim City</a></li>
+									<li><a href="#battlefieldinfo">Battlefield</a></li>
+								  </ul>
+								</li>
+								<li class="dropdown">
+								  <a href="#othercoinfo" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+										Others
+								  <span class="caret"></span></a>
+								  <ul class="dropdown-menu" role="menu">
+									<li><a href="#leagueoflegendsinfo">League of Legends</a></li>
+									<li><a href="#clashofclansinfo">Clash of Clans</a></li>
+								  </ul>
+								</li>
+							  </ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+		</div>
                 <div class="panel panel-default">
                     <div class="panel-title">
                         <h3>Battle.net - Blizzard Ent. - Founded 11/30/1996</h3>
@@ -161,108 +218,129 @@
                     <div class="panel-body">
                         <div class="media">
                             <div class="media-left">
-                                <div class="row text-center">
-                                    <div class="col-lg-12">
-                                        <img src="../pics/bnet.PNG" alt="bnt.PNG" class="img-responsive img-rounded media-object" style="height: 200px; width: 300px;" />
+                                <div class="row">
+                                    
+                                        <img src="../pics/bnet.PNG" alt="bnt.PNG" class="img-responsive img-rounded media-object" id="gaming_blizzardpix" />
                                         <br />
-                                        <img src="../pics/blizzardentlogo.png" alt="blizzardentlogo.png" class="img-responsive img-rounded media-object" style="width:300px;" title="blizzard entertainment" />
+                                        <img src="../pics/blizzardentlogo.png" alt="blizzardentlogo.png" class="img-responsive img-rounded media-object" id="gaming_blizzardpix"  title="blizzard entertainment" />
                                         <br />
-                                        <img src="../pics/blizzardhq.jpg" alt="blizzardhq.jpg" title="Blizzard HeadQuarters" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                        <img src="../pics/blizzardhq.jpg" alt="blizzardhq.jpg" title="Blizzard HeadQuarters" class="img-responsive img-rounded media-object" id="gaming_blizzardpix"  />
                                         <small>
                                             <p>
                                             Blizzard Head Quarters
                                             </p>
                                         </small>
-                                    </div>
                                 </div>
-                                <div class="row text-center">
+                                <div class="row">
                                     <div class="page-header">
-                                        <h4>
-                                        Currently Active:
-                                        </h4>
-                                    </div>
-                                    <div class="col-lg-12" style="width: 300px;">
-                            <img src="../pics/warlordsofdraenor.PNG" alt="warlordsofdraenor.PNG" title="World of Warcraft Warlords of Draenor" class="img-responsive img-rounded" style="width: 300px; height: 130px;" />
-                            <img src="../pics/starcraft2blizzardlogo.PNG" alt="starcraft2blizzardlogo.PNG" title="Starcraft 2" class="img-responsive img-rounded" style="width: 300px; height: 130px;" />
-                            <img src="../pics/diablo3logo.PNG" alt="diablo3logo.PNG" title="Diablo 3" class="img-responsive img-rounded" style="width: 300px; height: 130px;" />
-                            <img src="../pics/heroesimg.jpg" alt="heroesimg.jpg" title="Heroes of the Storm" class="img-responsive img-rounded" style="width: 300px; height: 130px;" />
-                            <img src="../pics/hearthstonelogo.png" alt="hearthstonelogo.png" title="Hearthstone" class="img-responsive img-rounded" style="width: 300px; height: 130px;" />
-                                    </div>
+                                    <h4><span class="label label-default">Game Play Clips</span></h4>
                                 </div>
-                                <div class="page-header text-center">
-                                    <h4>Series Videos:</h4>
-                                </div>
-                                <div class="btn-group">
-                                    <div class="btn btn-default">
-                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                        Warcraft
-                                    </a>
-                                        </div>
-                                    <div class="btn btn-default">
-                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li role="presentation">
+										<a href="#" type="button" role="group" aria-label="...">
+											Warcraft
+										</a>
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
                                         Starcraft
                                     </a>
-                                        </div>
-                                    <div class="btn btn-default">
-                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
                                         Diablo
                                     </a>
-                                        </div>
-                                    <div class="btn btn-default">
-                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
                                         Hearth Stone
                                     </a>
-                                        </div>
-                                    <div class="btn btn-default">
+									</li>
+                                    <li role="presentation">
                                     <a href="video/warcraft.php" type="button" role="group" aria-label="...">
                                         Heroes of the Storm
                                     </a>
-                                        </div>
+									</li>
+                                </ul>
+                                <div class="page-header">
+                                    <h4><span class="label label-default">Game Trailers</span></h4>
                                 </div>
-                                <br />
-                                <div class="page-header text-center">
-                                    <h4>Screen Shots: [Buttons]</h4>
-                                </div>
-                                <br />
-                                 <div class="btn-group">
-                                    <div class="btn btn-default">
-                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                        Warcraft
-                                    </a>
-                                        </div>
-                                    <div class="btn btn-default">
-                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li role="presentation">
+										<a href="#" type="button" role="group" aria-label="...">
+											Warcraft
+										</a>
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
                                         Starcraft
                                     </a>
-                                        </div>
-                                    <div class="btn btn-default">
-                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
                                         Diablo
                                     </a>
-                                        </div>
-                                    <div class="btn btn-default">
-                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
                                         Hearth Stone
                                     </a>
-                                        </div>
-                                    <div class="btn btn-default">
+									</li>
+                                    <li role="presentation">
                                     <a href="video/warcraft.php" type="button" role="group" aria-label="...">
                                         Heroes of the Storm
                                     </a>
-                                        </div>
+									</li>
+                                </ul>
+                                <br />
+                                <div class="page-header">
+                                    <h4><span class="label label-default">Game Images</span></h4>
                                 </div>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li role="presentation">
+										<a href="#" type="button" role="group" aria-label="...">
+											Warcraft
+										</a>
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
+                                        Starcraft
+                                    </a>
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
+                                        Diablo
+                                    </a>
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
+                                        Hearth Stone
+                                    </a>
+									</li>
+                                    <li role="presentation">
+                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
+                                        Heroes of the Storm
+                                    </a>
+									</li>
+                                </ul>
+								<a name="steaminfo"></a>
                             </div>
+							</div>
                             <div class="media-body">
-                                <div class="btn-group">
-                                    <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Go to Battle.net" href="https://us.battle.net/account/creation/tos.html" target="_blank">
-                                    <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
-                                    <!---->Battle.net Site<!---->
-                                    </a>
-                                    <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="View Battle.net MPC Accounts" href="#">
-                                    <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
-                                    <!---->MPC Battle.net<!---->
-                                    </a>
-                                </div>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li role="presentation">
+										<a type="button" data-toggle="tooltip" data-placement="left" title="Go to Battle.net" href="https://us.battle.net/account/creation/tos.html" target="_blank">
+										<span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
+										<!---->Battle.net<!---->
+										</a>
+									<li>
+									<li role="presentation">
+										<a type="button" data-toggle="tooltip" data-placement="left" title="View Battle.net MPC Accounts" href="#">
+										<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+										<!---->MPC Members<!---->
+										</a>
+									</li>
+                                </ul>
                                 <br />
                                 <div class="page-header"><h3>MPC Briefing:</h3></div>
                                 <br />
@@ -426,7 +504,7 @@
                                   <div class="panel panel-default">
                                     <div class="panel-heading" role="tab" id="heroesofthestormseries-gaming">
                                       <h4 class="panel-title">
-                                        <a class="collapsed" data-toggle="collapse" data-parent="#heroesofthestormaccordion" href="#heroesofthestormcollapse-gaming" aria-expanded="false" aria-controls="heroesofthestormcollapse-gaming">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#blizzardaccordion" href="#heroesofthestormcollapse-gaming" aria-expanded="false" aria-controls="heroesofthestormcollapse-gaming">
                                             Heroes of the Storm: 2015
                                           </a>
                                       </h4>
@@ -455,7 +533,14 @@
                                     </div>
                                   </div>
                                 </div><!--tablist-->
-                              <a class="pull-right btn btn-default" href="#top">Back to Top</a>
+                              <ul class="nav nav-pills pull-right">
+								  <li role="presentation">
+									<a href="#top">Streamers</a>
+								  </li>
+								  <li role="presentation">
+									<a href="#top">Back to Top</a>
+								  </li>
+							  </ul>
                             </div>
                         </div>
                     </div>
@@ -464,18 +549,23 @@
                     <div class="panel-body">
                         <div class="panel-heading">
                             <h3>Steam.com - Valve Corp. - Founded - 08/24/1996</h3>
-                    </div>
+						</div>
                         <div class="media">
                             <div class="media-body">
-                                 <div class="btn-group">
-                                    <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Go to Steam" href="http://store.steampowered.com/about/" target="_blank">
-                                    <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
-                                    <!---->Steam Site<!---->
-                                    <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
-                                    <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
-                                    <!---->MPC Steam<!---->
-                                    </a>
-                                </div>
+                                 <ul class="nav nav-pills">
+								 <li role="presentation">
+											<a type="button" data-toggle="tooltip" data-placement="left" title="Go to Steam" href="http://store.steampowered.com/about/" target="_blank">
+												<span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
+												<!---->Steam Site<!---->
+											</a>
+										</li>
+								<li role="presentation">
+										<a type="button" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
+											<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+											<!---->MPC Steam<!---->
+										</a>
+									</li>
+                                </ul>
                                      <br />
                                 <div class="page-header">
                                     <h3>MPC Briefing:</h3>     
@@ -550,15 +640,24 @@
                                     </div>
                                   </div>
                                 </div><!--tablist-->
-                                <a class="pull-left btn btn-default" href="#top">Back to Top</a>
-                            </div>
+								<ul class="nav nav-pills pull-left">
+								  <li role="presentation">
+									<a href="#top">Streamers</a>
+								  </li>
+								  <li role="presentation">
+									<a href="#top">Back to Top</a>
+								  </li>
+							  </u	l>
+							  </div>
                             <div class="media-right">
                                 <div class="row">
-                                    <div class="col-lg-12 text-center" style="width: 300px;">
-                                        <img src="../pics/steam.png" alt="steam.png" class="img-responsive img-rounded media-object" style=" width: 285px;" />
-                                        <img src="../pics/valvelogo.jpg" alt="valvelogo.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
-                                        <img src="../pics/valve-offices.jpg" alt="valve-offices.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                    <div class="col-lg-12 text-center">
+										<center>
+                                        <img src="../pics/steam.png" alt="steam.png" class="img-responsive img-rounded media-object" id="gaming_valvepix" />
+                                        <img src="../pics/valvelogo.jpg" alt="valvelogo.jpg" class="img-responsive img-rounded media-object" id="gaming_valvepix"/>
+                                        <img src="../pics/valve-offices.jpg" alt="valve-offices.jpg" class="img-responsive img-rounded media-object" id="gaming_valvepix" />
                                         <small class="text-center"><p>Valve Office Lobby.</p></small>
+										</center>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -568,76 +667,77 @@
                                             Currently Active:
                                             </h4>
                                         </div>
-                                        <img src="../pics/counterstrikegologo.PNG" alt="counterstrikegologo.PNG" class="img-responsive img-rounded" style="width: 300px;" />
+										<center>
+                                        <img src="../pics/counterstrikegologo.PNG" alt="counterstrikegologo.PNG" class="img-responsive img-rounded" id="gaming_valvepix" />
+										</center>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xs-12 text-center">
-                                        <div class="page-header">
-                                            <h4>Series Videos:</h4>
-                                        </div>
-                                        <div class="btn-group">
-                                            <div class="btn btn-default">
-                                                <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                    Game 1
-                                                </a>
-                                            </div>
-                                            <div class="btn btn-default">
-                                                <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                    Game 2 
-                                                </a>
-                                            </div>
-                                            <div class="btn btn-default">
-                                                <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                    Game 3
-                                                </a>
-                                            </div>
-                                            <div class="btn btn-default">
-                                                <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                    Game 4
-                                                </a>
-                                            </div>
-                                            <div class="btn btn-default">
-                                                <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                    Game 5
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="row pull-right">
+                                      <div class="page-header">
+                                    <h4><span class="label label-default pull-right">Game Play Clips</span></h4>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xs-12 text-center">
-                                        <div class="page-header">
-                                            <h4>Screen Shots: [Buttons]</h4>
-                                        </div>
-                                         <div class="btn-group">
-                                            <div class="btn btn-default">
-                                                <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                    Game 1
-                                                </a>
-                                            </div>
-                                            <div class="btn btn-default">
-                                                <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                    Game 2
-                                                </a>
-                                            </div>
-                                            <div class="btn btn-default">
-                                                <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                    Game 3
-                                                </a>
-                                            </div>
-                                            <div class="btn btn-default">
-                                                <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                    Game 4
-                                                </a>
-                                            </div>
-                                            <div class="btn btn-default">
-                                                <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                    Game 5
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li role="presentation">
+										<a href="#" type="button" role="group" aria-label="...">
+											Counter Strike Global Offensive
+										</a>
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
+											Grand Theft Auto V
+                                    </a>
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
+											Metal Gear Solid V: The Phantom Pain
+                                    </a>
+                                    </li>
+                                </ul>
+                                </div>
+                                <div class="row pull-right">
+                                    <div class="page-header">
+                                    <h4><span class="label label-default pull-right">Game Trailers</span></h4>
+                                </div>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li role="presentation">
+										<a href="#" type="button" role="group" aria-label="...">
+											Counter Strike Global Offensive
+										</a>
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
+											Grand Theft Auto V
+                                    </a>
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
+											Metal Gear Solid V: The Phantom Pain
+                                    </a>
+                                    </li>
+                                </ul>
+                                </div>
+								<div class="row pull-right">
+                                      <div class="page-header">
+                                    <h4><span class="label label-default pull-right">Game Images</span></h4>
+                                </div>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li role="presentation">
+										<a href="#" type="button" role="group" aria-label="...">
+											Counter Strike Global Offensive
+										</a>
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
+											Grand Theft Auto V
+                                    </a>
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
+											Metal Gear Solid V: The Phantom Pain
+                                    </a>
+                                    </li>
+                                </ul>
+								<a name="origin"></a>
                                 </div>
                             </div>
                         </div>
@@ -653,11 +753,10 @@
                                 <div class="row text-center">
                                     <div class="col-lg-12">
                                         <center>
-                                        <img src="../pics/eahq.PNG" alt="eahq.PNG" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                        <img src="../pics/eahq.PNG" alt="eahq.PNG" class="img-responsive img-rounded media-object" id="gaming_originpix" />
                                         <small class="text-center"><p>Origin Office Lobby.</p></small>
-
-                                        <img src="../pics/originlogo.PNG" alt="originlogo.PNG" class="img-responsive img-rounded media-object" style=" width: 300px;" />
-                                        <img src="../pics/victorygameslogo.jpg" alt="victorygameslogo.jpg" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                        <img src="../pics/originlogo.PNG" alt="originlogo.PNG" class="img-responsive img-rounded media-object" id="gaming_originpix" />
+                                        <img src="../pics/victorygameslogo.jpg" alt="victorygameslogo.jpg" class="img-responsive img-rounded media-object" id="gaming_originpix" />
                                         </center>
                                         </div>
                                 </div>
@@ -669,85 +768,80 @@
                                         </div>
                                     <div class="col-lg-12">
                                         <center>
-                                        <img src="../pics/simcityimg.PNG" alt="simcityimg.PNG" class="img-responsive img-rounded media-object" style="width: 300px;" />
-                                        <img src="../pics/bf4img.PNG" alt="bf3img.PNG" class="img-responsive img-rounded media-object" style="width: 300px;" />
+                                        <img src="../pics/simcityimg.PNG" alt="simcityimg.PNG" class="img-responsive img-rounded media-object" id="gaming_originpix" />
+                                        <img src="../pics/bf4img.PNG" alt="bf3img.PNG" class="img-responsive img-rounded media-object" id="gaming_originpix" />
                                         </center>
                                     </div>
                                 </div>
-                                        <div class="page-header text-center">
-                                            <h4>Series Videos:</h4>
-                                        </div>
-                                        <div class="btn-group">
-                                            <div class="btn btn-default">
-                                            <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                Game 1
-                                            </a>
-                                                </div>
-                                            <div class="btn btn-default">
-                                            <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                Game 2 
-                                            </a>
-                                                </div>
-                                            <div class="btn btn-default">
-                                            <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                Game 3
-                                            </a>
-                                                </div>
-                                            <div class="btn btn-default">
-                                            <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                Game 4
-                                            </a>
-                                                </div>
-                                            <div class="btn btn-default">
-                                            <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                Game 5
-                                            </a>
-                                                </div>
-                                          </div>
+                                      <div class="row">
+                                      <div class="page-header">
+                                    <h4><span class="label label-default pull-left">Game Play Clips</span></h4>
+                                </div>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li role="presentation">
+										<a href="#" type="button" role="group" aria-label="...">
+											Sim City
+										</a>
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
+											Battlefield
+                                    </a>
+                                    </li>
+                                </ul>
+                                </div>
                                     <br />
-                                      
-                                            <div class="page-header">
-                                                <h4>Screen Shots: [Buttons]</h4>
-                                            </div>
-                                    <br />
-                                             <div class="btn-group">
-                                                <div class="btn btn-default">
-                                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                        Game 1
-                                                    </a>
-                                                </div>
-                                                <div class="btn btn-default">
-                                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                        Game 2
-                                                    </a>
-                                                </div>
-                                                <div class="btn btn-default">
-                                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                        Game 3
-                                                    </a>
-                                                </div>
-                                                <div class="btn btn-default">
-                                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                        Game 4
-                                                    </a>
-                                                </div>
-                                                <div class="btn btn-default">
-                                                    <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                        Game 5
-                                                    </a>
-                                                </div>
-                                            </div>
+										<div class="row">
+                                      <div class="page-header">
+                                    <h4><span class="label label-default pull-left">Game Trailers</span></h4>
+                                </div>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li role="presentation">
+										<a href="#" type="button" role="group" aria-label="...">
+											Sim City
+										</a>
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
+											Battlefield 4
+                                    </a>
+                                    </li>
+                                </ul>
+                                </div>
+								<div class="row">
+                                      <div class="page-header">
+                                    <h4><span class="label label-default pull-left">Game Images</span></h4>
+                                </div>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li role="presentation">
+										<a href="#" type="button" role="group" aria-label="...">
+											Sim City
+										</a>
+                                    </li>
+                                    <li role="presentation">
+                                    <a href="#" type="button" role="group" aria-label="...">
+											Battlefield 4
+                                    </a>
+                                    </li>
+                                </ul>
+								<a name="othercoinfo"></a>
+                                </div>
                                     </div>
                             <div class="media-body">
-                                 <div class="btn-group">
-                                    <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Go to Origin" href="https://www.origin.com/en-us/store/" target="_blank">
-                                    <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
-                                    <!---->Origin Site<!---->
-                                    <a type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="#" target="_blank">
-                                    <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
-                                    <!---->MPC Origin<!---->
-                                    </a>
-                                </div>
+                                 <ul class="nav nav-pills">
+									<li role="presentation">
+										<a type="button"  data-toggle="tooltip" data-placement="left" title="Go to Origin" href="https://www.origin.com/en-us/store/" target="_blank">
+										<span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
+										<!---->Origin Site<!---->
+										</a>
+									</li>
+									<li role="presentation">
+										<a type="button" data-toggle="tooltip" data-placement="bottom" title="View Steam MPC Accounts" href="#" target="_blank">
+										<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+										<!---->MPC Origin<!---->
+										</a>
+									</li>
+                                </ul>
                                      <br />
                                 <div class="page-header">
                                     <h3>MPC Briefing:</h3>     
@@ -805,7 +899,7 @@
                                         </div>
                                         <div class="list-group">
                                           <a href="http://www.battlefield.com/" class="list-group-item list-group-item-default" target="_blank">
-                                            <h4 class="list-group-item-heading">Battlefield Offical Website</h4>
+                                            <h4 class="list-group-item-heading">Battlefield Official Website</h4>
                                             <p class="list-group-item-text">The official Battlefield franchise site. Find the latest news, blogs, trailers, and images from all of the Battlefield games from DICE and EA.</p>
                                           </a>
                                       </div>
@@ -813,28 +907,39 @@
                                   </div>
                                 </div>
                                 </div><!--tablist-->
-                            <a class="pull-right btn btn-default" href="#top">Back to Top</a>
-                            </div>
+									<ul class="nav nav-pills pull-right">
+									  <li role="presentation">
+										<a href="#top">Streamers</a>
+									  </li>
+									  <li role="presentation">
+										<a href="#top">Back to Top</a>
+									  </li>
+								  </ul>
+							  </div>
                         </div>
                     </div>
                 </div>  
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="panel-heading">
-                            <h3>Other Games</h3>
+                            <h3>Other Games, Other Companies</h3>
                     </div>
                         <div class="media">
-                            
                             <div class="media-body">
-                                 <div class="btn-group">
-                                    <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="left" title="Find us on other games!" href="http://store.steampowered.com/about/" target="_blank">
-                                    <span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
-                                    <!---->Other Games Site<!---->
-                                    <a type="button" class="btn   btn-default" data-toggle="tooltip" data-placement="bottom" title="View Our MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
-                                    <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
-                                    <!---->MPC Other Games<!---->
-                                    </a>
-                                </div>
+                                 <ul class="nav nav-pills">
+									<li role="presentation">
+										<a type="button"  data-toggle="tooltip" data-placement="left" title="Find us on other games!" href="http://store.steampowered.com/about/" target="_blank">
+										<span class="glyphicon glyphicon-hdd" aria-hidden="false"></span>
+										<!---->Other Games Site<!---->
+										</a>
+									</li>
+									<li role="presentation">
+										<a type="button" data-toggle="tooltip" data-placement="bottom" title="View Our MPC Accounts" href="https://store.steampowered.com/login/?redir=checkout%2F%3Fpurchasetype%3Dupdatebillinginfo&purchasetype=updatebillinginfo&checkout=1&redir_ssl=1" target="_blank">
+										<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+										<!---->MPC Other Games<!---->
+										</a>
+									</li>
+								</ul>
                                      <br />
                                 <div class="page-header">
                                     <h3>MPC Briefing:</h3>     
@@ -860,12 +965,12 @@
                                             <p class="list-group-item-text">League of Legends is a multiplayer online battle arena video game developed and published by Riot Games for Microsoft Windows and Mac OS X.</p>
                                           </a>
                                       </div>
-                                          <div class="list-group">
+                                         <div class="list-group">
                                           <a href="http://na.leagueoflegends.com/" class="list-group-item list-group-item-default" target="_blank">
                                             <h4 class="list-group-item-heading">League of Legends Offical Website</h4>
                                             <p class="list-group-item-text">Official site. Features, media, screenshots, FAQs, and forums</p>
                                           </a>
-                                      </div>
+										</div>
                                       </div>
                                     </div>
                                   </div>
@@ -896,8 +1001,15 @@ Clash of Clans is a 2012 freemium mobile MMO strategy video game developed and p
                                     </div>
                                   </div>
                                 </div><!--tablist-->
-                                <a class="pull-left btn btn-default" href="#top">Back to Top</a>
-                            </div>
+								<ul class="nav nav-pills pull-left">
+									  <li role="presentation">
+										<a href="#top">Streamers</a>
+									  </li>
+									  <li role="presentation">
+										<a href="#top">Back to Top</a>
+									  </li>
+								  </ul>
+								</div>
                             <div class="media-right">
                                 <div class="row">
                                     <div class="page-header text-center">
@@ -905,75 +1017,67 @@ Clash of Clans is a 2012 freemium mobile MMO strategy video game developed and p
                                         Currently Active:
                                         </h4>
                                     </div>
-                                    <img src="../pics/leagueoflegendspic.png" alt="leagueoflegendspic.png" class="img-responsive img-rounded media-object pull-right" style=" width: 285px;" />
-                                    <img src="../pics/clashofclanspic.PNG" alt="clashofclanspic.PNG" class="img-responsive img-rounded media-object pull-right" style="width: 300px;" />
+									<center>
+                                    <img src="../pics/leagueoflegendspic.png" alt="leagueoflegendspic.png" class="img-responsive img-rounded media-object" id="gaming_otherpix" />
+                                    <img src="../pics/clashofclanspic.PNG" alt="clashofclanspic.PNG" class="img-responsive img-rounded media-object" id="gaming_otherpix" />
+									</center>
                                 </div>
-                            <br />
-                                <div class="row text-center">
-                                    <div class="page-header">
-                                        <h4>Series Videos:</h4>
-                                    </div>
-                                    <div class="btn-group">
-                                        <div class="btn btn-default">
-                                        <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                            Game 1
-                                        </a>
-                                            </div>
-                                        <div class="btn btn-default">
-                                        <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                            Game 2 
-                                        </a>
-                                            </div>
-                                        <div class="btn btn-default">
-                                        <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                            Game 3
-                                        </a>
-                                            </div>
-                                        <div class="btn btn-default">
-                                        <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                            Game 4
-                                        </a>
-                                            </div>
-                                        <div class="btn btn-default">
-                                        <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                            Game 5
-                                        </a>
-                                            </div>
-                                    </div>
+								<br />
+                                    <div class="row">
+                                      <div class="page-header">
+										<h4><span class="label label-default pull-right">Game Play Clips</span></h4>
+										</div>
+										<ul class="nav nav-pills nav-stacked">
+											<li role="presentation">
+												<a href="#" type="button" role="group" aria-label="...">
+													League of Legends
+												</a>
+											</li>
+											<li role="presentation">
+											<a href="#" type="button" role="group" aria-label="...">
+													Clash of Clans
+											</a>
+											</li>
+										</ul>
                                 </div>
-                                <div class="row text-center">
-                                    <div class="page-header">
-                                        <h4>Screen Shots: [Buttons]</h4>
-                                    </div>
-                                    <div class="btn-group">
-                                        <div class="btn btn-default">
-                                            <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                Game 1
-                                            </a>
-                                        </div>
-                                        <div class="btn btn-default">
-                                            <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                Game 2
-                                            </a>
-                                        </div>
-                                        <div class="btn btn-default">
-                                            <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                Game 3
-                                            </a>
-                                        </div>
-                                        <div class="btn btn-default">
-                                            <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                Game 4
-                                            </a>
-                                        </div>
-                                        <div class="btn btn-default">
-                                            <a href="video/warcraft.php" type="button" role="group" aria-label="...">
-                                                Game 5
-                                            </a>
-                                        </div>
-                                    </div>
+								<div class="row">
+                                      <div class="page-header">
+											<h4><span class="label label-default pull-right">Game Trailers</span></h4>
+										</div>
+									<ul class="nav nav-pills nav-stacked">
+										<li role="presentation">
+											<li role="presentation">
+												<a href="#" type="button" role="group" aria-label="...">
+													League of Legends
+												</a>
+											</li>
+											<li role="presentation">
+											<a href="#" type="button" role="group" aria-label="...">
+													Clash of Clans
+											</a>
+											</li>
+									</ul>
+                                </div>
+								<div class="row">
+                                      <div class="page-header">
+											<h4><span class="label label-default pull-right">Game Images</span></h4>
+										</div>
+									<ul class="nav nav-pills nav-stacked">
+										<li role="presentation">
+											<li role="presentation">
+												<a href="#" type="button" role="group" aria-label="...">
+													League of Legends
+												</a>
+											</li>
+											<li role="presentation">
+											<a href="#" type="button" role="group" aria-label="...">
+													Clash of Clans
+											</a>
+											</li>
+									</ul>
                                 </div>
                             </div>
+                         </div>
                         </div>
                     </div>
                 </div>

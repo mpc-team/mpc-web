@@ -56,16 +56,20 @@ EOD;
     $stream = $root . '/gaming/mpcstream.php';
     $gservice = $root . '/gaming/gamingservice.php';
     $glist = $root . '/gaming/gamelist.php';
+    $gdev = $root . '/gaming/developers.php';
+    $mpcdojo = $root . '/dojo/index.php';
 
 	echo "<li class='dropdown {$class}'>",
 				"<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'>",
-				"Gaming Room", "<span class='caret'></span> </a>",
+				"Information", "<span class='caret'></span> </a>",
 				"<ul class='dropdown-menu' role='menu'>",
-        "<li><a href='{$gaming}'>Gaming Home</a></li>",
-        "<li><a href='{$vlive}'>Game Communication</a></li>",
-        "<li><a href='{$stream}'>Live Video Stream</a></li>",
-        "<li><a href='{$glist}'>Games We Play</a></li>",
-        "<li><a href='{$gservice}'>Game Service Providers</a></li>",
+        "<li><a href='{$gaming}'>MPCGaming</a></li>",
+        "<li><a href='{$vlive}'>Ventrilo</a></li>",
+        "<li><a href='{$stream}'>Streaming</a></li>",
+        "<li><a href='{$glist}'>Games</a></li>",
+        "<li><a href='{$gservice}'>GSP</a></li>",
+        "<li><a href='{$gdev}'>Game Developers</a></li>",
+        "<li><a href='{$mpcdojo}'>The Dojo</a></li>",
 				"</ul></li>";
     	
 	# ---------------- Print Login Button ----------------

@@ -90,7 +90,11 @@
 		<div id="page-content-wrapper">
 				<div class="row" style="padding-top: 30px;">
 					<div class"page-header text-center">
-						<h2>MPCGaming Information</h2>
+						<h1>MPCGaming Information</h1>
+						<small><p>Welcome to MPCGaming.com, and would like to thank you for browsing our customized website. As time moves on, new developments are going to be made. This website will dynamically switched, and shifted around as days roll by. Please feel free to come back and check up on us every week, or so. </p></small>
+						<br />
+						<h3>Prologue:</h3>
+						<small><p>Experience more about MPC. Visitors will learn more about MPC's background, and purpose for the gaming community. This section will only teach basic aspects about MPC, the games MPC participates in, and as well as any information provided from the companies that have published with their software video games. MPC-Gaming is simply a "central hub" to bring the gaming community to a new form of a social media standpoint. MPC does not take any credit for the games that these software companies have created, but MPC will take credit for the cybernetic athletes, and clan wars that these games have internally. Please take the time visiting MPC's informational portion of the website, and see what there is to learn in terms of: Video Gaming, MPC Community, MPC Clan, MPC's </p></small>
 					</div>
 				<div class="col-xs-12">
 					<div id="gamingindex-carousel" class="carousel slide" data-ride="carousel">

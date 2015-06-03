@@ -1,10 +1,3 @@
-<?php
-/**
-* Gaming index
-*
-*	Stuff.
-*/
-?>
 <div class="panel panel-default">
 			<div class="panel-heading">
 				<center>
@@ -231,7 +224,13 @@
 							</div>
 							<div class="media-right">
 								<img src="../pics/games.png" class="img-responsive img-rounded media-object" alt="../pics/games" style="width: 100px; height: 100px; margin-right: 25px; " />
-								<ul class="list-group" style="margin-left: 25px;"><li class="list-group-item list-group-item-default"></li><li class="list-group-item list-group-item-default"></li><li class="list-group-item list-group-item-default"></li><li class="list-group-item list-group-item-default"></li><li class="list-group-item list-group-item-default"></li></ul>
+								<ul class="list-group" style="margin-left: 25px;">
+									<li class="list-group-item list-group-item-default"></li>
+									<li class="list-group-item list-group-item-default"></li>
+									<li class="list-group-item list-group-item-default"></li>
+									<li class="list-group-item list-group-item-default"></li>
+									<li class="list-group-item list-group-item-default"></li>
+								</ul>
 							</div>
 						</div>
 					</div>

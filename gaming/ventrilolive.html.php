@@ -1,128 +1,87 @@
-
-<div id="wrapper">
-	<div id="sidebar-wrapper">
-		<ul class="sidebar-nav">
-			<li role="presentation">
-				<a href="#">
-					<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-						MPCGaming
-				</a>
-			</li>
-			<li role="presentation" class="active">
-				<a href="#">
-				<span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
-					Ventrilo
-				</a>
-			</li>
-			<li role="presentation">
-				<a href="#">
-					<span class="glyphicon glyphicon-film" aria-hidden="true"></span>
-					Streaming
-				</a>
-			</li>
-			<li role="presentation">
-				<a href="#">
-					<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-					Forum
-				</a>
-			</li>
-			<li role="presentation">
-				<a href="#">
-					<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-					PC Games
-				</a>
-			</li>
-			<li role="presentation">
-				<a href="#">
-					<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-					GSP
-				</a>
-			</li>
-			<li role="presentation">
-				<a href="#"> 
-					<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-					Game Developers
-				</a>
-			</li>
-			<li role="presentation">
-				<a href="#">
-					<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
-					The Dojo
-				</a>
-			</li>
-		</ul>
-	</div>
-	<div id="page-content-wrapper">
-		<div class="row" style="padding-top: 50px;">
-			<center>
-				<img src="../pics/ventrilobanner.png" alt="ventrilobanner.png" class="img-responsive" style="height: auto; width: auto;" />
-			</center>
-		</div>
-		<div class="panel panel-default">
+<?php
+/**
+ * Gaming index
+ *
+ *	Stuff.
+ */
+?>
+<div class="row" style="padding-top: 50px;">
+	<center>
+		<img src="../pics/ventrilobanner.png" alt="ventrilobanner.png" class="img-responsive" style="height: auto; width: auto;" />
+	</center>
+</div>
+	<div class="panel panel-default">
 		<div class="panel-heading">
-				<ul class="nav nav-pills">
+			<ul class="nav nav-pills">
 				<li role="presentation">
 					<a href="#">
 						<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
 							MPCGaming
 					</a>
-					</li>
-					<li role="presentation" class="disabled">
-						<a href="#">
-						<span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
-							Ventrilo
-						</a>
-					</li>
-					<li role="presentation">
-						<a href="#">
-							<span class="glyphicon glyphicon-film" aria-hidden="true"></span>
-							Streaming
-						</a>
-					</li>
-					<li role="presentation">
-						<a href="#">
-							<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-							Forum
-						</a>
-					</li>
-					<li role="presentation">
-						<a href="#">
-							<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-							PC Games
-						</a>
-					</li>
-					<li role="presentation">
-						<a href="#">
-							<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-							GSP
-						</a>
-					</li>
-					<li role="presentation">
-						<a href="#"> 
-							<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-							Game Developers
-						</a>
-					</li>
-					<li role="presentation">
-						<a href="#">
-							<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
-							The Dojo
-						</a>
-					</li>
-				</ul>
-			</div>
+				</li>
+				<li role="presentation" class="disabled">
+					<a href="#">
+					<span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+						Ventrilo
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="#">
+						<span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+						Streaming
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="#">
+						<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+						Forum
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="#">
+						<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+						PC Games
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="#">
+						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+						GSP
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="#"> 
+						<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+						Game Developers
+					</a>
+				</li>
+				<li role="presentation">
+					<a href="#">
+						<span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+						The Dojo
+					</a>
+				</li>
+			</ul>
 		</div>
-		<div class="panel panel-default">
-			<div class="panel-heading">
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-xs-9">
+					<script type="text/javascript" src="//www.typefrag.com/Server-Status/script.aspx?id=bc7d403a-8048-4363-8688-4ac67ad1fb1e"></script>
+				<div style=" height:55px;"></div>
+				</div>
+				<div class="col-xs-3">
+					<center>
+					<img src="../pics/ventrilo123.jpg" class="img-rounded img-responsive"  />
+					</center>
+				</div>
+				</div>
 				<div class="row">
-					<script type="text/javascript" src="//www.typefrag.com/Server-Status/script.aspx?id=34656fb0-2938-46d9-a1b0-001bef8e4793"></script>      
-				</div>    
-			<br />
 					<small>
 						<p style="color: #ffffff">Need Help Setting up Ventrilo?</p>    
 					</small> 
-						<br />
-				<ul class="nav nav-pills" style="padding-bottom: 50px;">
+					<ul class="nav nav-pills" style="padding-bottom: 50px;">
 					<li role="presentation">
 						<a type="button" data-toggle="modal" data-target=".ventrilo-installment-video" data-placement="top" title="Youtube Video" data-toggle="tooltip">
 							<span class="glyphicon glyphicon-film" aria-hidden="true"></span>
@@ -187,23 +146,22 @@
 						</div>
 					</div> 
 					<li role="presentation">
-					<a type="button" data-placement="top" title="ventrilo forums" data-toggle="tooltip" href="#" target="_blank">
-						<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-						<!---->Forum<!---->
-					</a> 
+						<a type="button" data-placement="top" title="ventrilo forums" data-toggle="tooltip" href="#" target="_blank">
+							<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+							<!---->Forum<!---->
+						</a> 
 					</li>
 					<li role="presentation">
-					<a type="button" data-placement="right" title="Ventrilo/setup.php" data-toggle="tooltip"  href="http://www.ventrilo.com/faq.php" target="_blank">
-						<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-						<!---->Ventrilo FAQ<!---->
-					</a>
+						<a type="button" data-placement="right" title="Ventrilo/setup.php" data-toggle="tooltip"  href="http://www.ventrilo.com/faq.php" target="_blank">
+							<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+							<!---->Ventrilo FAQ<!---->
+						</a>
 					</li>
-					<br /> 
 					<li role="presentation">
-					<a type="button" data-toggle="modal" data-target=".ventinfo">
-						<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-						 MPC Ventrilo Info
-					</a> 
+						<a type="button" data-toggle="modal" data-target=".ventinfo">
+							<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+							 MPC Ventrilo Info
+						</a> 
 					</li>
 					<div class="modal fade ventinfo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-lg">
@@ -233,49 +191,50 @@
 								Rules
 						</a> 
 					</li>
-					<div class="modal fade rules" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-lg">
-							<div class="modal-content">
-								<div class="row">
-									<div class="panel panel-success">
-										<div class="panel-heading">
-											<h3 class="panel-title">Ventrilo Rules</h3>
-										</div>
-										<div class="panel-body">
-											<p> Rules:<br />
-												<ol class="list-group">
-													<li class="list-group-item list-group-item-danger"><p>No Spamming</p></li>
-													<li class="list-group-item list-group-item-danger"><p>No Screaming</p></li>
-													<li class="list-group-item list-group-item-danger"><p>No Disrespecting Members</p></li>
-													<li class="list-group-item list-group-item-danger"><p>No Threatening</p></li>
-													<li class="list-group-item list-group-item-danger"><p>No Hacking</p></li>
-													<li class="list-group-item list-group-item-danger"><p>No Disturbing other players</p></li>
-													<li class="list-group-item list-group-item-danger"><p>No Poor Mis-Conduct - be professional</p></li>
-													<li class="list-group-item list-group-item-success"><p>Yes be kind, and have fun!</p></li>
+						<div class="modal fade rules" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-lg">
+								<div class="modal-content">
+									<div class="row">
+										<div class="panel panel-success">
+											<div class="panel-heading">
+												<h3 class="panel-title">Ventrilo Rules</h3>
+											</div>
+											<div class="panel-body">
+												<p> Rules:<br />
+													<ol class="list-group">
+														<li class="list-group-item list-group-item-danger"><p>No Spamming</p></li>
+														<li class="list-group-item list-group-item-danger"><p>No Screaming</p></li>
+														<li class="list-group-item list-group-item-danger"><p>No Disrespecting Members</p></li>
+														<li class="list-group-item list-group-item-danger"><p>No Threatening</p></li>
+														<li class="list-group-item list-group-item-danger"><p>No Hacking</p></li>
+														<li class="list-group-item list-group-item-danger"><p>No Disturbing other players</p></li>
+														<li class="list-group-item list-group-item-danger"><p>No Poor Mis-Conduct - be professional</p></li>
+														<li class="list-group-item list-group-item-success"><p>Yes be kind, and have fun!</p></li>
+														</ol>
+												</p>
+														<br />
+												<p> Violation Penalty:<br />
+													<ol class="list-group">
+														<li class="list-group-item list-group-item-danger">
+															<p>Verbal Warning</p>
+														</li>
+														<li class="list-group-item list-group-item-danger">
+															<p>No response, or failure to act - kicked</p>
+														</li>
+														<li class="list-group-item list-group-item-danger">
+															<p>Returning, and still no comply - banned</p>
+														</li>
 													</ol>
-											</p>
-													<br />
-											<p> Violation Penalty:<br />
-												<ol class="list-group">
-													<li class="list-group-item list-group-item-danger">
-														<p>Verbal Warning</p>
-													</li>
-													<li class="list-group-item list-group-item-danger">
-														<p>No response, or failure to act - kicked</p>
-													</li>
-													<li class="list-group-item list-group-item-danger">
-														<p>Returning, and still no comply - banned</p>
-													</li>
-												</ol>
-											</p>
+												</p>
+											</div>
 										</div>
-									</div>
-								</div>  
+									</div>  
+								</div>
 							</div>
 						</div>
-					</div>
-				</ul>
-			 </div>
+					</ul>
+				</div>
+			</div>
 		 </div>
-	</div>
+	 </div>
 </div>

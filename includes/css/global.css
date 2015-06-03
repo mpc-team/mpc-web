@@ -351,3 +351,9 @@ width: 200px;
 #gaming_otherpix {
 width: 200px;
 }
+
+/* Page-Content Padding*/
+#page-content-wrapper {
+padding-top: 55px;
+padding-bottom: 55px;
+}

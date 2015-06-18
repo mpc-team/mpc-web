@@ -1,9 +1,8 @@
 <?php
-/**
- * Gaming index
- *
- *	Stuff.
- */
+$this->title('PublicInformation');
+
+$self = $this;
+
 ?>
 <div class="row" style="padding-top: 30px;">
 	<div class"page-header text-center">
